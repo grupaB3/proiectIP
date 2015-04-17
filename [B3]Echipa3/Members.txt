@@ -1,5 +1,10 @@
-Apetroaei Amalia : amalia-apetroaei X
+<<<<<<< HEAD
+Apetroaei Amalia : amalia-apetroaei 
 Cristei Ioan : ioan-cristei
+=======
+Apetroaei Amalia : amalia-apetroaei
+Cristei Ioan-Daniel : ioan-cristei
+>>>>>>> origin/master
 Danila Eduard : paul-danila
 Hreapca Aurelian : FIIAurelian
 Lionte Felix : felix-lionte
