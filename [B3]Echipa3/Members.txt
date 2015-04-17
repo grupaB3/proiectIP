@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 Apetroaei Amalia : amalia-apetroaei 
 Cristei Ioan : ioan-cristei
-=======
-Apetroaei Amalia : amalia-apetroaei
-Cristei Ioan-Daniel : ioan-cristei
->>>>>>> origin/master
 Danila Eduard : paul-danila
 Hreapca Aurelian : FIIAurelian
-Lionte Felix : felix-lionte am modificat ceva
+Lionte Felix : felix-lionte
 Manea Petru : petru-manea
 Rotundu Alin : alin-rotundu
