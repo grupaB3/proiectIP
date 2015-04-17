@@ -7,6 +7,6 @@ Cristei Ioan-Daniel : ioan-cristei
 >>>>>>> origin/master
 Danila Eduard : paul-danila
 Hreapca Aurelian : FIIAurelian
-Lionte Felix : felix-lionte
+Lionte Felix : felix-lionte am modificat ceva
 Manea Petru : petru-manea
 Rotundu Alin : alin-rotundu
