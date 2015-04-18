@@ -1,0 +1,231 @@
+Disk-Investigator
+Modul Disk-Scan
+
+
+Cuprins
+1.	Descriere	4
+2.	Domenii	4
+3.	Actionari/Interese	4
+4.	Actori&Obiective	5
+4.1.	Actori	5
+4.2.	Obiective	5
+5.	Scenarii de utilizare	6
+5.1.	Utilizatorul acceseaza modulul Disk-Scan	6
+5.1.1.	Obiectiv/Context	6
+5.1.2.	Scenariu/Pasi	6
+5.1.3.	Extensii	7
+5.2.	Utilizatorul porneste investigarea disk-ului	7
+5.2.1.	Obiectiv/Context	7
+5.2.2.	Scenariu/Pasi	7
+5.2.3.	Extensii	8
+5.3.	Utilizatorul opreste scanarea disk-ului	8
+5.3.1.	Obiectiv/Context	8
+5.3.2.	Scenariu/Pasi	9
+5.3.3.	Extensii	9
+5.4.	Utilizatorul selecteaza un fisier din lista	9
+5.4.1.	Obiectiv/Context	9
+5.4.2.	Scenariu/Pasi	9
+6.5.	Utilizatorul reincarca lista de fisiere	10
+6.5.1.	Obiectiv/Context	10
+6.5.2.	Scenariu/Pasi	10
+6.5.3.	Extensii	10
+6.6.	Utilizatorul recupereaza un fisier	10
+6.6.1.	Obiectiv/Context	10
+6.6.2.	Scenariu/Pasi	10
+6.6.3.	Extensii	11
+6.7.	Utilizatorul cauta un fisier	11
+6.7.1.	Obiectiv/Context	11
+6.7.2.	Scenariu/Pasi	11
+6.7.3.	Extensii	12
+6.8.	Utilizatorul inchide modulul Disk-Scan	12
+6.8.1.	Obiectiv/Context	12
+6.8.2.	Scenariu/Pasi	12
+6.8.3.	Extensii	12
+6.9.	Utilizatorul inchide programul principal	12
+6.9.1.	Obiectiv/Context	12
+6.9.2.	Scenariu/Pasi	13
+6.9.3.	Extensii	13
+
+
+
+
+1. Descriere
+
+  Se doreste sa se construiasca un modul de recuperare de fisiere de pe un disc ce are formatul NTFS[1], modul inclus intr-un proiect mai complex. Modulul va pune la dispozitia clientului o lista cu fisierele de pe disc indiferent de proprietatea lor: vizibile, ascunse, sterse (dar care pot fi recuperate).
+  Functionalitatea de baza este aceea de recuperare a fisierelor ce au fost sterse.
+
+2. Domenii
+
+  Se vor descrie scenariile de utilizare atat ale aplicatiei de a aduna informatiile, cat si ale utilizatorului de a beneficia de ele.
+3. Actionari/Interese
+
+* Firma: 
+Pune la dispozitia utilizatorului un modul de scanare a disk-      ului ce ofera, pe langa o mare cantitate de informatii si optiuni de a reda fisierele sistemului, posibilitatea de a putea recupera fisierele recent sterse ale sistemului de operare. Astfel, firma si modulul isi vor atinge scopul propus.
+
+* Sistemul de operare:
+Acorda modulului drepturile necesare accesarii fisierelor din sistem.
+* Utilizatorul:
+Dispune de o cantitate mare de informatii si optiuni ale fisierelor de pe disk, precum si posibilitatea de a-si recupera fisierele recent sterse.
+	In acest scenariu doar utilizatorul este o persoana.
+
+4. Actori&Obiective
+
+4.1. Actori
+
+* Utilizatorul: Acceseaza aplicatia, mai specific modulul aplicatiei si functionalitatile acestuia.
+* Interfata: Ofera o interpretare atractiva si usor de utilizat a aplicatiei, respectiv a modulului.
+* Modulul: Interactioneaza cu disk-ul, scanandu-l si analizandu-i fisierele.
+
+4.2. Obiective
+
+* Utilizatorul: Beneficiaza de toate functionalitatile modulului prin intermediul interfetei.
+* Interfata: Este puntea de interactiune dintre utilizator si modul, aceasta primind comenzile de la utilizator si transmitandu-le la modul, apoi afisand utilizatorului rezultatul actiunii acestuia.
+* Modulul: Scaneaza disk-ul, gasind toate fisierele existente, sterse si recuperabile ale acestuia, permite recuperarea fisierelor sterse care inca nu au fost suprascrise in memorie si vizualizarea detaliilor complete ale acestor fisiere.
+
+5. Scenarii de utilizare
+
+  Urmatoarele cazuri descriu interactiunea utilizatorului cu modulul prin intermediul interfetei grafice.
+5.1. Utilizatorul acceseaza modulul Disk-Scan
+5.1.1.  Obiectiv/Context
+Utilizatorul acceseaza butonul corespunzator modulului Disk-Scan pentru a putea accesa functionalitatile acestuia.
+5.1.2. Scenariu/Pasi
+I. Utilizatorul da click pe butonul/tab-ul corespunzator Disk-Scan-ului.
+II. Interfata grafica a modulului se va deschide punand la dispozitie functionalitatile acestuia.
+III. Interfata grafica notifica modulului ca acesta a fost deschis.
+IV. Modulul preia aceasta informatie.
+V. Modulul analizeaza si creaza lista cu disk-uri disponibile pentru scanare.
+VI. Modulul transmite interfetei lista de disk-uri.
+5.1.3. Extensii
+In cazul in care utilizatorul da click pe butonul/tab-ul corespunzator Disk-Scan-ului, in timp ce interfata acestuia este deja deschisa nu se va efectua nicio actiune.
+In cazul in care accesarea modulului are loc dupa ce acesta a executat vreo scanare (dar fara a sa se fi inchis programul) atunci modulul va cauta si transmite interfetei fisierul cu raportul scanarii pentru a putea fi afisat.
+
+5.2. Utilizatorul porneste investigarea disk-ului
+5.2.1. Obiectiv/Context
+Utilizatorul doreste investigarea disk-ului selectat pentru a putea vizualiza informatiile legate de acesta.
+5.2.2. Scenariu/Pasi
+I. Utilizatorul selecteaza ce disk doreste sa fie scanat.
+II. Utilizatorul apasa pe butonul de Start Scan.
+III. Se vor afisa o bara de progres, durata curenta de cautare si timpul total estimat pentru cautare (calculat prin impartirea memoriei totale la viteza de citire/parcurgere a disk-ului).
+IV. Modulul primeste prin intermediul interfetei comanda de cautare si disk-ul in care se doreste cautarea.
+V. Modulul va obtine informatiile legate de disk (tipul de disk, tipul de format, memoria totala, memoria ocupata si memoria libera).
+VI. Modulul transmite informatiile legate de disk interfetei pentru a putea fi afisate.
+VII. Modulul incepe scanarea disk-ului prin cautarea in memoria bruta a disk-ului.
+VIII. Pentru fiecare fisier gasit se va cauta entry-point-ul acestuia.
+* Daca acesta este gasit atunci fisierul va primi statusul de “existent”.
+* Daca acesta nu este gasit atunci se va cauta in memoria vecina daca memoria nu a fost suprascrisa de catre un alt entry-point.
+* Daca memoria a fost suprascrisa atunci fisierul va primi statusul de “sters”, iar daca memoria nu a fost suprascrisa acesta va primi statusul de “recuperabil”.
+IX. Fiecarui fisier i se va calcula dimensiunea (inclusiv cea ramasa), i se va gasi path-ul, numele si extensia si continutul acestuia.
+X. Fiecare fisier gasit va fi adaugat intr-o lista de fisiere.
+XI. Dupa ce se termina de executat scanarea (s-a scanat complet) lista de fisiere va fi trimisa interfetei pentru a putea fi afisata.
+XII. Modulul creeaza un raport (o salvare) intr-un fisier a listei de fisiere.
+5.2.3. Extensii
+In cazul in care niciun disk nu a fost selectat nu se va efectua nicio actiune la apasarea butonului pentru scanare.
+In cazul in care nu se gaseste niciun fisier atunci se va returna un mesaj corespunzator “Nu a fost gasit niciun fisier”.
+Nu se va putea schimba disk-ul de investigat sau accesa butonul de start in timpul scanarii.
+In cazul in care nu s-a putut crea raportul se va transmite un mesaj de eroare “Nu s-a putut crea raportul”.
+Daca o scanare deja are loc atunci apasarea butonului de Start Scan nu va efectua nicio actiune.
+In cazul in care deja exista un raport acesta va fi suprascris.
+
+5.3. Utilizatorul opreste scanarea disk-ului
+5.3.1. Obiectiv/Context
+Utilizatorul doreste sa opreasca scanarea disk-ului in timp ce se efectueaza scanarea.
+5.3.2. Scenariu/Pasi
+I. Utilizatorul apasa pe butonul de Stop Scan.
+II. Modulul primeste comanda prin intermediul interfetei.
+III. Modulul opreste scanarea disk-ului.
+IV. Fiecare fisier care a putut fi scanat complet se va adauga in lista de fisiere.
+V. Modulul creeaza un raport (o salvare) intr-un fisier a listei de fisiere.
+VI. Lista de fisiere se va transmite interfetei pentru a putea fi afisata.
+VII. Se transmite procentajul la care s-a ajuns cu scanarea (memorie scanata/memorie totala * 100) si timpul total de scanare efectuata.
+5.3.3. Extensii
+Odata oprita scanarea, la apasarea butonului de Stop Scan nu se va efectua nicio actiune.
+Daca in urma opririi nici un fisier nu a fost scanat complet atunci se va transmite o lista goala.
+In cazul in care exista deja un raport acesta va fi suprascris.
+
+5.4. Utilizatorul selecteaza un fisier din lista
+5.4.1. Obiectiv/Context
+Utilizatorul doreste sa vizualizeze informatii despre din lista de fisiere pentru a putea vizualiza informatiile legate de acesta.
+5.4.2. Scenariu/Pasi
+I. Utilizatorul da un click pe fisier.
+II. Fisierul este selectat.
+III. Interfata transmite comanda modulului.
+IV. Modulul cauta in lista de fisiere acel fisier.
+V. Modulul returneaza interfetei datele despre fisier (nume, extensie, path, dimensiunea, status si continut) pentru a putea fi afisate.
+VI. Interfata va deschide un pop-up cu informatiile returnate.
+
+6.5. Utilizatorul reincarca lista de fisiere
+6.5.1. Obiectiv/Context
+Utilizatorul doreste sa reincarce lista de fisiere pentru a updata informatiile despre fisiere.
+6.5.2. Scenariu/Pasi
+I. Utilizatorul da click pe butonul Refresh.
+II. Interfata transmite comanda modulului.
+III. Se vor afisa o bara de progres, durata curenta de cautare si timpul total estimat pentru cautare (calculat prin impartirea memoriei totale la viteza de citire/parcurgere a disk-ului).
+IV. Modulul porneste scanarea fara a mai primi alti parametri pentru scanare.
+V. Actiunea decurge conform Investigarii disk-ului (cazul 5.2 pasii VII-XII).
+6.5.3. Extensii
+In cazul in care exista deja un raport creat acesta va fi suprascris.
+In cazul in care se executa deja o scanare sau o reincarcare, la apasarea butonului de refresh nu se va efectua nicio actiune.
+6.6. Utilizatorul recupereaza un fisier
+6.6.1. Obiectiv/Context
+Utilizatorul doreste sa recupereze un fisier “recuperabil” din lista de fisiere.
+6.6.2. Scenariu/Pasi
+I. Utilizatorul selecteaza fisierul.
+II. Utilizatorul apasa butonul de Recuperare fisier.
+III. Utilizatorul alege locatia unde fisierul va fi creat (salvat/recuperat).
+IV. Interfata transmite comanda modulului, impreuna cu locatia unde se doreste fisierul.
+V. Modulul cauta fisierul in lista de fisiere.
+VI. Modulul creaza un nou fisier cu numele, extensia si continutul fisierului.
+VII. Modulul transmite interfetei datele care au putut fi recuperate si procentajul de recuperare.
+VIII. Modulul schimba statusul fisierului din “recuperabil” in “recuperat”.
+IX. Modulul updateaza raportul cu schimbarile facute.
+6.6.3. Extensii
+In cazul in care fisierul produce o eroare la recuperare se va transmite interfetei un mesaj corespunzator de eroare (motivul pentru care nu s-a efectuat recuperarea cu succes) si raportul nu va fi updatat.
+In cazul in care se incearca recuperarea unui fisier “existent”,“sters” sau “recuperat”, nu se va efectua nicio actiune.
+
+6.7. Utilizatorul cauta un fisier 
+6.7.1. Obiectiv/Context
+Utilizatorul doreste sa caute un fisier in lista de fisiere.
+6.7.2. Scenariu/Pasi
+I. Utilizatorul acceseaza bara de search a interfetei.
+II. Utilizatorul tasteaza conditia de cautare.
+III. Utilizatorul apasa pe butonul de Search.
+IV. Interfata transmite modulului conditia de cautare.
+V. Modulul interpreteaza conditia sub forma de regex.
+VI. Modulul cauta in lista de fisiere fisierele care indeplinesc regex-ul.
+VII. Fiecare fisier gasit va fi pus intr-o noua lista de cautare.
+VIII. Modulul transmite lista de cautare, atunci cand cautarea este finalizata, interfetei pentru a putea fi afisata.
+6.7.3. Extensii
+In cazul in care nu se gaseste niciun fisier care sa indeplineasca conditia se va returna un mesaj corespunzator “Nu s-a gasit niciun fisier!”.
+In cazul in care se introduce o noua conditie de cautare si se apasa pe butonul de Search in timp ce cautarea are loc, aceasta va fi oprita si se va incepe o noua cautare cu noua conditie.
+
+6.8. Utilizatorul inchide modulul Disk-Scan
+6.8.1. Obiectiv/Context
+Utilizatorul doreste sa inchida modulul Disk-Scan prin revenirea la meniul principal sau accesarea altui modul.
+6.8.2. Scenariu/Pasi
+I. Utilizatorul apasa pe butonul Inapoi sau butonul pentru accesarea altui modul.
+II. Interfata notifica modulul ca acesta va fi inchis.
+III. Modulul isi opreste functionalitatile si se inchide.
+6.8.3. Extensii
+In cazul in care o scanare sau o reincarcare are loc, interfata va notifica utilizatorul, necesitand o confirmare a inchiderii. Daca utilizatorul confirma atunci modulul va opri scanarea sau reincarcarea si va crea un raport cu datele ce au fost analizate pana in acel moment (daca exista deja un raport acesta va fi suprascris).
+
+6.9. Utilizatorul inchide programul principal
+6.9.1. Obiectiv/Context
+Utilizatorul doreste inchiderea programului principal in timp ce este accesat modulul.
+6.9.2. Scenariu/Pasi
+I. Utilizatorul apasa pe butonul de Iesire din program.
+II. Interfata notifica modulului ca acesta va fi inchis.
+III. Modulul isi opreste functionalitatile.
+IV. Modulul updateaza raportul ca fiind “Vechi” (old).
+6.9.3. Extensii
+In cazul in care o scanare sau o reincarcare are loc, interfata va notifica utilizatorul, necesintand o confirmare a inchiderii. Daca utilizatorul confirma atunci modulul va opri scanarea sau reincarcarea si va crea un raport cu datele ce au fost analizate pana in acel moment (daca exista deja un raport acesta va fi suprascris).
+2
+
+
+Autori: Apetroaei Amalia
+Cristei Ioan-Daniel
+Danila Eduard
+Hreapca Aurelian
+Lionte Felix
+Manea Petru-Mircea
+Rotundu Alin
+
