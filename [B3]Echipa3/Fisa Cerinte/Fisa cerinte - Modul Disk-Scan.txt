@@ -25,26 +25,26 @@ Cuprins
 5.4.	Utilizatorul selecteaza un fisier din lista	9
 5.4.1.	Obiectiv/Context	9
 5.4.2.	Scenariu/Pasi	9
-6.5.	Utilizatorul reincarca lista de fisiere	10
-6.5.1.	Obiectiv/Context	10
-6.5.2.	Scenariu/Pasi	10
-6.5.3.	Extensii	10
-6.6.	Utilizatorul recupereaza un fisier	10
-6.6.1.	Obiectiv/Context	10
-6.6.2.	Scenariu/Pasi	10
-6.6.3.	Extensii	11
-6.7.	Utilizatorul cauta un fisier	11
-6.7.1.	Obiectiv/Context	11
-6.7.2.	Scenariu/Pasi	11
-6.7.3.	Extensii	12
-6.8.	Utilizatorul inchide modulul Disk-Scan	12
-6.8.1.	Obiectiv/Context	12
-6.8.2.	Scenariu/Pasi	12
-6.8.3.	Extensii	12
-6.9.	Utilizatorul inchide programul principal	12
-6.9.1.	Obiectiv/Context	12
-6.9.2.	Scenariu/Pasi	13
-6.9.3.	Extensii	13
+5.5.	Utilizatorul reincarca lista de fisiere	10
+5.5.1.	Obiectiv/Context	10
+5.5.2.	Scenariu/Pasi	10
+5.5.3.	Extensii	10
+5.6.	Utilizatorul recupereaza un fisier	10
+5.6.1.	Obiectiv/Context	10
+5.6.2.	Scenariu/Pasi	10
+5.6.3.	Extensii	11
+5.7.	Utilizatorul cauta un fisier	11
+5.7.1.	Obiectiv/Context	11
+5.7.2.	Scenariu/Pasi	11
+5.7.3.	Extensii	12
+5.8.	Utilizatorul inchide modulul Disk-Scan	12
+5.8.1.	Obiectiv/Context	12
+5.8.2.	Scenariu/Pasi	12
+5.8.3.	Extensii	12
+5.9.	Utilizatorul inchide programul principal	12
+5.9.1.	Obiectiv/Context	12
+5.9.2.	Scenariu/Pasi	13
+5.9.3.	Extensii	13
 
 
 
@@ -153,22 +153,22 @@ IV. Modulul cauta in lista de fisiere acel fisier.
 V. Modulul returneaza interfetei datele despre fisier (nume, extensie, path, dimensiunea, status si continut) pentru a putea fi afisate.
 VI. Interfata va deschide un pop-up cu informatiile returnate.
 
-6.5. Utilizatorul reincarca lista de fisiere
-6.5.1. Obiectiv/Context
+5.5. Utilizatorul reincarca lista de fisiere
+5.5.1. Obiectiv/Context
 Utilizatorul doreste sa reincarce lista de fisiere pentru a updata informatiile despre fisiere.
-6.5.2. Scenariu/Pasi
+5.5.2. Scenariu/Pasi
 I. Utilizatorul da click pe butonul Refresh.
 II. Interfata transmite comanda modulului.
 III. Se vor afisa o bara de progres, durata curenta de cautare si timpul total estimat pentru cautare (calculat prin impartirea memoriei totale la viteza de citire/parcurgere a disk-ului).
 IV. Modulul porneste scanarea fara a mai primi alti parametri pentru scanare.
 V. Actiunea decurge conform Investigarii disk-ului (cazul 5.2 pasii VII-XII).
-6.5.3. Extensii
+5.5.3. Extensii
 In cazul in care exista deja un raport creat acesta va fi suprascris.
 In cazul in care se executa deja o scanare sau o reincarcare, la apasarea butonului de refresh nu se va efectua nicio actiune.
-6.6. Utilizatorul recupereaza un fisier
-6.6.1. Obiectiv/Context
+5.6. Utilizatorul recupereaza un fisier
+5.6.1. Obiectiv/Context
 Utilizatorul doreste sa recupereze un fisier “recuperabil” din lista de fisiere.
-6.6.2. Scenariu/Pasi
+5.6.2. Scenariu/Pasi
 I. Utilizatorul selecteaza fisierul.
 II. Utilizatorul apasa butonul de Recuperare fisier.
 III. Utilizatorul alege locatia unde fisierul va fi creat (salvat/recuperat).
@@ -178,14 +178,14 @@ VI. Modulul creaza un nou fisier cu numele, extensia si continutul fisierului.
 VII. Modulul transmite interfetei datele care au putut fi recuperate si procentajul de recuperare.
 VIII. Modulul schimba statusul fisierului din “recuperabil” in “recuperat”.
 IX. Modulul updateaza raportul cu schimbarile facute.
-6.6.3. Extensii
+5.6.3. Extensii
 In cazul in care fisierul produce o eroare la recuperare se va transmite interfetei un mesaj corespunzator de eroare (motivul pentru care nu s-a efectuat recuperarea cu succes) si raportul nu va fi updatat.
 In cazul in care se incearca recuperarea unui fisier “existent”,“sters” sau “recuperat”, nu se va efectua nicio actiune.
 
-6.7. Utilizatorul cauta un fisier 
-6.7.1. Obiectiv/Context
+5.7. Utilizatorul cauta un fisier 
+5.7.1. Obiectiv/Context
 Utilizatorul doreste sa caute un fisier in lista de fisiere.
-6.7.2. Scenariu/Pasi
+5.7.2. Scenariu/Pasi
 I. Utilizatorul acceseaza bara de search a interfetei.
 II. Utilizatorul tasteaza conditia de cautare.
 III. Utilizatorul apasa pe butonul de Search.
@@ -194,29 +194,29 @@ V. Modulul interpreteaza conditia sub forma de regex.
 VI. Modulul cauta in lista de fisiere fisierele care indeplinesc regex-ul.
 VII. Fiecare fisier gasit va fi pus intr-o noua lista de cautare.
 VIII. Modulul transmite lista de cautare, atunci cand cautarea este finalizata, interfetei pentru a putea fi afisata.
-6.7.3. Extensii
+5.7.3. Extensii
 In cazul in care nu se gaseste niciun fisier care sa indeplineasca conditia se va returna un mesaj corespunzator “Nu s-a gasit niciun fisier!”.
 In cazul in care se introduce o noua conditie de cautare si se apasa pe butonul de Search in timp ce cautarea are loc, aceasta va fi oprita si se va incepe o noua cautare cu noua conditie.
 
-6.8. Utilizatorul inchide modulul Disk-Scan
-6.8.1. Obiectiv/Context
+5.8. Utilizatorul inchide modulul Disk-Scan
+5.8.1. Obiectiv/Context
 Utilizatorul doreste sa inchida modulul Disk-Scan prin revenirea la meniul principal sau accesarea altui modul.
-6.8.2. Scenariu/Pasi
+5.8.2. Scenariu/Pasi
 I. Utilizatorul apasa pe butonul Inapoi sau butonul pentru accesarea altui modul.
 II. Interfata notifica modulul ca acesta va fi inchis.
 III. Modulul isi opreste functionalitatile si se inchide.
-6.8.3. Extensii
+5.8.3. Extensii
 In cazul in care o scanare sau o reincarcare are loc, interfata va notifica utilizatorul, necesitand o confirmare a inchiderii. Daca utilizatorul confirma atunci modulul va opri scanarea sau reincarcarea si va crea un raport cu datele ce au fost analizate pana in acel moment (daca exista deja un raport acesta va fi suprascris).
 
-6.9. Utilizatorul inchide programul principal
-6.9.1. Obiectiv/Context
+5.9. Utilizatorul inchide programul principal
+5.9.1. Obiectiv/Context
 Utilizatorul doreste inchiderea programului principal in timp ce este accesat modulul.
-6.9.2. Scenariu/Pasi
+5.9.2. Scenariu/Pasi
 I. Utilizatorul apasa pe butonul de Iesire din program.
 II. Interfata notifica modulului ca acesta va fi inchis.
 III. Modulul isi opreste functionalitatile.
 IV. Modulul updateaza raportul ca fiind “Vechi” (old).
-6.9.3. Extensii
+5.9.3. Extensii
 In cazul in care o scanare sau o reincarcare are loc, interfata va notifica utilizatorul, necesintand o confirmare a inchiderii. Daca utilizatorul confirma atunci modulul va opri scanarea sau reincarcarea si va crea un raport cu datele ce au fost analizate pana in acel moment (daca exista deja un raport acesta va fi suprascris).
 2
 
