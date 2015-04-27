@@ -1,4 +1,4 @@
-
+package dialogs;
 import javax.swing.JDialog;
 
 @SuppressWarnings("serial")
