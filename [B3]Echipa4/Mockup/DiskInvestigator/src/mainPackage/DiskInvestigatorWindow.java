@@ -2,6 +2,8 @@ package mainPackage;
 
 import javax.swing.JFrame;
 
+import menuBar.MenuBar;
+
 public class DiskInvestigatorWindow extends JFrame{
 	protected DiskInvestigatorWindow() {
 		windowInit();
@@ -9,6 +11,9 @@ public class DiskInvestigatorWindow extends JFrame{
 	
 	public void windowInit() {
 		
+		MenuBar menuBar = new MenuBar();
+		
+		setJMenuBar(menuBar);
 		setTitle("Disk Investigator");
 		setSize(1000, 700);
 		setVisible(true);

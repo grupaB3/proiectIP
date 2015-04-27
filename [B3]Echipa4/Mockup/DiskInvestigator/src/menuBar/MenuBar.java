@@ -7,4 +7,10 @@ public class MenuBar extends JMenuBar {
 	JMenu fileMenu = new JMenu("Files");
 	JMenu processMenu = new JMenu("Processes");
 	JMenu infoMenu = new JMenu("Info");
+	
+	public MenuBar() {
+		add(fileMenu);
+		add(processMenu);
+		add(infoMenu);
+	}
 }
