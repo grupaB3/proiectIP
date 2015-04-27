@@ -1,15 +1,14 @@
-
-
+package processToolBar;
 
 public class ProcessCheck {
-	 private ProcessScanButton processCheck;
+	 private ProcessScanButton processScanButton;
 	
 	
 	protected ProcessCheck(){
-		processCheck=new ProcessScanButton();
+		processScanButton=new ProcessScanButton();
 	}
 	
 	public ProcessScanButton getCheckButton(){
-		return processCheck;
+		return processScanButton;
 	}
 }

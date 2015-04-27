@@ -1,5 +1,4 @@
-
-import javax.swing.JFrame;
+package processToolBar;
 
 public class ProcessScanTab {
 

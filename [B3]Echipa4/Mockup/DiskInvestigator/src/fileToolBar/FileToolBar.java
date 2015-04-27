@@ -1,8 +1,8 @@
+package fileToolBar;
+
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
@@ -10,12 +10,9 @@ import javax.swing.LayoutStyle;
 import javax.swing.JToolBar.Separator;
 
 
-public class FileToolBar extends JFrame{
+public class FileToolBar extends JToolBar{
 
 	private JLayeredPane jLayeredPane1;
-    private JMenu jMenu1;
-    private JMenu jMenu2;
-    private JMenuBar jMenuBar1;
     private JPanel jPanel1;
     private JPanel jPanel2;
     private JPanel jPanel3;
@@ -40,9 +37,6 @@ public class FileToolBar extends JFrame{
         jPanel2 = new JPanel();
         jPanel3 = new JPanel();
         jLayeredPane1 = new JLayeredPane();
-        jMenuBar1 = new JMenuBar();
-        jMenu1 = new JMenu();
-        jMenu2 = new JMenu();
         
         setToolBar();
         setLayout();
@@ -120,8 +114,8 @@ public class FileToolBar extends JFrame{
          
          addTabs();
          
-         GroupLayout layout = new GroupLayout(getContentPane());
-         getContentPane().setLayout(layout);
+         /*GroupLayout layout = new GroupLayout(getContentPane());
+        // getContentPane().setLayout(layout);
          layout.setHorizontalGroup(
              layout.createParallelGroup(GroupLayout.Alignment.LEADING)
              .addComponent(jTabbedPane1)
@@ -129,9 +123,9 @@ public class FileToolBar extends JFrame{
          layout.setVerticalGroup(
              layout.createParallelGroup(GroupLayout.Alignment.LEADING)
              .addComponent(jTabbedPane1)
-         );
+         );*/
 
-         pack();
+         //pack();
     }
     
     public void addTabs(){
