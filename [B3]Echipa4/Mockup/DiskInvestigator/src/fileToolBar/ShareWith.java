@@ -1,26 +1,15 @@
 package fileToolBar;
 
-import javax.swing.JButton;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Dimension;
 
+import javax.swing.JComboBox;
 
-public class ShareWith extends JButton{
+public class ShareWith extends JComboBox{
 
 	public ShareWith(){
-
-        addActionListener(new ActionListener() {           
-            public void actionPerformed(ActionEvent evt) {
-                ShareWithActionPerformed(evt);
-            }
-        });
+		super();
+		
+		setMaximumSize(new Dimension(100, 20) );
 	}
-	
-
-	private void ShareWithActionPerformed(ActionEvent evt) {                                         
-        // TODO add your handling code here:
-		
-		
-    }
 	
 }

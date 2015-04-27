@@ -10,7 +10,8 @@ import javax.swing.SwingConstants;
 public class RecoveryButton extends JButton {
 	
 	public RecoveryButton(){
-    
+		super("Recover File");
+		
         addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent evt) {
                 RecoveryButtonActionPerformed(evt);

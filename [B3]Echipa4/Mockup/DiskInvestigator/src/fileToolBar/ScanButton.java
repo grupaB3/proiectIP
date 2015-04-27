@@ -9,7 +9,7 @@ public class ScanButton extends JButton{
 	
 	
 	public ScanButton(){
-
+		super("Scan");
         addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent evt) {
                 ScanButtonActionPerformed(evt);

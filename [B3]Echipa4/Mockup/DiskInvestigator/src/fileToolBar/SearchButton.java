@@ -8,7 +8,8 @@ import javax.swing.JButton;
 public class SearchButton extends JButton{
 
 	public SearchButton(){
-
+		super("Search");
+		
         addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent evt) {
                 SearchButtonActionPerformed(evt);

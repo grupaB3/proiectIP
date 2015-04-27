@@ -8,7 +8,8 @@ public class RefreshButton extends JButton{
 	
 
 	public RefreshButton(){
-       
+		super("Refresh");
+		
         addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent evt) {
                 RefreshButtonActionPerformed(evt);

@@ -16,8 +16,12 @@ public class ToolBar extends JToolBar {
 		processesToolBar.add(back);
 		processesToolBar.initializeButtons();
 		add(processesToolBar);
-		processesToolBar.setVisible(true);
-		//add(filesToolBar);
+		processesToolBar.setVisible(false);
+		
+		filesToolBar.add(new JLabel("        "));
+		filesToolBar.add(back);
+		filesToolBar.initializeButtons();
+		add(filesToolBar);
 		
 		setFloatable(false);
 	}

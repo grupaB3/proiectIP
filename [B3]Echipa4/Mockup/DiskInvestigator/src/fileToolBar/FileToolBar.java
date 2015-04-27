@@ -16,11 +16,18 @@ public class FileToolBar extends JToolBar{
     }
     
     public void initializeButtons() {
+		add(new JLabel("          "));
+		add(diskScan.getScanButton());
+		add(new JLabel("          "));
+		add(diskScan.getRecoveryButton());
+		add(new JLabel("          "));
+		add(diskScan.getRefreshButton());
+		
 		add(new JLabel("                 "));
-		add(processScan.getNewTaskButton());
+		add(fileWorker.getSearchButton());
 		add(new JLabel("                 "));
-		add(processScan.getEndButton());
+		add(fileWorker.getShredButton());
 		add(new JLabel("                 "));
-		add(processCheck.getCheckButton());
+		add(fileWorker.getShareWith());
 	}
 }

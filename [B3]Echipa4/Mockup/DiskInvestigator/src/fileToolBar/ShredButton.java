@@ -9,7 +9,8 @@ import java.awt.event.ActionListener;
 public class ShredButton extends JButton{
 
 	public ShredButton(){
-
+		super("Shred File");
+		
         addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent evt) {
                 ShredButtonActionPerformed(evt);
