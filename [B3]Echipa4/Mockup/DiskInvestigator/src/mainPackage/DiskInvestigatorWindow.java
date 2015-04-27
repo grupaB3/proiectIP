@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 
 
 
+
+import observers.MenuObserver;
 import menuBar.MenuBar;
 import mainToolBar.ToolBar;
 import dialogs.DialogWindow;
@@ -17,9 +19,10 @@ public class DiskInvestigatorWindow extends JFrame{
 	}
 	
 	public void windowInit() {
-		
-		MenuBar menuBar = new MenuBar();
 		ToolBar toolBar = new ToolBar();
+		MenuObserver observer = new MenuObserver(toolBar);
+		MenuBar menuBar = new MenuBar(observer);
+		
 		
 		setJMenuBar(menuBar);
 		toolBar.setPreferredSize(new Dimension(100, 70));

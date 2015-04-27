@@ -22,14 +22,25 @@ public class ToolBar extends JToolBar {
 		filesToolBar.add(back);
 		filesToolBar.initializeButtons();
 		add(filesToolBar);
+		filesToolBar.setVisible(false);
 		
 		setFloatable(false);
 	}
 	
 	public void setToolBar(String option) {
 		switch(option) {
-			case "start": ;
-				
+			case "start":
+				filesToolBar.setVisible(false);
+				processesToolBar.setVisible(false);
+				break;
+			case "file": 
+				filesToolBar.setVisible(true);
+				processesToolBar.setVisible(false);
+			    break;
+			case "process":
+				filesToolBar.setVisible(false);
+				processesToolBar.setVisible(true);
+				break;	
 		}
 	}
 }

@@ -10,7 +10,7 @@ public class ErrorDialog extends DialogWindow {
 
 	private JOptionPane optionPane;
 	
-	ErrorDialog(){
+	public ErrorDialog(){
 		super();
 		this.getDialog().setModal(true);
 		this.getDialog().setAlwaysOnTop(true);

@@ -10,7 +10,7 @@ public class WarningDialog extends DialogWindow {
 
 	private JOptionPane optionPane;
 	
-	WarningDialog(){
+	public WarningDialog(){
 		super();
 		this.getDialog().setModal(true);
 		this.getDialog().setAlwaysOnTop(true);
