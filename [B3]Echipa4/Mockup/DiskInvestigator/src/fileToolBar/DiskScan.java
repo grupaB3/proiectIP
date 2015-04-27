@@ -6,19 +6,11 @@ import javax.swing.SwingConstants;
 
 
 public class DiskScan extends JFrame{
-	private JButton ScanButton;
-    private JButton RecoveryButton;
-    private JButton RefreshButton;
-    
-    private ScanButton scanObj;
-    private RecoveryButton recoveryObj;
-    private RefreshButton refreshObj;
+    private ScanButton scanButton = new ScanButton();
+    private RecoveryButton recoveryButton = new RecoveryButton();
+    private RefreshButton refreshButton = new RefreshButton();
     
     public DiskScan(){
-    	ScanButton = new JButton();
-    	RecoveryButton = new JButton();
-        RefreshButton = new JButton();
-   
         setScanButton();
         setRecoveryButton();
         setRefreshButton();

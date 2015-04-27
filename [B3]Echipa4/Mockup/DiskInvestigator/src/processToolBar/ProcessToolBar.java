@@ -10,14 +10,17 @@ public class ProcessToolBar extends JToolBar {
 	private ProcessCheck processCheck = new ProcessCheck();
 	
 	public ProcessToolBar(){
+		
+		setFloatable(false);
+		setPreferredSize(new Dimension(100, 70));
+	}
+	
+	public void initializeButtons() {
 		add(new JLabel("                 "));
 		add(processScan.getNewTaskButton());
 		add(new JLabel("                 "));
 		add(processScan.getEndButton());
 		add(new JLabel("                 "));
-		
 		add(processCheck.getCheckButton());
-		setFloatable(false);
-		setPreferredSize(new Dimension(100, 70));
 	}
 }
