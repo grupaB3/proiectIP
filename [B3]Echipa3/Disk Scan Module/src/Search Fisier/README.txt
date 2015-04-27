@@ -1,0 +1,4 @@
+Classes:
+	-SearchFisier;
+	-ListFisier;
+	-Fisier;

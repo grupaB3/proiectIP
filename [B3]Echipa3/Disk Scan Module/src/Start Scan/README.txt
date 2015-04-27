@@ -1,0 +1,9 @@
+Classes:
+	-StartScan;
+	-Scan;
+	-DiskDetails;
+	-ScanDetails;
+	-SendFisier;
+	-ListFisier;
+	-Fisier;
+	-Serializare;
