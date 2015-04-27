@@ -1,0 +1,41 @@
+RISK ASSESSMENT
+
+
+
+
+
+	This list will provide project managers with a tool for identifying and planning for potential project risks. During the risk assessment, if a potential risk is identified, a solution or plan of action should be developed. Some of the risks will be categorized with the level of risk, such as low, medium or high:
+
+       Low - Very unlikely that this will occur during the life of the project.
+
+       Medium - There is a 50-50 chance that this will occur during the life of the project.
+
+       High - Very likely that this will occur during the life of the project.
+       
+       
+       Risks that can appear during the life of the project and their possible solutions:
+
+1. The usage of a Java programming feature that is relatively new to the project team (LOW).
+       Solution: A plan based on training, as a team and individually (using                      
+tutorials and documentation) should effectively manage the risk.
+
+2. The size of the project is significantly larger than what the team is used to working on (MEDIUM).
+Solution: Size makes a difference in planning and coordination, so   extra time should be spent planning when a project is larger than the team’s previous projects.
+       
+3. The incompatibility with the Operating System or one of its components (HIGH).
+Solution: This issue should be solved by the review of some reference installations, by deploying prototypes and analyzing the compatibility. 
+
+4. Three separate teams are developing the modules of the software being delivered (LOW).
+Solution: Because the groups’ members are housed at a different location, frequent meetings and remote discussions are strongly required.
+
+5. The overestimation of our own programming/designing capabilities (MEDIUM).
+Solution: We make a technical analysis of each other and we frequently check the provided prototypes of the members before the modelling of their final product.
+
+6. The inconvenience caused by the loss of hardware resources (MEDIUM).
+Solution: We frequently backup  our work by saving on a cloud platform and making hard copies.
+
+7. The duration of the Scan is longer than expected or isn’t in a resonable amount of time. (HIGH).
+Solution: The module will have implemented efficient algorithms that can speed up the process of scanning.
+
+8. The report will not be understandable or it will containt corruped data. (LOW).
+Solution: A simple solution of this problem would be the development of a simple and readable XML file that can be interpreted by any program.
