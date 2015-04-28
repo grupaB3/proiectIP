@@ -1,8 +1,8 @@
 Things to do:
-	- Process toolbar
+	- Process toolbar.......done
 		- Process display mode
-		- Process Scan
-			- End process button
-			- New task button
-		- Process Check
-			- Process Scan button
+		- Process Scan.......done
+			- End process button.......done
+			- New task button.......done
+		- Process Check.......done
+			- Process Scan button.......done
