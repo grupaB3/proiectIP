@@ -1,3 +1,3 @@
 Things to do: 
-	- Warning dialog
-	- Error dialog
+	- Warning dialog.......done
+	- Error dialog.......done
