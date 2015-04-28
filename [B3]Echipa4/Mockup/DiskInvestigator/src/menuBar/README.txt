@@ -1,5 +1,5 @@
 Things to do: 
-	- MenuBar
-		- Files tab
-		- Processes tab
-		- Info ( + Info window)
+	- MenuBar.......done
+		- Files tab.......done
+		- Processes tab.......done
+		- Info .......done   ( + Info window)
