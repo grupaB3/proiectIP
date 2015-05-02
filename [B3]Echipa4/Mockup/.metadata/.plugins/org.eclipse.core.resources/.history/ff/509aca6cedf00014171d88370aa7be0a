@@ -1,0 +1,95 @@
+package menuBar;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
+
+import dialogs.ErrorDialog;
+import dialogs.WarningDialog;
+import observers.MenuObserver;
+
+public class MenuBar extends JMenuBar {
+	private JMenu fileMenu = new JMenu("Files");
+	private JMenu processMenu = new JMenu("Processes");
+	private JMenu infoMenu = new JMenu("Info");
+	private MenuObserver observer;
+	
+	private JMenuItem menuItem;
+	
+	public MenuBar(MenuObserver observer) {
+		this.observer = observer;
+		init();
+	}
+	
+	public void init() {
+		add(fileMenu);
+		add(processMenu);
+		add(infoMenu);
+		initFileMenu();
+		initProcessMenu();
+		initInfoMenu();
+		
+		fileMenu.addMenuListener(new MenuListener() {
+
+			@Override
+			public void menuCanceled(MenuEvent e) {
+				observer.activateBar("start");
+			}
+
+			@Override
+			public void menuDeselected(MenuEvent e) {
+			}
+
+			@Override
+			public void menuSelected(MenuEvent e) {
+				observer.activateBar("file");
+			}
+		});
+		
+		processMenu.addMenuListener(new MenuListener() {
+
+			@Override
+			public void menuCanceled(MenuEvent e) {
+				observer.activateBar("start");
+			}
+
+			@Override
+			public void menuDeselected(MenuEvent e) {
+			}
+
+			@Override
+			public void menuSelected(MenuEvent e) {
+				observer.activateBar("process");
+			}
+		});
+	}
+	
+	public void initFileMenu(){
+		menuItem = new JMenuItem("Show file toolbar", KeyEvent.VK_T);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		fileMenu.add(menuItem);	
+		
+		menuItem = new JMenuItem("Show file toolbar", KeyEvent.VK_T);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		fileMenu.add(menuItem);	
+	}
+	
+	public void initProcessMenu(){
+		menuItem = new JMenuItem("Show process toolbar", KeyEvent.VK_T);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		processMenu.add(menuItem);	
+	}
+	
+	public void initInfoMenu(){
+		menuItem = new JMenuItem("Show info toolbar", KeyEvent.VK_T);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		infoMenu.add(menuItem);	
+	}
+	
+}

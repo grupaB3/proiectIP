@@ -33,7 +33,7 @@ public class ToolBar extends JToolBar {
 				filesToolBar.setVisible(false);
 				processesToolBar.setVisible(false);
 				break;
-			case "file": 
+			case "file":
 				filesToolBar.setVisible(true);
 				processesToolBar.setVisible(false);
 			    break;

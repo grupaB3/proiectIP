@@ -2,16 +2,10 @@ package mainPackage;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.JFrame;
-
-
-
-
 import observers.MenuObserver;
 import menuBar.MenuBar;
 import mainToolBar.ToolBar;
-import dialogs.DialogWindow;
 
 public class DiskInvestigatorWindow extends JFrame{
 	protected DiskInvestigatorWindow() {
