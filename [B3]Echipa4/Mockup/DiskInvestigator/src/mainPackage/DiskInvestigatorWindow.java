@@ -8,6 +8,7 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
 import displayArea.AreaOfDisplay;
+import observers.BackObserver;
 import observers.MenuObserver;
 import tabBar.MainTabBar;
 import menuBar.MenuBar;
@@ -18,9 +19,10 @@ public class DiskInvestigatorWindow extends JFrame{
 		windowInit();
 	}
 	
-	public void windowInit() {	
-		ToolBar toolBar = new ToolBar();
+	public void windowInit() {
 		MainTabBar tabBar = new MainTabBar();
+		BackObserver observerBack = new BackObserver(tabBar);
+		ToolBar toolBar = new ToolBar(observerBack);
 		MenuObserver observer = new MenuObserver(toolBar, tabBar);
 		MenuBar menuBar = new MenuBar(observer);	
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();

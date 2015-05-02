@@ -1,30 +1,59 @@
 package mainToolBar;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import processToolBar.ProcessToolBar;
 import fileToolBar.FileToolBar;
 
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
+import observers.BackObserver;
+
 public class ToolBar extends JToolBar {
 	private FileToolBar filesToolBar = new FileToolBar();
 	private ProcessToolBar processesToolBar = new ProcessToolBar();
-	private BackButton back = new BackButton();
+	private BackButton backP = new BackButton();
+	private BackButton backF = new BackButton();
+	private BackObserver observer = null;
 	
-	public ToolBar() {
+	public ToolBar(BackObserver observer) {
+		this.observer = observer;
+		
 		processesToolBar.add(new JLabel("        "));
-		processesToolBar.add(back);
+		processesToolBar.add(backP);
 		processesToolBar.initializeButtons();
 		add(processesToolBar);
 		processesToolBar.setVisible(false);
 		
 		filesToolBar.add(new JLabel("        "));
-		filesToolBar.add(new BackButton());
+		filesToolBar.add(backF);
 		filesToolBar.initializeButtons();
 		add(filesToolBar);
 		filesToolBar.setVisible(false);
 		
 		setFloatable(false);
+		
+		backP.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setToolBar("start");
+				observer.setTabBar();
+			}
+			
+		});
+		
+		backF.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setToolBar("start");
+				observer.setTabBar();
+			}
+			
+		});
 	}
 	
 	public void setToolBar(String option) {
