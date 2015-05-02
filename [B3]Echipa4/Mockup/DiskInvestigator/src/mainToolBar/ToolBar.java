@@ -19,7 +19,7 @@ public class ToolBar extends JToolBar {
 		processesToolBar.setVisible(false);
 		
 		filesToolBar.add(new JLabel("        "));
-		filesToolBar.add(back);
+		filesToolBar.add(new BackButton());
 		filesToolBar.initializeButtons();
 		add(filesToolBar);
 		filesToolBar.setVisible(false);
