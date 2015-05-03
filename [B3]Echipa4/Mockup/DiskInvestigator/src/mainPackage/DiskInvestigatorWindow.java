@@ -41,7 +41,7 @@ public class DiskInvestigatorWindow extends JFrame{
 		setVisible(true);
 		//pack();
 		setLayout(new BorderLayout(0,0));
-		setLocation(150, 10);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 }

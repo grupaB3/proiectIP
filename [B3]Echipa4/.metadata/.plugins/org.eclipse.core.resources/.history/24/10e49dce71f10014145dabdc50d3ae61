@@ -1,0 +1,5 @@
+package menuBar;
+
+public class InfoButton_Search extends JPanel {
+
+}

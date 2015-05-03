@@ -1,0 +1,20 @@
+package menuBar;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+public class InfoButton extends JFrame {
+
+	private JFrame infoFrame=new JFrame();
+	
+	public InfoButton() {
+		super("Info Center");
+		setSize(200,200);
+		setResizable(true);
+		setVisible(true);
+		setAlwaysOnTop(true);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+}

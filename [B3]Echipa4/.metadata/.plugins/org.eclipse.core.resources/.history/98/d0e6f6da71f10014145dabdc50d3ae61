@@ -1,0 +1,13 @@
+package menuBar;
+
+import javax.swing.JPanel;
+
+public class InfoButton_Search extends JPanel {
+
+	
+	
+	public InfoButton_Search(){
+		super();
+	}
+	
+}

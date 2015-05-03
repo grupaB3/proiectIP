@@ -1,0 +1,29 @@
+package menuBar;
+
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+public class InfoButton extends JFrame {
+
+	public InfoButton() {
+		super("Info Center");
+		setResizable(true);
+		setAlwaysOnTop(true);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
+        Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
+        int x = (int) rect.getMaxX() - getWidth();
+        int y = (int) rect.getMaxY() - getHeight();
+        System.out.println(x+" "+y);
+		setSize(200, 700);
+        setLocation(x, y);
+		setVisible(true);
+	}
+}
