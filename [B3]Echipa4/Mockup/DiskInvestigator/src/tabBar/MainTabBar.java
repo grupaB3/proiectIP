@@ -5,11 +5,15 @@ import java.awt.FlowLayout;
 
 import javax.swing.JPanel;
 
+import mainPackage.TabObserver;
+
 public class MainTabBar extends JPanel {
 	private FileTabBar fileTabBar = new FileTabBar();
 	private ProcessTabBar processTabBar = new ProcessTabBar();
+	private TabObserver observer = null;
 	
-	public MainTabBar() {
+	public MainTabBar(TabObserver observer) {
+		this.observer = observer;
 		initUI();
 	}
 	
@@ -29,14 +33,17 @@ public class MainTabBar extends JPanel {
 			case "start":
 				fileTabBar.setVisible(false);
 				processTabBar.setVisible(false);
+				observer.setDisplayArea("start");
 				break;
 			case "file":
 				fileTabBar.setVisible(true);
 				processTabBar.setVisible(false);
+				observer.setDisplayArea("file");
 			    break;
 			case "process":
 				fileTabBar.setVisible(false);
 				processTabBar.setVisible(true);
+				observer.setDisplayArea("process");
 				break;	
 		}
 	}

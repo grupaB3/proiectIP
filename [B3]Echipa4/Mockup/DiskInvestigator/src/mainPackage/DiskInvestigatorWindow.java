@@ -20,11 +20,12 @@ public class DiskInvestigatorWindow extends JFrame{
 	}
 	
 	public void windowInit() {
-		MainTabBar tabBar = new MainTabBar();
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();
+		TabObserver observerTab = new TabObserver(mainDisplayArea);
+		MainTabBar tabBar = new MainTabBar(observerTab);
 		BackObserver observerBack = new BackObserver(tabBar, mainDisplayArea);
 		ToolBar toolBar = new ToolBar(observerBack);
-		MenuObserver observer = new MenuObserver(toolBar, tabBar);
+		MenuObserver observer = new MenuObserver(toolBar, tabBar, mainDisplayArea);
 		MenuBar menuBar = new MenuBar(observer);	
 		
 		setJMenuBar(menuBar);

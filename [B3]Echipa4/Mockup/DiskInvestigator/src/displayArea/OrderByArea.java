@@ -20,13 +20,11 @@ public class OrderByArea extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		
 		add(filesCategories, BorderLayout.LINE_START);
-		filesCategories.setVisible(false);
 		add(processesCategories, BorderLayout.LINE_START);
-		processesCategories.setVisible(false);
 		add(servicesCategories, BorderLayout.LINE_START);
-		servicesCategories.setVisible(false);
 		add(tasksCategories, BorderLayout.LINE_START);
-		//tasksCategories.setVisible(false);
+		
+		setOrderBar("start");
 		//setBackground(Color.green);
 		setPreferredSize(new Dimension(70, 30));
 	}
