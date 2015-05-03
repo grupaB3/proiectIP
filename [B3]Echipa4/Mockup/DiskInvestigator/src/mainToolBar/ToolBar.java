@@ -41,6 +41,7 @@ public class ToolBar extends JToolBar {
 			public void actionPerformed(ActionEvent arg0) {
 				setToolBar("start");
 				observer.setTabBar();
+				observer.setOrderBar();
 			}
 			
 		});
@@ -51,6 +52,7 @@ public class ToolBar extends JToolBar {
 			public void actionPerformed(ActionEvent arg0) {
 				setToolBar("start");
 				observer.setTabBar();
+				observer.setOrderBar();
 			}
 			
 		});

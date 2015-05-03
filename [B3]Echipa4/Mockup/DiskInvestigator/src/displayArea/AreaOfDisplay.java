@@ -18,4 +18,8 @@ public class AreaOfDisplay extends JPanel {
 		add(orderArea, BorderLayout.NORTH);
 		//setBackground(Color.blue);
 	}
+	
+	public void setArea(String areaName) {
+		orderArea.setOrderBar(areaName);
+	}
 }
