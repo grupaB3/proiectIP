@@ -14,11 +14,11 @@ public class OrderFiles extends JPanel {
 	
 	private void initUI() {
 		JLabel name = new JLabel("Name");
-		name.setPreferredSize(new Dimension(150, 30));
+		name.setPreferredSize(new Dimension(300, 30));
 		JLabel extension = new JLabel("Extension");
 		extension.setPreferredSize(new Dimension(70, 30));
 		JLabel path = new JLabel("Path");
-		path.setPreferredSize(new Dimension(750, 30));
+		path.setPreferredSize(new Dimension(600, 30));
 		
 		JSplitPane splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, extension, path);
 	    splitPane1.setDividerSize(2);
