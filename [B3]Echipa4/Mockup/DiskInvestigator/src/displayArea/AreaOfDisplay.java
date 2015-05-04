@@ -21,5 +21,6 @@ public class AreaOfDisplay extends JPanel {
 	
 	public void setArea(String areaName) {
 		orderArea.setOrderBar(areaName);
+		System.out.println("Set orderBar: "+areaName);
 	}
 }
