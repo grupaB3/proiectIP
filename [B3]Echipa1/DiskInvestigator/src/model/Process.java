@@ -16,6 +16,7 @@ public class Process {
 	private List<String> writesToThreads;
 
 	public Process() {
+
 	}
 
 	public Process(String name, int pID, String sessionName, int sessionNo, String status, double memoryUsage) {
@@ -112,13 +113,6 @@ public class Process {
 	public String toString() {
 		return "Process [name=" + name + ", PID=" + PID + ", sessionName=" + sessionName + ", sessionNo=" + sessionNo + ", memoryUsage="
 				+ memoryUsage + "]";
-	}
-	
-	public String showActivity(){
-		double total = writtenBites + readBites;
-		return "Process [name="+ name + ", PID=" + PID + ", Read(B/sec)=" + readBites + ",Write(B/sec)=" + writtenBites + ",Total(B/sec)="
-				+ total + "]";
-		
 	}
 
 }
