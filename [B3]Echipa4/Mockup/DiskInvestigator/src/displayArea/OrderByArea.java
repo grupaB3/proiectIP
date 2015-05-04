@@ -32,7 +32,6 @@ public class OrderByArea extends JPanel {
 	}
 	
 	public void setOrderBar(String barName) {
-		System.out.println("bar's name: "+barName);
 		switch(barName) {
 			case "start":
 				filesCategories.setVisible(false);
