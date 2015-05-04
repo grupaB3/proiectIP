@@ -5,11 +5,11 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
 
 import displayArea.AreaOfDisplay;
 import observers.BackObserver;
 import observers.MenuObserver;
+import observers.TabObserver;
 import tabBar.MainTabBar;
 import menuBar.MenuBar;
 import mainToolBar.ToolBar;

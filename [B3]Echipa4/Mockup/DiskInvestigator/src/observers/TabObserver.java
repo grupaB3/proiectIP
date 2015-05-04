@@ -1,9 +1,9 @@
-package mainPackage;
+package observers;
 
 import displayArea.AreaOfDisplay;
 
 public class TabObserver {
-	private AreaOfDisplay displayArea = null;
+	private AreaOfDisplay displayArea;
 	
 	public TabObserver(AreaOfDisplay displayArea) {
 		this.displayArea = displayArea;
@@ -11,5 +11,6 @@ public class TabObserver {
 	
 	public void setDisplayArea(String areaName) {
 		displayArea.setArea(areaName);
+		System.out.println("Set displayArea: "+areaName);
 	}
 }
