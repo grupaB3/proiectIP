@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.IOException;
+
 import list.ProcessListDangerous;
 import list.ProcessListSecure;
 import list.ProcessListSuspicious;
@@ -22,9 +24,8 @@ public class Controller {
 		this.files = files;
 	}
 	
-	@SuppressWarnings("static-access")
-	public boolean deleteFile(String file){
-		return destroyer.delete(file);
+	public boolean deleteFile(String path) throws IOException{
+		return destroyer.delete(path);
 	}
 	
 	public void showProcessesSafe(){

@@ -11,6 +11,5 @@ public class TabObserver {
 	
 	public void setDisplayArea(String areaName) {
 		displayArea.setArea(areaName);
-		System.out.println("Set displayArea: "+areaName);
 	}
 }

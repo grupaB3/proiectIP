@@ -14,9 +14,9 @@ public class OrderTasks extends JPanel {
 	
 	private void initUI() {
 		JLabel name = new JLabel("Task name");
-		name.setPreferredSize(new Dimension(150, 30));
+		name.setPreferredSize(new Dimension(700, 30));
 		JLabel status = new JLabel("Status");
-		status.setPreferredSize(new Dimension(70, 30));
+		status.setPreferredSize(new Dimension(270, 30));
 		
 		JSplitPane splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, name, status);
 	    splitPane1.setDividerSize(2);

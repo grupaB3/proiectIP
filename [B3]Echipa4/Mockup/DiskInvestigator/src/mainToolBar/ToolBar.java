@@ -24,6 +24,7 @@ public class ToolBar extends JToolBar {
 		processesToolBar.add(new JLabel("        "));
 		processesToolBar.add(backP);
 		processesToolBar.initializeButtons();
+		processesToolBar.setRollover(true);
 		add(processesToolBar);
 		processesToolBar.setVisible(false);
 		

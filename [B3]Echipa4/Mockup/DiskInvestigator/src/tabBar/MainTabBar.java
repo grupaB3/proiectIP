@@ -35,19 +35,16 @@ public class MainTabBar extends JPanel {
 				fileTabBar.setVisible(false);
 				processTabBar.setVisible(false);
 				observer.setDisplayArea("start");
-				System.out.println("Set tabBar: none");
 				break;
 			case "file":
 				fileTabBar.setVisible(true);
 				processTabBar.setVisible(false);
 				observer.setDisplayArea("file");
-				System.out.println("Set tabBar: file");
 			    break;
 			case "process":
 				fileTabBar.setVisible(false);
 				processTabBar.setVisible(true);
 				observer.setDisplayArea("process");
-				System.out.println("Set tabBar: process");
 				break;	
 		}
 	}
