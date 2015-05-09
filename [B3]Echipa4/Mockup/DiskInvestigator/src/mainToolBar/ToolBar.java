@@ -69,10 +69,11 @@ public class ToolBar extends JToolBar {
 				filesToolBar.setVisible(true);
 				processesToolBar.setVisible(false);
 			    break;
-			case "process":
+			default:
 				filesToolBar.setVisible(false);
 				processesToolBar.setVisible(true);
-				break;	
+				processesToolBar.setToolBar(option);
+				break;
 		}
 	}
 }

@@ -11,10 +11,11 @@ import javax.swing.JPanel;
 import observers.TabObserver;
 
 public class ProcessTabBar extends JPanel {
+	private static final long serialVersionUID = -2764060480869773897L;
 	private JLabel processLabel = new JLabel("    Processes   ");
 	private JLabel serviceLabel = new JLabel("   Services    ");
 	private JLabel taskLabel = new JLabel("    Tasks    ");
-	private TabObserver observer;
+	private TabObserver observer = null;
 	
 	protected ProcessTabBar(TabObserver observer) {
 		this.observer = observer;
@@ -41,10 +42,10 @@ public class ProcessTabBar extends JPanel {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
+				observer.setDisplayArea("process");
 				processLabel.setBackground(Color.yellow);
 				serviceLabel.setBackground(null);
 				taskLabel.setBackground(null);
-				observer.setDisplayArea("process");
 			}
 
 			@Override
@@ -64,10 +65,10 @@ public class ProcessTabBar extends JPanel {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
+				observer.setDisplayArea("service");
 				serviceLabel.setBackground(Color.yellow);
 				processLabel.setBackground(null);
 				taskLabel.setBackground(null);
-				observer.setDisplayArea("service");
 			}
 
 			@Override
@@ -87,10 +88,10 @@ public class ProcessTabBar extends JPanel {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
+				observer.setDisplayArea("task");
 				taskLabel.setBackground(Color.yellow);
 				processLabel.setBackground(null);
 				serviceLabel.setBackground(null);
-				observer.setDisplayArea("task");
 			}
 
 			@Override
@@ -101,7 +102,6 @@ public class ProcessTabBar extends JPanel {
 		add(serviceLabel);
 		add(taskLabel);
 
-		//setPreferredSize(new Dimension(70, 30));
 		setLayout(new FlowLayout());
 	}
 }

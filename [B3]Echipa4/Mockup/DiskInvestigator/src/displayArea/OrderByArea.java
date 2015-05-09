@@ -1,13 +1,14 @@
 package displayArea;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JPanel;
 
 public class OrderByArea extends JPanel {
+
+	private static final long serialVersionUID = 5517085176463400405L;
 	private OrderFiles filesCategories = new OrderFiles();
 	private OrderProcesses processesCategories = new OrderProcesses();
 	private OrderServices servicesCategories = new OrderServices();

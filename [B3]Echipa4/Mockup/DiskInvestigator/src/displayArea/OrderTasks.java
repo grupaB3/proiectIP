@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
 public class OrderTasks extends JPanel {
+
+	private static final long serialVersionUID = 667683228589322855L;
+
 	protected OrderTasks() {
 		initUI();
 	}

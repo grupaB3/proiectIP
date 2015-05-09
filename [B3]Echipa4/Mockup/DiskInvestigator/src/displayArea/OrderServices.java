@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
 public class OrderServices extends JPanel {
+
+	private static final long serialVersionUID = 786034936195262189L;
+
 	protected OrderServices() {
 		initUI();
 	}
