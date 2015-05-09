@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Teodor/Documents/GitHub/proiectIP/proiectIP/[B3]Echipa4/Mockup/DiskInvestigator/lib/substance-7.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Teodor/Documents/GitHub/proiectIP/proiectIP/[B3]Echipa4/Mockup/DiskInvestigator/lib/trident.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Teodor/Documents/GitHub/proiectIP/proiectIP/[B3]Echipa4/Mockup/DiskInvestigator/lib/build/laf-widget.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Teodor/Documents/GitHub/proiectIP/proiectIP/[B3]Echipa4/Mockup/DiskInvestigator/lib/build/laf-plugin.jar"/>
+	<classpathentry kind="lib" path="lib/substance-7.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/trident.jar"/>
+	<classpathentry kind="lib" path="lib/build/laf-plugin.jar"/>
+	<classpathentry kind="lib" path="lib/build/laf-widget.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
