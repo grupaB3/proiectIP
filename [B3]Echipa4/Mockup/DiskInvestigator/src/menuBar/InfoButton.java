@@ -15,33 +15,36 @@ import javax.swing.SwingConstants;
 
 public class InfoButton extends JFrame {
 
-	JPanel panel = new JPanel();
-	JScrollPane scrollPanel = new JScrollPane();
-	JPanel searchPanel, canvasPanel, searchPanelButton, searchPanelButton_top, searchPanelButton_left, searchPanelButton_bottom, searchPanelButton_right;
+	private JPanel panel = new JPanel();
+	private JScrollPane scrollPanel = new JScrollPane();
+	private JPanel searchPanel, canvasPanel, searchPanelButton, searchPanelButton_top, searchPanelButton_left, searchPanelButton_bottom, searchPanelButton_right;
 	
 	public InfoButton() {
 		super("Disk Investigator Help and Support");
 		init();
 	}
 	
-	public void init(){
+	public void setHelpLocation(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
-		setResizable(true);
 		setSize(400, screenHeight);
 		setLocationRelativeTo(null);
+		setLocation(screenWidth - getWidth(), screenHeight - getHeight());
+	}
+	
+	public void init(){
+		setHelpLocation();
+		setResizable(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setLocation(screenWidth - getWidth(), screenHeight - getHeight());
-		panel.setLayout(new BorderLayout());
+        panel.setLayout(new BorderLayout());
 		initSearch();
 		initCanvas();
-		
-        panel.add(searchPanel, BorderLayout.NORTH);
+		panel.add(searchPanel, BorderLayout.NORTH);
         panel.add(canvasPanel);
         scrollPanel=new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		add(scrollPanel);
-		setVisible(true);
+		setVisible(false);
 		
 		panel.addComponentListener(new ComponentAdapter(){
             public void componentResized(ComponentEvent event){

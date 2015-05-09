@@ -20,7 +20,7 @@ public class MenuBar extends JMenuBar {
 	private JMenu processMenu = new JMenu("Processes");
 	private JMenu infoMenu = new JMenu("Info");
 	private MenuObserver observer;
-	private InfoButton info;
+	private InfoButton info=new InfoButton();
 	private JMenuItem menuItem;
 	
 	public MenuBar(MenuObserver observer) {
@@ -87,7 +87,7 @@ public class MenuBar extends JMenuBar {
            public void mouseClicked(MouseEvent e) {
         	   if(e.getSource() != null)
         		   {
-        		   info=new InfoButton();
+        		   info.setHelpLocation();
         		   info.setVisible(true);
         		   }
            }
