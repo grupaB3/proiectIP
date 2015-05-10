@@ -7,7 +7,9 @@ import javax.swing.JToolBar;
 
 public class FileToolBar extends JToolBar{
 
-    private DiskScan diskScan = new DiskScan();
+	private static final long serialVersionUID = -6055582868733811684L;
+	
+	private DiskScan diskScan = new DiskScan();
     private FileWorker fileWorker = new FileWorker();
     
     public FileToolBar(){

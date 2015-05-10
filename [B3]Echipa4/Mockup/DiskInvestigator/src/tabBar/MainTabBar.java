@@ -1,6 +1,5 @@
 package tabBar;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JPanel;
@@ -8,6 +7,9 @@ import javax.swing.JPanel;
 import observers.TabObserver;
 
 public class MainTabBar extends JPanel {
+
+	private static final long serialVersionUID = -7912284906261105627L;
+	
 	private FileTabBar fileTabBar = new FileTabBar();
 	private ProcessTabBar processTabBar;
 	private TabObserver observer;

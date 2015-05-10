@@ -1,7 +1,6 @@
 package displayArea;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 
 import javax.swing.JPanel;
 
@@ -20,7 +19,6 @@ public class AreaOfDisplay extends JPanel {
 		
 		add(orderArea, BorderLayout.NORTH);
 		add(servicesArea, BorderLayout.CENTER);
-		//setBackground(Color.blue);
 	}
 	
 	public void setArea(String areaName) {

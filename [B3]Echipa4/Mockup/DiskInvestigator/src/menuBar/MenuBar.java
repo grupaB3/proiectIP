@@ -5,17 +5,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 
 import observers.MenuObserver;
 
 public class MenuBar extends JMenuBar {
+
+	private static final long serialVersionUID = -4684161738378898279L;
+	
 	private JMenu fileMenu = new JMenu("Files");
 	private JMenu processMenu = new JMenu("Processes");
 	private JMenu infoMenu = new JMenu("Info");

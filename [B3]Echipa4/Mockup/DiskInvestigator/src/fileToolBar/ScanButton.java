@@ -7,7 +7,8 @@ import javax.swing.JButton;
 
 public class ScanButton extends JButton{
 	
-	
+	private static final long serialVersionUID = -3732017140531624631L;
+
 	public ScanButton(){
 		super("Scan");
         addActionListener(new ActionListener() {           
@@ -19,9 +20,6 @@ public class ScanButton extends JButton{
 	
 
 	private void ScanButtonActionPerformed(ActionEvent evt) {                                         
-        // TODO add your handling code here:
-		
-		
     } 
 	
 }

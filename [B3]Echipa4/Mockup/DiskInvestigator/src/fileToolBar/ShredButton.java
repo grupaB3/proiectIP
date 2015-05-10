@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 
 public class ShredButton extends JButton{
 
+	private static final long serialVersionUID = 1107443913731007899L;
+
 	public ShredButton(){
 		super("Shred File");
 		
@@ -20,9 +22,6 @@ public class ShredButton extends JButton{
 	
 
 	private void ShredButtonActionPerformed(ActionEvent evt) {                                         
-        // TODO add your handling code here:
-		
-		
     }
 	
 }

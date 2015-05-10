@@ -19,7 +19,7 @@ public class FileWorker {
     public ShredButton getShredButton(){
     	return shredButton;
     }
-    public JComboBox getShareWith(){
+    public JComboBox<String> getShareWith(){
     	return shareButton;
     }
 	

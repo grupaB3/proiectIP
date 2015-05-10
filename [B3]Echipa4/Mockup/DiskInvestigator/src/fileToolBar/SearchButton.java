@@ -7,6 +7,8 @@ import javax.swing.JButton;
 
 public class SearchButton extends JButton{
 
+	private static final long serialVersionUID = 8255380646516987934L;
+
 	public SearchButton(){
 		super("Search");
 		
@@ -19,9 +21,6 @@ public class SearchButton extends JButton{
 	
 
 	private void SearchButtonActionPerformed(ActionEvent evt) {                                         
-        // TODO add your handling code here:
-		
-		
     } 
 	
 }

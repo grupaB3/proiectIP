@@ -6,6 +6,7 @@ import javax.swing.JButton;
 
 public class RefreshButton extends JButton{
 	
+	private static final long serialVersionUID = 4753677614771415350L;
 
 	public RefreshButton(){
 		super("Refresh");
@@ -20,6 +21,5 @@ public class RefreshButton extends JButton{
 	
 	
 	private void RefreshButtonActionPerformed(ActionEvent evt) {                                         
-        // TODO add your handling code here:
     }
 }

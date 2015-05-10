@@ -3,7 +3,7 @@ package mainToolBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import processToolBar.ProcessToolBar;
+import processToolBar.MainProcessToolBar;
 import fileToolBar.FileToolBar;
 
 import javax.swing.JLabel;
@@ -12,18 +12,21 @@ import javax.swing.JToolBar;
 import observers.BackObserver;
 
 public class ToolBar extends JToolBar {
+
+	private static final long serialVersionUID = 6343254365674473635L;
+	
 	private FileToolBar filesToolBar = new FileToolBar();
-	private ProcessToolBar processesToolBar = new ProcessToolBar();
+	private MainProcessToolBar processesToolBar = new MainProcessToolBar();
 	private BackButton backP = new BackButton();
 	private BackButton backF = new BackButton();
 	private BackObserver observer = null;
 	
 	public ToolBar(BackObserver observer) {
-		this.observer = observer;
+		this.setObserver(observer);
 		
 		processesToolBar.add(new JLabel("        "));
 		processesToolBar.add(backP);
-		processesToolBar.initializeButtons();
+		processesToolBar.initializeBars();
 		processesToolBar.setRollover(true);
 		add(processesToolBar);
 		processesToolBar.setVisible(false);
@@ -75,5 +78,13 @@ public class ToolBar extends JToolBar {
 				processesToolBar.setToolBar(option);
 				break;
 		}
+	}
+
+	public BackObserver getObserver() {
+		return observer;
+	}
+
+	public void setObserver(BackObserver observer) {
+		this.observer = observer;
 	}
 }

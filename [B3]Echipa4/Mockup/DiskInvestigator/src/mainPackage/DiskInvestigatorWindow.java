@@ -15,6 +15,9 @@ import menuBar.MenuBar;
 import mainToolBar.ToolBar;
 
 public class DiskInvestigatorWindow extends JFrame{
+
+	private static final long serialVersionUID = 7722349641003921408L;
+
 	protected DiskInvestigatorWindow() {
 		windowInit();
 	}

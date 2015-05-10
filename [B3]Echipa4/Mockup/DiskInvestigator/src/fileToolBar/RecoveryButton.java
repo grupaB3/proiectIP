@@ -5,10 +5,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.SwingConstants;
-
 public class RecoveryButton extends JButton {
 	
+	private static final long serialVersionUID = 4049711543317874759L;
+
 	public RecoveryButton(){
 		super("Recover File");
 		
@@ -22,7 +22,6 @@ public class RecoveryButton extends JButton {
 	
 	
 	private void RecoveryButtonActionPerformed(ActionEvent evt) {                                         
-        // TODO add your handling code here:
     } 
 	
 }

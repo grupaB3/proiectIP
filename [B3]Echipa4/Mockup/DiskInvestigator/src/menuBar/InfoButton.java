@@ -15,6 +15,8 @@ import javax.swing.SwingConstants;
 
 public class InfoButton extends JFrame {
 
+	private static final long serialVersionUID = -6058326491351599146L;
+	
 	private JPanel panel = new JPanel();
 	private JScrollPane scrollPanel = new JScrollPane();
 	private JPanel searchPanel, canvasPanel, searchPanelButton, searchPanelButton_top, searchPanelButton_left, searchPanelButton_bottom, searchPanelButton_right;

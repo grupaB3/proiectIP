@@ -26,6 +26,7 @@ public class GUI {
             @Override
             public void run() {
                DiskInvestigatorWindow mainWindow = new DiskInvestigatorWindow();
+               mainWindow.setVisible(true);
             }
         });
 	}

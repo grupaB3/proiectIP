@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class FileTabBar extends JPanel {
+
+	private static final long serialVersionUID = 5081671752495077597L;
+	
 	private JLabel fileLabel = new JLabel("     Files     ");
 	protected FileTabBar() {
 		initUI();

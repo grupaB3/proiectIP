@@ -6,58 +6,23 @@ import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
 public class ProcessToolBar extends JToolBar {
-	private ProcessScan processScan = new ProcessScan();
-	private ProcessCheck processCheck = new ProcessCheck();
-	private JToolBar processesBar = new JToolBar();
-	private JToolBar servicesBar = new JToolBar();
-	private JToolBar tasksBar = new JToolBar();
+
+	private static final long serialVersionUID = 965328829017261188L;
 	
-	public ProcessToolBar(){
-		
+	private ProcessScanButton processScanButton = new ProcessScanButton();
+	private EndProcessButton endProcessButton = new EndProcessButton();
+	
+	public ProcessToolBar() {	
 		setFloatable(false);
 		setPreferredSize(new Dimension(100, 70));
+		
+		initializeButtons();
 	}
 	
-	public void initializeButtons() {
-		processesBar.add(new JLabel("                 "));
-		processesBar.add(processCheck.getCheckButton());
-		processesBar.add(new JLabel("                 "));
-		processesBar.add(processScan.getEndButton());
-		processesBar.setFloatable(false);
-		processesBar.setVisible(false);
-		
-		tasksBar.add(new JLabel("                 "));
-		tasksBar.add(processScan.getNewTaskButton());
-		tasksBar.setFloatable(false);
-		tasksBar.setVisible(false);
-		
-		servicesBar.add(new JLabel("                 "));
-		servicesBar.setFloatable(false);
-		servicesBar.setVisible(false);
-		
-		add(processesBar);
-		add(servicesBar);
-		add(tasksBar);
-	}
-	
-	public void setToolBar(String option) {
-		switch(option) {
-		case "process":
-			processesBar.setVisible(true);
-			servicesBar.setVisible(false);
-			tasksBar.setVisible(false);
-			break;
-		case "service":
-			processesBar.setVisible(false);
-			servicesBar.setVisible(true);
-			tasksBar.setVisible(false);
-		    break;
-		case "task":
-			processesBar.setVisible(false);
-			servicesBar.setVisible(false);
-			tasksBar.setVisible(true);
-
-			break;
-	}
+	private void initializeButtons() {
+		add(new JLabel("                 "));
+		add(processScanButton);
+		add(new JLabel("                 "));
+		add(endProcessButton);
 	}
 }
