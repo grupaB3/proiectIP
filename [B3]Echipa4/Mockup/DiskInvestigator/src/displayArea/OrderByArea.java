@@ -27,7 +27,6 @@ public class OrderByArea extends JPanel {
 		add(tasksCategories, BorderLayout.LINE_START);
 		
 		setOrderBar("start");
-		//setBackground(Color.green);
 		setPreferredSize(new Dimension(70, 40));
 		setLayout(new FlowLayout(FlowLayout.LEADING));
 	}

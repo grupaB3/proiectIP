@@ -1,6 +1,7 @@
 package tabBar;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,9 +13,7 @@ import observers.TabObserver;
 
 public class ProcessTabBar extends JPanel {
 	private static final long serialVersionUID = -2764060480869773897L;
-	private JLabel processLabel = new JLabel("    Processes   ");
-	private JLabel serviceLabel = new JLabel("   Services    ");
-	private JLabel taskLabel = new JLabel("    Tasks    ");
+	
 	private TabObserver observer = null;
 	
 	protected ProcessTabBar(TabObserver observer) {
@@ -23,13 +22,24 @@ public class ProcessTabBar extends JPanel {
 	}
 	
 	private void initUI() {
+		
+		JLabel processLabel = new JLabel("Processes");
 		processLabel.setOpaque(true);
+		JLabel serviceLabel = new JLabel("Services");
 		serviceLabel.setOpaque(true);
+		JLabel taskLabel = new JLabel("Tasks");
 		taskLabel.setOpaque(true);
 		
-		processLabel.setBackground(Color.yellow);
+		JPanel processPanel = new JPanel();
+		processPanel.add(processLabel);
+		JPanel servicePanel = new JPanel();
+		servicePanel.add(serviceLabel);
+		JPanel taskPanel = new JPanel();
+		taskPanel.add(taskLabel);
 		
-		processLabel.addMouseListener(new MouseListener() {
+		processPanel.setBackground(Color.yellow);
+		
+		processPanel.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {}
@@ -43,16 +53,16 @@ public class ProcessTabBar extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				observer.setDisplayArea("process");
-				processLabel.setBackground(Color.yellow);
-				serviceLabel.setBackground(null);
-				taskLabel.setBackground(null);
+				processPanel.setBackground(Color.yellow);
+				servicePanel.setBackground(null);
+				taskPanel.setBackground(null);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {}
 		});
 		
-		serviceLabel.addMouseListener(new MouseListener() {
+		servicePanel.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {}
@@ -66,16 +76,16 @@ public class ProcessTabBar extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				observer.setDisplayArea("service");
-				serviceLabel.setBackground(Color.yellow);
-				processLabel.setBackground(null);
-				taskLabel.setBackground(null);
+				servicePanel.setBackground(Color.yellow);
+				processPanel.setBackground(null);
+				taskPanel.setBackground(null);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {}
 		});
 		
-		taskLabel.addMouseListener(new MouseListener() {
+		taskPanel.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {}
@@ -89,18 +99,18 @@ public class ProcessTabBar extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				observer.setDisplayArea("task");
-				taskLabel.setBackground(Color.yellow);
-				processLabel.setBackground(null);
-				serviceLabel.setBackground(null);
+				taskPanel.setBackground(Color.yellow);
+				processPanel.setBackground(null);
+				servicePanel.setBackground(null);
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {}
 		});
 		
-		add(processLabel);
-		add(serviceLabel);
-		add(taskLabel);
+		add(processPanel);
+		add(servicePanel);
+		add(taskPanel);
 
 		setLayout(new FlowLayout());
 	}
