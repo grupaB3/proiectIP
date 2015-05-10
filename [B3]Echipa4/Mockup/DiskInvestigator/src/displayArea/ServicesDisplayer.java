@@ -1,5 +1,9 @@
 package displayArea;
 
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class ServicesDisplayer extends JPanel {
@@ -11,6 +15,8 @@ public class ServicesDisplayer extends JPanel {
 	}
 	
 	private void initUI() {
-		
+		setBackground(Color.magenta);
+		setPreferredSize(new Dimension(70, 40));
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	}
 }

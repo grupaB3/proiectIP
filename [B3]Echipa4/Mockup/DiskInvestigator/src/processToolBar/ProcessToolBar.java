@@ -23,14 +23,16 @@ public class ProcessToolBar extends JToolBar {
 		processesBar.add(processCheck.getCheckButton());
 		processesBar.add(new JLabel("                 "));
 		processesBar.add(processScan.getEndButton());
+		processesBar.setFloatable(false);
 		processesBar.setVisible(false);
 		
 		tasksBar.add(new JLabel("                 "));
 		tasksBar.add(processScan.getNewTaskButton());
+		tasksBar.setFloatable(false);
 		tasksBar.setVisible(false);
 		
 		servicesBar.add(new JLabel("                 "));
-		servicesBar.add(processScan.getNewTaskButton());
+		servicesBar.setFloatable(false);
 		servicesBar.setVisible(false);
 		
 		add(processesBar);

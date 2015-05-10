@@ -19,7 +19,7 @@ public class AreaOfDisplay extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		
 		add(orderArea, BorderLayout.NORTH);
-		
+		add(servicesArea, BorderLayout.CENTER);
 		//setBackground(Color.blue);
 	}
 	
