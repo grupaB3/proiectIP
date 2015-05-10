@@ -34,16 +34,20 @@ public class OrderFiles extends JPanel {
 		
 		JSplitPane splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, status, path);
 	    splitPane1.setDividerSize(2);
-	    //splitPane1.setDividerLocation(0.5);
+	    splitPane1.setDividerLocation(0.5);
+	    splitPane1.setResizeWeight(0.5);
 		JSplitPane splitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, size, splitPane1);
-	    //splitPane2.setDividerLocation(0.4);
+	    splitPane2.setDividerLocation(0.5);
 	    splitPane2.setDividerSize(2);
+	    splitPane2.setResizeWeight(0.5);
 	    JSplitPane splitPane3 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, extension, splitPane2);
-	    //splitPane3.setDividerLocation(0.4);
+	    splitPane3.setDividerLocation(0.5);
 	    splitPane3.setDividerSize(2);
+	    splitPane3.setResizeWeight(0.5);
 	    JSplitPane splitPane4 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, name, splitPane3);
-	    //splitPane4.setDividerLocation(0.4);
+	    splitPane4.setDividerLocation(0.5);
 	    splitPane4.setDividerSize(2);
+	    splitPane4.setResizeWeight(0.5);
 	    
 		add(splitPane4, BorderLayout.LINE_START);
 	}

@@ -1,31 +1,33 @@
 package items;
 
 public class Process {
-	private String Name, UserName, memory;
-	private int CPU;
+	private String name, sessionName;
+	private double memory;
+	private int PID;
 	
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
-	public String getUserName() {
-		return UserName;
+	public String getSessionName() {
+		return sessionName;
 	}
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setSessionName(String sessionName) {
+		this.sessionName = sessionName;
 	}
-	public String getMemory() {
+	public double getMemory() {
 		return memory;
 	}
-	public void setMemory(String memory) {
+	public void setMemory(double memory) {
 		this.memory = memory;
 	}
-	public int getCPU() {
-		return CPU;
+	public int getPID() {
+		return PID;
 	}
-	public void setCPU(int cPU) {
-		CPU = cPU;
+	public void setPID(int pID) {
+		PID = pID;
 	}
+
 }

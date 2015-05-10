@@ -1,31 +1,31 @@
 package items;
 
 public class Service {
-	private String Name, Description, Status;
-	private int PID;
+	private String name, type, status, startupType;
 	
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
-	public String getDescription() {
-		return Description;
-	}
-	public void setDescription(String description) {
-		Description = description;
-	}
+	
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
-	public int getPID() {
-		return PID;
+	public String getType() {
+		return type;
 	}
-	public void setPID(int pID) {
-		PID = pID;
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getStartupType() {
+		return startupType;
+	}
+	public void setStartupType(String startupType) {
+		this.startupType = startupType;
 	}
 }
