@@ -1,6 +1,5 @@
 package displayArea;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -19,11 +18,15 @@ public class FilesDisplayer extends JPanel {
 	
 	private void initUI() {
 		
+		JPanel space = new JPanel();
+		space.setPreferredSize(new Dimension(2, 450));
+		
+		add(space);
 		add(fileListArea);
 		add(fileInfoArea);
 		
 		//setBackground(Color.cyan);
-		setPreferredSize(new Dimension(900, 450));
+		setPreferredSize(new Dimension(898, 450));
 		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 	}
 }
