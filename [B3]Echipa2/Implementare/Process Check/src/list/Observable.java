@@ -13,6 +13,5 @@ public abstract class Observable {
 	
 	public void getAll(){}
 	public void update(){}
-	public void showActivity(){}
 	public void showProcess(){}
 }

@@ -1,11 +1,12 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import list.ProcessListDangerous;
 import list.ProcessListSecure;
 import list.ProcessListSuspicious;
-import model.FileList;
+import model.Proces;
 import model.SecureDelete;
 
 public class Controller {
@@ -13,15 +14,13 @@ public class Controller {
 	private ProcessListSecure safeProcesses;
 	private ProcessListSuspicious suspiciousProcesses;
 	private ProcessListDangerous dangerousProcesses;
-	private FileList files;
 	
 	
-	public Controller (SecureDelete destroyer,ProcessListSecure safeProcesses,ProcessListSuspicious suspiciousProcesses,ProcessListDangerous dangerousProcesses,FileList files){
+	public Controller (SecureDelete destroyer,ProcessListSecure safeProcesses,ProcessListSuspicious suspiciousProcesses,ProcessListDangerous dangerousProcesses){
 		this.destroyer = destroyer;
 		this.safeProcesses = safeProcesses;
 		this.suspiciousProcesses = suspiciousProcesses;
 		this.dangerousProcesses = dangerousProcesses;
-		this.files = files;
 	}
 	
 	public boolean deleteFile(String path) throws IOException{
@@ -32,9 +31,6 @@ public class Controller {
 		safeProcesses.showProcess();
 	}
 	
-	public void showFiles(){
-		files.showFiles();
-	}
 	
 	public void showProcessesSuspicious(){
 		suspiciousProcesses.showProcess();
@@ -44,35 +40,17 @@ public class Controller {
 		dangerousProcesses.showProcess();
 	}
 	
-	public void scanProcess(int pid){}
+	public void scanProcess(int pid){
+		
+	}
 	
-	public void safeProcessesActivity(){
-		safeProcesses.showActivity();
+	public List<Proces> safeProcessesActivity() throws Exception{
+		return safeProcesses.showActivity();
 	}
-	public void suspiciousProcessesActivity(){
-		suspiciousProcesses.showActivity();
-	}
+	
 	public void dangerousProcessesActivity(){
 		dangerousProcesses.showActivity();
 	}
 	
-	public void startMonitoringSafe(){
-		safeProcesses.startMonitoring();
-	}
-	public void startMonitoringSuspicious(){
-		suspiciousProcesses.startMonitoring();
-	}
-	public void startMonitoringDangerous(){
-		dangerousProcesses.startMonitoring();
-	}
-	
-	public void stopMonitoringSafe(){
-		safeProcesses.stopMonitoring();
-	}
-	public void stopMonitoringSuspicious(){
-		suspiciousProcesses.stopMonitoring();
-	}
-	public void stopMonitoringDangerous(){
-		dangerousProcesses.stopMonitoring();
-	}
 }
+

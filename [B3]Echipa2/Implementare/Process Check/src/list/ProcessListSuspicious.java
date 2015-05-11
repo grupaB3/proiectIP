@@ -1,28 +1,42 @@
 package list;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import check.DigitalSignatureChecker;
+import model.DigitalSignature;
 
 public class ProcessListSuspicious extends Observable {
-	private boolean monitoring;
+	
 	public ProcessListSuspicious(List<Process> allProcesses) {
 		super(allProcesses);
-		this.monitoring = false;
 	}
 	
-	public boolean isMonitoring() {
-		return monitoring;
+	public List<DigitalSignature> scan(int[] listPID) throws IOException, InterruptedException
+	{
+		DigitalSignatureChecker analyzer = new DigitalSignatureChecker();
+		DigitalSignature process = new DigitalSignature();
+		List<DigitalSignature> list = new ArrayList();
+		for(int i=0;i<listPID.length;i++){
+			process = analyzer.check(listPID[i]);
+			if(process != null)
+				list.add(process);
+		}
+		return list;
 	}
 	
-	public void scan(Process proces){}
-	
-	public Process findProcess(Process proces){
-		return proces;}
-	public void showActivity(){}
-	
-	public void startMonitoring(){
-		this.monitoring = true;
+	public List<DigitalSignature> scan(List<String> listPath) throws IOException, InterruptedException
+	{
+		DigitalSignatureChecker analyzer = new DigitalSignatureChecker();
+		DigitalSignature process = new DigitalSignature();
+		List<DigitalSignature> list = new ArrayList();
+		for(String s : listPath){
+			process = analyzer.check(s);
+			if(process != null)
+				list.add(process);
+		}
+		return list;
 	}
-	public void stopMonitoring(){
-		this.monitoring = false;
-	}
+	
+	
 }

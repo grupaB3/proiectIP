@@ -36,5 +36,5 @@ public class SecureDelete
 			file.delete();
 		}
 		return false;
-		}
+	}
 }

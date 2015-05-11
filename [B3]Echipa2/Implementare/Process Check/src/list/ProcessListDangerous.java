@@ -1,29 +1,47 @@
 package list;
 
+import java.util.ArrayList;
 import java.util.List;
+import check.ProcessAnalyzer;
+import model.MaliciousProcess;
 
 public class ProcessListDangerous extends Observable {
 
-	private boolean monitoring;
+	
 	public ProcessListDangerous(List<Process> allProcesses) {
 		super(allProcesses);
 	}
 
-	public boolean isMonitoring() {
-		return monitoring;
+	public List<MaliciousProcess> scan(int[] listPID)
+	{
+		ProcessAnalyzer analyzer = new ProcessAnalyzer();
+		MaliciousProcess process = new MaliciousProcess();
+		List<MaliciousProcess> list = new ArrayList();
+		for(int i=0;i<listPID.length;i++){
+			process = analyzer.analyzeProcess(listPID[i]);
+			if(process != null)
+				list.add(process);
+		}
+		return list;
+		
 	}
 	
+	public List<MaliciousProcess> scan(List<String> listPath)
+	{
+		ProcessAnalyzer analyzer = new ProcessAnalyzer();
+		MaliciousProcess process = new MaliciousProcess();
+		List<MaliciousProcess> list = new ArrayList();
+		for(String p : listPath){
+			process = analyzer.analyzeFile(p);
+			if(process != null)
+				list.add(process);
+		}
+		return list;
+		
+	}
 	public Process findProcess(Process proces){
 		return proces;}
-	public void showActivity(){}
-	public boolean suspend(Process proces){
-		return monitoring;}
-	public void scan(Process proces){}
 	
-	public void startMonitoring(){
-		this.monitoring = true;
-	}
-	public void stopMonitoring(){
-		this.monitoring = false;
-	}
+	public void showActivity(){}
+	
 }
