@@ -10,15 +10,21 @@ public class FileTabBar extends JPanel {
 
 	private static final long serialVersionUID = 5081671752495077597L;
 	
-	private JLabel fileLabel = new JLabel("     Files     ");
 	protected FileTabBar() {
 		initUI();
 	}
 	
 	private void initUI() {
+		
+		JLabel fileLabel = new JLabel("Files");
 		fileLabel.setOpaque(true);
-		fileLabel.setBackground(Color.yellow);
-		add(fileLabel);
-		setPreferredSize(new Dimension(70, 30));
+		fileLabel.setBackground(new Color(255, 178, 102));
+		
+		JPanel filePanel = new JPanel();
+		filePanel.add(fileLabel);
+		filePanel.setBackground(new Color(255, 178, 102));
+		filePanel.setPreferredSize(new Dimension(70, 30));
+		
+		add(filePanel);
 	}
 }

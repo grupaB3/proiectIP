@@ -24,13 +24,13 @@ public class DiskInvestigatorWindow extends JFrame{
 	
 	public void windowInit() {
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();
-		mainDisplayArea.setPreferredSize(new Dimension(1000, 550));
+		mainDisplayArea.setPreferredSize(new Dimension(900, 450));
 		TabObserver observerTab = new TabObserver(mainDisplayArea);
 		MainTabBar tabBar = new MainTabBar(observerTab);
-		tabBar.setPreferredSize(new Dimension(1000, 40));
+		tabBar.setPreferredSize(new Dimension(900, 40));
 		BackObserver observerBack = new BackObserver(tabBar, mainDisplayArea);
 		ToolBar toolBar = new ToolBar(observerBack);
-		toolBar.setPreferredSize(new Dimension(100, 70));
+		toolBar.setPreferredSize(new Dimension(100, 60));
 		observerTab.setToolBar(toolBar);
 		MenuObserver observer = new MenuObserver(toolBar, tabBar, mainDisplayArea);
 		MenuBar menuBar = new MenuBar(observer);	
@@ -41,7 +41,7 @@ public class DiskInvestigatorWindow extends JFrame{
 		add(new JSeparator(), BorderLayout.LINE_START);
 		add(mainDisplayArea, BorderLayout.PAGE_END);
 		setTitle("Disk Investigator");
-		setSize(1000, 700);
+		setSize(900, 600);
 		setResizable(false);
 		setVisible(true);
 

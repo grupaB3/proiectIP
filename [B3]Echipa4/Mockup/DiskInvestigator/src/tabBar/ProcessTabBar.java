@@ -32,12 +32,16 @@ public class ProcessTabBar extends JPanel {
 		
 		JPanel processPanel = new JPanel();
 		processPanel.add(processLabel);
+		processPanel.setPreferredSize(new Dimension(70, 30));
 		JPanel servicePanel = new JPanel();
 		servicePanel.add(serviceLabel);
+		servicePanel.setPreferredSize(new Dimension(70, 30));
 		JPanel taskPanel = new JPanel();
 		taskPanel.add(taskLabel);
+		taskPanel.setPreferredSize(new Dimension(70, 30));
 		
-		processPanel.setBackground(Color.yellow);
+		processPanel.setBackground(new Color(255, 178, 102));
+		processLabel.setBackground(new Color(255, 178, 102));
 		
 		processPanel.addMouseListener(new MouseListener() {
 
@@ -53,9 +57,12 @@ public class ProcessTabBar extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				observer.setDisplayArea("process");
-				processPanel.setBackground(Color.yellow);
+				processPanel.setBackground(new Color(255, 178, 102));
+				processLabel.setBackground(new Color(255, 178, 102));
 				servicePanel.setBackground(null);
+				serviceLabel.setBackground(null);
 				taskPanel.setBackground(null);
+				taskLabel.setBackground(null);
 			}
 
 			@Override
@@ -76,9 +83,12 @@ public class ProcessTabBar extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				observer.setDisplayArea("service");
-				servicePanel.setBackground(Color.yellow);
+				servicePanel.setBackground(new Color(255, 178, 102));
+				serviceLabel.setBackground(new Color(255, 178, 102));
 				processPanel.setBackground(null);
+				processLabel.setBackground(null);
 				taskPanel.setBackground(null);
+				taskLabel.setBackground(null);
 			}
 
 			@Override
@@ -99,9 +109,12 @@ public class ProcessTabBar extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				observer.setDisplayArea("task");
-				taskPanel.setBackground(Color.yellow);
+				taskPanel.setBackground(new Color(255, 178, 102));
+				taskLabel.setBackground(new Color(255, 178, 102));
 				processPanel.setBackground(null);
+				processLabel.setBackground(null);
 				servicePanel.setBackground(null);
+				serviceLabel.setBackground(null);
 			}
 
 			@Override
