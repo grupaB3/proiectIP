@@ -15,6 +15,6 @@ public class ProcessInfoArea extends JPanel {
 	
 	private void initUI() {
 		setBackground(Color.gray);
-		setPreferredSize(new Dimension(278, 450));
+		setPreferredSize(new Dimension(276, 450));
 	}
 }

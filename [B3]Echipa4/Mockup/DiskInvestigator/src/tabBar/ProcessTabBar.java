@@ -15,6 +15,13 @@ public class ProcessTabBar extends JPanel {
 	private static final long serialVersionUID = -2764060480869773897L;
 	
 	private TabObserver observer = null;
+	JLabel processLabel = new JLabel("Processes");
+	JLabel serviceLabel = new JLabel("Services");
+	JLabel taskLabel = new JLabel("Tasks");
+	
+	JPanel processPanel = new JPanel();
+	JPanel servicePanel = new JPanel();
+	JPanel taskPanel = new JPanel();
 	
 	protected ProcessTabBar(TabObserver observer) {
 		this.observer = observer;
@@ -23,20 +30,17 @@ public class ProcessTabBar extends JPanel {
 	
 	private void initUI() {
 		
-		JLabel processLabel = new JLabel("Processes");
-		processLabel.setOpaque(true);
-		JLabel serviceLabel = new JLabel("Services");
+		
+		processLabel.setOpaque(true);	
 		serviceLabel.setOpaque(true);
-		JLabel taskLabel = new JLabel("Tasks");
 		taskLabel.setOpaque(true);
 		
-		JPanel processPanel = new JPanel();
 		processPanel.add(processLabel);
 		processPanel.setPreferredSize(new Dimension(70, 30));
-		JPanel servicePanel = new JPanel();
+		
 		servicePanel.add(serviceLabel);
 		servicePanel.setPreferredSize(new Dimension(70, 30));
-		JPanel taskPanel = new JPanel();
+		
 		taskPanel.add(taskLabel);
 		taskPanel.setPreferredSize(new Dimension(70, 30));
 		
@@ -126,5 +130,14 @@ public class ProcessTabBar extends JPanel {
 		add(taskPanel);
 
 		setLayout(new FlowLayout());
+	}
+
+	public void selectProcessTab() {
+		servicePanel.setBackground(null);
+		serviceLabel.setBackground(null);
+		processPanel.setBackground(new Color(255, 178, 102));
+		processLabel.setBackground(new Color(255, 178, 102));
+		taskPanel.setBackground(null);
+		taskLabel.setBackground(null);
 	}
 }

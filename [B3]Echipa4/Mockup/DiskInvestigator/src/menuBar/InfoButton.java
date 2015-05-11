@@ -30,7 +30,7 @@ public class InfoButton extends JFrame {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
-		setSize(400, screenHeight);
+		setSize(350, screenHeight);
 		setLocationRelativeTo(null);
 		setLocation(screenWidth - getWidth(), screenHeight - getHeight());
 	}

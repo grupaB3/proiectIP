@@ -19,11 +19,15 @@ public class ServicesDisplayer extends JPanel {
 	
 	private void initUI() {
 		
+		JPanel space = new JPanel();
+		space.setPreferredSize(new Dimension(2, 450));
+		
+		add(space);
 		add(serviceListArea);
 		add(processInfoArea);
 		
 		//setBackground(Color.magenta);
-		setPreferredSize(new Dimension(900, 450));
+		setPreferredSize(new Dimension(898, 450));
 		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 	}
 }

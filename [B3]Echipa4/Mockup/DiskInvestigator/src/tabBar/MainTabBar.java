@@ -46,6 +46,7 @@ public class MainTabBar extends JPanel {
 			case "process":
 				fileTabBar.setVisible(false);
 				processTabBar.setVisible(true);
+				processTabBar.selectProcessTab();
 				observer.setDisplayArea("process");
 				break;	
 		}
