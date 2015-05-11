@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
-import javax.swing.JSeparator;
 
 import displayArea.AreaOfDisplay;
 import observers.BackObserver;
@@ -38,7 +37,6 @@ public class DiskInvestigatorWindow extends JFrame{
 		setJMenuBar(menuBar);
 		add(toolBar, BorderLayout.NORTH);
 		add(tabBar, BorderLayout.CENTER);
-		add(new JSeparator(), BorderLayout.LINE_START);
 		add(mainDisplayArea, BorderLayout.PAGE_END);
 		setTitle("Disk Investigator");
 		setSize(900, 600);
