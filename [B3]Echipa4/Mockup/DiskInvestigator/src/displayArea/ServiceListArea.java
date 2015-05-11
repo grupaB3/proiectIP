@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JViewport;
-import javax.swing.SwingConstants;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -52,10 +52,21 @@ public class ServiceListArea extends JScrollPane {
 		table.getColumnModel().getColumn(2).setMinWidth(70);
 		table.getColumnModel().getColumn(3).setMinWidth(100);
 		
+		table.setShowGrid(false);
+	    table.setShowVerticalLines(true);
+	    table.setGridColor(new Color(198, 168, 138));
+	    
+	    /*table.setCellSelectionEnabled(true);
+	    table.setColumnSelectionAllowed(false);
+	    table.setRowSelectionAllowed(false);
+	    ListSelectionModel rowSelectionModel = table.getSelectionModel();
+	    rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	    table.setSelectionBackground(Color.red);*/
+		
 		getViewport().add(table);
 		getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
 		
-		setBackground(Color.gray);
+		//setBackground(Color.gray);
 		setPreferredSize(new Dimension(620, 450));
 	}
 }
