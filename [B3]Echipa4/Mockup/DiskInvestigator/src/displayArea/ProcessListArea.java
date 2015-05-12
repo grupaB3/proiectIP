@@ -27,11 +27,11 @@ public class ProcessListArea extends JScrollPane {
 		//setBackground(Color.cyan);
 		setPreferredSize(new Dimension(620, 450));
 		
-		String[] columnNames = {"Name", "Session Name", "Pid", "Memory"};
-		Object[][] data = { {"Name1", "Session Name1", "Pid4", "4"},
-							{"Name2", "Session Name4", "Pid2", "1"},
-							{"Name3", "Session Name3", "Pid3", "3"},
-							{"Name4", "Session Name2", "Pid1", "2"}};
+		String[] columnNames = {" Name", " Session Name", " Pid", " Memory"};
+		Object[][] data = { {" Name1", " Session Name1", " Pid4", " 4"},
+							{" Name2", " Session Name4", " Pid2", " 1"},
+							{" Name3", " Session Name3", " Pid3", " 3"},
+							{" Name4", " Session Name2", " Pid1", " 2"}};
 
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
@@ -70,6 +70,7 @@ public class ProcessListArea extends JScrollPane {
 	table.setForeground(Color.black);
 	table.setShowGrid(false);
 	table.setShowVerticalLines(true);
+	table.setGridColor(new Color(198, 168, 138));
 	
 	TableRowSorter<TableModel>sorter=new TableRowSorter<TableModel>(model);
 	table.setRowSorter(sorter);

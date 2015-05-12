@@ -14,10 +14,10 @@ import javax.swing.table.DefaultTableModel;
 public class FileListArea extends JScrollPane {
 
 	private static final long serialVersionUID = -2809884889360505234L;
-	private String[] columnNames = {"Name","Extension","Size","Status"};
+	private String[] columnNames = {" Name"," Extension"," Size"," Status"};
 	private Object[][] data = {
-	        {"row1", "row1","row1", "row1"},
-	        {"row1", "row1","row1", "row1"}};
+	        {" row1", " row1"," row1", " row1"},
+	        {" row1", " row1"," row1", " row1"}};
 	protected FileListArea() {
 		initUI();
 	}

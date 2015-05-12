@@ -19,17 +19,17 @@ public class ServiceListArea extends JScrollPane {
 	
 	private void initUI() {
 		
-		String[] columnNames = {"Name",
-				                "Type",
-				                "Status",
-				                "Description"};
-		Object[][] data = { {"Service1", "Type1", "Stopped", "This is service1"},
-							{"Service2", "Type2", "Running", "This is service2"},
-							{"Service3", "Type3", "Stopped", "This is service3"},
-							{"Service4", "Type1", "Running", "This is service4"},
-							{"Service5", "Type3", "Running", "This is service5"},
-							{"Service6", "Type4", "Stopped", "This is service6"},
-							{"Service7", "Type2", "Stopped", "This is service7"}};
+		String[] columnNames = {" Name",
+				                " Type",
+				                " Status",
+				                " Description"};
+		Object[][] data = { {" Service1", " Type1", " Stopped", " This is service1"},
+							{" Service2", " Type2", " Running", " This is service2"},
+							{" Service3", " Type3", " Stopped", " This is service3"},
+							{" Service4", " Type1", " Running", " This is service4"},
+							{" Service5", " Type3", " Running", " This is service5"},
+							{" Service6", " Type4", " Stopped", " This is service6"},
+							{" Service7", " Type2", " Stopped", " This is service7"}};
 		
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
