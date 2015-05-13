@@ -47,7 +47,7 @@ public class ProcessAnalyzer {
 			parser.next();parser.next();parser.next();
 			aux = parser.next().replace("\"",	"");
 			if(!aux.equals("Unknown")){
-				String[] detection = parser.next().replace("\"", "").split("\\|");
+				String[] detection = aux.replace("\"", "").split("\\|");
 				testsFailed = Integer.parseInt(detection[0]);
 				numberOfTests = Integer.parseInt(detection[1]);
 			}
