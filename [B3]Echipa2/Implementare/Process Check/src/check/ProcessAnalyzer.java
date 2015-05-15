@@ -12,6 +12,7 @@ public class ProcessAnalyzer {
 	public MaliciousProcess analyzeProcess(int pID){
 			try {
 				String execPath = getExecutablePath(pID);
+				System.out.println(execPath);
 				return analyzeFile(execPath);
 			} catch (IOException | InterruptedException e) {
 				return null;
@@ -54,6 +55,7 @@ public class ProcessAnalyzer {
 			parser.close();
 			return new MaliciousProcess(fileName, verified, publisher, description, product, numberOfTests, testsFailed);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

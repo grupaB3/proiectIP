@@ -72,12 +72,9 @@ public class DigitalSignature
 		this.fileVerison = fileVerison;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
-
 	public void setName(String name) {
 		this.name = name;
 	}

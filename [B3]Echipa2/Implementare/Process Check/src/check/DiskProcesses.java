@@ -63,8 +63,8 @@ public class DiskProcesses {
             	}
             	if(contor%7 ==0){
             		
-            		Proces newProcess = new Proces (Name, Integer.parseInt(pID), Integer.parseInt(ReadOpCount),
-            				Integer.parseInt(ReadTransferCount),Integer.parseInt(WriteOperationCount),Integer.parseInt(WriteTransferCount));
+            		Proces newProcess = new Proces();
+            		newProcess.setActivity(Name, Integer.parseInt(pID), ReadTransferCount,ReadOpCount,WriteTransferCount,WriteOperationCount);
             		listaProcese.add(newProcess);
             		contor++;
             	}

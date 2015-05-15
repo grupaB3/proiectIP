@@ -9,7 +9,7 @@ public class SecureDelete
 {
 	public boolean delete(String path) throws IOException{
 		File file = new File(path);
-		if(file.isFile()){
+		if(file.isFile() && file.exists() ){
 			long length = file.length();
 			SecureRandom random = new SecureRandom();
 			RandomAccessFile raf = new RandomAccessFile(file,"rws");
@@ -28,12 +28,13 @@ public class SecureDelete
 		}
 		else
 		{
-			if(file.isDirectory()){
+			if(file.isDirectory() && file.exists()){
 				File[] list = file.listFiles();
 				for(File f:list)
 					delete(f.getAbsolutePath());
 			}
-			file.delete();
+			if(file.exists())
+				file.delete();
 		}
 		return false;
 	}

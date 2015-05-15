@@ -13,6 +13,7 @@ public class DigitalSignatureChecker
 		try {
 			String exectPath = getExecutablePath(pID);
 			String sigcheckPath = this.getClass().getResource("sigcheck.exe").getPath().substring(1);
+			System.out.println(sigcheckPath);
 			String command = "\""+ sigcheckPath + "\" " + exectPath + "\"";
 			Process systemCommand = Runtime.getRuntime().exec(command);
 			systemCommand.waitFor();

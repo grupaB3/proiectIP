@@ -1,7 +1,5 @@
 package model;
 
-import java.util.List;
-
 public class Proces {
 
 	private String name;
@@ -10,18 +8,30 @@ public class Proces {
 	private int sessionNo;
 	private String status;
 	private double memoryUsage;
-	private int readBites;
-	private int writtenBites;
-	private int readTransferBites;
-	private int writtenTransferBites;
-	private List<String> readsFromThreads;
-	private List<String> writesToThreads;
+	private String readBites;
+	private String writtenBites;
+	private String readTransferBites;
+	private String writtenTransferBites;
 
-	public Proces() {
+	public Proces(String name,int PID,String sessionName,int sessionNo,String status,double memoryUsage,String readBites,
+			String writtenBites,String readTransferBites,String writtenTransferBites) {
+		this.name = name;
+		this.PID = PID;
+		this.sessionName = sessionName;
+		this.sessionNo = sessionNo;
+		this.status = status;
+		this.memoryUsage = memoryUsage;
+		this.readBites = readBites;
+		this.writtenBites = writtenBites;
+		this.readTransferBites = readTransferBites;
+		this.writtenTransferBites = writtenTransferBites;
 	}
+	
+	
+	public Proces(){}
+	
 
-	public Proces(String name, int pID, int readBites, int readTransferBites, int writtenBites, int writtenTransferBites) {
-		super();
+	public void setActivity(String name, int pID, String readBites, String readTransferBites, String writtenBites, String writtenTransferBites) {
 		this.name = name;
 		this.PID = pID;
 		this.readBites = readBites;
@@ -79,37 +89,22 @@ public class Proces {
 		this.memoryUsage = memoryUsage;
 	}
 
-	public int getReadBites() {
+	public String getReadBites() {
 		return readBites;
 	}
 
-	public void setReadBites(int readBites) {
+	public void setReadBites(String readBites) {
 		this.readBites = readBites;
 	}
 
-	public int getWrittenBites() {
+	public String getWrittenBites() {
 		return writtenBites;
 	}
 
-	public void setWrittenBites(int writtenBites) {
+	public void setWrittenBites(String writtenBites) {
 		this.writtenBites = writtenBites;
 	}
 
-	public List<String> getReadsFromThreads() {
-		return readsFromThreads;
-	}
-
-	public void setReadsFromThreads(List<String> readsFromThreads) {
-		this.readsFromThreads = readsFromThreads;
-	}
-
-	public List<String> getWritesToThreads() {
-		return writesToThreads;
-	}
-
-	public void setWritesToThreads(List<String> writesToThreads) {
-		this.writesToThreads = writesToThreads;
-	}
 
 	@Override
 	public String toString() {
@@ -118,25 +113,25 @@ public class Proces {
 	}
 	
 	public String showActivity(){
-		int total = writtenBites + readBites;
+		int total = Integer.parseInt(writtenBites) + Integer.parseInt(readBites);
 		return "Process [name="+ name + ", PID=" + PID + ", Read(B/sec)=" + readBites + ",Write(B/sec)=" + writtenBites + ",Total(B/sec)="
 				+ total + "]";
 		
 	}
 
-	public int getReadTransferBites() {
+	public String getReadTransferBites() {
 		return readTransferBites;
 	}
 
-	public void setReadTransferBites(int readTransferBites) {
+	public void setReadTransferBites(String readTransferBites) {
 		this.readTransferBites = readTransferBites;
 	}
 
-	public int getWrittenTransferBites() {
+	public String getWrittenTransferBites() {
 		return writtenTransferBites;
 	}
 
-	public void setWrittenTransferBites(int writtenTransferBites) {
+	public void setWrittenTransferBites(String writtenTransferBites) {
 		this.writtenTransferBites = writtenTransferBites;
 	}
 
