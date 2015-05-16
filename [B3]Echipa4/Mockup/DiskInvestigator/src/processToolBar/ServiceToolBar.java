@@ -21,11 +21,11 @@ public class ServiceToolBar extends JToolBar {
 	}
 	
 	private void initializeButtons() {
-		add(new JLabel("                 "));
+		add(new JLabel("             "));
 		add(startServiceButton);
-		add(new JLabel("                 "));
+		add(new JLabel("             "));
 		add(stopServiceButton);
-		add(new JLabel("                 "));
+		add(new JLabel("             "));
 		add(startupTypeBox);
 		
 		startupTypeBox.setVisible(false);

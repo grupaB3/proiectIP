@@ -1,7 +1,5 @@
 package fileToolBar;
 
-import javax.swing.JComboBox;
-
 public class FileWorker {
     private SearchButton searchButton;
     private ShredButton shredButton;

@@ -1,7 +1,9 @@
 package mainToolBar;
 
-import java.awt.Dimension;
-
+import java.awt.Image;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class BackButton extends JButton {
@@ -9,9 +11,11 @@ public class BackButton extends JButton {
 	private static final long serialVersionUID = 7412370022553305901L;
 
 	public BackButton() {
-		super("Back");
-		setPreferredSize(new Dimension(60,40));
-		setMaximumSize(new Dimension(60,40));
-		setMinimumSize(new Dimension(60,40));
+		try {
+		    Image img = ImageIO.read(getClass().getResource("back.png"));
+		    this.setIcon(new ImageIcon(img));
+		  } catch (IOException ex) {
+		  }
+		this.setToolTipText("Back");
 	}
 }

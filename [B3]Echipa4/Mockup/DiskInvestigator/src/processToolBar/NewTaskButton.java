@@ -1,13 +1,13 @@
 package processToolBar;
 
-import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-
-import dialogs.DialogWindow;
 import displayArea.TaskListArea;
 
 
@@ -18,10 +18,12 @@ public class NewTaskButton extends JButton {
 	//private DialogWindow dialogWindow;
 	
 	protected NewTaskButton(){
-		super("New Task");
-		setPreferredSize(new Dimension(100,40));
-		setMaximumSize(new Dimension(100,40));
-		setMinimumSize(new Dimension(100,40));
+		try {
+		    Image img = ImageIO.read(getClass().getResource("startTask.png"));
+		    this.setIcon(new ImageIcon(img));
+		  } catch (IOException ex) {
+		  }
+		this.setToolTipText("New Task");
 		
 		this.addActionListener(new ActionListener() {
 			 

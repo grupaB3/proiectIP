@@ -1,8 +1,5 @@
 package displayArea;
 
-
-
-
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -36,6 +33,7 @@ public class ProcessListArea extends JScrollPane {
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 			
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public Class getColumnClass(int column){
 				Class returnValue;
 					if((column>=0)&&(column<getColumnCount())){
