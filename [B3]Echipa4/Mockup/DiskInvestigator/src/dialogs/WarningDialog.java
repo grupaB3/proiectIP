@@ -26,7 +26,7 @@ public class WarningDialog extends DialogWindow {
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setVisible(true);
 		
-		this.checkChoice();
+		//this.checkChoice();
 	}
 	
 	public void checkChoice(){
