@@ -5,12 +5,10 @@ import javax.swing.JComboBox;
 public class FileWorker {
     private SearchButton searchButton;
     private ShredButton shredButton;
-    private ShareWith shareButton;
 
     public FileWorker(){
         searchButton = new SearchButton();
-        shredButton = new ShredButton();
-        shareButton = new ShareWith();   
+        shredButton = new ShredButton();  
     }
     
     public SearchButton getSearchButton(){
@@ -19,8 +17,4 @@ public class FileWorker {
     public ShredButton getShredButton(){
     	return shredButton;
     }
-    public JComboBox<String> getShareWith(){
-    	return shareButton;
-    }
-	
 }

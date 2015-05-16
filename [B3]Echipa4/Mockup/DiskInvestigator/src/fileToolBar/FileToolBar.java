@@ -24,12 +24,10 @@ public class FileToolBar extends JToolBar{
 		add(diskScan.getRecoveryButton());
 		add(new JLabel("          "));
 		add(diskScan.getRefreshButton());
-		
-		add(new JLabel("                 "));
-		add(fileWorker.getSearchButton());
-		add(new JLabel("                 "));
+		add(new JLabel("          "));
 		add(fileWorker.getShredButton());
-		add(new JLabel("                 "));
-		add(fileWorker.getShareWith());
+		add(new JLabel("                                                                                                "));
+		add(fileWorker.getSearchButton());
+
 	}
 }

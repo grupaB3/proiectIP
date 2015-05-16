@@ -1,5 +1,6 @@
 package processToolBar;
 
+import java.awt.Dimension;
 import javax.swing.JButton;
 
 public class ProcessScanButton extends JButton{
@@ -8,5 +9,8 @@ public class ProcessScanButton extends JButton{
 
 	protected ProcessScanButton(){
 		super("Process Scan");
+		setPreferredSize(new Dimension(60,40));
+		setMaximumSize(new Dimension(60,40));
+		setMinimumSize(new Dimension(60,40));
 	}
 }
