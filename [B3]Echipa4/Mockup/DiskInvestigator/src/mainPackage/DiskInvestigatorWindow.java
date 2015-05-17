@@ -23,7 +23,7 @@ public class DiskInvestigatorWindow extends JFrame{
 	
 	public void windowInit() {
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();
-		mainDisplayArea.setPreferredSize(new Dimension(900, 450));
+		mainDisplayArea.setPreferredSize(new Dimension(900, 440));
 		TabObserver observerTab = new TabObserver(mainDisplayArea);
 		MainTabBar tabBar = new MainTabBar(observerTab);
 		tabBar.setPreferredSize(new Dimension(900, 40));
