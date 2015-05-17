@@ -37,7 +37,7 @@ public class DiskInvestigatorWindow extends JFrame{
 		setJMenuBar(menuBar);
 		add(toolBar, BorderLayout.NORTH);
 		add(tabBar, BorderLayout.CENTER);
-		add(mainDisplayArea, BorderLayout.PAGE_END);
+		add(mainDisplayArea, BorderLayout.SOUTH);
 		setTitle("Disk Investigator");
 		setSize(900, 600);
 		setResizable(false);

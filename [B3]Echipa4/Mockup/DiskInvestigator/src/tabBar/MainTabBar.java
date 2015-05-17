@@ -1,9 +1,7 @@
 package tabBar;
 
 import java.awt.FlowLayout;
-
 import javax.swing.JPanel;
-
 import observers.TabObserver;
 
 public class MainTabBar extends JPanel {
@@ -27,8 +25,7 @@ public class MainTabBar extends JPanel {
 		add(processTabBar);
 		processTabBar.setVisible(false);
 		
-		setLayout(new FlowLayout(FlowLayout.LEADING));
-		//setBackground(Color.red);
+		setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
 	}
 	
 	public void setTabBar(String option) {
