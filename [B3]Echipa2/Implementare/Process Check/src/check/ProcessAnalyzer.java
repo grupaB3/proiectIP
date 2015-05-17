@@ -7,21 +7,35 @@ import java.util.Scanner;
 
 import model.MaliciousProcess;
 
+
+/**
+ * Clasa ProcessAnalyzer ofera posibilitatea de a verifica daca un fisier sau un proces este malitios.
+ * @author Razvan
+ *
+ */
 public class ProcessAnalyzer {
 	
+	/**
+	 * Verifica daca un proces este malitios
+	 * @param pID PID procesului
+	 * @return Un obiect MaliciousProcess care contine informatii despre process. 
+	 */
 	public MaliciousProcess analyzeProcess(int pID){
 			try {
 				String execPath = getExecutablePath(pID);
-				System.out.println(execPath);
 				return analyzeFile(execPath);
 			} catch (IOException | InterruptedException e) {
 				return null;
 			}
 	}
-	
+	/**
+	 * Verifica daca un fisier este malitios
+	 * @param fileName Path-ul complet al fisierului
+	 * @return Un obiect MaliciousProcess care contine informatii despre fisier. 
+	 */
 	public MaliciousProcess analyzeFile(String fileName){
 		try {
-			String sigcheckPath = this.getClass().getResource("sigcheck.exe").getPath().substring(1);
+			String sigcheckPath = this.getClass().getResource("sigcheck.exe").getPath().replace("%20", " ").replace("%5b", "[").replace("%5d", "]").substring(1);
 			String command = "\""+sigcheckPath+"\""+" /accepteula -c -vt \""+fileName+"\"";
 			Process systemCommand = Runtime.getRuntime().exec(command);
 			systemCommand.waitFor();
@@ -55,7 +69,6 @@ public class ProcessAnalyzer {
 			parser.close();
 			return new MaliciousProcess(fileName, verified, publisher, description, product, numberOfTests, testsFailed);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return null;
 		}
 	}

@@ -7,9 +7,21 @@ import java.util.List;
 
 import model.Proces;
 
+/**
+ * Clasa DiskProcesses 
+ * @author Razvan
+ *
+ */
+
 public class DiskProcesses {
+	/**
+	 * Activitatea proceselor active cu disk-ul. Cati biti au fost scrisi sau cititi de la pornirea procesului.
+	 * @return O lista de obiecte Proces.
+	 * @throws Exception
+	 */
 	public List<Proces> showActivity() throws Exception {
 		
+		@SuppressWarnings("unused")
 		String Node,Name=null,pID = null,ReadOpCount = null, ReadTransferCount = null, WriteOperationCount = null,
 			WriteTransferCount = null;
 		

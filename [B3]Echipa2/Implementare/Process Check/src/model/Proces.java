@@ -1,5 +1,11 @@
 package model;
 
+
+/**
+ * Clasa in care sunt stocate informatiile despre un proces
+ * @author Razvan
+ *
+ */
 public class Proces {
 
 	private String name;
@@ -15,6 +21,7 @@ public class Proces {
 
 	public Proces(String name,int PID,String sessionName,int sessionNo,String status,double memoryUsage,String readBites,
 			String writtenBites,String readTransferBites,String writtenTransferBites) {
+		
 		this.name = name;
 		this.PID = PID;
 		this.sessionName = sessionName;
@@ -113,9 +120,8 @@ public class Proces {
 	}
 	
 	public String showActivity(){
-		int total = Integer.parseInt(writtenBites) + Integer.parseInt(readBites);
-		return "Process [name="+ name + ", PID=" + PID + ", Read(B/sec)=" + readBites + ",Write(B/sec)=" + writtenBites + ",Total(B/sec)="
-				+ total + "]";
+		//int total = Integer.parseInt(writtenBites) + Integer.parseInt(readBites);
+		return "Process [name="+ name + ", PID=" + PID + ", Read(B/sec)=" + readBites + ",Write(B/sec)=" + writtenBites + "]";
 		
 	}
 

@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Clasa DigitalSignature reprezinta informatii despre fisiere sau procese daca au fost semnate digitale cat si de la cine au fost semnate.
+ * @author Razvan
+ *
+ */
 public class DigitalSignature 
 {
 	private String name;

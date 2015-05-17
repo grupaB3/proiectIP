@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Clasa MaliciousProcess reprezinta informatii despre procesele care au fost scanate.
+ * Contine si informatii daca a fost semnat digital sau nu.
+ * 
+ * @author Razvan
+ *
+ */
 public class MaliciousProcess {
 	private String execPath;
 	private String verified;
@@ -52,7 +59,14 @@ public class MaliciousProcess {
 		return testsFailed;
 	}
 	
+	/**
+	 * Gradul de infectare al procesului
+	 * @return Un numar double intre 0 si 1
+	 */
+	
 	public double getDetectionRatio(){
+		if(numberOfTests==0)
+			return 0;
 		return (double)testsFailed/numberOfTests;
 	}
 }

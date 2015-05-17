@@ -5,8 +5,22 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.security.SecureRandom;
 
+/**
+ * Shred File 
+ * @author Razvan
+ *
+ */
+
+
+
 public class SecureDelete
 {
+	/**
+	 * Sterge un fisier sau un folder definitiv
+	 * @param path Path-ul complet al fisierului
+	 * @return True daca sa sters fisieru sau false daca nu s-a putut sterge
+	 * @throws IOException
+	 */
 	public boolean delete(String path) throws IOException{
 		File file = new File(path);
 		if(file.isFile() && file.exists() ){
