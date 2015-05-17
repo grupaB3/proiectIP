@@ -9,6 +9,14 @@ public class FileWorker {
         shredButton = new ShredButton();  
     }
     
+    public void setSearchButtonStatus(boolean state) {
+    	//enable-disable search box
+    }
+    
+    public void setShredButtonStatus(boolean state) {
+    	shredButton.setEnabled(state);
+    }
+    
     public SearchButton getSearchButton(){
     	return searchButton;
     }

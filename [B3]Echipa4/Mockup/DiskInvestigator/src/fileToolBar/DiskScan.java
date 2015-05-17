@@ -11,6 +11,18 @@ public class DiskScan {
         refreshButton = new RefreshButton();
     }
     
+    public void setScanButtonStatus(boolean state) {
+    	scanButton.setEnabled(state);
+    }
+    
+    public void setRecoveryButtonStatus(boolean state) {
+    	recoveryButton.setEnabled(state);
+    }
+    
+    public void setRefreshButtonStatus(boolean state) {
+    	refreshButton.setEnabled(state);
+    }
+    
     public ScanButton getScanButton(){
     	return scanButton;
     }

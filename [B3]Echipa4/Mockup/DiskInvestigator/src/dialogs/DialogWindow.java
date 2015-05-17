@@ -35,6 +35,7 @@ public class DialogWindow extends JDialog {
 	};
 	
 	DialogWindow(){
+		setDefaultLookAndFeelDecorated(true);
 		width=0;
 		height=0;
 		message="";
@@ -42,6 +43,7 @@ public class DialogWindow extends JDialog {
 	};
 
 	DialogWindow(int width, int height, String message, JDialog dialog){
+		setDefaultLookAndFeelDecorated(true);
 		this.width=width;
 		this.height=height;
 		this.message=message;
