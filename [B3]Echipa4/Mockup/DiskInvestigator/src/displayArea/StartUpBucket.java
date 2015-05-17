@@ -48,13 +48,11 @@ public class StartUpBucket extends JPanel {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				button1Label.setBackground(Color.lightGray);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				button1Label.setBackground(Color.white);
 			}
 
 			@Override
@@ -69,7 +67,6 @@ public class StartUpBucket extends JPanel {
 	    });
 		
 		button1Label_logo_banner.setPreferredSize(new Dimension(166, 30));
-		
 		button1Label_logo_image.setPreferredSize(new Dimension(80, 80));
 		
 		String logo="/displayArea/"+numeLogo;
