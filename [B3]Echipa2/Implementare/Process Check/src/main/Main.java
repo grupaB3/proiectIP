@@ -14,7 +14,7 @@ public class Main
 	public static void main(String args[]) throws Exception
 	{
 		ProcessCheck lista = new ProcessCheck();
-		int[] pidList = new int[5];
+		/*int[] pidList = new int[5];
 		pidList[0] = 4040;
 		pidList[1] = 4260;
 		pidList[2] = 123;
@@ -23,7 +23,7 @@ public class Main
 		
 		List<String> l = new ArrayList<String>();
 		l.add("d:\\Jocuri\\Origin Games\\Battlefield 3\\bf3.exe");
-		l.add("asdasdasasdasdasd");
+		l.add("asdasdasasdasdasd");*/
 		
 		
 		/*List<Proces> processList = new ArrayList();
@@ -32,7 +32,7 @@ public class Main
 		for(Proces p : processList)
 			System.out.println(p.showActivity());*/
 		
-		List<DigitalSignature> listaDigital = new ArrayList<DigitalSignature>();
+		/*List<DigitalSignature> listaDigital = new ArrayList<DigitalSignature>();
 		listaDigital = lista.verify(l);
 		
 		for(DigitalSignature d : listaDigital)
@@ -45,7 +45,7 @@ public class Main
 			System.out.println(d.getPublisher());
 			System.out.println(d.getSigningDate());
 			System.out.println(d.getProductVersion());
-		}
+		}*/
 		
 		/*List<MaliciousProcess> listaMalicious = new ArrayList<MaliciousProcess>();
 		listaMalicious = lista.scan(l);
@@ -61,5 +61,8 @@ public class Main
 			System.out.println(p.getNumberOfTests());
 			System.out.println(p.getTestsFailed());
 		}*/
+		
+		System.out.println(lista.delete("d:\\Patch_0.4.exe"));
+		
 	}
 }

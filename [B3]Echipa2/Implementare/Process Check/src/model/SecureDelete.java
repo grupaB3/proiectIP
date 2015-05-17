@@ -29,7 +29,7 @@ public class SecureDelete
 			RandomAccessFile raf = new RandomAccessFile(file,"rws");
 			raf.seek(0);
 			raf.getFilePointer();
-			byte[] data = new byte[64];
+			byte[] data = new byte[8192];
 			int position = 0;
 			while(position < length){
 				random.nextBytes(data);
