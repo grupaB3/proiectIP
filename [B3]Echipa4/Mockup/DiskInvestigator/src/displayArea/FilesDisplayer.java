@@ -13,6 +13,7 @@ public class FilesDisplayer extends JPanel {
 	private FileInfoArea fileInfoArea = new FileInfoArea();
 	
 	public FilesDisplayer() {
+		fileListArea.setFileInfoArea(fileInfoArea);
 		initUI();
 	}
 	

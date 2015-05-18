@@ -1,0 +1,74 @@
+<masterFileTable>
+   <RecordNumber MFTEntry="0">
+      <MFTEntry completePath="/./$MFT">
+         <filename physicalSize="16384" name="$MFT"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="1">
+      <MFTEntry completePath="/./$MFTMirr">
+         <filename physicalSize="4096" name="$MFTMirr"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="2">
+      <MFTEntry completePath="/./$LogFile">
+         <filename physicalSize="67108864" name="$LogFile"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="3">
+      <MFTEntry completePath="/./$Volume">
+         <filename physicalSize="0" name="$Volume"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="4">
+      <MFTEntry completePath="/./$AttrDef">
+         <filename physicalSize="36000" name="$AttrDef"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="5">
+      <MFTEntry completePath="/.">
+         <filename physicalSize="0" name="."/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="6">
+      <MFTEntry completePath="/./$Bitmap">
+         <filename physicalSize="7627936" name="$Bitmap"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="7">
+      <MFTEntry completePath="/./$Boot">
+         <filename physicalSize="8192" name="$Boot"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="8">
+      <MFTEntry completePath="/./$BadClus">
+         <filename physicalSize="0" name="$BadClus"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="9">
+      <MFTEntry completePath="/./$Secure">
+         <filename physicalSize="0" name="$Secure"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="10">
+      <MFTEntry completePath="/./$UpCase">
+         <filename physicalSize="131072" name="$UpCase"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="11">
+      <MFTEntry completePath="/./$Extend">
+         <filename physicalSize="0" name="$Extend"/>
+      </MFTEntry>
+   </RecordNumber>
+   <RecordNumber MFTEntry="12">
+      <MFTEntry completePath=""/>
+   </RecordNumber>
+   <RecordNumber MFTEntry="13">
+      <MFTEntry completePath=""/>
+   </RecordNumber>
+   <RecordNumber MFTEntry="14">
+      <MFTEntry completePath=""/>
+   </RecordNumber>
+   <RecordNumber MFTEntry="15">
+      <MFTEntry completePath=""/>
+   </RecordNumber>
+</masterFileTable>

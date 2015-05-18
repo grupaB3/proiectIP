@@ -7,16 +7,20 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.Map;
+
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JViewport;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 import diskscan.MFTEntry;
 
 public class FileListArea extends JScrollPane {
@@ -26,36 +30,42 @@ public class FileListArea extends JScrollPane {
 	private int itsColumn;
 	private boolean isMouseEnter = false;
 	private JTable table;
-	private String[] columnNames = {" Name"," Extension"," Size"," Status"};
+	private String[] columnNames = {" Name"," Extension"," Size"," Status", "Record Number"};
 	private Object[][] data;
+	private FileInfoArea fileInfoArea;
+	private Map<Integer,MFTEntry> mapMFT;
 
 	protected FileListArea() {
 		initUI();
 	}
 
 	public void setData(Map<Integer, MFTEntry> map){
-//		int size = 0;
-//		for(Map.Entry<Integer, MFTEntry> entryTest: map.entrySet()) {
-//			if(entryTest.getValue().getFileName() != null)
-//				size++;
-//		}
-//		data = new Object[size] [4];
-		data = new Object[map.size()][4];
+		//		int size = 0;
+		//		for(Map.Entry<Integer, MFTEntry> entryTest: map.entrySet()) {
+		//			if(entryTest.getValue().getFileName() != null)
+		//				size++;
+		//		}
+		//		data = new Object[size] [4];
+		
+		mapMFT=map;
+		data = new Object[map.size()][5];
 		int i = 0;
 		for(Map.Entry<Integer, MFTEntry> entry: map.entrySet()) {
 			if(entry.getValue().getFileName() != null) {
 				data[i][0] = String.valueOf(entry.getValue().getFileName().getName()).trim().replaceAll("\\s+", "");
-				data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
+				//data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
+				data[i][1]="no extension";
+				data[i][2]="0";
 				if((entry.getValue().getMftHeader().getFlags() & (1<<0)) > 0){
-					data[i][2] = "I n - u s e";
+					data[i][3] = "I n - u s e";
 				}
 				else{
-					data[i][2] = "D e l e t e d";
+					data[i][3] = "D e l e t e d";
 				}
-				data[i][3] = entry.getKey();
+				data[i][4] = entry.getKey();
 				i++;
 			}
-		} 
+		}
 		getViewport().removeAll();
 		initUI();
 	}
@@ -89,6 +99,8 @@ public class FileListArea extends JScrollPane {
 		table.getColumnModel().getColumn(1).setMinWidth(70);
 		table.getColumnModel().getColumn(2).setMinWidth(70);
 		table.getColumnModel().getColumn(3).setMinWidth(70);
+		table.getColumnModel().getColumn(4).setMinWidth(0);
+		table.getColumnModel().getColumn(4).setMaxWidth(0);
 
 		table.setDefaultRenderer(Object.class, new AttributiveCellRenderer());
 
@@ -97,8 +109,17 @@ public class FileListArea extends JScrollPane {
 
 		ListSelectionModel rowSelectionModel = table.getSelectionModel();
 		rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	}
 
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent event) {
+				if (table.getSelectedRow() > -1) {
+					//System.out.println(table.getSelectedRow());
+					fileInfoArea.setInfoRow(table, table.getSelectedRow(), mapMFT.get(table.getValueAt(table.getSelectedRow(), 4)));
+				}
+			}
+		});
+	}
 
 	public int getItsColumn() {
 		return itsColumn;
@@ -107,6 +128,15 @@ public class FileListArea extends JScrollPane {
 	public void setItsColumn(int itsColumn) {
 		this.itsColumn = itsColumn;
 	}
+
+	public FileInfoArea getFileInfoArea() {
+		return fileInfoArea;
+	}
+
+	public void setFileInfoArea(FileInfoArea fileInfoArea) {
+		this.fileInfoArea = fileInfoArea;
+	}
+
 
 	public class MyMouseAdapter extends MouseMotionAdapter {
 
