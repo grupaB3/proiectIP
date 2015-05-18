@@ -1,111 +1,235 @@
 package menuBar;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Stack;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
 
 public class InfoButton extends JFrame {
 
 	private static final long serialVersionUID = -6058326491351599146L;
-	
-	private JPanel panel = new JPanel();
-	private JScrollPane scrollPanel = new JScrollPane();
-	private JPanel searchPanel, canvasPanel, searchPanelButton, searchPanelButton_top, searchPanelButton_left, searchPanelButton_bottom, searchPanelButton_right;
-	
+	private JScrollPane displayedScrollPane=new JScrollPane();Observer observer;
+	private int currentPageNumber;
+	private Stack backButtonStack=new Stack(),forwardButtonStack=new Stack();
 	public InfoButton() {
 		super("Disk Investigator Help and Support");
 		init();
 	}
-	
-	public void setHelpLocation(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int screenHeight = screenSize.height;
-		int screenWidth = screenSize.width;
-		setSize(350, screenHeight);
-		setLocationRelativeTo(null);
-		setLocation(screenWidth - getWidth(), screenHeight - getHeight());
-	}
-	
+
 	public void init(){
-		setHelpLocation();
-		setResizable(true);
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        panel.setLayout(new BorderLayout());
-		initSearch();
-		initCanvas();
-		panel.add(searchPanel, BorderLayout.NORTH);
-        panel.add(canvasPanel);
-        scrollPanel=new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		add(scrollPanel);
-		setVisible(false);
-		
-		panel.addComponentListener(new ComponentAdapter(){
-            public void componentResized(ComponentEvent event){
-            	searchPanel.setPreferredSize(new Dimension(getWidth(), getHeight()/10));
-            }
-        });
-		
-		
+			observer = (Observable obj, Object arg) -> { 
+				updatePanel((int)arg);	
+	        };
+	        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			int screenHeight = screenSize.height;
+			int screenWidth = screenSize.width;
+			setSize(400, screenHeight);
+			setLocationRelativeTo(null);
+			setLocation(screenWidth - getWidth(), screenHeight - getHeight());
+			setResizable(true);
+			setBackground(new Color(255,255,255));
+			//setPreferredSize(new Dimension(350, screenHeight));
+			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+			setLayout(new FlowLayout(FlowLayout.LEADING));
+			//setLayout(new GridLayout());
+			this.setBackground(new Color(255,255,255));
+			add(getHeaderPanel(this.getPreferredSize()));
+			updatePanel(1);
+	    	this.addComponentListener(new ComponentAdapter(){
+	            public void componentResized(ComponentEvent event){
+            		displayedScrollPane.setPreferredSize(new Dimension(getSize().width-15,getSize().height-139));
+	            }
+			});
+	    	addWindowStateListener(new WindowAdapter() {
+	            public void windowStateChanged(WindowEvent evt) {
+	              int oldState = evt.getOldState();
+	              int newState = evt.getNewState();
+
+	              if ((oldState & Frame.ICONIFIED) == 0 && (newState & Frame.ICONIFIED) != 0) {
+	                //System.out.println("Frame was iconized");
+	              } else if ((oldState & Frame.ICONIFIED) != 0 && (newState & Frame.ICONIFIED) == 0) {
+	                //System.out.println("Frame was deiconized");
+	              }
+
+	              if ((oldState & Frame.MAXIMIZED_BOTH) == 0 && (newState & Frame.MAXIMIZED_BOTH) != 0) {
+	                updatePanel(currentPageNumber);
+	                displayedScrollPane.setSize(new Dimension(getSize().width-224,getSize().height-147));
+	                
+	              } else if ((oldState & Frame.MAXIMIZED_BOTH) != 0 && (newState & Frame.MAXIMIZED_BOTH) == 0) {
+	                updatePanel(currentPageNumber);
+	                displayedScrollPane.setSize(new Dimension(getSize().width-24,getSize().height-147));
+	              }
+	            }
+	          });
 	}
-	
-	public void initSearch(){	
-		searchPanel = new JPanel();
-		searchPanel.setLayout(new BorderLayout());
-		searchPanel.setPreferredSize(new Dimension(getWidth(), getHeight()/10));
-		searchPanel.setBackground(new Color(240, 240, 240));
-		
-		searchPanelButton_top=new JPanel();
-		searchPanelButton_top.setPreferredSize(new Dimension(getWidth(), getHeight()/10/4));
-		searchPanel.add(searchPanelButton_top, BorderLayout.NORTH);
-		
-		searchPanelButton_left=new JPanel();
-		searchPanelButton_left.setPreferredSize(new Dimension(getWidth()/5-35, getHeight()));
-		searchPanel.add(searchPanelButton_left, BorderLayout.WEST);
-		
-		searchPanelButton_bottom=new JPanel();
-		searchPanelButton_bottom.setPreferredSize(new Dimension(getWidth(), getHeight()/10/4));
-		searchPanel.add(searchPanelButton_bottom, BorderLayout.SOUTH);
-		
-		searchPanelButton_right=new JPanel();
-		searchPanelButton_right.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
-		searchPanel.add(searchPanelButton_right, BorderLayout.EAST);
+
+		private JPanel getHeaderPanel(Dimension frameSize) {
+			JPanel headerPanel=new JPanel();
+			headerPanel.setBackground(new Color(255,255,255));
+			headerPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
+			JPanel navButPanel=new JPanel();
+			navButPanel.setBackground(new Color(255,255,255));
+			navButPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
+			JButton backButton=new JButton("Back Button");
+			JButton forwardButton = new JButton("Forward Button");
+			backButton.setEnabled(false);
+			forwardButton.setEnabled(false);
+			backButton.addActionListener(new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					if(backButtonStack.isEmpty()){
+						backButton.setEnabled(false);
+					}else{
+						backButton.setEnabled(true);
+						
+					}
+				}
+			});
+			forwardButton.addActionListener(new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					if(forwardButtonStack.isEmpty()){
+						forwardButton.setEnabled(false);
+					}else{
+						forwardButton.setEnabled(true);
+					}
+				}
 				
-		searchPanelButton=new JPanel();
-		searchPanelButton.setLayout(new BorderLayout());
-		searchPanelButton.setBackground(new Color(248, 248, 248));
-		searchPanelButton.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
-		
-		JLabel textSearch = new JLabel("Search", SwingConstants.CENTER);
-		textSearch.setFont(new Font("Serif", Font.ITALIC,18));
-		textSearch.setForeground(new Color(220, 220, 220));
-		textSearch.setVerticalAlignment(SwingConstants.CENTER);
-		searchPanelButton.add(textSearch);
-		
-		searchPanel.add(searchPanelButton);
-		searchPanel.addComponentListener(new ComponentAdapter(){
-            public void componentResized(ComponentEvent event){
-            	searchPanelButton_top.setPreferredSize(new Dimension(getWidth(), getHeight()/10/4));
-            	searchPanelButton_left.setPreferredSize(new Dimension(getWidth()/5-35, getHeight()));
-            	searchPanelButton_bottom.setPreferredSize(new Dimension(getWidth(), getHeight()/10/4));
-            	searchPanelButton_right.setPreferredSize(new Dimension(getWidth()/5, getHeight()));
-            	revalidate();
-            	repaint();
-            }
-        });
-	}
-	
-	public void initCanvas(){
-		canvasPanel = new JPanel();
-		canvasPanel.setBackground(new Color(248, 248, 248));
-	}
-	
+			});
+			navButPanel.add(backButton);
+			navButPanel.add(forwardButton);
+			JPanel searchPanel=new JPanel();
+			searchPanel.setBackground(new Color(255,255,255));
+			searchPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+			JTextField searchField=new JTextField("\t                             ");
+			Border border = BorderFactory.createLineBorder(Color.BLACK);
+			searchField.setBorder(BorderFactory.createCompoundBorder(border, 
+    	            BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+			searchField.setBorder(border);
+			Font textAreaFont=new Font("Calibri",Font.PLAIN,15);
+			searchField.setFont(textAreaFont);
+			JButton searchButton=new JButton("Search Button");
+			searchPanel.add(searchField);
+			searchPanel.add(searchButton);
+			navButPanel.setPreferredSize(new Dimension(frameSize.width,40));
+			searchPanel.setPreferredSize(new Dimension(frameSize.width,40));
+			headerPanel.setPreferredSize(new Dimension(frameSize.width,90));
+			this.addComponentListener(new ComponentAdapter(){
+	            public void componentResized(ComponentEvent event){
+	            	navButPanel.setPreferredSize(new Dimension(getSize().width,40));
+	            	searchPanel.setPreferredSize(new Dimension(getSize().width,40));
+	            	headerPanel.setPreferredSize(new Dimension(getSize().width,90)); 	
+	            }
+			});
+			addWindowStateListener(new WindowAdapter() {
+	            public void windowStateChanged(WindowEvent evt) {
+	              int oldState = evt.getOldState();
+	              int newState = evt.getNewState();
+
+	              if ((oldState & Frame.ICONIFIED) == 0 && (newState & Frame.ICONIFIED) != 0) {
+	                System.out.println("Frame was iconized");
+	              } else if ((oldState & Frame.ICONIFIED) != 0 && (newState & Frame.ICONIFIED) == 0) {
+	                System.out.println("Frame was deiconized");
+	              }
+
+	              if ((oldState & Frame.MAXIMIZED_BOTH) == 0 && (newState & Frame.MAXIMIZED_BOTH) != 0) {
+	                updatePanel(currentPageNumber);
+	                displayedScrollPane.setPreferredSize(new Dimension(getSize().width-524,getSize().height-547));
+	                navButPanel.setPreferredSize(new Dimension(getSize().width,40));
+	            	searchPanel.setPreferredSize(new Dimension(getSize().width,40));
+	            	headerPanel.setPreferredSize(new Dimension(getSize().width,90));
+	                
+	              } else if ((oldState & Frame.MAXIMIZED_BOTH) != 0 && (newState & Frame.MAXIMIZED_BOTH) == 0) {
+	                updatePanel(currentPageNumber);
+	                displayedScrollPane.setPreferredSize(new Dimension(getSize().width-24,getSize().height-147));
+	                navButPanel.setPreferredSize(new Dimension(getSize().width,40));
+	            	searchPanel.setPreferredSize(new Dimension(getSize().width,40));
+	            	headerPanel.setPreferredSize(new Dimension(getSize().width,90));
+	              }
+	            }
+	          });
+			headerPanel.add(navButPanel);
+			headerPanel.add(searchPanel);
+			return headerPanel;
+		}
+
+		public void setVisible(){
+			setVisible(true);
+		}
+		private void updatePanel(int page){
+			if(page==1){
+				remove(displayedScrollPane);
+				DiskInvestigatorInfoStartupPanel panel=new DiskInvestigatorInfoStartupPanel(this.getSize(),observer);
+				displayedScrollPane=panel.getScrollPane();
+				add(displayedScrollPane);
+				currentPageNumber=1;
+				SwingUtilities.updateComponentTreeUI(this);
+			}else{
+				if(page==2){
+					remove(displayedScrollPane);
+					DiskInvestigatorInfoFilePanel panel=new DiskInvestigatorInfoFilePanel(getSize());
+					displayedScrollPane=panel.getScrollPane();
+					add(displayedScrollPane);
+					currentPageNumber=2;
+					SwingUtilities.updateComponentTreeUI(this);
+				}else{
+					if(page==3){
+						remove(displayedScrollPane);
+						DiskInvestigatorInfoProcessPanelPart1 panel=new DiskInvestigatorInfoProcessPanelPart1(this.getSize(),observer);
+						displayedScrollPane=panel.getScrollPane();
+						add(displayedScrollPane);
+						currentPageNumber=3;
+						SwingUtilities.updateComponentTreeUI(this);	
+					}else{
+						if(page==4){
+							remove(displayedScrollPane);
+							DiskInvestigatorInfoProcessPanelPart2 panel=new DiskInvestigatorInfoProcessPanelPart2(this.getSize(),observer);
+							displayedScrollPane=panel.getScrollPane();
+							add(displayedScrollPane);
+							currentPageNumber=4;
+							SwingUtilities.updateComponentTreeUI(this);	
+						}else{
+							if(page==5){
+								remove(displayedScrollPane);
+								DiskInvestigatorInfoProcessPanelPart3 panel=new DiskInvestigatorInfoProcessPanelPart3(this.getSize(),observer);
+								displayedScrollPane=panel.getScrollPane();
+								add(displayedScrollPane);
+								currentPageNumber=5;
+								SwingUtilities.updateComponentTreeUI(this);									
+							}
+						}
+					}
+				}
+			}
+			
+		}
+		public class PanelObserver implements Observer{
+			@Override
+			public void update(Observable o, Object arg) {
+				updatePanel((int)arg);	
+			}
+
+		}
 }
+

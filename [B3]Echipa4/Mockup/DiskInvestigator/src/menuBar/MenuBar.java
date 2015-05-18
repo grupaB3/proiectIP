@@ -87,7 +87,6 @@ public class MenuBar extends JMenuBar {
            public void mouseClicked(MouseEvent e) {
         	   if(e.getSource() != null)
         		   {
-        		   info.setHelpLocation();
         		   info.setVisible(true);
         		   }
            }
