@@ -1,20 +1,31 @@
 package dialogs;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import observers.FileObserver;
 
 @SuppressWarnings("serial")
 public class LoadingDialog extends DialogWindow {
-	private JOptionPane optionPane;
+	private FileObserver fileObserver;
 	
-	public LoadingDialog(){
+	public LoadingDialog(FileObserver fileObserver){
 		super();
+		setFileObserver(fileObserver);
 		this.getDialog().setModal(true);
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setModalityType(ModalityType.APPLICATION_MODAL);
@@ -32,8 +43,42 @@ public class LoadingDialog extends DialogWindow {
 		
 		Object[] options = {"Stop"};
 		
-		optionPane=new JOptionPane(message, JOptionPane.PLAIN_MESSAGE, JOptionPane.DEFAULT_OPTION, icon, options); 
-		JDialog dialog = optionPane.createDialog("Loading");
+		JPanel pane = new JPanel();
+		pane.setLayout(null);
+		pane.setMinimumSize(new Dimension(300, 100));
+		pane.setMaximumSize(new Dimension(300, 100));
+		pane.setPreferredSize(new Dimension(300, 100));
+		
+		JButton stop = new JButton("Stop");
+		stop.setBounds(125, 70, 50, 20);
+		
+		JLabel iconLabel = new JLabel(icon);
+		iconLabel.setBounds(40, 10, 50, 50);
+		
+		JLabel messageLabel = new JLabel(message);
+		messageLabel.setBounds(130, 30, 70, 15);
+		
+		pane.add(iconLabel);
+		pane.add(messageLabel);
+		pane.add(stop);
+		
+
+		JDialog dialog = new JDialog();
+		dialog.setTitle("Loading");
+		stop.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				dialog.dispose();
+				fileObserver.stopScan();
+			}
+			
+		});
+		dialog.getContentPane().add(pane);
+		dialog.pack();
+		dialog.setAlwaysOnTop(true);
+		dialog.setLocationRelativeTo(null);
+		dialog.setModal(true);
 		dialog.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		this.setDialog(dialog);
 		this.getDialog().setAlwaysOnTop(true);
@@ -54,6 +99,14 @@ public class LoadingDialog extends DialogWindow {
 	@Override
 	public void closeDialog() {
 		this.getDialog().dispose();
+	}
+
+	public FileObserver getFileObserver() {
+		return fileObserver;
+	}
+
+	public void setFileObserver(FileObserver fileObserver) {
+		this.fileObserver = fileObserver;
 	}
 	
 }

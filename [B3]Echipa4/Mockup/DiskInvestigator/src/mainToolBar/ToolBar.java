@@ -16,6 +16,7 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
 import observers.BackObserver;
+import observers.FileObserver;
 
 public class ToolBar extends JToolBar {
 
@@ -28,8 +29,7 @@ public class ToolBar extends JToolBar {
 	private BackButton backF = new BackButton();
 	private BackObserver observer = null;
 	
-	public ToolBar(BackObserver observer) {
-		this.setObserver(observer);
+	public ToolBar() {
 		
 		setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 		
@@ -107,6 +107,10 @@ public class ToolBar extends JToolBar {
 		}
 	}
 
+	public void setObserver(FileObserver fileObserver) {
+		filesToolBar.setFileObserver(fileObserver);
+	}
+	
 	public BackObserver getObserver() {
 		return observer;
 	}

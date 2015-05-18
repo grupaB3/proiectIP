@@ -9,12 +9,15 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import observers.FileObserver;
 import dialogs.LoadingDialog;
 
 
 public class ScanButton extends JButton{
 	
 	private static final long serialVersionUID = -3732017140531624631L;
+	private FileObserver fileObserver;
+	private String diskSelected;
 
 	public ScanButton(){
 		try {
@@ -33,8 +36,31 @@ public class ScanButton extends JButton{
 	
 
 	private void ScanButtonActionPerformed(ActionEvent evt) {
-		LoadingDialog loading = new LoadingDialog();
+		System.out.println("Scanning " + diskSelected);
+		fileObserver.startScan(getDiskSelected());
+		LoadingDialog loading = new LoadingDialog(getFileObserver());
 		loading.displayMessage("Scanning...");
     }
+
+
+	public FileObserver getFileObserver() {
+		return fileObserver;
+	}
+
+
+	public void setFileObserver(FileObserver fileObserver) {
+		this.fileObserver = fileObserver;
+	}
+
+
+	public String getDiskSelected() {
+		return diskSelected;
+	}
+
+
+	public void setDiskSelected(String diskSelected) {
+		this.diskSelected = diskSelected;
+		System.out.println("Selected the disk "+ getDiskSelected());
+	}
 	
 }

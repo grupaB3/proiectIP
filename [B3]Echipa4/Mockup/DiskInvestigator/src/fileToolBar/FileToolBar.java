@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
+import observers.FileObserver;
+
 public class FileToolBar extends JToolBar{
 
 	private static final long serialVersionUID = -6055582868733811684L;
@@ -36,4 +38,8 @@ public class FileToolBar extends JToolBar{
 		
 		diskBox.setButtonStatus("pre-choice");
 	}
+    
+    public void setFileObserver (FileObserver fileObserver) {
+    	diskScan.setObserver(fileObserver);
+    }
 }

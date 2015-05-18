@@ -31,6 +31,7 @@ public class DiskComboBox extends JComboBox<String> {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				diskScan.setDiskSelected(getSelectedItem().toString());
 				if(getSelectedItem().equals("") && scanned == false) {
 					setButtonStatus("pre-choice");
 				}

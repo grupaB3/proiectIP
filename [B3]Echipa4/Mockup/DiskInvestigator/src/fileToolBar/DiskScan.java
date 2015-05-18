@@ -1,5 +1,7 @@
 package fileToolBar;
 
+import observers.FileObserver;
+
 public class DiskScan {
     private ScanButton scanButton;
     private RecoveryButton recoveryButton;
@@ -9,6 +11,10 @@ public class DiskScan {
     	scanButton = new ScanButton();
         recoveryButton = new RecoveryButton();
         refreshButton = new RefreshButton();
+    }
+    
+    public void setDiskSelected(String diskName) {
+    	scanButton.setDiskSelected(diskName);
     }
     
     public void setScanButtonStatus(boolean state) {
@@ -31,5 +37,9 @@ public class DiskScan {
     }
     public RefreshButton getRefreshButton(){
     	return refreshButton;
-    }   
+    }
+
+	public void setObserver(FileObserver fileObserver) {
+		scanButton.setFileObserver(fileObserver);
+	}   
 }
