@@ -1,1 +1,0 @@
-ip5.Serializare
