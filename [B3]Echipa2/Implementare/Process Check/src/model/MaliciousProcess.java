@@ -59,6 +59,16 @@ public class MaliciousProcess {
 		return testsFailed;
 	}
 	
+	public void setNumberOfTests(int numberOfTests)
+	{
+		this.numberOfTests = numberOfTests;
+	}
+	
+	public void setTestsFailed(int setTestsFailed)
+	{
+		this.testsFailed = setTestsFailed;
+	}
+	
 	/**
 	 * Gradul de infectare al procesului
 	 * @return Un numar double intre 0 si 1

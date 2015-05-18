@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import check.DigitalSignatureChecker;
 import controller.ProcessCheck;
 import model.DigitalSignature;
 import model.MaliciousProcess;
@@ -62,7 +63,8 @@ public class Main
 			System.out.println(p.getTestsFailed());
 		}*/
 		
-		System.out.println(lista.delete("d:\\Patch_0.4.exe"));
+		//System.out.println(lista.delete("d:\\Patch_0.4.exe"));
+		
 		
 	}
 }
