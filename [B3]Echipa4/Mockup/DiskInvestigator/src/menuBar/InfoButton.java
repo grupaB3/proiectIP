@@ -1,11 +1,10 @@
 package menuBar;
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
-import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +30,7 @@ public class InfoButton extends JFrame {
 	private static final long serialVersionUID = -6058326491351599146L;
 	private JScrollPane displayedScrollPane=new JScrollPane();Observer observer;
 	private int currentPageNumber;
+	@SuppressWarnings("rawtypes")
 	private Stack backButtonStack=new Stack(),forwardButtonStack=new Stack();
 	public InfoButton() {
 		super("Disk Investigator Help and Support");

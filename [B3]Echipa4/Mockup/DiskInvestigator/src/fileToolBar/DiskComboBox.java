@@ -41,15 +41,6 @@ public class DiskComboBox extends JComboBox<String> {
 				if(!getSelectedItem().equals("")) {
 					setButtonStatus("pre-scan");
 				}
-				/*if(scanned == true && typeOfSelection == 0) {
-					setButtonStatus("unselectedFile");
-				}
-				if(scanned == true && typeOfSelection == 1) {
-					setButtonStatus("selectedNormalFile");
-				}
-				if(scanned == true && typeOfSelection == 2) {
-					setButtonStatus("selectedDeletedFile");
-				}*/
 			}
 		});
 	}
@@ -57,36 +48,11 @@ public class DiskComboBox extends JComboBox<String> {
 	public void setButtonStatus (String state) {
 		switch(state) {
 			case "pre-choice":
-				diskScan.setRecoveryButtonStatus(false);
-				diskScan.setRefreshButtonStatus(false);
 				diskScan.setScanButtonStatus(false);
 				break;
 			case "pre-scan":
-				diskScan.setRecoveryButtonStatus(false);
-				diskScan.setRefreshButtonStatus(false);
 				diskScan.setScanButtonStatus(true);
 				break;
-			/*case "unselectedFile":
-				diskScan.setRecoveryButtonStatus(false);
-				diskScan.setRefreshButtonStatus(true);
-				diskScan.setScanButtonStatus(true);
-				fileWorker.setSearchButtonStatus(true);
-				fileWorker.setShredButtonStatus(false);
-				break;
-			case "selectedNormalFile":
-				diskScan.setRecoveryButtonStatus(false);
-				diskScan.setRefreshButtonStatus(true);
-				diskScan.setScanButtonStatus(true);
-				fileWorker.setSearchButtonStatus(true);
-				fileWorker.setShredButtonStatus(true);
-				break;
-			case "selectedDeletedFile":
-				diskScan.setRecoveryButtonStatus(true);
-				diskScan.setRefreshButtonStatus(true);
-				diskScan.setScanButtonStatus(true);
-				fileWorker.setSearchButtonStatus(true);
-				fileWorker.setShredButtonStatus(true);
-				break;*/
 		}
 	}
 

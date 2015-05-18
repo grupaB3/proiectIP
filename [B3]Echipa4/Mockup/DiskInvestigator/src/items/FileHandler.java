@@ -3,6 +3,7 @@ package items;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.swing.SwingWorker;
 
@@ -12,6 +13,7 @@ import displayArea.FilesDisplayer;
 
 public class FileHandler {
 	private boolean scanned = false;
+	public AtomicInteger scannedInteger=new AtomicInteger(0);
 	private LoadingDialog loading;
 	private Scan fileScan;
 	private FilesDisplayer fileDisplayer;
@@ -31,11 +33,10 @@ public class FileHandler {
 	        	 System.out.println("Started thread for scanning. ");
 					fileScan = new Scan(getDiskName());	
 					fileScan.startScan();
-					setScanned(true);
 	            return null;
 	         }
 		};
-	      
+		
 		mySwingWorker.addPropertyChangeListener(new PropertyChangeListener() {
 
 			@Override
@@ -51,6 +52,9 @@ public class FileHandler {
 		
 	    loading.displayMessage("Scanning...");
 	    setFilesMap(fileScan.getMapMFT());
+	    
+	    setScanned(true);
+	    scannedInteger=new AtomicInteger(1);
 	    
 	    fileDisplayer.getFileListArea().setData(filesMap);
 	    

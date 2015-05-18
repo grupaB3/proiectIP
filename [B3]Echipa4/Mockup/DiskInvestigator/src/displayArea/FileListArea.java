@@ -7,7 +7,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.Map;
-
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -18,10 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-
 import diskscan.MFTEntry;
-import observers.FileObserver;
-
 
 public class FileListArea extends JScrollPane {
 
@@ -38,13 +34,13 @@ public class FileListArea extends JScrollPane {
 	}
 
 	public void setData(Map<Integer, MFTEntry> map){
-		int size = 0;
-		for(Map.Entry<Integer, MFTEntry> entryTest: map.entrySet()) {
-			if(entryTest.getValue().getFileName() != null)
-				size++;
-		}
-		data = new Object[size] [4];
-//		data = new Object[map.size()][4];
+//		int size = 0;
+//		for(Map.Entry<Integer, MFTEntry> entryTest: map.entrySet()) {
+//			if(entryTest.getValue().getFileName() != null)
+//				size++;
+//		}
+//		data = new Object[size] [4];
+		data = new Object[map.size()][4];
 		int i = 0;
 		for(Map.Entry<Integer, MFTEntry> entry: map.entrySet()) {
 			if(entry.getValue().getFileName() != null) {

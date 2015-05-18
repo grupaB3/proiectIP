@@ -7,14 +7,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import displayArea.TaskListArea;
-
 
 public class NewTaskButton extends JButton {
 
 	private static final long serialVersionUID = 8036356612846484755L;
-	private TaskListArea task = new TaskListArea();
+	//private TaskListArea task = new TaskListArea();
 	//private DialogWindow dialogWindow;
 	
 	protected NewTaskButton(){
@@ -29,11 +26,11 @@ public class NewTaskButton extends JButton {
 			 
 	        public void actionPerformed(ActionEvent e)
 	        {
-	        	String taskName;
+	        	//String taskName;
 	            //Execute when button is pressed
 	        	//dialogWindow = new DialogWindow(); ??	        	
-	        	taskName = JOptionPane.showInputDialog(null, "Enter task name:");
-	    		task.insertRow(taskName);	        	
+//	        	taskName = JOptionPane.showInputDialog(null, "Enter task name:");
+//	    		task.insertRow(taskName);	        	
 	        }
 	    }); 
 	}
