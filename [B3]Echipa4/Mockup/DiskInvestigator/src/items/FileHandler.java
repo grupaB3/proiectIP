@@ -27,15 +27,8 @@ public class FileHandler {
 	         protected Void doInBackground() throws Exception {
 
 	        	 System.out.println("Started thread for scanning. ");
-					for(int index = 0; index < 5; index ++) {
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						System.out.println(index);
-					}
-					fileScan = new Scan(diskName);				
+					fileScan = new Scan(diskName);	
+					fileScan.startScan();
 					setScanned(true);
 	            return null;
 	         }
