@@ -15,23 +15,26 @@ public class Main
 	public static void main(String args[]) throws Exception
 	{
 		ProcessCheck lista = new ProcessCheck();
-		/*int[] pidList = new int[5];
+		int[] pidList = new int[300];
 		pidList[0] = 4040;
 		pidList[1] = 4260;
 		pidList[2] = 123;
 		pidList[3] = 4088;
 		pidList[4] = 6276;
 		
-		List<String> l = new ArrayList<String>();
+		/*List<String> l = new ArrayList<String>();
 		l.add("d:\\Jocuri\\Origin Games\\Battlefield 3\\bf3.exe");
 		l.add("asdasdasasdasdasd");*/
 		
 		
-		/*List<Proces> processList = new ArrayList();
+		List<Proces> processList = new ArrayList();
 		processList = lista.showActiviy();
-		
+		int i=0;
 		for(Proces p : processList)
-			System.out.println(p.showActivity());*/
+		{
+			pidList[i]=p.getPID();
+			i++;
+		}
 		
 		/*List<DigitalSignature> listaDigital = new ArrayList<DigitalSignature>();
 		listaDigital = lista.verify(l);
@@ -48,8 +51,8 @@ public class Main
 			System.out.println(d.getProductVersion());
 		}*/
 		
-		/*List<MaliciousProcess> listaMalicious = new ArrayList<MaliciousProcess>();
-		listaMalicious = lista.scan(l);
+		List<MaliciousProcess> listaMalicious = new ArrayList<MaliciousProcess>();
+		listaMalicious = lista.scan(pidList);
 		
 		for(MaliciousProcess p : listaMalicious)
 		{
@@ -61,7 +64,7 @@ public class Main
 			System.out.println(p.getPublisher());
 			System.out.println(p.getNumberOfTests());
 			System.out.println(p.getTestsFailed());
-		}*/
+		}
 		
 		//System.out.println(lista.delete("d:\\Patch_0.4.exe"));
 		
