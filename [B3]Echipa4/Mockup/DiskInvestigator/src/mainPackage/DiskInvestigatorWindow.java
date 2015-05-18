@@ -45,6 +45,7 @@ public class DiskInvestigatorWindow extends JFrame{
 		toolBar.setPreferredSize(new Dimension(100, 60));
 		observerTab.setToolBar(toolBar);
 		MenuObserver observer = new MenuObserver(toolBar, tabBar, mainDisplayArea);
+		mainDisplayArea.getStartUp().setObserver(observer);
 		MenuBar menuBar = new MenuBar(observer);	
 		
 		setJMenuBar(menuBar);

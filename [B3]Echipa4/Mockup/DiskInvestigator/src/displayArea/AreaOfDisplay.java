@@ -76,4 +76,12 @@ public class AreaOfDisplay extends JPanel {
 	public void setFilesArea(FilesDisplayer filesArea) {
 		this.filesArea = filesArea;
 	}
+
+	public StartUpDisplayer getStartUp() {
+		return startUp;
+	}
+
+	public void setStartUp(StartUpDisplayer startUp) {
+		this.startUp = startUp;
+	}
 }
