@@ -30,6 +30,59 @@ public class MaliciousProcessTest {
 		if(testePicate !=0 && mp1.getDetectionRatio() == 0 )
 			fail("Metoda de calculare a gradului de infectare a procesului nu functioneaza!");
 	}
+	
+	@Before
+	public void testMaliciousProcess(){
+		MaliciousProcess m = new MaliciousProcess();
 		
+		if( m.getExecPath() != null)
+			fail("exec");
+		
+		if( m.getVerified() != null)
+			fail("verified");
+		
+		if( m.getPublisher() != null)
+			fail("publ");
+		
+		if( m.getDescription() != null)
+			fail("desc");
+		
+		if( m.getProduct() != null)
+			fail("prod");
+		
+		if( m.getNumberOfTests() != 0)
+			fail("test");
+		
+		if( m.getTestsFailed() != 0)
+			fail("failed");	
+	}
+	
+	@Test
+	public void testMaliciousProcesses() {
+		MaliciousProcess mp = new MaliciousProcess("asdf","asdd","asda","asdfs","asaf",123,324);
+		if( mp.getExecPath() != "asdf")
+			fail("execPath");
+		
+		if(mp.getVerified() != "asdd")
+			fail("verified");
+		
+		if(mp.getPublisher() != "asda")
+			fail("publisher");
+		
+		if(mp.getDescription() != "asdfs")
+			fail("description");
+		
+		if(mp.getProduct() !=  "asaf")
+			fail("product");
+		
+		if( mp.getNumberOfTests() != 123)
+			fail("numberTest");
+		
+		if( mp.getTestsFailed() != 324)
+			fail("failedTest");
+		
+		if ( mp.getDetectionRatio() == 0)
+			fail("detection");
+	}
 
 }
