@@ -29,6 +29,7 @@ public class DiskInvestigatorWindow extends JFrame{
 		FileObserver fileObserver = new FileObserver(fileHandler);
 		
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();
+		mainDisplayArea.setFileObserver(fileObserver);
 		mainDisplayArea.setPreferredSize(new Dimension(900, 440));
 		TabObserver observerTab = new TabObserver(mainDisplayArea);
 		MainTabBar tabBar = new MainTabBar(observerTab);

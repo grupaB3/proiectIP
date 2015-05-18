@@ -38,8 +38,6 @@ public class ScanButton extends JButton{
 	private void ScanButtonActionPerformed(ActionEvent evt) {
 		System.out.println("Scanning " + diskSelected);
 		fileObserver.startScan(getDiskSelected());
-		LoadingDialog loading = new LoadingDialog(getFileObserver());
-		loading.displayMessage("Scanning...");
     }
 
 

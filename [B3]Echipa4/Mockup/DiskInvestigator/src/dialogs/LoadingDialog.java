@@ -1,8 +1,8 @@
 package dialogs;
 
-import java.awt.BorderLayout;
+import items.FileHandler;
+
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -14,18 +14,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import observers.FileObserver;
 
 @SuppressWarnings("serial")
 public class LoadingDialog extends DialogWindow {
-	private FileObserver fileObserver;
+	private FileHandler fileHandler;
+	private boolean visibility = false;
+	JDialog dialog;
 	
-	public LoadingDialog(FileObserver fileObserver){
+	public LoadingDialog(FileHandler fileHandler){
 		super();
-		setFileObserver(fileObserver);
+		setFileHandler(fileHandler);
 		this.getDialog().setModal(true);
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setModalityType(ModalityType.APPLICATION_MODAL);
@@ -40,8 +39,6 @@ public class LoadingDialog extends DialogWindow {
 		    icon = new ImageIcon(img);
 		  } catch (IOException ex) {
 		  }
-		
-		Object[] options = {"Stop"};
 		
 		JPanel pane = new JPanel();
 		pane.setLayout(null);
@@ -63,14 +60,16 @@ public class LoadingDialog extends DialogWindow {
 		pane.add(stop);
 		
 
-		JDialog dialog = new JDialog();
+		dialog = new JDialog();
 		dialog.setTitle("Loading");
 		stop.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				dialog.dispose();
-				fileObserver.stopScan();
+				setVisibility(false);
+				fileHandler.stopScan();
+				//dialog.dispose();
+				dispose();
 			}
 			
 		});
@@ -84,6 +83,11 @@ public class LoadingDialog extends DialogWindow {
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setVisible(true);
 	};
+	
+	public void dispose() {
+		super.dispose();
+		dialog.dispose();
+	}
 	
 	@Override
 	public void displayDialog(){
@@ -101,12 +105,20 @@ public class LoadingDialog extends DialogWindow {
 		this.getDialog().dispose();
 	}
 
-	public FileObserver getFileObserver() {
-		return fileObserver;
+	public FileHandler getFileHandler() {
+		return fileHandler;
 	}
 
-	public void setFileObserver(FileObserver fileObserver) {
-		this.fileObserver = fileObserver;
+	public void setFileHandler(FileHandler fileHandler) {
+		this.fileHandler = fileHandler;
+	}
+	
+	public boolean isVisibility() {
+		return visibility;
+	}
+
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
 	}
 	
 }
