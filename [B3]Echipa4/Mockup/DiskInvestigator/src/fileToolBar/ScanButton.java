@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import observers.FileObserver;
-import dialogs.LoadingDialog;
 
 
 public class ScanButton extends JButton{

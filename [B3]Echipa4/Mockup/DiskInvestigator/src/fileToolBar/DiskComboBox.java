@@ -11,9 +11,6 @@ import diskscan.DiskPartition;
 @SuppressWarnings("serial")
 public class DiskComboBox extends JComboBox<String> {
 	private DiskScan diskScan;
-	private FileWorker fileWorker;
-	private boolean scanned = false;
-	private int typeOfSelection = 0;
 	
 	protected DiskComboBox() {
 		DiskPartition diskPartition = new DiskPartition();
@@ -33,18 +30,18 @@ public class DiskComboBox extends JComboBox<String> {
 			addItem(choices[index]);
 		}
 		
-		addActionListener(new ActionListener(){
+		addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				diskScan.setDiskSelected(getSelectedItem().toString());
-				if(getSelectedItem().equals("") && scanned == false) {
+				if(getSelectedItem().equals("")) {
 					setButtonStatus("pre-choice");
 				}
-				if(!getSelectedItem().equals("") && scanned == false) {
+				if(!getSelectedItem().equals("")) {
 					setButtonStatus("pre-scan");
 				}
-				if(scanned == true && typeOfSelection == 0) {
+				/*if(scanned == true && typeOfSelection == 0) {
 					setButtonStatus("unselectedFile");
 				}
 				if(scanned == true && typeOfSelection == 1) {
@@ -52,7 +49,7 @@ public class DiskComboBox extends JComboBox<String> {
 				}
 				if(scanned == true && typeOfSelection == 2) {
 					setButtonStatus("selectedDeletedFile");
-				}
+				}*/
 			}
 		});
 	}
@@ -63,17 +60,13 @@ public class DiskComboBox extends JComboBox<String> {
 				diskScan.setRecoveryButtonStatus(false);
 				diskScan.setRefreshButtonStatus(false);
 				diskScan.setScanButtonStatus(false);
-				fileWorker.setSearchButtonStatus(false);
-				fileWorker.setShredButtonStatus(false);
 				break;
 			case "pre-scan":
 				diskScan.setRecoveryButtonStatus(false);
 				diskScan.setRefreshButtonStatus(false);
 				diskScan.setScanButtonStatus(true);
-				fileWorker.setSearchButtonStatus(false);
-				fileWorker.setShredButtonStatus(false);
 				break;
-			case "unselectedFile":
+			/*case "unselectedFile":
 				diskScan.setRecoveryButtonStatus(false);
 				diskScan.setRefreshButtonStatus(true);
 				diskScan.setScanButtonStatus(true);
@@ -93,7 +86,7 @@ public class DiskComboBox extends JComboBox<String> {
 				diskScan.setScanButtonStatus(true);
 				fileWorker.setSearchButtonStatus(true);
 				fileWorker.setShredButtonStatus(true);
-				break;
+				break;*/
 		}
 	}
 
@@ -103,13 +96,5 @@ public class DiskComboBox extends JComboBox<String> {
 
 	public void setDiskScan(DiskScan diskScan) {
 		this.diskScan = diskScan;
-	}
-
-	public FileWorker getFileWorker() {
-		return fileWorker;
-	}
-
-	public void setFileWorker(FileWorker fileWorker) {
-		this.fileWorker = fileWorker;
 	}
 }

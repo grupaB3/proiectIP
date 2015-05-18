@@ -15,10 +15,12 @@ public class FileHandler {
 	private LoadingDialog loading;
 	private Scan fileScan;
 	private FilesDisplayer fileDisplayer;
+	private String diskName = null;
 	
 	private Map<Integer, MFTEntry> filesMap;
 	
 	public void scanFiles(String diskName) {
+		setDiskName(diskName);
 		loading = new LoadingDialog(this);
 		loading.setVisibility(true);
 		
@@ -27,7 +29,7 @@ public class FileHandler {
 	         protected Void doInBackground() throws Exception {
 
 	        	 System.out.println("Started thread for scanning. ");
-					fileScan = new Scan(diskName);	
+					fileScan = new Scan(getDiskName());	
 					fileScan.startScan();
 					setScanned(true);
 	            return null;
@@ -84,6 +86,14 @@ public class FileHandler {
 
 	public void setFileDisplayer(FilesDisplayer fileDisplayer) {
 		this.fileDisplayer = fileDisplayer;
+	}
+
+	public String getDiskName() {
+		return diskName;
+	}
+
+	public void setDiskName(String diskName) {
+		this.diskName = diskName;
 	}
 	
 }

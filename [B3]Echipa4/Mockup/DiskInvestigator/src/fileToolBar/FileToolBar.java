@@ -17,7 +17,6 @@ public class FileToolBar extends JToolBar{
     
     public FileToolBar() {
     	diskBox.setDiskScan(diskScan);
-    	diskBox.setFileWorker(fileWorker);
     	setFloatable(false);
 		setPreferredSize(new Dimension(100, 70));
     }
@@ -34,7 +33,7 @@ public class FileToolBar extends JToolBar{
 		add(new JLabel("                "));
 		add(diskBox);
 		add(new JLabel("                                                               "));
-		add(fileWorker.getSearchButton());
+		//add(fileWorker.getSearchButton());
 		
 		diskBox.setButtonStatus("pre-choice");
 	}
