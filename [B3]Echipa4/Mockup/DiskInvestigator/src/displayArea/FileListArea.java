@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.Map;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -18,6 +19,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import diskscan.MFTEntry;
 import observers.FileObserver;
 
 
@@ -30,9 +32,7 @@ public class FileListArea extends JScrollPane {
     private boolean isMouseEnter = false;
     private JTable table;
 	private String[] columnNames = {" Name"," Extension"," Size"," Status"};
-	private Object[][] data = {
-	        {" row1", " row1"," row1", " row1"},
-	        {" row1", " row1"," row1", " row1"}};
+	private Object[][] data;
 	
 	protected FileListArea() {
 		initUI();
@@ -40,6 +40,23 @@ public class FileListArea extends JScrollPane {
 	
 	private void initUI() {
 		setPreferredSize(new Dimension(620, 450));
+		
+		data = new Object[fileObserver.getFileHandler().getFilesMap().size()] [4];
+		
+		int i = 0;
+		  for(Map.Entry<Integer, MFTEntry> entry: fileObserver.getFileHandler().getFilesMap().entrySet()) {
+		   if(entry.getValue().getFileName() != null) {
+		    data[i][0] = String.valueOf(entry.getValue().getFileName().getName()).trim().replaceAll("\\s+", "");
+		    data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
+		    if((entry.getValue().getMftHeader().getFlags() & (1<<0)) > 0)
+		     data[i][2] = "I n - u s e";
+		    else
+		     data[i][2] = "D e l e t e d";
+		    data[i][3] = entry.getKey();
+		    i++;
+		   }
+		  }
+		
 		@SuppressWarnings("serial")
 		  DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 

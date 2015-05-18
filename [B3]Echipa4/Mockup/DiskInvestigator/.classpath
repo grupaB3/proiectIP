@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="lib/trident.jar"/>
 	<classpathentry kind="lib" path="lib/build/laf-plugin.jar"/>
 	<classpathentry kind="lib" path="lib/build/laf-widget.jar"/>
-	<classpathentry kind="lib" path="modules/Disk-Scan.jar"/>
+	<classpathentry kind="lib" path="modules/Disk-Scan(1).jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

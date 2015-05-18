@@ -2,7 +2,7 @@ package items;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.SwingWorker;
 
@@ -11,9 +11,10 @@ import diskscan.*;
 
 public class FileHandler {
 	private boolean scanned = false;
-	LoadingDialog loading;
+	private LoadingDialog loading;
+	private Scan fileScan;
 	
-	private HashMap<Integer, MFTEntry> filesMap;
+	private Map<Integer, MFTEntry> filesMap;
 	
 	public void scanFiles(String diskName) {
 		loading = new LoadingDialog(this);
@@ -32,8 +33,7 @@ public class FileHandler {
 						}
 						System.out.println(index);
 					}
-					//start scan function
-					
+					fileScan = new Scan(diskName);				
 					setScanned(true);
 	            return null;
 	         }
@@ -53,13 +53,12 @@ public class FileHandler {
 	    mySwingWorker.execute();
 		
 	    loading.displayMessage("Scanning...");
-		
-	    //filesMap =  getFiles - module 3
+	    setFilesMap(fileScan.getMapMFT());
 	    System.out.println("Done.");
 	}
 	
 	public void stopScan() {
-		//stopScan - module 3
+		fileScan.setStopped();
 		System.out.println("Scan stopped. ");
 		loading.dispose();
 	}
@@ -70,6 +69,14 @@ public class FileHandler {
 
 	public void setScanned(boolean scanned) {
 		this.scanned = scanned;
+	}
+
+	public Map<Integer, MFTEntry> getFilesMap() {
+		return filesMap;
+	}
+
+	public void setFilesMap(Map<Integer, MFTEntry> filesMap) {
+		this.filesMap = filesMap;
 	}
 	
 }
