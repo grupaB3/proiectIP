@@ -7,12 +7,13 @@ import java.util.HashMap;
 import javax.swing.SwingWorker;
 
 import dialogs.LoadingDialog;
+import diskscan.*;
 
 public class FileHandler {
 	private boolean scanned = false;
 	LoadingDialog loading;
 	
-	//private HashMap<Integer, MFTEntry> filesMap;
+	private HashMap<Integer, MFTEntry> filesMap;
 	
 	public void scanFiles(String diskName) {
 		loading = new LoadingDialog(this);

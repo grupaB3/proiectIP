@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
+import diskscan.DiskPartition;
+
 @SuppressWarnings("serial")
 public class DiskComboBox extends JComboBox<String> {
 	private DiskScan diskScan;
@@ -14,8 +16,12 @@ public class DiskComboBox extends JComboBox<String> {
 	private int typeOfSelection = 0;
 	
 	protected DiskComboBox() {
-		//get options - team 3
-		String[] tempChoices = {"Disk0", "Disk1", "Disk2"};
+		DiskPartition diskPartition = new DiskPartition();
+		System.out.println(diskPartition.getPhysDrives().size());
+		String[] tempChoices = new String[diskPartition.getPhysDrives().size()];
+		for(int index = 0; index < tempChoices.length; index ++) {
+			tempChoices[index] = diskPartition.getPhysDrives().get(index).toString();
+		}
 		insertItemAt("", 0);
 		initBox(tempChoices);
 		setMinimumSize(new Dimension(100, 30));

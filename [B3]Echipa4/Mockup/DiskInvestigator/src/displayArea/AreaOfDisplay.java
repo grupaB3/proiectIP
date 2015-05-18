@@ -1,10 +1,7 @@
 package displayArea;
 
 import java.awt.FlowLayout;
-
 import javax.swing.JPanel;
-
-import observers.FileObserver;
 
 public class AreaOfDisplay extends JPanel {
 
@@ -15,7 +12,6 @@ public class AreaOfDisplay extends JPanel {
 	private ServicesDisplayer servicesArea = new ServicesDisplayer();
 	private TasksDisplayer tasksArea = new TasksDisplayer();
 	private StartUpDisplayer startUp = new StartUpDisplayer();
-	private FileObserver fileObserver;
 	
 	public AreaOfDisplay() {
 		initUI();
@@ -73,12 +69,12 @@ public class AreaOfDisplay extends JPanel {
 				break;
 		}
 	}
-
-	public FileObserver getFileObserver() {
-		return fileObserver;
+	
+	public FilesDisplayer getFilesArea() {
+		return filesArea;
 	}
 
-	public void setFileObserver(FileObserver fileObserver) {
-		this.fileObserver = fileObserver;
+	public void setFilesArea(FilesDisplayer filesArea) {
+		this.filesArea = filesArea;
 	}
 }

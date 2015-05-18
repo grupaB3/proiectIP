@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -17,18 +18,22 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import observers.FileObserver;
+
 
 public class FileListArea extends JScrollPane {
 
 	private static final long serialVersionUID = -2809884889360505234L;
-    int itsRow = 0;
-    int itsColumn;
-    boolean isMouseEnter = false;
-    JTable table;
+	private FileObserver fileObserver;
+    private int itsRow = 0;
+    private int itsColumn;
+    private boolean isMouseEnter = false;
+    private JTable table;
 	private String[] columnNames = {" Name"," Extension"," Size"," Status"};
 	private Object[][] data = {
 	        {" row1", " row1"," row1", " row1"},
 	        {" row1", " row1"," row1", " row1"}};
+	
 	protected FileListArea() {
 		initUI();
 	}
@@ -72,6 +77,24 @@ public class FileListArea extends JScrollPane {
 	}
 	
 	
+	public int getItsColumn() {
+		return itsColumn;
+	}
+
+	public void setItsColumn(int itsColumn) {
+		this.itsColumn = itsColumn;
+	}
+
+
+	public FileObserver getFileObserver() {
+		return fileObserver;
+	}
+
+	public void setFileObserver(FileObserver fileObserver) {
+		this.fileObserver = fileObserver;
+	}
+
+
 	public class MyMouseAdapter extends MouseMotionAdapter {
 
         public void mouseMoved(MouseEvent e) {
@@ -106,7 +129,7 @@ public class FileListArea extends JScrollPane {
                 boolean isSelected, boolean hasFocus, int row, int column) {
 
         	super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);     
-            itsColumn = column;
+            setItsColumn(column);
 
             if (isSelected) {
             } else if (row == itsRow && isMouseEnter == true) {

@@ -29,4 +29,12 @@ public class FilesDisplayer extends JPanel {
 		setPreferredSize(new Dimension(898, 450));
 		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 	}
+	
+	public FileListArea getFileListArea() {
+		return fileListArea;
+	}
+
+	public void setFileListArea(FileListArea fileListArea) {
+		this.fileListArea = fileListArea;
+	}
 }
