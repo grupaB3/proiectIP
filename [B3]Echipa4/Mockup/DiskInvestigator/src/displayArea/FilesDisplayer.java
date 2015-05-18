@@ -12,7 +12,7 @@ public class FilesDisplayer extends JPanel {
 	private FileListArea fileListArea = new FileListArea();
 	private FileInfoArea fileInfoArea = new FileInfoArea();
 	
-	protected FilesDisplayer() {
+	public FilesDisplayer() {
 		initUI();
 	}
 	

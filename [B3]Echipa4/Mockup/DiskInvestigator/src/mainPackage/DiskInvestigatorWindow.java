@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 import displayArea.AreaOfDisplay;
+import displayArea.FilesDisplayer;
 import observers.BackObserver;
 import observers.FileObserver;
 import observers.MenuObserver;
@@ -28,8 +29,11 @@ public class DiskInvestigatorWindow extends JFrame{
 		FileHandler fileHandler = new FileHandler();
 		FileObserver fileObserver = new FileObserver(fileHandler);
 		
+		FilesDisplayer fileDisplayer = new FilesDisplayer();
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();
-		mainDisplayArea.getFilesArea().getFileListArea().setFileObserver(fileObserver);
+		mainDisplayArea.setFilesArea(fileDisplayer);
+		fileHandler.setFileDisplayer(fileDisplayer);
+		mainDisplayArea.initUI();
 		mainDisplayArea.setPreferredSize(new Dimension(900, 440));
 		TabObserver observerTab = new TabObserver(mainDisplayArea);
 		MainTabBar tabBar = new MainTabBar(observerTab);

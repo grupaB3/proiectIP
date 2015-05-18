@@ -26,7 +26,6 @@ import observers.FileObserver;
 public class FileListArea extends JScrollPane {
 
 	private static final long serialVersionUID = -2809884889360505234L;
-	private FileObserver fileObserver;
     private int itsRow = 0;
     private int itsColumn;
     private boolean isMouseEnter = false;
@@ -38,13 +37,11 @@ public class FileListArea extends JScrollPane {
 		initUI();
 	}
 	
-	private void initUI() {
-		setPreferredSize(new Dimension(620, 450));
+	public void setData(Map<Integer, MFTEntry> map){
 		
-		data = new Object[fileObserver.getFileHandler().getFilesMap().size()] [4];
-		
+		data = new Object[map.size()] [4];
 		int i = 0;
-		  for(Map.Entry<Integer, MFTEntry> entry: fileObserver.getFileHandler().getFilesMap().entrySet()) {
+		  for(Map.Entry<Integer, MFTEntry> entry: map.entrySet()) {
 		   if(entry.getValue().getFileName() != null) {
 		    data[i][0] = String.valueOf(entry.getValue().getFileName().getName()).trim().replaceAll("\\s+", "");
 		    data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
@@ -55,7 +52,11 @@ public class FileListArea extends JScrollPane {
 		    data[i][3] = entry.getKey();
 		    i++;
 		   }
-		  }
+		  } 
+	}
+	
+	private void initUI() {
+		setPreferredSize(new Dimension(620, 450));
 		
 		@SuppressWarnings("serial")
 		  DefaultTableModel model = new DefaultTableModel(data, columnNames) {
@@ -101,16 +102,6 @@ public class FileListArea extends JScrollPane {
 	public void setItsColumn(int itsColumn) {
 		this.itsColumn = itsColumn;
 	}
-
-
-	public FileObserver getFileObserver() {
-		return fileObserver;
-	}
-
-	public void setFileObserver(FileObserver fileObserver) {
-		this.fileObserver = fileObserver;
-	}
-
 
 	public class MyMouseAdapter extends MouseMotionAdapter {
 

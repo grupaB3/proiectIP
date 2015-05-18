@@ -7,17 +7,16 @@ public class AreaOfDisplay extends JPanel {
 
 	private static final long serialVersionUID = -1492665909386157548L;
 
-	private FilesDisplayer filesArea = new FilesDisplayer();
+	private FilesDisplayer filesArea;
 	private ProcessesDisplayer processesArea = new ProcessesDisplayer();
 	private ServicesDisplayer servicesArea = new ServicesDisplayer();
 	private TasksDisplayer tasksArea = new TasksDisplayer();
 	private StartUpDisplayer startUp = new StartUpDisplayer();
 	
 	public AreaOfDisplay() {
-		initUI();
 	}
 	
-	private void initUI() {
+	public void initUI() {
 		
 		add(startUp);
 		add(filesArea);

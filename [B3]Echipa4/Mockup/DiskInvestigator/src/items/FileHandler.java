@@ -8,11 +8,13 @@ import javax.swing.SwingWorker;
 
 import dialogs.LoadingDialog;
 import diskscan.*;
+import displayArea.FilesDisplayer;
 
 public class FileHandler {
 	private boolean scanned = false;
 	private LoadingDialog loading;
 	private Scan fileScan;
+	private FilesDisplayer fileDisplayer;
 	
 	private Map<Integer, MFTEntry> filesMap;
 	
@@ -54,6 +56,9 @@ public class FileHandler {
 		
 	    loading.displayMessage("Scanning...");
 	    setFilesMap(fileScan.getMapMFT());
+	    
+	    fileDisplayer.getFileListArea().setData(filesMap);
+	    
 	    System.out.println("Done.");
 	}
 	
@@ -77,6 +82,15 @@ public class FileHandler {
 
 	public void setFilesMap(Map<Integer, MFTEntry> filesMap) {
 		this.filesMap = filesMap;
+	}
+	
+	
+	public FilesDisplayer getFileDisplayer() {
+		return fileDisplayer;
+	}
+
+	public void setFileDisplayer(FilesDisplayer fileDisplayer) {
+		this.fileDisplayer = fileDisplayer;
 	}
 	
 }
