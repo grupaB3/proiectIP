@@ -1,17 +1,20 @@
 package menuBar;
-
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Stack;
@@ -28,34 +31,36 @@ import javax.swing.border.Border;
 public class InfoButton extends JFrame {
 
 	private static final long serialVersionUID = -6058326491351599146L;
-	private JScrollPane displayedScrollPane=new JScrollPane();Observer observer;
+	private JScrollPane displayedScrollPane=new JScrollPane();
+	private PanelObserver observer=new PanelObserver();
+	private NavigationEvent myEvent=new NavigationEvent();
 	private int currentPageNumber;
-	@SuppressWarnings("rawtypes")
 	private Stack backButtonStack=new Stack(),forwardButtonStack=new Stack();
+	private	JButton backButton=new JButton("Back Button");
+	private JButton forwardButton = new JButton("Forward Button");
 	public InfoButton() {
 		super("Disk Investigator Help and Support");
 		init();
 	}
 
 	public void init(){
-			observer = (Observable obj, Object arg) -> { 
-				updatePanel((int)arg);	
-	        };
+			myEvent.addObserver(observer);
 	        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 			int screenHeight = screenSize.height;
 			int screenWidth = screenSize.width;
-			setSize(400, screenHeight);
+			setSize(new Dimension(400, screenHeight-50));
 			setLocationRelativeTo(null);
-			setLocation(screenWidth - getWidth(), screenHeight - getHeight());
+			setLocation(screenWidth - getWidth(), screenHeight - getHeight()-50);
 			setResizable(true);
 			setBackground(new Color(255,255,255));
-			//setPreferredSize(new Dimension(350, screenHeight));
 			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			setLayout(new FlowLayout(FlowLayout.LEADING));
-			//setLayout(new GridLayout());
 			this.setBackground(new Color(255,255,255));
 			add(getHeaderPanel(this.getPreferredSize()));
-			updatePanel(1);
+			DiskInvestigatorInfoStartupPanel panel=new DiskInvestigatorInfoStartupPanel(this.getPreferredSize(),observer);
+			displayedScrollPane=panel.getScrollPane();
+			currentPageNumber=1;
+			add(displayedScrollPane);
 	    	this.addComponentListener(new ComponentAdapter(){
 	            public void componentResized(ComponentEvent event){
             		displayedScrollPane.setPreferredSize(new Dimension(getSize().width-15,getSize().height-139));
@@ -74,7 +79,7 @@ public class InfoButton extends JFrame {
 
 	              if ((oldState & Frame.MAXIMIZED_BOTH) == 0 && (newState & Frame.MAXIMIZED_BOTH) != 0) {
 	                updatePanel(currentPageNumber);
-	                displayedScrollPane.setSize(new Dimension(getSize().width-224,getSize().height-147));
+	                displayedScrollPane.setSize(new Dimension(getSize().width-24,getSize().height-147));
 	                
 	              } else if ((oldState & Frame.MAXIMIZED_BOTH) != 0 && (newState & Frame.MAXIMIZED_BOTH) == 0) {
 	                updatePanel(currentPageNumber);
@@ -91,38 +96,27 @@ public class InfoButton extends JFrame {
 			JPanel navButPanel=new JPanel();
 			navButPanel.setBackground(new Color(255,255,255));
 			navButPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
-			JButton backButton=new JButton("Back Button");
-			JButton forwardButton = new JButton("Forward Button");
 			backButton.setEnabled(false);
 			forwardButton.setEnabled(false);
 			backButton.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					if(backButtonStack.isEmpty()){
-						backButton.setEnabled(false);
-					}else{
-						backButton.setEnabled(true);
-						
-					}
+					decreaseBackStack();
 				}
 			});
 			forwardButton.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					if(forwardButtonStack.isEmpty()){
-						forwardButton.setEnabled(false);
-					}else{
-						forwardButton.setEnabled(true);
-					}
-				}
-				
+					decreaseForwardStack();
+				}		
 			});
 			navButPanel.add(backButton);
 			navButPanel.add(forwardButton);
 			JPanel searchPanel=new JPanel();
 			searchPanel.setBackground(new Color(255,255,255));
 			searchPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-			JTextField searchField=new JTextField("\t                             ");
+			JTextField searchField=new JTextField();
+			searchField.setPreferredSize(new Dimension(150,20));
 			Border border = BorderFactory.createLineBorder(Color.BLACK);
 			searchField.setBorder(BorderFactory.createCompoundBorder(border, 
     	            BorderFactory.createEmptyBorder(10, 10, 10, 10)));
@@ -146,7 +140,6 @@ public class InfoButton extends JFrame {
 	            public void windowStateChanged(WindowEvent evt) {
 	              int oldState = evt.getOldState();
 	              int newState = evt.getNewState();
-
 	              if ((oldState & Frame.ICONIFIED) == 0 && (newState & Frame.ICONIFIED) != 0) {
 	                System.out.println("Frame was iconized");
 	              } else if ((oldState & Frame.ICONIFIED) != 0 && (newState & Frame.ICONIFIED) == 0) {
@@ -224,12 +217,53 @@ public class InfoButton extends JFrame {
 			}
 			
 		}
-		public class PanelObserver implements Observer{
+		private class PanelObserver implements Observer{
 			@Override
 			public void update(Observable o, Object arg) {
-				updatePanel((int)arg);	
+				int[] obj=(int[]) arg;
+				if(obj[0]==0){
+					increaseBackStack(currentPageNumber);
+					updatePanel(obj[1]);
+				}else{
+					System.out.println(obj[1]);
+					updatePanel(obj[1]);
+				}
+				//restartForwardStack();
 			}
+		}
+		private void increaseBackStack(int page){
+			backButtonStack.push(page);
+			backButton.setEnabled(true);
+		}
+		private void decreaseBackStack(){
+			int page=(int) backButtonStack.pop();
+			increaseForwardStack(currentPageNumber);
+			int[] args=new int[]{1,page};
+			myEvent.setPage(args);
+			myEvent.run();
+			if(backButtonStack.isEmpty()){
+				backButton.setEnabled(false);
+			}
+		}
 
+		private void increaseForwardStack(int page) {
+			forwardButtonStack.push(page);
+			forwardButton.setEnabled(true);
+		}
+
+		private void decreaseForwardStack() {
+			int page=(int) forwardButtonStack.pop();
+			increaseBackStack(currentPageNumber);
+			int[] args=new int[]{1,page};
+			myEvent.setPage(args);
+			myEvent.run();
+			if(forwardButtonStack.isEmpty()){
+				forwardButton.setEnabled(false);
+			}
+		}
+		private void restartForwardStack(){
+			forwardButtonStack=new Stack();	
+			forwardButton.setEnabled(false);
 		}
 }
 

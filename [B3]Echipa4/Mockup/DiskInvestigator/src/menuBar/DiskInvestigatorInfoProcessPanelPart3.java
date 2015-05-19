@@ -7,9 +7,13 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Observer;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -68,6 +72,125 @@ public class DiskInvestigatorInfoProcessPanelPart3 extends JPanel{
 	    	descriptionTextArea.setFont(textAreaDescFont);    	
 	    	descriptionPanel.add(descriptionTitleTextArea);
 	    	descriptionPanel.add(descriptionTextArea);
+	    	JPanel tabBarPanel=new JPanel();
+	    	tabBarPanel.setPreferredSize(new Dimension(210,35));
+	    	tabBarPanel.setBackground(new Color(255,255,255));
+	    	SpringLayout springLayout=new SpringLayout();
+	    	JTextArea processLabel=new JTextArea("Process");
+	    	Font newFont=new Font("Calibri",Font.PLAIN,18);
+	    	processLabel.setFont(newFont);
+	    	processLabel.setEditable(false);
+	    	processLabel.addMouseListener(new MouseListener(){
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					int[] args=new int[]{0,3};
+					myEvent.setPage(args);
+					myEvent.run();
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent arg0) {	
+					processLabel.setBackground(new Color(235,235,235));
+				}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+					processLabel.setBackground(new Color(255,255,255));
+					
+				}
+
+				@Override
+				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+	    		
+	    	});
+	    	JTextArea tasksLabel=new JTextArea("Tasks");
+	    	tasksLabel.setFont(newFont);
+	    	tasksLabel.setEditable(false);
+	    	tasksLabel.addMouseListener(new MouseListener(){
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent arg0) {	
+					tasksLabel.setBackground(new Color(235,235,235));
+				}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+					tasksLabel.setBackground(new Color(255,255,255));
+					
+				}
+
+				@Override
+				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+	    		
+	    	});
+	    	JTextArea servicesLabel=new JTextArea("Services");
+	    	servicesLabel.setFont(newFont);
+	    	servicesLabel.setEditable(false);
+	    	servicesLabel.addMouseListener(new MouseListener(){
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					int[] args=new int[]{0,4};
+					myEvent.setPage(args);
+					myEvent.run();	
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent arg0) {	
+					servicesLabel.setBackground(new Color(235,235,235));
+				}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+					servicesLabel.setBackground(new Color(255,255,255));
+					
+				}
+
+				@Override
+				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+	    		
+	    	});
+	    	tabBarPanel.add(processLabel);
+	    	tabBarPanel.add(tasksLabel);
+	    	tabBarPanel.add(servicesLabel);
+	    	springLayout.putConstraint(SpringLayout.NORTH,processLabel,0,SpringLayout.NORTH,tabBarPanel);
+	    	springLayout.putConstraint(SpringLayout.WEST,processLabel,25,SpringLayout.WEST,tabBarPanel);
+	    	springLayout.putConstraint(SpringLayout.NORTH,tasksLabel,0,SpringLayout.NORTH,tabBarPanel);
+	    	springLayout.putConstraint(SpringLayout.WEST,tasksLabel,15,SpringLayout.EAST,processLabel);
+	    	springLayout.putConstraint(SpringLayout.NORTH,servicesLabel,0,SpringLayout.NORTH,tabBarPanel);	
+	    	springLayout.putConstraint(SpringLayout.WEST,servicesLabel,15,SpringLayout.EAST,tasksLabel);
+	    	tabBarPanel.setLayout(springLayout);
+	    	tabBarPanel.setVisible(true);
+	    	descriptionPanel.add(tabBarPanel);
 	    	JPanel componentsPanel=new JPanel();
 	    	componentsPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
 	    	componentsPanel.setBackground(new Color(255,255,255));
@@ -116,7 +239,7 @@ public class DiskInvestigatorInfoProcessPanelPart3 extends JPanel{
 	    	int primaryPanelwidth=frameSize.width;
 	    	this.addComponentListener(new ComponentAdapter(){
 	            public void componentResized(ComponentEvent event){
-	            	descriptionPanel.setPreferredSize(new Dimension(getSize().width-30,descriptionTextArea.getSize().height+descriptionTitleTextArea.getSize().height+10));
+	            	descriptionPanel.setPreferredSize(new Dimension(getSize().width-30,descriptionTextArea.getSize().height+descriptionTitleTextArea.getSize().height+40));
 	            	descriptionTextArea.setSize(getSize().width-30,descriptionTextArea.getSize().height);
 	            	descriptionTitleTextArea.setSize(getSize().width-30,descriptionTitleTextArea.getSize().height);
 	            	componentsIntroTextArea.setSize(getSize().width-30, componentsIntroTextArea.getSize().height);

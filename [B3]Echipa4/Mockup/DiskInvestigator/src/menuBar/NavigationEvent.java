@@ -2,14 +2,14 @@ package menuBar;
 import java.util.Observable;
 
 public class NavigationEvent extends Observable implements Runnable{
-	private int page;
+	private int[] obj;
 	 @Override
 	 public void run() {
 		 	setChanged();
-		 	notifyObservers(page);
+		 	notifyObservers(obj);
 	    }
 
-	public void setPage(int received) {
-		page=received;
+	public void setPage(Object received) {
+		obj=(int[]) received;
 	}
 }
