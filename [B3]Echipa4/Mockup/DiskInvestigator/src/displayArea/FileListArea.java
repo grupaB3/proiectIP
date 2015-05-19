@@ -55,7 +55,12 @@ public class FileListArea extends JScrollPane {
 			if(entry.getValue().getFileName() != null) {
 				data[i][0] = String.valueOf(entry.getValue().getFileName().getName()).trim().replaceAll("\\s+", "");
 				//data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
-				data[i][1]="no extension";
+				String[] extension = String.valueOf(entry.getValue().getFileName().getName()).split("\\.");
+				if(extension.length > 1)
+					data[i][1] = extension[extension.length - 1];
+				else
+					data[i][1] = "No extension";
+				data[i][2] = "No physical size";
 				for(NTFSAttribute attr : entry.getValue().getAttributes()){
 					if(attr.getType() == 0x80) {
 						if(attr.getNonResFlag() == 0) {
@@ -67,10 +72,10 @@ public class FileListArea extends JScrollPane {
 					}
 				}
 				if((entry.getValue().getMftHeader().getFlags() & (1<<0)) > 0){
-					data[i][3] = "I n - u s e";
+					data[i][3] = "In-use";
 				}
 				else{
-					data[i][3] = "D e l e t e d";
+					data[i][3] = "Deleted";
 				}
 				data[i][4] = entry.getKey();
 				i++;

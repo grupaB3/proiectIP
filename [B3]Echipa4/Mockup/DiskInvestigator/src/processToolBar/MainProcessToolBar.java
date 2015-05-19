@@ -29,17 +29,17 @@ public class MainProcessToolBar extends JToolBar {
 		switch(option) {
 		case "process":
 			processesBar.setVisible(true);
-			servicesBar.setVisible(false);
+			servicesBar.setVisibility(false);
 			tasksBar.setVisible(false);
 			break;
 		case "service":
 			processesBar.setVisible(false);
-			servicesBar.setVisible(true);
+			servicesBar.setVisibility(true);
 			tasksBar.setVisible(false);
 		    break;
 		case "task":
 			processesBar.setVisible(false);
-			servicesBar.setVisible(false);
+			servicesBar.setVisibility(false);
 			tasksBar.setVisible(true);
 			break;
 		}
