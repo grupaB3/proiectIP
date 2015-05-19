@@ -9,6 +9,7 @@ import java.awt.event.AWTEventListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -21,6 +22,8 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import com.sun.xml.internal.ws.wsdl.writer.document.Service;
+
 public class ServiceListArea extends JScrollPane {
 
 	private static final long serialVersionUID = -2809884889360505234L;
@@ -28,47 +31,26 @@ public class ServiceListArea extends JScrollPane {
     private int itsColumn;
     private boolean isMouseEnter = false;
     private JTable table;
+    private String[] columnNames = {" Name"," Type"," Status", " Description"};
+    private Object[][] data;
+       //private Object[][] data ={ {" Name1", " type Name1", " status", " sadas4"}};
     
 	protected ServiceListArea() {
 		initUI();
 	}
 	
+	public void setData(List<model.Service> services){
+		
+		
+		
+		
+		getViewport().removeAll();
+		initUI();
+	}
+	
 	private void initUI() {
 		setPreferredSize(new Dimension(620, 425));
-		
-		String[] columnNames = {" Name",
-				                " Type",
-				                " Status",
-				                " Description"};
-		Object[][] data = { {" Service1", " Type1", " Stopped", " This is service1"},
-							{" Service2", " Type2", " Running", " This is service2"},
-							{" Service3", " Type3", " Stopped", " This is service3"},
-							{" Service4", " Type1", " Running", " This is service4"},
-							{" Service5", " Type3", " Running", " This is service5"},
-							{" Service6", " Type4", " Stopped", " This is service6"},
-							{" Service7", " Type2", " Stopped", " This is service7"},
-							{" Service1", " Type1", " Stopped", " This is service1"},
-							{" Service2", " Type2", " Running", " This is service2"},
-							{" Service3", " Type3", " Stopped", " This is service3"},
-							{" Service4", " Type1", " Running", " This is service4"},
-							{" Service5", " Type3", " Running", " This is service5"},
-							{" Service6", " Type4", " Stopped", " This is service6"},
-							{" Service7", " Type2", " Stopped", " This is service7"},
-							{" Service1", " Type1", " Stopped", " This is service1"},
-							{" Service2", " Type2", " Running", " This is service2"},
-							{" Service3", " Type3", " Stopped", " This is service3"},
-							{" Service4", " Type1", " Running", " This is service4"},
-							{" Service5", " Type3", " Running", " This is service5"},
-							{" Service6", " Type4", " Stopped", " This is service6"},
-							{" Service7", " Type2", " Stopped", " This is service7"},
-							{" Service1", " Type1", " Stopped", " This is service1"},
-							{" Service2", " Type2", " Running", " This is service2"},
-							{" Service3", " Type3", " Stopped", " This is service3"},
-							{" Service4", " Type1", " Running", " This is service4"},
-							{" Service5", " Type3", " Running", " This is service5"},
-							{" Service6", " Type4", " Stopped", " This is service6"},
-							{" Service7", " Type2", " Stopped", " This is service7"}};
-		
+	
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
@@ -178,5 +160,6 @@ public class ServiceListArea extends JScrollPane {
             }
             return this;
         }
-    }	
+    }
+	
 }

@@ -29,4 +29,12 @@ public class ProcessesDisplayer extends JPanel {
 		setPreferredSize(new Dimension(898, 450));
 		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 	}
+	
+	public ProcessListArea getProcessListArea() {
+		return processListArea;
+	}
+
+	public void setProcessListArea(ProcessListArea processListArea) {
+		this.processListArea = processListArea;
+	}
 }

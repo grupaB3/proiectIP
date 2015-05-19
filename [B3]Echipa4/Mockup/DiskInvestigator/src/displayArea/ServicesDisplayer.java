@@ -2,6 +2,7 @@ package displayArea;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+
 import javax.swing.JPanel;
 
 public class ServicesDisplayer extends JPanel {
@@ -27,5 +28,13 @@ public class ServicesDisplayer extends JPanel {
 		//setBackground(Color.magenta);
 		setPreferredSize(new Dimension(898, 450));
 		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+	}
+	
+	public ServiceListArea getServiceListArea() {
+		return serviceListArea;
+	}
+
+	public void setServiceListArea(ServiceListArea serviceListArea) {
+		this.serviceListArea = serviceListArea;
 	}
 }

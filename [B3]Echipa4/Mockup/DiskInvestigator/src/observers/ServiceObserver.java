@@ -1,5 +1,6 @@
 package observers;
 
+
 import items.ServiceHandler;
 
 public class ServiceObserver {
@@ -16,4 +17,15 @@ public class ServiceObserver {
 	public void setServiceHandler(ServiceHandler serviceHandler) {
 		this.serviceHandler = serviceHandler;
 	}
+	
+	public void start(String service){
+		serviceHandler.startService(service);
+	}
+	public void stop(String service){
+		serviceHandler.stopService(service);
+	}
+	public void displayServices(){
+		serviceHandler.display();
+	}
+
 }
