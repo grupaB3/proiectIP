@@ -70,7 +70,7 @@ public class TaskListArea extends JScrollPane {
 	}
 	
 	public void initUI() {
-		setPreferredSize(new Dimension(620, 450));
+		setPreferredSize(new Dimension(620, 425));
 		
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {

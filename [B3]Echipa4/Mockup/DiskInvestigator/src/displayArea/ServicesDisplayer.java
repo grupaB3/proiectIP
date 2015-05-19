@@ -11,7 +11,7 @@ public class ServicesDisplayer extends JPanel {
 	private ServiceListArea serviceListArea = new ServiceListArea();
 	private ProcessInfoArea processInfoArea = new ProcessInfoArea();
 
-	protected ServicesDisplayer() {
+	public ServicesDisplayer() {
 		initUI();
 	}
 	

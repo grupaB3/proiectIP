@@ -24,22 +24,44 @@ import javax.swing.table.TableRowSorter;
 public class ServiceListArea extends JScrollPane {
 
 	private static final long serialVersionUID = -2809884889360505234L;
-    int itsRow = 0;
-    int itsColumn;
-    boolean isMouseEnter = false;
-    JTable table;
+    private int itsRow = 0;
+    private int itsColumn;
+    private boolean isMouseEnter = false;
+    private JTable table;
     
 	protected ServiceListArea() {
 		initUI();
 	}
 	
 	private void initUI() {
+		setPreferredSize(new Dimension(620, 425));
 		
 		String[] columnNames = {" Name",
 				                " Type",
 				                " Status",
 				                " Description"};
 		Object[][] data = { {" Service1", " Type1", " Stopped", " This is service1"},
+							{" Service2", " Type2", " Running", " This is service2"},
+							{" Service3", " Type3", " Stopped", " This is service3"},
+							{" Service4", " Type1", " Running", " This is service4"},
+							{" Service5", " Type3", " Running", " This is service5"},
+							{" Service6", " Type4", " Stopped", " This is service6"},
+							{" Service7", " Type2", " Stopped", " This is service7"},
+							{" Service1", " Type1", " Stopped", " This is service1"},
+							{" Service2", " Type2", " Running", " This is service2"},
+							{" Service3", " Type3", " Stopped", " This is service3"},
+							{" Service4", " Type1", " Running", " This is service4"},
+							{" Service5", " Type3", " Running", " This is service5"},
+							{" Service6", " Type4", " Stopped", " This is service6"},
+							{" Service7", " Type2", " Stopped", " This is service7"},
+							{" Service1", " Type1", " Stopped", " This is service1"},
+							{" Service2", " Type2", " Running", " This is service2"},
+							{" Service3", " Type3", " Stopped", " This is service3"},
+							{" Service4", " Type1", " Running", " This is service4"},
+							{" Service5", " Type3", " Running", " This is service5"},
+							{" Service6", " Type4", " Stopped", " This is service6"},
+							{" Service7", " Type2", " Stopped", " This is service7"},
+							{" Service1", " Type1", " Stopped", " This is service1"},
 							{" Service2", " Type2", " Running", " This is service2"},
 							{" Service3", " Type3", " Stopped", " This is service3"},
 							{" Service4", " Type1", " Running", " This is service4"},
@@ -74,8 +96,6 @@ public class ServiceListArea extends JScrollPane {
 		getViewport().add(table);
 		getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
 
-		setPreferredSize(new Dimension(620, 450));
-	
 		TableRowSorter<TableModel>sorter=new TableRowSorter<TableModel>(model);
 		table.setRowSorter(sorter);
 		
@@ -90,12 +110,24 @@ public class ServiceListArea extends JScrollPane {
 	                 if(row == -1) {
 	                     table.clearSelection();
 	                 }
+	                 else {
+	                	 System.out.println("Selected row "+String.valueOf(row) +
+		                		 " . The selected service is "+ data[row][2]);
+	                 }
 	            }               
 	        }           
 	    }, AWTEvent.MOUSE_EVENT_MASK);
 		
 	}
 	
+	public int getItsColumn() {
+		return itsColumn;
+	}
+
+	public void setItsColumn(int itsColumn) {
+		this.itsColumn = itsColumn;
+	}
+
 	public class MyMouseAdapter extends MouseMotionAdapter {
 
         public void mouseMoved(MouseEvent e) {
@@ -130,7 +162,7 @@ public class ServiceListArea extends JScrollPane {
                 boolean isSelected, boolean hasFocus, int row, int column) {
 
         	super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);     
-            itsColumn = column;
+            setItsColumn(column);
 
             if (isSelected) {
             } else if (row == itsRow && isMouseEnter == true) {

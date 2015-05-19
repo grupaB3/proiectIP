@@ -41,8 +41,16 @@ public class MainProcessToolBar extends JToolBar {
 			processesBar.setVisible(false);
 			servicesBar.setVisible(false);
 			tasksBar.setVisible(true);
-
 			break;
+		}
 	}
+
+	public ServiceToolBar getServicesBar() {
+		return servicesBar;
 	}
+
+	protected void setServicesBar(ServiceToolBar servicesBar) {
+		this.servicesBar = servicesBar;
+	}
+
 }

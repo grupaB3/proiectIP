@@ -22,6 +22,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import diskscan.MFTEntry;
+import diskscan.NTFSAttribute;
 
 public class FileListArea extends JScrollPane {
 
@@ -46,7 +47,7 @@ public class FileListArea extends JScrollPane {
 		//				size++;
 		//		}
 		//		data = new Object[size] [4];
-		
+
 		mapMFT=map;
 		data = new Object[map.size()][5];
 		int i = 0;
@@ -55,7 +56,16 @@ public class FileListArea extends JScrollPane {
 				data[i][0] = String.valueOf(entry.getValue().getFileName().getName()).trim().replaceAll("\\s+", "");
 				//data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
 				data[i][1]="no extension";
-				data[i][2]="0";
+				for(NTFSAttribute attr : entry.getValue().getAttributes()){
+					if(attr.getType() == 0x80) {
+						if(attr.getNonResFlag() == 0) {
+							data[i][2]=String.valueOf(attr.getrAttr().getLength() + " bytes");
+						}
+						else{
+							data[i][2]=String.valueOf(attr.getNrAttr().getRealSize() + " bytes");
+						}
+					}
+				}
 				if((entry.getValue().getMftHeader().getFlags() & (1<<0)) > 0){
 					data[i][3] = "I n - u s e";
 				}
@@ -71,7 +81,7 @@ public class FileListArea extends JScrollPane {
 	}
 
 	private void initUI() {
-		setPreferredSize(new Dimension(620, 450));
+		setPreferredSize(new Dimension(620, 425));
 
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {

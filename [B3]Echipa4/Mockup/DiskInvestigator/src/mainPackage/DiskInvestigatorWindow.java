@@ -1,6 +1,7 @@
 package mainPackage;
 
 import items.FileHandler;
+import items.ServiceHandler;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -9,9 +10,11 @@ import javax.swing.JFrame;
 
 import displayArea.AreaOfDisplay;
 import displayArea.FilesDisplayer;
+import displayArea.ServicesDisplayer;
 import observers.BackObserver;
 import observers.FileObserver;
 import observers.MenuObserver;
+import observers.ServiceObserver;
 import observers.TabObserver;
 import tabBar.MainTabBar;
 import menuBar.MenuBar;
@@ -28,11 +31,16 @@ public class DiskInvestigatorWindow extends JFrame{
 	public void windowInit() {
 		FileHandler fileHandler = new FileHandler();
 		FileObserver fileObserver = new FileObserver(fileHandler);
+		ServiceHandler serviceHandler = new ServiceHandler();
+		ServiceObserver serviceObserver = new ServiceObserver(serviceHandler);
 		
 		FilesDisplayer fileDisplayer = new FilesDisplayer();
+		ServicesDisplayer serviceDisplayer = new ServicesDisplayer();
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();
 		mainDisplayArea.setFilesArea(fileDisplayer);
+		mainDisplayArea.setServicesArea(serviceDisplayer);
 		fileHandler.setFileDisplayer(fileDisplayer);
+		serviceHandler.setServiceDisplayer(serviceDisplayer);
 		mainDisplayArea.initUI();
 		mainDisplayArea.setPreferredSize(new Dimension(900, 440));
 		TabObserver observerTab = new TabObserver(mainDisplayArea);
@@ -42,6 +50,7 @@ public class DiskInvestigatorWindow extends JFrame{
 		ToolBar toolBar = new ToolBar();
 		toolBar.setObserver(observerBack);
 		toolBar.setObserver(fileObserver);
+		toolBar.setObserver(serviceObserver);
 		toolBar.setPreferredSize(new Dimension(100, 60));
 		observerTab.setToolBar(toolBar);
 		MenuObserver observer = new MenuObserver(toolBar, tabBar, mainDisplayArea);

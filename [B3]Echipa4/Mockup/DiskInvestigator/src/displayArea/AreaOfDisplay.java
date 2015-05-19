@@ -9,7 +9,7 @@ public class AreaOfDisplay extends JPanel {
 
 	private FilesDisplayer filesArea;
 	private ProcessesDisplayer processesArea = new ProcessesDisplayer();
-	private ServicesDisplayer servicesArea = new ServicesDisplayer();
+	private ServicesDisplayer servicesArea;
 	private TasksDisplayer tasksArea = new TasksDisplayer();
 	private StartUpDisplayer startUp = new StartUpDisplayer();
 	
@@ -83,5 +83,13 @@ public class AreaOfDisplay extends JPanel {
 
 	public void setStartUp(StartUpDisplayer startUp) {
 		this.startUp = startUp;
+	}
+
+	public ServicesDisplayer getServicesArea() {
+		return servicesArea;
+	}
+
+	public void setServicesArea(ServicesDisplayer servicesArea) {
+		this.servicesArea = servicesArea;
 	}
 }

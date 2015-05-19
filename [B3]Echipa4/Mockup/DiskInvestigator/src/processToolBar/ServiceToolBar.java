@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
+import observers.ServiceObserver;
+
 public class ServiceToolBar extends JToolBar {
 
 	private static final long serialVersionUID = 3806074614969488448L;
@@ -12,6 +14,7 @@ public class ServiceToolBar extends JToolBar {
 	private StartServiceButton startServiceButton = new StartServiceButton();
 	private StopServiceButton stopServiceButton = new StopServiceButton();
 	private StartupTypeBox startupTypeBox = new StartupTypeBox();
+	private ServiceObserver serviceObserver;
 	
 	public ServiceToolBar() {	
 		setFloatable(false);
@@ -38,5 +41,13 @@ public class ServiceToolBar extends JToolBar {
 		else {
 			startupTypeBox.setVisible(false);
 		}
+	}
+
+	public ServiceObserver getServiceObserver() {
+		return serviceObserver;
+	}
+
+	public void setServiceObserver(ServiceObserver serviceObserver) {
+		this.serviceObserver = serviceObserver;
 	}
 }

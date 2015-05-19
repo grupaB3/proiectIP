@@ -31,7 +31,7 @@ public class ProcessListArea extends JScrollPane {
 	
 	private void initUI() {
 		//setBackground(Color.cyan);
-		setPreferredSize(new Dimension(620, 450));
+		setPreferredSize(new Dimension(620, 425));
 		
 		String[] columnNames = {" Name", " Session Name", " Pid", " Memory"};
 		Object[][] data = { {" Name1", " Session Name1", " Pid4", " 4"},
