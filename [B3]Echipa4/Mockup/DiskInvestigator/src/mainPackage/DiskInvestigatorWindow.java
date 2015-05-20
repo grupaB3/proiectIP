@@ -1,6 +1,7 @@
 package mainPackage;
 
 import items.FileHandler;
+import items.ProcessHandler;
 import items.ServiceHandler;
 
 import java.awt.BorderLayout;
@@ -10,10 +11,12 @@ import javax.swing.JFrame;
 
 import displayArea.AreaOfDisplay;
 import displayArea.FilesDisplayer;
+import displayArea.ProcessesDisplayer;
 import displayArea.ServicesDisplayer;
 import observers.BackObserver;
 import observers.FileObserver;
 import observers.MenuObserver;
+import observers.ProcessesObserver;
 import observers.ServiceObserver;
 import observers.TabObserver;
 import tabBar.MainTabBar;
@@ -34,12 +37,19 @@ public class DiskInvestigatorWindow extends JFrame{
 		ServiceHandler serviceHandler = new ServiceHandler();
 		ServiceObserver serviceObserver = new ServiceObserver(serviceHandler);
 		
+		ProcessHandler processHandler = new ProcessHandler();
+		ProcessesObserver processesObserver = new ProcessesObserver(processHandler);
+		ProcessesDisplayer processDisplayer = new ProcessesDisplayer();
+		
+		
 		FilesDisplayer fileDisplayer = new FilesDisplayer();
 		ServicesDisplayer serviceDisplayer = new ServicesDisplayer();
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();
 		mainDisplayArea.setFilesArea(fileDisplayer);
+		mainDisplayArea.setProcessesArea(processDisplayer);
 		mainDisplayArea.setServicesArea(serviceDisplayer);
 		fileHandler.setFileDisplayer(fileDisplayer);
+		processHandler.setProcessDisplayer(processDisplayer);
 		serviceHandler.setServiceDisplayer(serviceDisplayer);
 		mainDisplayArea.initUI();
 		mainDisplayArea.setPreferredSize(new Dimension(900, 440));
@@ -50,6 +60,7 @@ public class DiskInvestigatorWindow extends JFrame{
 		ToolBar toolBar = new ToolBar();
 		toolBar.setObserver(observerBack);
 		toolBar.setObserver(fileObserver);
+		toolBar.setObserver(processesObserver);
 		toolBar.setObserver(serviceObserver);
 		toolBar.setPreferredSize(new Dimension(100, 60));
 		observerTab.setToolBar(toolBar);

@@ -12,7 +12,7 @@ public class ProcessesDisplayer extends JPanel {
 	private ProcessListArea processListArea = new ProcessListArea();
 	private ProcessInfoArea processInfoArea = new ProcessInfoArea();
 	
-	protected ProcessesDisplayer() {
+	public ProcessesDisplayer() {
 		initUI();
 	}
 	

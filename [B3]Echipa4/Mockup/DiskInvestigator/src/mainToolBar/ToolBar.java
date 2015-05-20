@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 
 import observers.BackObserver;
 import observers.FileObserver;
+import observers.ProcessesObserver;
 import observers.ServiceObserver;
 
 public class ToolBar extends JToolBar {
@@ -110,6 +111,10 @@ public class ToolBar extends JToolBar {
 
 	public void setObserver(FileObserver fileObserver) {
 		filesToolBar.setFileObserver(fileObserver);
+	}
+	
+	public void setObserver(ProcessesObserver processObserver){
+		processesToolBar.setProcessesObserver(processObserver);
 	}
 	
 	public BackObserver getObserver() {

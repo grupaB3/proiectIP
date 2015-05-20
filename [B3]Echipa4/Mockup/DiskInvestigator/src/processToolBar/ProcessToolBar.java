@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
+import observers.ProcessesObserver;
+
 public class ProcessToolBar extends JToolBar {
 
 	private static final long serialVersionUID = 965328829017261188L;
@@ -30,5 +32,10 @@ public class ProcessToolBar extends JToolBar {
 		add(endProcessButton);
 		add(new JLabel("                 "));
 		add(processCheckButton);
+	}
+
+	public void setObserver(ProcessesObserver processesObserver) {
+		processCheckButton.setProcessesObserver(processesObserver);
+		
 	}
 }

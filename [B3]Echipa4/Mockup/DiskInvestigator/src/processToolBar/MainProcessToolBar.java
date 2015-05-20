@@ -4,6 +4,8 @@ import java.awt.Dimension;
 
 import javax.swing.JToolBar;
 
+import observers.ProcessesObserver;
+
 public class MainProcessToolBar extends JToolBar {
 	
 	private static final long serialVersionUID = 7329710301817502536L;
@@ -51,6 +53,11 @@ public class MainProcessToolBar extends JToolBar {
 
 	protected void setServicesBar(ServiceToolBar servicesBar) {
 		this.servicesBar = servicesBar;
+	}
+
+	public void setProcessesObserver(ProcessesObserver processesObserver) {
+		processesBar.setObserver(processesObserver);
+		
 	}
 
 }
