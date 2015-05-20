@@ -8,7 +8,9 @@ import displayArea.ServicesDisplayer;
 public class ServiceHandler {
 	private ServicesDisplayer serviceDisplayer;
 	private String selectedService = null;
+	@SuppressWarnings("unused")
 	private List<model.Service> services;
+	@SuppressWarnings("unused")
 	private ServiceMonitor sm = new ServiceMonitor();
 	
 	public void display(){

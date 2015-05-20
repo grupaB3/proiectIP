@@ -10,10 +10,8 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.Observer;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -26,9 +24,7 @@ import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
 
 public class DiskInvestigatorInfoProcessPanelPart2 extends JPanel{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 8978989351230968588L;
 	private JScrollPane scrollPane=new JScrollPane();
 	private NavigationEvent myEvent=new NavigationEvent();
@@ -101,14 +97,10 @@ public class DiskInvestigatorInfoProcessPanelPart2 extends JPanel{
 
 				@Override
 				public void mousePressed(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 	    		
 	    	});
@@ -136,14 +128,10 @@ public class DiskInvestigatorInfoProcessPanelPart2 extends JPanel{
 
 				@Override
 				public void mousePressed(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 	    		
 	    	});
@@ -168,14 +156,10 @@ public class DiskInvestigatorInfoProcessPanelPart2 extends JPanel{
 
 				@Override
 				public void mousePressed(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 	    		
 	    	});

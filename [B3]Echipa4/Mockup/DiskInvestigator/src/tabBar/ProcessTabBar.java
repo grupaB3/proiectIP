@@ -5,12 +5,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import controller.ServiceMonitor;
-import observers.ServiceObserver;
 import observers.TabObserver;
 
 public class ProcessTabBar extends JPanel {

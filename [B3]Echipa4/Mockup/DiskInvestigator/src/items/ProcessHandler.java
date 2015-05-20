@@ -17,5 +17,17 @@ public class ProcessHandler {
 	public void checkProcesses(){
 		System.out.println("Am ajuns aici");
 	}
+	
+	public void startProcesses(){
+		System.out.println("Started process");
+	}
+	
+	public void endProcesses(){
+		System.out.println("Ended process");
+	}
+	
+	public void scanProcesses(){
+		System.out.println("Scanned process");
+	}
 }
 

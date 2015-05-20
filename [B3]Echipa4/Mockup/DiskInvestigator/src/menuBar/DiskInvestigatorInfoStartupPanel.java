@@ -10,10 +10,8 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.Observer;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -22,8 +20,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.JViewport;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.ScrollPaneLayout;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
 
@@ -205,14 +201,10 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 
 				@Override
 				public void mousePressed(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 
 				@Override
-				public void mouseReleased(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
+				public void mouseReleased(MouseEvent arg0) {	
 				}
 	    		
 	    	});
@@ -266,14 +258,10 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 
 				@Override
 				public void mousePressed(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent arg0) {
-					// TODO Auto-generated method stub
-					
 				}
 	    		
 	    	});

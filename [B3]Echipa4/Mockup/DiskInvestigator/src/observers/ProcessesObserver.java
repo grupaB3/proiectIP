@@ -10,12 +10,9 @@ public class ProcessesObserver {
 		setProcessHandler(processHandler);
 	}
 	
-	
 	public void processCheck(){
-		
-		
+			
 	}
-	
 	
 	public void setProcessHandler(ProcessHandler processHandler) {
 		this.processHandler = processHandler;

@@ -36,6 +36,8 @@ public class ProcessToolBar extends JToolBar {
 
 	public void setObserver(ProcessesObserver processesObserver) {
 		processCheckButton.setProcessesObserver(processesObserver);
-		
+		processScanButton.setProcessesObserver(processesObserver);
+		startProcessButton.setProcessesObserver(processesObserver);
+		endProcessButton.setProcessesObserver(processesObserver);
 	}
 }

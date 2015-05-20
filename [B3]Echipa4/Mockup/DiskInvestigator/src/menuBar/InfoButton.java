@@ -1,24 +1,20 @@
 package menuBar;
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
-import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Stack;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,6 +31,7 @@ public class InfoButton extends JFrame {
 	private PanelObserver observer=new PanelObserver();
 	private NavigationEvent myEvent=new NavigationEvent();
 	private int currentPageNumber;
+	@SuppressWarnings("rawtypes")
 	private Stack backButtonStack=new Stack(),forwardButtonStack=new Stack();
 	private	JButton backButton=new JButton("Back Button");
 	private JButton forwardButton = new JButton("Forward Button");
@@ -231,6 +228,7 @@ public class InfoButton extends JFrame {
 				//restartForwardStack();
 			}
 		}
+		@SuppressWarnings("unchecked")
 		private void increaseBackStack(int page){
 			backButtonStack.push(page);
 			backButton.setEnabled(true);
@@ -246,6 +244,7 @@ public class InfoButton extends JFrame {
 			}
 		}
 
+		@SuppressWarnings("unchecked")
 		private void increaseForwardStack(int page) {
 			forwardButtonStack.push(page);
 			forwardButton.setEnabled(true);
@@ -261,6 +260,7 @@ public class InfoButton extends JFrame {
 				forwardButton.setEnabled(false);
 			}
 		}
+		@SuppressWarnings({ "unused", "rawtypes" })
 		private void restartForwardStack(){
 			forwardButtonStack=new Stack();	
 			forwardButton.setEnabled(false);

@@ -8,9 +8,7 @@ import java.awt.Image;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -23,9 +21,7 @@ import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
 
 public class DiskInvestigatorInfoFilePanel extends JPanel{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 8978989351230968588L;
 	private JScrollPane scrollPane=new JScrollPane();
 	public JScrollPane getScrollPane() {
