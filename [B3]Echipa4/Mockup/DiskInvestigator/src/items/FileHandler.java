@@ -2,6 +2,7 @@ package items;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -65,6 +66,14 @@ public class FileHandler {
 		fileScan.setStopped();
 		System.out.println("Scan stopped. ");
 		loading.dispose();
+	}
+	
+	public void recover() {
+		if(fileDisplayer.getFileListArea().getSelectedStatus() != -1 && fileDisplayer.getFileListArea().getSelectedFileColumn(3).equals("Deleted")) {
+			File file = new File("\\\\.\\"+diskName);
+			Recover.revive(Integer.parseInt(fileDisplayer.getFileListArea().getSelectedFileColumn(4)), file);
+			System.out.println("Recovered");
+		}
 	}
 
 	public boolean isScanned() {

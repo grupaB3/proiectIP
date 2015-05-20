@@ -41,13 +41,6 @@ public class FileListArea extends JScrollPane {
 	}
 
 	public void setData(Map<Integer, MFTEntry> map){
-		//		int size = 0;
-		//		for(Map.Entry<Integer, MFTEntry> entryTest: map.entrySet()) {
-		//			if(entryTest.getValue().getFileName() != null)
-		//				size++;
-		//		}
-		//		data = new Object[size] [4];
-
 		mapMFT=map;
 		data = new Object[map.size()][5];
 		int i = 0;
@@ -130,6 +123,7 @@ public class FileListArea extends JScrollPane {
 			public void valueChanged(ListSelectionEvent event) {
 				if (table.getSelectedRow() > -1) {
 					//System.out.println(table.getSelectedRow());
+					//shred function
 					fileInfoArea.setInfoRow(table, table.getSelectedRow(), mapMFT.get(table.getValueAt(table.getSelectedRow(), 4)));
 				}
 			}
@@ -142,6 +136,14 @@ public class FileListArea extends JScrollPane {
 
 	public void setItsColumn(int itsColumn) {
 		this.itsColumn = itsColumn;
+	}
+	
+	public int getSelectedStatus() {
+		return table.getSelectedRow();
+	}
+	
+	public String getSelectedFileColumn(int columnNo) {
+		return table.getValueAt(table.getSelectedRow(), columnNo).toString();
 	}
 
 	public FileInfoArea getFileInfoArea() {

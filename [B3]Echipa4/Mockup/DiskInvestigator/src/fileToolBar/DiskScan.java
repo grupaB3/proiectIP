@@ -42,5 +42,6 @@ public class DiskScan {
 	public void setObserver(FileObserver fileObserver) {
 		scanButton.setFileObserver(fileObserver);
 		refreshButton.setFileObserver(fileObserver);
+		recoveryButton.setFileObserver(fileObserver);
 	} 
 }
