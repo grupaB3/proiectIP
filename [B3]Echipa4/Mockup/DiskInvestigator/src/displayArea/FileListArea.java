@@ -1,8 +1,11 @@
 package displayArea;
 
+import java.awt.AWTEvent;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.AWTEventListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -79,7 +82,7 @@ public class FileListArea extends JScrollPane {
 	}
 
 	private void initUI() {
-		setPreferredSize(new Dimension(620, 425));
+		setPreferredSize(new Dimension(620, 440));
 
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
@@ -117,7 +120,23 @@ public class FileListArea extends JScrollPane {
 
 		ListSelectionModel rowSelectionModel = table.getSelectionModel();
 		rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
+		
+		Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener(){
+	        public void eventDispatched(AWTEvent event) {
+	            if(event.getID() == MouseEvent.MOUSE_CLICKED) {
+	                MouseEvent mevent = (MouseEvent) event;
+	                 int row = table.rowAtPoint(mevent.getPoint());
+	                 if(row == -1) {
+	                     table.clearSelection();
+	                 }
+	                 else {
+//	                	 System.out.println("Selected row "+String.valueOf(row) +
+//		                		 " . The selected service is "+ data[row][2]);
+	                 }
+	            }               
+	        }           
+	    }, AWTEvent.MOUSE_EVENT_MASK);
+		
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent event) {

@@ -3,8 +3,6 @@ package fileToolBar;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.SwingWorker;
-
 import observers.FileObserver;
 
 import java.awt.Image;

@@ -12,7 +12,6 @@ public class MainProcessToolBar extends JToolBar {
 	
 	private ProcessToolBar processesBar = new ProcessToolBar();
 	private ServiceToolBar servicesBar = new ServiceToolBar();
-	private TaskToolBar tasksBar = new TaskToolBar();
 	
 	public MainProcessToolBar() {
 		
@@ -24,7 +23,6 @@ public class MainProcessToolBar extends JToolBar {
 		
 		add(processesBar);
 		add(servicesBar);
-		add(tasksBar);
 	}
 	
 	public void setToolBar(String option) {
@@ -32,17 +30,14 @@ public class MainProcessToolBar extends JToolBar {
 		case "process":
 			processesBar.setVisible(true);
 			servicesBar.setVisibility(false);
-			tasksBar.setVisible(false);
 			break;
 		case "service":
 			processesBar.setVisible(false);
 			servicesBar.setVisibility(true);
-			tasksBar.setVisible(false);
 		    break;
 		case "task":
 			processesBar.setVisible(false);
 			servicesBar.setVisibility(false);
-			tasksBar.setVisible(true);
 			break;
 		}
 	}

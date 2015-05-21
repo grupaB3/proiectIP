@@ -46,7 +46,7 @@ public class ServiceListArea extends JScrollPane {
 	}
 	
 	private void initUI() {
-		setPreferredSize(new Dimension(620, 425));
+		setPreferredSize(new Dimension(620, 440));
 	
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
@@ -90,8 +90,8 @@ public class ServiceListArea extends JScrollPane {
 	                     table.clearSelection();
 	                 }
 	                 else {
-	                	 System.out.println("Selected row "+String.valueOf(row) +
-		                		 " . The selected service is "+ data[row][2]);
+//	                	 System.out.println("Selected row "+String.valueOf(row) +
+//		                		 " . The selected service is "+ data[row][2]);
 	                 }
 	            }               
 	        }           

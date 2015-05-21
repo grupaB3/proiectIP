@@ -20,14 +20,14 @@ public class FilesDisplayer extends JPanel {
 	private void initUI() {
 		
 		JPanel space = new JPanel();
-		space.setPreferredSize(new Dimension(2, 450));
+		space.setPreferredSize(new Dimension(2, 440));
 		
 		add(space);
 		add(fileListArea);
 		add(fileInfoArea);
 		
 		//setBackground(Color.cyan);
-		setPreferredSize(new Dimension(898, 450));
+		setPreferredSize(new Dimension(898, 440));
 		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 	}
 	

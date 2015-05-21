@@ -17,7 +17,7 @@ public class FileInfoArea extends JPanel {
 	
 	private void initUI() {
 		setBackground(Color.gray);
-		setPreferredSize(new Dimension(276, 450));
+		setPreferredSize(new Dimension(276, 440));
 		setLayout(null);
 		panel = new JPanel();
 		panel.setBounds(15,15,244,420);

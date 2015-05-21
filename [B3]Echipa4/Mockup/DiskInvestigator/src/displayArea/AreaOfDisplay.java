@@ -10,7 +10,6 @@ public class AreaOfDisplay extends JPanel {
 	private FilesDisplayer filesArea;
 	private ProcessesDisplayer processesArea;
 	private ServicesDisplayer servicesArea;
-	private TasksDisplayer tasksArea = new TasksDisplayer();
 	private StartUpDisplayer startUp = new StartUpDisplayer();
 	
 	public AreaOfDisplay() {
@@ -22,7 +21,6 @@ public class AreaOfDisplay extends JPanel {
 		add(filesArea);
 		add(processesArea);
 		add(servicesArea);
-		add(tasksArea);
 		
 		setArea("start");
 		setLayout(new FlowLayout());
@@ -36,35 +34,30 @@ public class AreaOfDisplay extends JPanel {
 				filesArea.setVisible(false);
 				processesArea.setVisible(false);
 				servicesArea.setVisible(false);
-				tasksArea.setVisible(false);
 				break;
 			case "file":
 				startUp.setVisible(false);
 				filesArea.setVisible(true);
 				processesArea.setVisible(false);
 				servicesArea.setVisible(false);
-				tasksArea.setVisible(false);
 				break;
 			case "process":
 				startUp.setVisible(false);
 				filesArea.setVisible(false);
 				processesArea.setVisible(true);
 				servicesArea.setVisible(false);
-				tasksArea.setVisible(false);
 				break;
 			case "service":
 				startUp.setVisible(false);
 				filesArea.setVisible(false);
 				processesArea.setVisible(false);
 				servicesArea.setVisible(true);
-				tasksArea.setVisible(false);
 				break;
 			case "task":
 				startUp.setVisible(false);
 				filesArea.setVisible(false);
 				processesArea.setVisible(false);
 				servicesArea.setVisible(false);
-				tasksArea.setVisible(true);
 				break;
 		}
 	}

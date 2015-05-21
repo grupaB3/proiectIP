@@ -18,13 +18,11 @@ public class ProcessTabBar extends JPanel {
 	
 	JLabel processLabel = new JLabel("Processes");
 	JLabel serviceLabel = new JLabel("Services");
-	JLabel taskLabel = new JLabel("Tasks");
 	
 	public ServiceMonitor serviceMonitor = new ServiceMonitor();
 	
 	JPanel processPanel = new JPanel();
 	JPanel servicePanel = new JPanel();
-	JPanel taskPanel = new JPanel();
 	
 	
 	protected ProcessTabBar(TabObserver observer) {
@@ -37,17 +35,13 @@ public class ProcessTabBar extends JPanel {
 		
 		processLabel.setOpaque(true);	
 		serviceLabel.setOpaque(true);
-		taskLabel.setOpaque(true);
 		
 		processPanel.add(processLabel);
 		processPanel.setPreferredSize(new Dimension(70, 30));
 		
 		servicePanel.add(serviceLabel);
 		servicePanel.setPreferredSize(new Dimension(70, 30));
-		
-		taskPanel.add(taskLabel);
-		taskPanel.setPreferredSize(new Dimension(70, 30));
-		
+
 		processPanel.setBackground(new Color(255, 178, 102));
 		processLabel.setBackground(new Color(255, 178, 102));
 		
@@ -69,8 +63,6 @@ public class ProcessTabBar extends JPanel {
 				processLabel.setBackground(new Color(255, 178, 102));
 				servicePanel.setBackground(null);
 				serviceLabel.setBackground(null);
-				taskPanel.setBackground(null);
-				taskLabel.setBackground(null);
 			}
 
 			@Override
@@ -101,34 +93,6 @@ public class ProcessTabBar extends JPanel {
 				serviceLabel.setBackground(new Color(255, 178, 102));
 				processPanel.setBackground(null);
 				processLabel.setBackground(null);
-				taskPanel.setBackground(null);
-				taskLabel.setBackground(null);
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {}
-		});
-		
-		taskPanel.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				observer.setDisplayArea("task");
-				taskPanel.setBackground(new Color(255, 178, 102));
-				taskLabel.setBackground(new Color(255, 178, 102));
-				processPanel.setBackground(null);
-				processLabel.setBackground(null);
-				servicePanel.setBackground(null);
-				serviceLabel.setBackground(null);
 			}
 
 			@Override
@@ -137,7 +101,6 @@ public class ProcessTabBar extends JPanel {
 		
 		add(processPanel);
 		add(servicePanel);
-		add(taskPanel);
 
 		setLayout(new FlowLayout());
 	}
@@ -147,7 +110,5 @@ public class ProcessTabBar extends JPanel {
 		serviceLabel.setBackground(null);
 		processPanel.setBackground(new Color(255, 178, 102));
 		processLabel.setBackground(new Color(255, 178, 102));
-		taskPanel.setBackground(null);
-		taskLabel.setBackground(null);
 	}
 }
