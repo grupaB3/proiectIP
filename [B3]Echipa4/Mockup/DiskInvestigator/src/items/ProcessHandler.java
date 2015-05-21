@@ -1,5 +1,6 @@
 package items;
 
+import dialogs.InputDialog;
 import displayArea.ProcessesDisplayer;
 
 public class ProcessHandler {
@@ -17,9 +18,11 @@ public class ProcessHandler {
 	public void checkProcesses(){
 		System.out.println("Am ajuns aici");
 	}
-	
+
 	public void startProcesses(){
 		System.out.println("Started process");
+		InputDialog dialog = new InputDialog(this);
+		dialog.displayMessage(null);
 	}
 	
 	public void endProcesses(){

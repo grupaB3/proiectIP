@@ -54,5 +54,4 @@ public class DialogWindow extends JDialog {
 	public void displayDialog() {};
 	public void hideDialog() {};
 	public void closeDialog() {};
-
 }

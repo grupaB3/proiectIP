@@ -26,7 +26,6 @@ public class StartProcessButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-			
 				processesObserver.getProcessHandler().startProcesses();
 			}
 			
