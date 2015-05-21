@@ -1,84 +1,88 @@
 package dialogs;
 
-import items.FileHandler;
-
+import items.ProcessHandler;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class LoadingDialog extends DialogWindow {
-	private FileHandler fileHandler;
+public class InputDialog extends DialogWindow {
+	
+	private ProcessHandler processesHandler;
 	private boolean visibility = false;
 	JDialog dialog;
 	
-	public LoadingDialog(FileHandler fileHandler){
+	public InputDialog(ProcessHandler processesHandler){
 		super();
-		setFileHandler(fileHandler);
+		setProcessHandler(processesHandler);
 		this.getDialog().setModal(true);
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setModalityType(ModalityType.APPLICATION_MODAL);
-		this.getDialog().setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		this.getDialog().setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 	
 	@Override
 	public void displayMessage(String message){
-		ImageIcon icon = null;
-		try {
-		    Image img = ImageIO.read(getClass().getResource("3W2Vo.png"));
-		    icon = new ImageIcon(img);
-		  } catch (IOException ex) {
-		  }
 		
 		JPanel pane = new JPanel();
 		pane.setLayout(null);
-		pane.setMinimumSize(new Dimension(300, 100));
-		pane.setMaximumSize(new Dimension(300, 100));
-		pane.setPreferredSize(new Dimension(300, 100));
+		pane.setMinimumSize(new Dimension(250, 85));
+		pane.setMaximumSize(new Dimension(250, 85));
+		pane.setPreferredSize(new Dimension(250, 85));
 		
-		JButton stop = new JButton("Stop");
-		stop.setBounds(125, 70, 50, 20);
+		JButton start = new JButton("Start");
+		start.setBounds(30, 50, 80, 25);
 		
-		JLabel iconLabel = new JLabel(icon);
-		iconLabel.setBounds(40, 10, 50, 50);
+		JButton cancel = new JButton("Cancel");
+		cancel.setBounds(140, 50, 80, 25);
 		
-		JLabel messageLabel = new JLabel(message);
-		messageLabel.setBounds(130, 30, 70, 15);
+		JTextField  testField = new JTextField();
+		testField.setBounds(30, 15, 190, 25);
 		
-		pane.add(iconLabel);
-		pane.add(messageLabel);
-		pane.add(stop);
+		pane.add(testField);
+		pane.add(start);
+		pane.add(cancel);
 		
-
 		dialog = new JDialog();
-		dialog.setTitle("Loading");
-		stop.addActionListener(new ActionListener() {
+		dialog.setTitle("New Process");
+		
+		cancel.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				setVisibility(false);
-				fileHandler.stopScan();
-				//dialog.dispose();
 				dispose();
 			}
-			
 		});
+		
+		start.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String text = testField.getText();
+				if (!text.equals(null) && !text.equals(" ") && !text.equals(""))
+					{
+					System.out.println(text);
+					//apelam functia lor
+					}
+				else
+					System.out.println("Null.");
+				setVisibility(false);
+				dispose();
+			}
+		});
+		
 		dialog.getContentPane().add(pane);
 		dialog.pack();
 		dialog.setAlwaysOnTop(true);
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
-		dialog.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setDialog(dialog);
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setVisible(true);
@@ -104,13 +108,13 @@ public class LoadingDialog extends DialogWindow {
 	public void closeDialog() {
 		this.getDialog().dispose();
 	}
-
-	public FileHandler getFileHandler() {
-		return fileHandler;
+	
+	public ProcessHandler getProcessHandler() {
+		return processesHandler;
 	}
 
-	public void setFileHandler(FileHandler fileHandler) {
-		this.fileHandler = fileHandler;
+	public void setProcessHandler(ProcessHandler processesHandler) {
+		this.processesHandler = processesHandler;
 	}
 	
 	public boolean isVisibility() {
