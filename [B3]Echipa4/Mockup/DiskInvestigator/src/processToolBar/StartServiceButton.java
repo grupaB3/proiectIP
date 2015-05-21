@@ -32,7 +32,8 @@ public class StartServiceButton extends JButton {
 	
 	private void StartServiceButtonActionPerformed(ActionEvent evt) {
 		System.out.println("Start service "+selectedService);
-		serviceObserver.start(getSelectedService());
+		if(!selectedService.equals(null))
+			serviceObserver.start(getSelectedService());
     }
 
 

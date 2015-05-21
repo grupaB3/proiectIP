@@ -3,12 +3,16 @@ package fileToolBar;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
+import observers.FileObserver;
+
 import java.awt.Image;
 import java.io.IOException;
 
-public class ShredButton extends JButton{
+public class ShredButton extends JButton {
 
 	private static final long serialVersionUID = 1107443913731007899L;
+	private FileObserver fileObserver;
 
 	public ShredButton() {
 		try {
@@ -18,6 +22,14 @@ public class ShredButton extends JButton{
 		  }
 		setEnabled(false);
 		this.setToolTipText("Shred File");
+	}
+
+	public FileObserver getFileObserver() {
+		return fileObserver;
+	}
+
+	public void setFileObserver(FileObserver fileObserver) {
+		this.fileObserver = fileObserver;
 	}
 	
 }
