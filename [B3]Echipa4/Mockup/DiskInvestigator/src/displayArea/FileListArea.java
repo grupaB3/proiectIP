@@ -141,13 +141,15 @@ public class FileListArea extends JScrollPane {
 			@Override
 			public void valueChanged(ListSelectionEvent event) {
 				if (table.getSelectedRow() > -1) {
-					//System.out.println(table.getSelectedRow());
-					//shred function
 					fileInfoArea.setInfoRow(table, table.getSelectedRow(), mapMFT.get(table.getValueAt(table.getSelectedRow(), 4)));
 				}
-				
 			}
 		});
+	}
+	
+	public String getPath(int selectedRow) {
+		MFTEntry mftEntry = mapMFT.get(table.getValueAt(table.getSelectedRow(), 4));
+		return String.valueOf(mftEntry.getFileName().getName()).trim().replaceAll("\\s+", "");
 	}
 
 	public int getItsColumn() {
