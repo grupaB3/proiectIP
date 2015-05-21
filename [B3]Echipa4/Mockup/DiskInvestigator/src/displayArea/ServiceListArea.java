@@ -30,7 +30,6 @@ public class ServiceListArea extends JScrollPane {
     private JTable table;
     private String[] columnNames = {" Name"," Type"," Status", " Description"};
     private Object[][] data;
-       //private Object[][] data ={ {" Name1", " type Name1", " status", " sadas4"}};
     
 	protected ServiceListArea() {
 		initUI();

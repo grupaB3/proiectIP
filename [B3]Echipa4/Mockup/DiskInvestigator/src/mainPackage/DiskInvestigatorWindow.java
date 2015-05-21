@@ -41,7 +41,6 @@ public class DiskInvestigatorWindow extends JFrame{
 		ProcessesObserver processesObserver = new ProcessesObserver(processHandler);
 		ProcessesDisplayer processDisplayer = new ProcessesDisplayer();
 		
-		
 		FilesDisplayer fileDisplayer = new FilesDisplayer();
 		ServicesDisplayer serviceDisplayer = new ServicesDisplayer();
 		AreaOfDisplay mainDisplayArea = new AreaOfDisplay();

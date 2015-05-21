@@ -40,5 +40,22 @@ public class FileToolBar extends JToolBar{
     
     public void setFileObserver (FileObserver fileObserver) {
     	diskScan.setObserver(fileObserver);
+    	fileWorker.getShredButton().setFileObserver(fileObserver);
     }
+
+	public DiskScan getDiskScan() {
+		return diskScan;
+	}
+
+	public void setDiskScan(DiskScan diskScan) {
+		this.diskScan = diskScan;
+	}
+
+	public FileWorker getFileWorker() {
+		return fileWorker;
+	}
+
+	public void setFileWorker(FileWorker fileWorker) {
+		this.fileWorker = fileWorker;
+	}
 }

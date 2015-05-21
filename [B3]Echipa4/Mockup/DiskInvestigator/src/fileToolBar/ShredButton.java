@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import observers.FileObserver;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class ShredButton extends JButton {
@@ -22,6 +24,16 @@ public class ShredButton extends JButton {
 		  }
 		setEnabled(false);
 		this.setToolTipText("Shred File");
+		
+		addActionListener(new ActionListener() {           
+            public void actionPerformed(ActionEvent evt) {
+                ShredButtonActionPerformed(evt);
+            }
+        });
+	}
+	
+	private void ShredButtonActionPerformed(ActionEvent evt) {
+		fileObserver.getFileHandler().shred();
 	}
 
 	public FileObserver getFileObserver() {

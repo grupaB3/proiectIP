@@ -21,7 +21,7 @@ public class RecoveryButton extends JButton {
 			this.setIcon(new ImageIcon(img));
 		} catch (IOException ex) {
 		}
-		setEnabled(true);
+		setEnabled(false);
 		this.setToolTipText("Recover File");
 
 		addActionListener(new ActionListener() {           

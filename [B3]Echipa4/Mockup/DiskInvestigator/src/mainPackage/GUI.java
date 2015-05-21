@@ -19,8 +19,7 @@ public class GUI {
 			    defaults.put("Table.alternateRowColor", new Color(222, 208, 177));
 			
 		} catch (Exception e) {
-	          System.out.println("Substance Graphite failed to initialize");
-	        }
+	    }
 		
 		EventQueue.invokeLater(new Runnable() {
 	        

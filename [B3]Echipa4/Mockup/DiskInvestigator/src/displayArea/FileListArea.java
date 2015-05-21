@@ -145,6 +145,7 @@ public class FileListArea extends JScrollPane {
 					//shred function
 					fileInfoArea.setInfoRow(table, table.getSelectedRow(), mapMFT.get(table.getValueAt(table.getSelectedRow(), 4)));
 				}
+				
 			}
 		});
 	}

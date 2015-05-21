@@ -7,7 +7,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.SwingWorker;
 import observers.FileObserver;
 
 public class RefreshButton extends JButton{
@@ -47,23 +46,6 @@ public class RefreshButton extends JButton{
 
 	public void setFileObserver(FileObserver fileObserver) {
 		this.fileObserver = fileObserver;
-		checkScanStatus();
 	}
 	
-	private void checkScanStatus() {
-		SwingWorker<Void, Void> mySwingWorker = new SwingWorker<Void, Void>() {
-			@Override
-	         protected Void doInBackground() throws Exception {
-				System.out.println("Waiting...");
-				boolean statusA = (getFileObserver().getFileHandler().scannedInteger).compareAndSet(1, 0);
-	        	while(!statusA) {
-	        		statusA=(getFileObserver().getFileHandler().scannedInteger).compareAndSet(1, 0);
-	        	}
-	        	setEnabled(true);
-	        	System.out.println("Done.");
-	            return null;
-	         }
-		};
-		mySwingWorker.execute();
-	}
 }

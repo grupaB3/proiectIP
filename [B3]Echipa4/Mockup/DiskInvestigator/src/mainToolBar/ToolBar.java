@@ -14,6 +14,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
+import javax.swing.SwingWorker;
 
 import observers.BackObserver;
 import observers.FileObserver;
@@ -98,6 +99,7 @@ public class ToolBar extends JToolBar {
 				filesToolBar.setVisible(true);
 				processesToolBar.setVisible(false);
 				welcomeMessage.setVisible(false);
+				checkScanStatus();
 			    break;
 			default:
 				setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
@@ -107,6 +109,26 @@ public class ToolBar extends JToolBar {
 				processesToolBar.setToolBar(option);
 				break;
 		}
+	}
+	
+	private void checkScanStatus() {
+		SwingWorker<Void, Void> mySwingWorker = new SwingWorker<Void, Void>() {
+			@Override
+	         protected Void doInBackground() throws Exception {
+				System.out.println("Waiting...");
+				boolean status = filesToolBar.getDiskScan().getScanButton().getFileObserver().getFileHandler().isScanned();
+	        	while(!status) {
+	        		status = filesToolBar.getDiskScan().getScanButton().getFileObserver().getFileHandler().isScanned();
+	        		Thread.sleep(10);
+	        	}
+	        	filesToolBar.getDiskScan().getRefreshButton().setEnabled(true);
+	        	filesToolBar.getDiskScan().getRecoveryButton().setEnabled(true);
+	        	filesToolBar.getFileWorker().getShredButton().setEnabled(true);
+	        	System.out.println("Done.");
+	            return null;
+	         }
+		};
+		mySwingWorker.execute();
 	}
 
 	public void setObserver(FileObserver fileObserver) {

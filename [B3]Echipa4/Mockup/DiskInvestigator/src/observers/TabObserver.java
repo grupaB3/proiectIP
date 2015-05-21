@@ -12,11 +12,15 @@ public class TabObserver {
 	}
 	
 	public void setDisplayArea(String areaName) {
-		displayArea.setArea(areaName);
-		toolBar.setToolBar(areaName);
+		if(!areaName.equals("file")) {
+			displayArea.setArea(areaName);
+			toolBar.setToolBar(areaName);
+		}
 	}
 
 	public void setToolBar(ToolBar toolBar) {
-		this.toolBar = toolBar;
+		if(!toolBar.equals("file")) {
+			this.toolBar = toolBar;
+		}
 	}
 }
