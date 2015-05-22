@@ -94,11 +94,7 @@ public class FileHandler {
 			
 			ProcessCheck processCheck = new ProcessCheck();
 			boolean result = false;
-			try {
-				result = processCheck.delete(path);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			result = processCheck.delete(path);
 			
 			if(!result) {
 				ErrorDialog error = new ErrorDialog();
