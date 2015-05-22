@@ -7,20 +7,16 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import controller.ServiceMonitor;
 import observers.TabObserver;
 
 public class ProcessTabBar extends JPanel {
 	private static final long serialVersionUID = -2764060480869773897L;
 	
 	private TabObserver observer = null;
-	//private ServiceObserver serviceObserver = null;
 	
 	JLabel processLabel = new JLabel("Processes");
 	JLabel serviceLabel = new JLabel("Services");
-	
-	public ServiceMonitor serviceMonitor = new ServiceMonitor();
-	
+		
 	JPanel processPanel = new JPanel();
 	JPanel servicePanel = new JPanel();
 	
@@ -84,11 +80,8 @@ public class ProcessTabBar extends JPanel {
 			public void mousePressed(MouseEvent arg0) {
 				observer.setDisplayArea("service");
 				
-				//serviceObserver.displayServices();
-				serviceMonitor.initiliaze();
-				serviceMonitor.connect();
-				//serviceMonitor.parse();
-				
+				observer.getDisplayArea().getServicesArea().getServiceListArea().setData();
+								
 				servicePanel.setBackground(new Color(255, 178, 102));
 				serviceLabel.setBackground(new Color(255, 178, 102));
 				processPanel.setBackground(null);

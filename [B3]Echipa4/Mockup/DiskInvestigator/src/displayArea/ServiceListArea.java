@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import controller.ServiceMonitor;
 
 public class ServiceListArea extends JScrollPane {
 
@@ -28,20 +29,48 @@ public class ServiceListArea extends JScrollPane {
     private int itsColumn;
     private boolean isMouseEnter = false;
     private JTable table;
-    private String[] columnNames = {" Name"," Type"," Status", " Description"};
+    private String[] columnNames = {" Name"," Status","PID", " Description"};
     private Object[][] data;
+    private ServiceMonitor sm = new ServiceMonitor();
+    private String selectedService;
+    private List<model.Service> services;
     
 	protected ServiceListArea() {
 		initUI();
 	}
 	
-	public void setData(List<model.Service> services){
+	public void setData(){		
+		sm.initiliaze();
+		sm.connect();		
+		sm.parse();
+		services = sm.getServicesList();		
+		display();	
+	}
+	
+	public void display(){
 		
+		data = new Object[services.size()+1][6];
 		
+		for(int i = 0; i<services.size(); i++)
+		{
+		
+			model.Service s = services.get(i);	
+			data[i][0] = s.getName();
+			data[i][1] = s.getState();
+			data[i][2] = s.getPID();
+			data[i][3] = s.getDescription();
+			
+		}
 		
 		
 		getViewport().removeAll();
 		initUI();
+	}
+	
+	public void StartServiceButtonActionPerformed(){
+		System.out.println("Start service "+selectedService);
+		if(!selectedService.equals(null))
+			sm.start(selectedService);
 	}
 	
 	private void initUI() {

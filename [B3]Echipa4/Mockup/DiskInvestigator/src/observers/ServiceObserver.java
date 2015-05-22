@@ -24,8 +24,5 @@ public class ServiceObserver {
 	public void stop(String service){
 		serviceHandler.stopService(service);
 	}
-	public void displayServices(){
-		serviceHandler.display();
-	}
 
 }

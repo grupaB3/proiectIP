@@ -25,16 +25,19 @@ public class StartServiceButton extends JButton {
 		setToolTipText("Start Service");
 		addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent evt) {
-                StartServiceButtonActionPerformed(evt);
+                //StartServiceButtonActionPerformed(evt);
+                serviceObserver.getServiceHandler().getServiceDisplayer().getServiceListArea().StartServiceButtonActionPerformed();
             }
         });
 	}
 	
+	/*
 	private void StartServiceButtonActionPerformed(ActionEvent evt) {
 		System.out.println("Start service "+selectedService);
 		if(!selectedService.equals(null))
 			serviceObserver.start(getSelectedService());
     }
+    */
 
 
 	public ServiceObserver getServiceObserver() {

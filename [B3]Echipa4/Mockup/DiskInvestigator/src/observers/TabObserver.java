@@ -23,4 +23,7 @@ public class TabObserver {
 			this.toolBar = toolBar;
 		}
 	}
+	public AreaOfDisplay getDisplayArea(){
+		return displayArea;
+	}
 }

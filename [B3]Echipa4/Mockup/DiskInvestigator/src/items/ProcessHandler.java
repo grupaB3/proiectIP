@@ -40,13 +40,10 @@ public class ProcessHandler {
 		processMonitor.connect();
 		processMonitor.parse();
 		
-		//TODO
 		processList = processMonitor.getProcessList();
-		
 		
 		processDisplayer.getProcessListArea().setData(processList);
 		
-		System.out.println("Scanned processes!");
 	}
 	
 	public List<ProcessT> getProcessList(){

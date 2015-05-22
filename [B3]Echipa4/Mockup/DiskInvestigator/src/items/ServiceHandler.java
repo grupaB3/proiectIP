@@ -1,29 +1,13 @@
 package items;
 
-import java.util.List;
 
-import controller.ServiceMonitor;
 import displayArea.ServicesDisplayer;
 
 public class ServiceHandler {
 	private ServicesDisplayer serviceDisplayer;
-	private String selectedService = null;
-	@SuppressWarnings("unused")
-	private List<model.Service> services;
-	@SuppressWarnings("unused")
-	private ServiceMonitor sm = new ServiceMonitor();
-	
-	public void display(){
-		
-		//sm.initiliaze();
-		//sm.connect();
-		//sm.parse();
-		//this.setServicesList(sm.getServicesList());		
-		//serviceDisplayer.getServiceListArea().setData(services);
-	}
-	public void setServicesList(List<model.Service> list){
-		services = list;
-	}
+	private String selectedService = null;	
+
+
 	public void startService(String service) {
 		//start service - module 1
 		this.setSelectedService(service);
