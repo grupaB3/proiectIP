@@ -1,12 +1,17 @@
 package items;
 
+import java.util.List;
+
+import model.ProcessT;
+import controller.ProcessMonitor;
 import dialogs.InputDialog;
 import displayArea.ProcessesDisplayer;
 
 public class ProcessHandler {
 
 	private ProcessesDisplayer processDisplayer;
-
+	private ProcessMonitor processMonitor;
+	private List<ProcessT> processList;
 	public ProcessesDisplayer getProcessDisplayer() {
 		return processDisplayer;
 	}
@@ -29,8 +34,23 @@ public class ProcessHandler {
 		System.out.println("Ended process");
 	}
 	
+	
 	public void scanProcesses(){
-		System.out.println("Scanned process");
+		processMonitor = new ProcessMonitor();
+		processMonitor.connect();
+		processMonitor.parse();
+		
+		//TODO
+		processList = processMonitor.getProcessList();
+		
+		
+		processDisplayer.getProcessListArea().setData(processList);
+		
+		System.out.println("Scanned processes!");
+	}
+	
+	public List<ProcessT> getProcessList(){
+		return processList;
 	}
 }
 

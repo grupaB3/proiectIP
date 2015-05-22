@@ -23,16 +23,17 @@ public class ProcessScanButton extends JButton{
 		  }
 		this.setToolTipText("Scan Processes");
 	
-		addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-			
-				processesObserver.getProcessHandler().scanProcesses();
-			}
-			
-		});
+		addActionListener(new ActionListener() {           
+            public void actionPerformed(ActionEvent evt) {
+                ScanButtonActionPerformed(evt);
+            }
+        });
 	}
+	
+	private void ScanButtonActionPerformed(ActionEvent evt) {
+		System.out.println("Scanning processes...");
+		processesObserver.startScan();
+    }
 	
 	public ProcessesObserver getProcessesObserver() {
 		return processesObserver;

@@ -10,6 +10,12 @@ public class ProcessesObserver {
 		setProcessHandler(processHandler);
 	}
 	
+	public void startScan() {
+		processHandler.scanProcesses();
+	}
+	
+	
+	
 	public void processCheck(){
 			
 	}
