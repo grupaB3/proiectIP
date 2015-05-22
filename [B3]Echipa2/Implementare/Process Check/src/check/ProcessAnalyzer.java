@@ -54,11 +54,11 @@ public class ProcessAnalyzer {
 			verified = parser.next().replace("\"",	"");
 			parser.next();
 			aux = parser.next().replace("\"",	"");
-			publisher = aux.equals("n/a")?null:aux;
+			publisher = aux;
 			aux = parser.next().replace("\"",	"");
-			description = aux.equals("n/a")?null:aux;
+			description = aux;
 			aux = parser.next().replace("\"",	"");
-			product = aux.equals("n/a")?null:aux;
+			product = aux;
 			parser.next();parser.next();parser.next();
 			aux = parser.next().replace("\"",	"");
 			if(!aux.equals("Unknown")){

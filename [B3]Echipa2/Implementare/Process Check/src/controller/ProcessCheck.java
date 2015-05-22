@@ -34,8 +34,7 @@ public class ProcessCheck{
 		List<MaliciousProcess> list = new ArrayList<MaliciousProcess>();
 		for(int i=0;i<listPID.length;i++){
 			process = analyzer.analyzeProcess(listPID[i]);
-			if(process != null)
-				list.add(process);
+			list.add(process);
 			
 		}
 		return list;
@@ -53,8 +52,7 @@ public class ProcessCheck{
 		List<MaliciousProcess> list = new ArrayList<MaliciousProcess>();
 		for(String p : listPath){
 			process = analyzer.analyzeFile(p);
-			if(process != null)
-				list.add(process);
+			list.add(process);
 		}
 		return list;
 		
@@ -75,8 +73,7 @@ public class ProcessCheck{
 		List<DigitalSignature> list = new ArrayList<DigitalSignature>();
 		for(int i=0;i<listPID.length;i++){
 			process = analyzer.check(listPID[i]);
-			if(process != null)
-				list.add(process);
+			list.add(process);
 		}
 		return list;
 	}
@@ -95,8 +92,7 @@ public class ProcessCheck{
 		List<DigitalSignature> list = new ArrayList<DigitalSignature>();
 		for(String s : listPath){
 			process = analyzer.check(s);
-			if(process != null)
-				list.add(process);
+			list.add(process);
 		}
 		return list;
 	}
@@ -106,10 +102,14 @@ public class ProcessCheck{
 	 * @return True daca sa sters. False daca nu s-a putut sterge sau fisierul nu exista
 	 * @throws IOException
 	 */
-	public boolean delete(String path) throws IOException
+	public boolean delete(String path) 
 	{
 		SecureDelete destroyer = new SecureDelete();
-		return destroyer.delete(path);
+		try {
+			return destroyer.delete(path);
+		} catch (IOException e) {
+			return false;
+		}
 	}
 	/**
 	 * Activitatea proceselor active cu disk-ul. Cati biti au fost scrisi sau cititi de la pornirea procesului.
