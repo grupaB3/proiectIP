@@ -16,6 +16,7 @@ public class InputDialog extends DialogWindow {
 	private ProcessHandler processesHandler;
 	private boolean visibility = false;
 	JDialog dialog;
+	private String text;
 	
 	public InputDialog(ProcessHandler processesHandler){
 		super();
@@ -64,10 +65,11 @@ public class InputDialog extends DialogWindow {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String text = testField.getText();
+				text = testField.getText();
 				if (!text.equals(null) && !text.equals(" ") && !text.equals(""))
 					{
-					System.out.println(text);
+					setText(text);
+					//System.out.println(text);
 					//apelam functia lor
 					}
 				else
@@ -87,6 +89,13 @@ public class InputDialog extends DialogWindow {
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setVisible(true);
 	};
+	
+	public void setText(String t){
+		text = t;
+	}
+	public String getText(){
+		return text;
+	}
 	
 	public void dispose() {
 		super.dispose();

@@ -13,9 +13,9 @@ public class ServiceHandler {
 		serviceDisplayer.getServiceListArea().StartServiceButton();
 	}
 	
-	public void stopService(String service) {
+	public void stopService() {
 		//stop service - module 1
-		
+		serviceDisplayer.getServiceListArea().StopServiceButton();
 	}
 	
 	public ServicesDisplayer getServiceDisplayer() {

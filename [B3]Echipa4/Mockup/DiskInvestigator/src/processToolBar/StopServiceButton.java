@@ -1,6 +1,8 @@
 package processToolBar;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -21,8 +23,21 @@ public class StopServiceButton extends JButton {
 		  } catch (IOException ex) {
 		  }
 		this.setToolTipText("Stop Service");
+		
+		addActionListener(new ActionListener() {           
+            public void actionPerformed(ActionEvent evt) {
+                StopButtonActionPerformed(evt);
+            }
+        });
+		
 	}
 
+	
+	private void StopButtonActionPerformed(ActionEvent evt) {
+		serviceObserver.getServiceHandler().stopService();
+    }
+	
+	
 	public ServiceObserver getServiceObserver() {
 		return serviceObserver;
 	}

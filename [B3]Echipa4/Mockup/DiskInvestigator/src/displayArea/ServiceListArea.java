@@ -23,6 +23,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import controller.ServiceMonitor;
+import dialogs.ErrorDialog;
 
 public class ServiceListArea extends JScrollPane {
 
@@ -72,26 +73,64 @@ public class ServiceListArea extends JScrollPane {
 	public void StartServiceButton(){
 		//TODO set selectedService!
 		System.out.println("START Service!");
+		int rowNo;
+		rowNo = table.getSelectedRow();
 		
-		 model.Service s = services.get(table.getSelectedRow());
+		if(rowNo>=0){
 		
+			 model.Service s = services.get(rowNo);
+					
+			setService(s.getName());
+			System.out.println(selectedService+" la randul "+rowNo);
+	
+			
+			if(!selectedService.equals(null))
+			{
+				sm.start(selectedService);
+				
+				data[rowNo][1] = s.getState();
+				System.out.println("			State:  "+s.getState());
+				getViewport().removeAll();
+				initUI();
+			}
 		
-		setService(s.getName());
-		System.out.println(selectedService+" la randul "+table.getSelectedRow());
-		
-		
-		System.out.println("Start service "+selectedService);
-		
-		if(!selectedService.equals(null))
-		{
-			sm.start(selectedService);
-			getViewport().removeAll();
-			initUI();
+		}
+		else{
+			ErrorDialog errDialog = new ErrorDialog();
+			errDialog.displayMessage("You must select a service to start it!");
 		}
 		
-		 
 	}
 	
+	
+	public void StopServiceButton(){
+		System.out.println("STOP Service!");
+		int rowNo;
+		rowNo = table.getSelectedRow();
+		
+		if(rowNo>=0){
+			 model.Service s = services.get(rowNo);
+			 setService(s.getName());
+			 System.out.println(selectedService+" la randul "+rowNo);
+			 
+			 
+			 if(!selectedService.equals(null))
+				{
+					sm.stop(selectedService);
+					
+					data[rowNo][1] = s.getState();
+					System.out.println("			State:  "+s.getState());
+					getViewport().removeAll();
+					initUI();
+				}
+			 
+			
+		}else{
+			ErrorDialog errDialog = new ErrorDialog();
+			errDialog.displayMessage("You must select a service to stop it!");
+		}
+		
+	}
 	public void setService(String s){
 		selectedService = s;
 	}

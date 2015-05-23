@@ -59,12 +59,13 @@ DISPLAY_NAME: Application Information
 SERVICE_NAME: AppMgmt
 DISPLAY_NAME: Application Management
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 1552
         FLAGS              : 
 
 SERVICE_NAME: aspnet_state
@@ -141,7 +142,7 @@ SERVICE_NAME: BDESVC
 DISPLAY_NAME: BitLocker Drive Encryption Service
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -479,7 +480,7 @@ SERVICE_NAME: Fax
 DISPLAY_NAME: Fax
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -1678,7 +1679,7 @@ SERVICE_NAME: TapiSrv
 DISPLAY_NAME: Telephony
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0

@@ -22,6 +22,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import controller.ProcessCheck;
 import model.ProcessT;
 
 public class ProcessListArea extends JScrollPane {
@@ -33,30 +34,57 @@ public class ProcessListArea extends JScrollPane {
     JTable table;
     private Object[][] data;
     private String[] columnNames = {" Name", " Session Name", " Pid", " Memory", " Digital Signature"};
+    private List<ProcessT> pro;
     
 	protected ProcessListArea() {
 		initUI();
 	}
 	
 	public void setData(List<ProcessT> processes){
-		
+		setPro(processes);
+		ProcessCheck check = new ProcessCheck();
+		//int verifica[]= new int[100];
 		data = new Object[processes.size()+1][6];
 		
 		for(int i = 0; i<processes.size(); i++)
 		{
-		
+			
 			ProcessT p = processes.get(i);
-	
+		
+			//verifica[i] = Integer.parseInt(p.getPID());
+			
 			data[i][0] = p.getName();
 			data[i][1] = p.getSessionName();
 			data[i][2] = p.getPID();
 			data[i][3] = p.getMemoryUsage();
 			data[i][4] = "yes/no";
-			
+			/*
+			if(check.verify(verifica[i])==null)
+				data[i][4] = "no";
+			else
+				data[i][4]="yes";
+			*/
 		}
 		
 		getViewport().removeAll();
 		initUI();
+	}
+
+	public ProcessT getSelectedProcess(){
+		ProcessT p;
+		int rowNo = table.getSelectedRow();
+		if(rowNo>=0)
+		{
+			p = pro.get(rowNo);				
+			return p;
+		}
+		return null;
+	}
+	public void setPro(List<ProcessT> p){
+		pro = p;
+	}
+	public List<ProcessT> getPro(){
+		return pro;
 	}
 	
 	private void initUI() {
