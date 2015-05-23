@@ -35,7 +35,7 @@ public class ProcessAnalyzer {
 	 */
 	public MaliciousProcess analyzeFile(String fileName){
 		try {
-			String sigcheckPath = this.getClass().getResource("sigcheck.exe").getPath().replace("%20", " ").replace("%5b", "[").replace("%5d", "]").substring(1);
+			String sigcheckPath = Extractor.getFileLocation("sigcheck.exe").getPath().replace("%20", " ").replace("%5b", "[").replace("%5d", "]").substring(1);
 			String command = "\""+sigcheckPath+"\""+" /accepteula -c -vt \""+fileName+"\"";
 			Process systemCommand = Runtime.getRuntime().exec(command);
 			systemCommand.waitFor();

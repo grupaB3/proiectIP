@@ -25,7 +25,7 @@ public class DigitalSignatureChecker
 	{
 		try {
 			String exectPath = getExecutablePath(pID);
-			String sigcheckPath = this.getClass().getResource("sigcheck.exe").getPath().replace("%20", " ").replace("%5b", "[").replace("%5d", "]").substring(1);
+			String sigcheckPath = Extractor.getFileLocation("sigcheck.exe").getPath().replace("%20", " ").replace("%5b", "[").replace("%5d", "]").substring(1);
 			String command = sigcheckPath + " \"" + exectPath + "\"";
 			Process systemCommand = Runtime.getRuntime().exec(command);
 			systemCommand.waitFor();
