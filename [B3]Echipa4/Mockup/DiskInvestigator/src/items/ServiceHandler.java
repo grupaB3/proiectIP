@@ -5,14 +5,12 @@ import displayArea.ServicesDisplayer;
 
 public class ServiceHandler {
 	private ServicesDisplayer serviceDisplayer;
-	private String selectedService = null;	
+	//private String selectedService = null;	
 
 
-	public void startService(String service) {
-		//start service - module 1
-		this.setSelectedService(service);
+	public void startService(){
 		
-
+		serviceDisplayer.getServiceListArea().StartServiceButton();
 	}
 	
 	public void stopService(String service) {
@@ -28,12 +26,6 @@ public class ServiceHandler {
 		this.serviceDisplayer = serviceDisplayer;
 	}
 
-	public void setSelectedService(String service){
-		this.selectedService = service;
-	}
-	public String getSelectedService(){
-		return selectedService;
-	}
-	
+
 
 }

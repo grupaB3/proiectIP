@@ -4,9 +4,11 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 import observers.ServiceObserver;
 
 public class StartServiceButton extends JButton {
@@ -23,22 +25,20 @@ public class StartServiceButton extends JButton {
 		  }
 		
 		setToolTipText("Start Service");
+		
 		addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent evt) {
-                //StartServiceButtonActionPerformed(evt);
-                serviceObserver.getServiceHandler().getServiceDisplayer().getServiceListArea().StartServiceButtonActionPerformed();
+                StartButtonActionPerformed(evt);
             }
         });
+		
+		
 	}
 	
-	/*
-	private void StartServiceButtonActionPerformed(ActionEvent evt) {
-		System.out.println("Start service "+selectedService);
-		if(!selectedService.equals(null))
-			serviceObserver.start(getSelectedService());
+	private void StartButtonActionPerformed(ActionEvent evt) {
+		System.out.println("Starting ");
+		serviceObserver.startService();
     }
-    */
-
 
 	public ServiceObserver getServiceObserver() {
 		return serviceObserver;
@@ -57,6 +57,6 @@ public class StartServiceButton extends JButton {
 
 	public void setSelectedService(String selectedService) {
 		this.selectedService = selectedService;
-		System.out.println("Selected the disk "+ getSelectedService());
+		System.out.println("Selected  "+ getSelectedService());
 	}
 }

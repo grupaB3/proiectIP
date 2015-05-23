@@ -49,6 +49,8 @@ public class ServiceToolBar extends JToolBar {
 
 	public void setServiceObserver(ServiceObserver serviceObserver) {
 		this.serviceObserver = serviceObserver;
+		startServiceButton.setServiceObserver(serviceObserver);
+		stopServiceButton.setServiceObserver(serviceObserver);
 	}
 
 	public void setVisibility(boolean status) {

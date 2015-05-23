@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.List;
+
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -20,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 import controller.ServiceMonitor;
 
 public class ServiceListArea extends JScrollPane {
@@ -67,10 +69,31 @@ public class ServiceListArea extends JScrollPane {
 		initUI();
 	}
 	
-	public void StartServiceButtonActionPerformed(){
+	public void StartServiceButton(){
+		//TODO set selectedService!
+		System.out.println("START Service!");
+		
+		 model.Service s = services.get(table.getSelectedRow());
+		
+		
+		setService(s.getName());
+		System.out.println(selectedService+" la randul "+table.getSelectedRow());
+		
+		
 		System.out.println("Start service "+selectedService);
+		
 		if(!selectedService.equals(null))
+		{
 			sm.start(selectedService);
+			getViewport().removeAll();
+			initUI();
+		}
+		
+		 
+	}
+	
+	public void setService(String s){
+		selectedService = s;
 	}
 	
 	private void initUI() {
@@ -186,5 +209,6 @@ public class ServiceListArea extends JScrollPane {
             return this;
         }
     }
+
 	
 }

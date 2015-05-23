@@ -3,6 +3,7 @@ package items;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.swing.SwingWorker;
@@ -90,16 +91,19 @@ public class FileHandler {
 	public void shred() {
 		if(fileDisplayer.getFileListArea().getSelectedStatus() != -1) {
 			String path = fileDisplayer.getFileListArea().getPath(fileDisplayer.getFileListArea().getSelectedStatus());
-			System.out.println(path);
 			
-//			ProcessCheck processCheck = new ProcessCheck();
-//			boolean result = false;
-//			result = processCheck.delete(path);
-//			
-//			if(!result) {
-//				ErrorDialog error = new ErrorDialog();
-//				error.displayMessage("Error deleting the file.");
-//			}
+			ProcessCheck processCheck = new ProcessCheck();
+			boolean result = false;
+			try {
+				result = processCheck.delete(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			if(!result) {
+				ErrorDialog error = new ErrorDialog();
+				error.displayMessage("You have to select a deleted file.");
+			}
 		}
 		else {
 			ErrorDialog error = new ErrorDialog();
