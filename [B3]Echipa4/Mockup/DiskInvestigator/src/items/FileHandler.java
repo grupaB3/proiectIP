@@ -88,17 +88,13 @@ public class FileHandler {
 		}
 	}
 	
-	public void shred() {
+	public void shred() throws IOException {
 		if(fileDisplayer.getFileListArea().getSelectedStatus() != -1) {
 			String path = fileDisplayer.getFileListArea().getPath(fileDisplayer.getFileListArea().getSelectedStatus());
 			
 			ProcessCheck processCheck = new ProcessCheck();
 			boolean result = false;
-			try {
-				result = processCheck.delete(path);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			result = processCheck.delete(path);
 			
 			if(!result) {
 				ErrorDialog error = new ErrorDialog();

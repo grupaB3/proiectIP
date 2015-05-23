@@ -9,6 +9,7 @@ import java.awt.event.AWTEventListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.JLabel;
@@ -23,6 +24,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import controller.ProcessCheck;
+import model.DigitalSignature;
 import model.ProcessT;
 
 public class ProcessListArea extends JScrollPane {
@@ -42,33 +44,72 @@ public class ProcessListArea extends JScrollPane {
 	
 	public void setData(List<ProcessT> processes){
 		setPro(processes);
-		ProcessCheck check = new ProcessCheck();
-		//int verifica[]= new int[100];
-		data = new Object[processes.size()+1][6];
 		
+		ProcessCheck check = new ProcessCheck();
+		int verifica[]= new int[processes.size()+1];
+		
+		data = new Object[processes.size()+1][6];	
 		for(int i = 0; i<processes.size(); i++)
 		{
 			
-			ProcessT p = processes.get(i);
-		
-			//verifica[i] = Integer.parseInt(p.getPID());
+			ProcessT p = processes.get(i);		
+			String pid = p.getPID();
 			
 			data[i][0] = p.getName();
 			data[i][1] = p.getSessionName();
-			data[i][2] = p.getPID();
+			data[i][2] = pid;
 			data[i][3] = p.getMemoryUsage();
 			data[i][4] = "yes/no";
-			/*
-			if(check.verify(verifica[i])==null)
-				data[i][4] = "no";
-			else
-				data[i][4]="yes";
-			*/
+
+			try{
+				verifica[i] = Integer.parseInt(pid);
+			}catch(NumberFormatException e){
+				System.out.println("ERROR: la PARSE!");
+			}
+			
+			
 		}
+		
+		
+
+			try {
+				//List<DigitalSignature> ar = check.verify(verifica);
+				/*
+				for(int i = 0; i<ar.size(); i++)
+				{
+					DigitalSignature sign = ar.get(i);
+					if(sign.equals(null)){
+						data[i][4] = "no";				
+					}else{
+						data[i][4] = "yes";
+					}
+				}
+				*/
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+
+		
 		
 		getViewport().removeAll();
 		initUI();
 	}
+	
+	public void deleteProcess(ProcessT p){
+		for(int i = 0; i<pro.size(); i++)
+		{
+			ProcessT pp = pro.get(i);
+			if(pp.getPID() == p.getPID()){
+				System.out.println("Removing: "+p.getName()+"from the table....");
+				((DefaultTableModel)table.getModel()).removeRow(i);
+			}
+		}
+		getViewport().removeAll();
+		initUI();
+	}
+	
+
 
 	public ProcessT getSelectedProcess(){
 		ProcessT p;

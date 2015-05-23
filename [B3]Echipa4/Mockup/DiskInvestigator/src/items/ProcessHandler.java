@@ -49,8 +49,8 @@ public class ProcessHandler {
 				errDialog.displayMessage("Incorrect process name! (you have to include extension)"); //schimba??
 			}
 			
-			processList = processMonitor.getProcessList();
-			processDisplayer.getProcessListArea().setData(processList);
+			//processList = processMonitor.getProcessList();
+			//processDisplayer.getProcessListArea().setData(processList);
 			
 		}
 	}
@@ -74,10 +74,12 @@ public class ProcessHandler {
 			}else{
 				processMonitor.delete(p.getPID());
 				
-				processList = processMonitor.getProcessList();
-				processDisplayer.getProcessListArea().setData(processList);
+				//TODO 
+				//processList = processMonitor.getProcessList();
+				//processDisplayer.getProcessListArea().setData(processList);
 				
-				System.out.println("Ended process");
+				processDisplayer.getProcessListArea().deleteProcess(p);
+				System.out.println("Finished: Ended process "+ p.getName());
 			}
 		}
 	}

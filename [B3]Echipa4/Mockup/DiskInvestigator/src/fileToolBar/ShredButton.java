@@ -33,7 +33,12 @@ public class ShredButton extends JButton {
 	}
 	
 	private void ShredButtonActionPerformed(ActionEvent evt) {
-		fileObserver.getFileHandler().shred();
+		try {
+			fileObserver.getFileHandler().shred();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public FileObserver getFileObserver() {
