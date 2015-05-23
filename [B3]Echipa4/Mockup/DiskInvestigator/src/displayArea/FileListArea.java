@@ -50,12 +50,12 @@ public class FileListArea extends JScrollPane {
 		for(Map.Entry<Integer, MFTEntry> entry: map.entrySet()) {
 			if(entry.getValue().getFileName() != null) {
 				data[i][0] = String.valueOf(entry.getValue().getFileName().getName()).trim().replaceAll("\\s+", "");
-				//data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
-				String[] extension = String.valueOf(entry.getValue().getFileName().getName()).split("\\.");
-				if(extension.length > 1)
-					data[i][1] = extension[extension.length - 1];
-				else
-					data[i][1] = "No extension";
+				data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
+//				String[] extension = String.valueOf(entry.getValue().getFileName().getName()).split("\\.");
+//				if(extension.length > 1)
+//					data[i][1] = extension[extension.length - 1];
+//				else
+//					data[i][1] = "No extension";
 				data[i][2] = "No physical size";
 				for(NTFSAttribute attr : entry.getValue().getAttributes()){
 					if(attr.getType() == 0x80) {
@@ -149,7 +149,7 @@ public class FileListArea extends JScrollPane {
 	
 	public String getPath(int selectedRow) {
 		MFTEntry mftEntry = mapMFT.get(table.getValueAt(table.getSelectedRow(), 4));
-		return String.valueOf(mftEntry.getFileName().getName()).trim().replaceAll("\\s+", "");
+		return String.valueOf(mftEntry.getCompletePath().trim().replaceAll("\\s+", ""));
 	}
 
 	public int getItsColumn() {
