@@ -121,6 +121,7 @@ public class ServiceListArea extends JScrollPane {
 			 
 			 if(!selectedService.equals(null))
 				{
+				 
 					sm.stop(selectedService);
 					
 					data[rowNo][1] = s.getState();
@@ -130,7 +131,7 @@ public class ServiceListArea extends JScrollPane {
 					
 					//getViewport().removeAll();
 					//initUI();
-				} 
+				}
 			
 		}else{
 			ErrorDialog errDialog = new ErrorDialog();
