@@ -9,9 +9,7 @@ import java.awt.event.AWTEventListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.io.IOException;
 import java.util.List;
-
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -64,32 +62,36 @@ public class ProcessListArea extends JScrollPane {
 			try{
 				verifica[i] = Integer.parseInt(pid);
 			}catch(NumberFormatException e){
-				System.out.println("ERROR: la PARSE!");
+				System.out.println("Error: parse");
 			}
 			
 			
 		}
 		
 		
-
 			try {
-				//List<DigitalSignature> ar = check.verify(verifica);
-				/*
-				for(int i = 0; i<ar.size(); i++)
+				List<DigitalSignature> ar = check.verify(verifica);
+				
+				int i=0;
+				for(DigitalSignature sign: ar)
 				{
-					DigitalSignature sign = ar.get(i);
-					if(sign.equals(null)){
-						data[i][4] = "no";				
-					}else{
-						data[i][4] = "yes";
-					}
+				 if(sign != null)
+				 {
+				  if(sign.isSigned().contains("Signed"))
+				   data[i][4] = "yes";
+				  else
+				   data[i][4] = "no";
+				 }
+				 else
+				  data[i][4]="no";
+				 i++;
 				}
-				*/
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
-
+		 
 		
 		
 		getViewport().removeAll();
