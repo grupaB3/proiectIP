@@ -2,7 +2,9 @@ package items;
 
 import java.util.List;
 
+import model.MaliciousProcess;
 import model.ProcessT;
+import controller.ProcessCheck;
 import controller.ProcessMonitor;
 import dialogs.ErrorDialog;
 import dialogs.InputDialog;
@@ -25,7 +27,24 @@ public class ProcessHandler {
 	}
 	
 	public void checkProcesses(){
-		System.out.println("Am ajuns aici");
+		
+		int[] pidList = new int[processList.size()];
+		for(int i=0; i<processList.size();i++){
+			pidList[i]=Integer.parseInt(processList.get(i).getPID());
+		}
+		ProcessCheck processCheck = new ProcessCheck();
+		List<MaliciousProcess> maliciousList;
+		maliciousList = processCheck.scan(pidList);
+		System.out.println(maliciousList.size());
+		if(!maliciousList.isEmpty()){
+			
+		for(int i=0; i<maliciousList.size();i++){
+			if(maliciousList.get(i)!=null){
+			System.out.println(maliciousList.get(i).getExecPath());
+			 System.out.println(maliciousList.get(i).getDetectionRatio());
+			}
+		}
+	}
 	}
 
 	public void startProcesses(){
