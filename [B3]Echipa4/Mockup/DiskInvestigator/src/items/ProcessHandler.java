@@ -1,6 +1,10 @@
 package items;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
+
+import javax.swing.SwingWorker;
 
 import model.MaliciousProcess;
 import model.ProcessT;
@@ -9,6 +13,7 @@ import controller.ProcessMonitor;
 import dialogs.ErrorDialog;
 import dialogs.InputDialog;
 import dialogs.WarningDialog;
+import diskscan.Scan;
 import displayArea.ProcessesDisplayer;
 
 public class ProcessHandler {
@@ -40,8 +45,8 @@ public class ProcessHandler {
 			
 		for(int i=0; i<maliciousList.size();i++){
 			if(maliciousList.get(i)!=null){
-			System.out.println(maliciousList.get(i).getExecPath());
-			 System.out.println(maliciousList.get(i).getDetectionRatio());
+				System.out.println(maliciousList.get(i).getExecPath());
+				System.out.println(maliciousList.get(i).getDetectionRatio());
 			}
 		}
 	}
@@ -100,16 +105,16 @@ public class ProcessHandler {
 		}
 	}
 	
-	
 	public void scanProcesses(){
 		processMonitor = new ProcessMonitor();
 		processMonitor.connect();
 		processMonitor.parse();
-		
+
 		processList = processMonitor.getProcessList();
 		
 		processDisplayer.getProcessListArea().setData(processList);
 		scanned = true;
+
 	}
 	
 	public List<ProcessT> getProcessList(){
@@ -119,4 +124,3 @@ public class ProcessHandler {
 		processList = p;
 	}
 }
-

@@ -37,6 +37,7 @@ public class ProcessListArea extends JScrollPane {
 	private String[] columnNames = {" Name", " Session Name", " Pid", " Memory", " Digital Signature", " Process Number"};
 	private List<ProcessT> pro;
 	private ProcessInfoArea processInfoArea;
+	private boolean focus=false;
 
 	protected ProcessListArea() {
 		initUI();
@@ -51,7 +52,6 @@ public class ProcessListArea extends JScrollPane {
 		data = new Object[processes.size()][6];	
 		for(int i = 0; i<processes.size(); i++)
 		{
-
 			ProcessT p = processes.get(i);		
 			String pid = p.getPID();
 
@@ -67,8 +67,6 @@ public class ProcessListArea extends JScrollPane {
 			}catch(NumberFormatException e){
 				System.out.println("Error: parse");
 			}
-
-
 		}
 
 /*	try {
@@ -115,7 +113,7 @@ public class ProcessListArea extends JScrollPane {
 		return pro;
 	}
 
-	private void initUI() {
+	void initUI() {
 		//setBackground(Color.cyan);
 		setPreferredSize(new Dimension(620, 440));
 
@@ -175,7 +173,8 @@ public class ProcessListArea extends JScrollPane {
 				}               
 			}           
 		}, AWTEvent.MOUSE_EVENT_MASK);
-
+		
+		
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent event) {
@@ -245,6 +244,14 @@ public class ProcessListArea extends JScrollPane {
 
 	public void setProcessInfoArea(ProcessInfoArea processInfoArea) {
 		this.processInfoArea = processInfoArea;
+	}
+
+	public boolean isFocus() {
+		return focus;
+	}
+
+	public void setFocus(boolean focus) {
+		this.focus = focus;
 	}
 
 }
