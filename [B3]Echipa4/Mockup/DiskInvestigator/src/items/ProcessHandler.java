@@ -65,21 +65,18 @@ public class ProcessHandler {
 			}
 		}
 		else{
-			ProcessT p;
+			String p;
 			p = processDisplayer.getProcessListArea().getSelectedProcess();
 			
 			if(p == null){
 				ErrorDialog errDialog = new ErrorDialog();
 				errDialog.displayMessage("You must select a process to stop it!");
 			}else{
-				processMonitor.delete(p.getPID());
-				
+				processMonitor.delete(p);
 				//TODO 
 				//processList = processMonitor.getProcessList();
 				//processDisplayer.getProcessListArea().setData(processList);
-				
-				processDisplayer.getProcessListArea().deleteProcess(p);
-				System.out.println("Finished: Ended process "+ p.getName());
+				System.out.println("Finished: Ended process "+ p);
 			}
 		}
 	}

@@ -55,7 +55,7 @@ public class ServiceListArea extends JScrollPane {
 	
 	public void display(){
 		
-		data = new Object[services.size()+1][6];
+		data = new Object[services.size()][6];
 		
 		for(int i = 0; i<services.size(); i++)
 		{
@@ -67,7 +67,6 @@ public class ServiceListArea extends JScrollPane {
 			data[i][3] = s.getDescription();
 			data[i][4] = i;
 		}
-		
 		
 		getViewport().removeAll();
 		initUI();
@@ -93,8 +92,11 @@ public class ServiceListArea extends JScrollPane {
 				
 				data[rowNo][1] = s.getState();
 				System.out.println("			State:  "+s.getState());
-				getViewport().removeAll();
-				initUI();
+				
+				setData();
+				
+				//getViewport().removeAll();
+				//initUI();
 			}
 		
 		}
@@ -123,10 +125,12 @@ public class ServiceListArea extends JScrollPane {
 					
 					data[rowNo][1] = s.getState();
 					System.out.println("			State:  "+s.getState());
-					getViewport().removeAll();
-					initUI();
-				}
-			 
+					
+					setData();
+					
+					//getViewport().removeAll();
+					//initUI();
+				} 
 			
 		}else{
 			ErrorDialog errDialog = new ErrorDialog();

@@ -92,6 +92,8 @@ public class FileHandler {
 		if(fileDisplayer.getFileListArea().getSelectedStatus() != -1) {
 			String path = fileDisplayer.getFileListArea().getPath(fileDisplayer.getFileListArea().getSelectedStatus());
 			
+			System.out.println(path);
+			
 			ProcessCheck processCheck = new ProcessCheck();
 			boolean result = false;
 			result = processCheck.delete(path);

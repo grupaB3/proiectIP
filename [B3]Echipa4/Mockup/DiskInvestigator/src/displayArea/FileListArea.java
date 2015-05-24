@@ -180,7 +180,7 @@ public class FileListArea extends JScrollPane {
 
 	public String getPath(int selectedRow) {
 		MFTEntry mftEntry = mapMFT.get(table.getValueAt(table.getSelectedRow(), 4));
-		return String.valueOf(mftEntry.getFileName().getName()).trim().replaceAll("\\s+", "");
+		return String.valueOf(mftEntry.getCompletePath()).trim().replaceAll("\\s+", "");
 	}
 
 	public int getItsColumn() {

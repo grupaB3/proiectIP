@@ -10,7 +10,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.List;
-
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -23,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-
 import controller.ProcessCheck;
 import model.DigitalSignature;
 import model.ProcessT;
@@ -48,9 +46,9 @@ public class ProcessListArea extends JScrollPane {
 		setPro(processes);
 
 		ProcessCheck check = new ProcessCheck();
-		int verifica[]= new int[processes.size()+1];
+		int verifica[]= new int[processes.size()];
 
-		data = new Object[processes.size()+1][6];	
+		data = new Object[processes.size()][6];	
 		for(int i = 0; i<processes.size(); i++)
 		{
 
@@ -73,8 +71,7 @@ public class ProcessListArea extends JScrollPane {
 
 		}
 
-
-		try {
+/*	try {
 			List<DigitalSignature> ar = check.verify(verifica);
 
 			int i=0;
@@ -96,35 +93,18 @@ public class ProcessListArea extends JScrollPane {
 			e.printStackTrace();
 		}
 
-
-
-
+*/
+		
 		getViewport().removeAll();
 		initUI();
 	}
 
-	public void deleteProcess(ProcessT p){
-		for(int i = 0; i<pro.size(); i++)
-		{
-			ProcessT pp = pro.get(i);
-			if(pp.getPID() == p.getPID()){
-				System.out.println("Removing: "+p.getName()+"from the table....");
-				((DefaultTableModel)table.getModel()).removeRow(i);
-			}
-		}
-		getViewport().removeAll();
-		initUI();
-	}
-
-
-
-	public ProcessT getSelectedProcess(){
-		ProcessT p;
+	public String getSelectedProcess(){
 		int rowNo = table.getSelectedRow();
 		if(rowNo>=0)
 		{
-			p = pro.get(rowNo);				
-			return p;
+			String pid=table.getValueAt(rowNo, 2).toString();			
+			return pid;
 		}
 		return null;
 	}
