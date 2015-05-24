@@ -38,7 +38,7 @@ public class FileListArea extends JScrollPane {
 	private Object[][] data;
 	private FileInfoArea fileInfoArea;
 	private Map<Integer,MFTEntry> mapMFT;
-
+	private long maxSizePossible;
 	protected FileListArea() {
 		initUI();
 	}
@@ -48,6 +48,19 @@ public class FileListArea extends JScrollPane {
 		data = new Object[map.size()][5];
 		int i = 0;
 		for(Map.Entry<Integer, MFTEntry> entry: map.entrySet()) {
+			if(entry.getKey() == 8)
+				for(NTFSAttribute attr : entry.getValue().getAttributes()){
+					if(attr.getType() == 0x80) {
+						if(attr.getNonResFlag() == 0) {
+							maxSizePossible=attr.getrAttr().getLength();
+							System.out.println(maxSizePossible);
+						}
+						else{
+							maxSizePossible=attr.getNrAttr().getRealSize();
+							System.out.println(maxSizePossible);
+						}
+					}
+				}
 			if(entry.getValue().getFileName() != null) {
 				data[i][0] = String.valueOf(entry.getValue().getFileName().getName()).trim().replaceAll("\\s+", "");
 				//data[i][1] = String.valueOf(entry.getValue().getCompletePath()).trim().replaceAll("\\s+", "");
@@ -91,6 +104,22 @@ public class FileListArea extends JScrollPane {
 			public boolean isCellEditable(int row, int column) {
 				return false;
 			}
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return String.class;
+				case 3:
+					return String.class;
+				default:
+					return String.class;
+				}
+			}
 		};
 
 		table = new JTable(model);
@@ -116,37 +145,39 @@ public class FileListArea extends JScrollPane {
 		table.setDefaultRenderer(Object.class, new AttributiveCellRenderer());
 
 		TableRowSorter<TableModel>sorter=new TableRowSorter<TableModel>(model);
+		sorter.setSortable(2, false); 
 		table.setRowSorter(sorter);
 
 		ListSelectionModel rowSelectionModel = table.getSelectionModel();
 		rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
+
 		Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener(){
-	        public void eventDispatched(AWTEvent event) {
-	            if(event.getID() == MouseEvent.MOUSE_CLICKED) {
-	                MouseEvent mevent = (MouseEvent) event;
-	                 int row = table.rowAtPoint(mevent.getPoint());
-	                 if(row == -1) {
-	                     table.clearSelection();
-	                 }
-	                 else {
-//	                	 System.out.println("Selected row "+String.valueOf(row) +
-//		                		 " . The selected service is "+ data[row][2]);
-	                 }
-	            }               
-	        }           
-	    }, AWTEvent.MOUSE_EVENT_MASK);
-		
+			public void eventDispatched(AWTEvent event) {
+				if(event.getID() == MouseEvent.MOUSE_CLICKED) {
+					MouseEvent mevent = (MouseEvent) event;
+					int row = table.rowAtPoint(mevent.getPoint());
+					if(row == -1) {
+						table.clearSelection();
+					}
+					else {
+						//	                	 System.out.println("Selected row "+String.valueOf(row) +
+								//		                		 " . The selected service is "+ data[row][2]);
+					}
+				}               
+			}           
+		}, AWTEvent.MOUSE_EVENT_MASK);
+
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent event) {
 				if (table.getSelectedRow() > -1) {
-					fileInfoArea.setInfoRow(table, table.getSelectedRow(), mapMFT.get(table.getValueAt(table.getSelectedRow(), 4)));
+					fileInfoArea.setMaxSize(maxSizePossible);
+					fileInfoArea.setInfoRow(mapMFT.get(table.getValueAt(table.getSelectedRow(), 4)));
 				}
 			}
 		});
 	}
-	
+
 	public String getPath(int selectedRow) {
 		MFTEntry mftEntry = mapMFT.get(table.getValueAt(table.getSelectedRow(), 4));
 		return String.valueOf(mftEntry.getFileName().getName()).trim().replaceAll("\\s+", "");
@@ -159,11 +190,11 @@ public class FileListArea extends JScrollPane {
 	public void setItsColumn(int itsColumn) {
 		this.itsColumn = itsColumn;
 	}
-	
+
 	public int getSelectedStatus() {
 		return table.getSelectedRow();
 	}
-	
+
 	public String getSelectedFileColumn(int columnNo) {
 		return table.getValueAt(table.getSelectedRow(), columnNo).toString();
 	}

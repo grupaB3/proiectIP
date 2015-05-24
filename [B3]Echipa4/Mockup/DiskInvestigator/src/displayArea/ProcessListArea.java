@@ -10,11 +10,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.List;
+
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -29,75 +32,77 @@ public class ProcessListArea extends JScrollPane {
 
 	private static final long serialVersionUID = -2809884889360505234L;
 	int itsRow = 0;
-    int itsColumn;
-    boolean isMouseEnter = false;
-    JTable table;
-    private Object[][] data;
-    private String[] columnNames = {" Name", " Session Name", " Pid", " Memory", " Digital Signature"};
-    private List<ProcessT> pro;
-    
+	int itsColumn;
+	boolean isMouseEnter = false;
+	JTable table;
+	private Object[][] data;
+	private String[] columnNames = {" Name", " Session Name", " Pid", " Memory", " Digital Signature", " Process Number"};
+	private List<ProcessT> pro;
+	private ProcessInfoArea processInfoArea;
+
 	protected ProcessListArea() {
 		initUI();
 	}
-	
+
 	public void setData(List<ProcessT> processes){
 		setPro(processes);
-		
+
 		ProcessCheck check = new ProcessCheck();
 		int verifica[]= new int[processes.size()+1];
-		
+
 		data = new Object[processes.size()+1][6];	
 		for(int i = 0; i<processes.size(); i++)
 		{
-			
+
 			ProcessT p = processes.get(i);		
 			String pid = p.getPID();
-			
+
 			data[i][0] = p.getName();
 			data[i][1] = p.getSessionName();
 			data[i][2] = pid;
 			data[i][3] = p.getMemoryUsage();
 			data[i][4] = "yes/no";
+			data[i][5] = i;
 
 			try{
 				verifica[i] = Integer.parseInt(pid);
 			}catch(NumberFormatException e){
 				System.out.println("Error: parse");
 			}
-			
-			
+
+
 		}
-		
-		
-			try {
-				List<DigitalSignature> ar = check.verify(verifica);
-				
-				int i=0;
-				for(DigitalSignature sign: ar)
+
+
+		try {
+			List<DigitalSignature> ar = check.verify(verifica);
+
+			int i=0;
+			for(DigitalSignature sign: ar)
+			{
+				if(sign != null)
 				{
-				 if(sign != null)
-				 {
-				  if(sign.isSigned().contains("Signed"))
-				   data[i][4] = "yes";
-				  else
-				   data[i][4] = "no";
-				 }
-				 else
-				  data[i][4]="no";
-				 i++;
+					if(sign.isSigned().contains("Signed"))
+						data[i][4] = "yes";
+					else
+						data[i][4] = "no";
 				}
-				
-			} catch (Exception e) {
-				e.printStackTrace();
+				else
+					data[i][4]="no";
+				i++;
 			}
-			
-		 
-		
-		
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+
+
 		getViewport().removeAll();
 		initUI();
 	}
-	
+
 	public void deleteProcess(ProcessT p){
 		for(int i = 0; i<pro.size(); i++)
 		{
@@ -110,7 +115,7 @@ public class ProcessListArea extends JScrollPane {
 		getViewport().removeAll();
 		initUI();
 	}
-	
+
 
 
 	public ProcessT getSelectedProcess(){
@@ -129,116 +134,137 @@ public class ProcessListArea extends JScrollPane {
 	public List<ProcessT> getPro(){
 		return pro;
 	}
-	
+
 	private void initUI() {
 		//setBackground(Color.cyan);
 		setPreferredSize(new Dimension(620, 440));
-		
+
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
-			
+
 			@Override
-		public boolean isCellEditable(int row, int column) {
+			public boolean isCellEditable(int row, int column) {
 				return false;
+			}
+		}; 
+
+		table = new JTable(model); 
+		table.setFillsViewportHeight(true);
+		table.setForeground(Color.black);
+
+		((DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer())
+		.setHorizontalAlignment(JLabel.LEFT);
+		table.getColumnModel().getColumn(0).setMinWidth(100);
+		table.getColumnModel().getColumn(1).setMinWidth(100);
+		table.getColumnModel().getColumn(2).setMinWidth(70);
+		table.getColumnModel().getColumn(3).setMinWidth(100);
+		table.getColumnModel().getColumn(4).setMinWidth(50);
+		table.getColumnModel().getColumn(5).setMinWidth(0);
+		table.getColumnModel().getColumn(5).setMaxWidth(0);
+
+		table.setForeground(Color.black);
+		table.setShowGrid(false);
+		table.setShowVerticalLines(true);
+		table.setGridColor(new Color(198, 168, 138));
+
+		TableRowSorter<TableModel>sorter=new TableRowSorter<TableModel>(model);
+		sorter.setSortable(2, false);
+		sorter.setSortable(3, false); 
+		table.setRowSorter(sorter);
+
+		getViewport().add(table);
+		getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
+
+		table.setDefaultRenderer(Object.class, new AttributiveCellRenderer());
+
+		ListSelectionModel rowSelectionModel = table.getSelectionModel();
+		rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener(){
+			public void eventDispatched(AWTEvent event) {
+				if(event.getID() == MouseEvent.MOUSE_CLICKED) {
+					MouseEvent mevent = (MouseEvent) event;
+					int row = table.rowAtPoint(mevent.getPoint());
+					if(row == -1) {
+						table.clearSelection();
+					}
+					else {
+						//                	 System.out.println("Selected row "+String.valueOf(row) +
+						//	                		 " . The selected service is "+ data[row][2]);
+					}
+				}               
+			}           
+		}, AWTEvent.MOUSE_EVENT_MASK);
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent event) {
+				if (table.getSelectedRow() > -1) {
+					//System.out.println(pro.get((int)table.getValueAt(table.getSelectedRow(), 5)));
+					processInfoArea.setProcessInfoRow(pro.get((int)table.getValueAt(table.getSelectedRow(), 5)));
 				}
-			}; 
-
-	table = new JTable(model); 
-	table.setFillsViewportHeight(true);
-	table.setForeground(Color.black);
-
-	((DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer())
-										.setHorizontalAlignment(JLabel.LEFT);
-	table.getColumnModel().getColumn(0).setMinWidth(70);
-	table.getColumnModel().getColumn(1).setMinWidth(100);
-	table.getColumnModel().getColumn(2).setMinWidth(70);
-	table.getColumnModel().getColumn(3).setMinWidth(100);
-	
-	
-	table.setForeground(Color.black);
-	table.setShowGrid(false);
-	table.setShowVerticalLines(true);
-	table.setGridColor(new Color(198, 168, 138));
-	
-	TableRowSorter<TableModel>sorter=new TableRowSorter<TableModel>(model);
-	table.setRowSorter(sorter);
-	
-	getViewport().add(table);
-	getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
-
-    table.setDefaultRenderer(Object.class, new AttributiveCellRenderer());
-
-	ListSelectionModel rowSelectionModel = table.getSelectionModel();
-    rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	
-    Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener(){
-        public void eventDispatched(AWTEvent event) {
-            if(event.getID() == MouseEvent.MOUSE_CLICKED) {
-                MouseEvent mevent = (MouseEvent) event;
-                 int row = table.rowAtPoint(mevent.getPoint());
-                 if(row == -1) {
-                     table.clearSelection();
-                 }
-                 else {
-//                	 System.out.println("Selected row "+String.valueOf(row) +
-//	                		 " . The selected service is "+ data[row][2]);
-                 }
-            }               
-        }           
-    }, AWTEvent.MOUSE_EVENT_MASK);
-    
+			}
+		});
 	}
-	
+
 	public class MyMouseAdapter extends MouseMotionAdapter {
 
-        public void mouseMoved(MouseEvent e) {
-            JTable aTable = (JTable) e.getSource();
-            itsRow = aTable.rowAtPoint(e.getPoint());
-            aTable.repaint();
-        }
-    }
+		public void mouseMoved(MouseEvent e) {
+			JTable aTable = (JTable) e.getSource();
+			itsRow = aTable.rowAtPoint(e.getPoint());
+			aTable.repaint();
+		}
+	}
 
-    public class MyMouseListener extends MouseAdapter {
+	public class MyMouseListener extends MouseAdapter {
 
-        public void mouseEntered(MouseEvent e) {
-            isMouseEnter = true;
-        }
+		public void mouseEntered(MouseEvent e) {
+			isMouseEnter = true;
+		}
 
-        public void mouseExited(MouseEvent e) {
-            isMouseEnter = false;
-            table.repaint();
-        }
+		public void mouseExited(MouseEvent e) {
+			isMouseEnter = false;
+			table.repaint();
+		}
 
-            }
+	}
 
-    @SuppressWarnings("serial")
+	@SuppressWarnings("serial")
 	public class AttributiveCellRenderer extends DefaultTableCellRenderer implements TableCellRenderer {
 
-        public AttributiveCellRenderer() {
-            setOpaque(true);
-        }
+		public AttributiveCellRenderer() {
+			setOpaque(true);
+		}
 
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value,
-                boolean isSelected, boolean hasFocus, int row, int column) {
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value,
+				boolean isSelected, boolean hasFocus, int row, int column) {
 
-        	super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);     
-            itsColumn = column;
+			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);     
+			itsColumn = column;
 
-            if (isSelected) {
-            } else if (row == itsRow && isMouseEnter == true) {
-                ;
-            } else if (row == itsRow && isMouseEnter == false) {
-                isSelected = true;
-            } else {
-            	;
-            }
-            if (value == null) {
-            } else {
-                this.setText(value.toString());
-            }
-            return this;
-        }
-    }
-	
+			if (isSelected) {
+			} else if (row == itsRow && isMouseEnter == true) {
+				;
+			} else if (row == itsRow && isMouseEnter == false) {
+				isSelected = true;
+			} else {
+				;
+			}
+			if (value == null) {
+			} else {
+				this.setText(value.toString());
+			}
+			return this;
+		}
+	}
+
+	public ProcessInfoArea getProcessInfoArea() {
+		return processInfoArea;
+	}
+
+	public void setProcessInfoArea(ProcessInfoArea processInfoArea) {
+		this.processInfoArea = processInfoArea;
+	}
+
 }

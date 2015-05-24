@@ -13,6 +13,7 @@ public class ServicesDisplayer extends JPanel {
 	private ProcessInfoArea processInfoArea = new ProcessInfoArea();
 
 	public ServicesDisplayer() {
+		serviceListArea.setProcessInfoArea(processInfoArea);
 		initUI();
 	}
 	

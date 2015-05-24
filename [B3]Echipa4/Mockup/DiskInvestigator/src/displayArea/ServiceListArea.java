@@ -16,6 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JViewport;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -32,11 +34,12 @@ public class ServiceListArea extends JScrollPane {
     private int itsColumn;
     private boolean isMouseEnter = false;
     private JTable table;
-    private String[] columnNames = {" Name"," Status","PID", " Description"};
+    private String[] columnNames = {" Name", " Status", " PID", " Description", " Services Number"};
     private Object[][] data;
     private ServiceMonitor sm = new ServiceMonitor();
     private String selectedService;
     private List<model.Service> services;
+    private ProcessInfoArea processInfoArea;
     
 	protected ServiceListArea() {
 		initUI();
@@ -62,7 +65,7 @@ public class ServiceListArea extends JScrollPane {
 			data[i][1] = s.getState();
 			data[i][2] = s.getPID();
 			data[i][3] = s.getDescription();
-			
+			data[i][4] = i;
 		}
 		
 		
@@ -156,6 +159,8 @@ public class ServiceListArea extends JScrollPane {
 		table.getColumnModel().getColumn(1).setMinWidth(70);
 		table.getColumnModel().getColumn(2).setMinWidth(70);
 		table.getColumnModel().getColumn(3).setMinWidth(100);
+		table.getColumnModel().getColumn(4).setMinWidth(0);
+		table.getColumnModel().getColumn(4).setMaxWidth(0);
 		
 		table.setShowGrid(false);
 	    table.setShowVerticalLines(true);
@@ -166,6 +171,7 @@ public class ServiceListArea extends JScrollPane {
 		getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
 
 		TableRowSorter<TableModel>sorter=new TableRowSorter<TableModel>(model);
+		sorter.setSortable(2, false);
 		table.setRowSorter(sorter);
 		
 		ListSelectionModel rowSelectionModel = table.getSelectionModel();
@@ -187,6 +193,15 @@ public class ServiceListArea extends JScrollPane {
 	        }           
 	    }, AWTEvent.MOUSE_EVENT_MASK);
 		
+	    table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent event) {
+				if (table.getSelectedRow() > -1) {
+					//System.out.println(pro.get((int)table.getValueAt(table.getSelectedRow(), 5)));
+					processInfoArea.setServicesInfoRow(services.get((int)table.getValueAt(table.getSelectedRow(), 4)));
+				}
+			}
+		});
 	}
 	
 	public int getItsColumn() {
@@ -248,6 +263,14 @@ public class ServiceListArea extends JScrollPane {
             return this;
         }
     }
+
+	public ProcessInfoArea getProcessInfoArea() {
+		return processInfoArea;
+	}
+
+	public void setProcessInfoArea(ProcessInfoArea processInfoArea) {
+		this.processInfoArea = processInfoArea;
+	}
 
 	
 }
