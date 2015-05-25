@@ -15,7 +15,9 @@ import java.awt.event.WindowEvent;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Stack;
+
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -52,6 +54,10 @@ public class InfoButton extends JFrame {
 			setBackground(new Color(255,255,255));
 			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			setLayout(new FlowLayout(FlowLayout.LEADING));
+			
+			ImageIcon icon = new ImageIcon(getClass().getResource("../mainPackage/icon.png"));
+			setIconImage(icon.getImage());
+			
 			this.setBackground(new Color(255,255,255));
 			add(getHeaderPanel(this.getPreferredSize()));
 			DiskInvestigatorInfoStartupPanel panel=new DiskInvestigatorInfoStartupPanel(this.getPreferredSize(),observer);

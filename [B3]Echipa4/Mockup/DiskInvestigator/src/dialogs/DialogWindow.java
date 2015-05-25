@@ -1,4 +1,5 @@
 package dialogs;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 
 @SuppressWarnings("serial")
@@ -40,6 +41,8 @@ public class DialogWindow extends JDialog {
 		height=0;
 		message="";
 		dialog=new JDialog();
+		ImageIcon icon = new ImageIcon(getClass().getResource("../mainPackage/icon.png"));
+		setIconImage(icon.getImage());
 	};
 
 	DialogWindow(int width, int height, String message, JDialog dialog){
@@ -48,6 +51,8 @@ public class DialogWindow extends JDialog {
 		this.height=height;
 		this.message=message;
 		this.dialog=dialog;
+		ImageIcon icon = new ImageIcon(getClass().getResource("../mainPackage/icon.png"));
+		setIconImage(icon.getImage());
 	};
 	
 	public void displayMessage(String message){};

@@ -1,10 +1,13 @@
 package dialogs;
 
 import items.ProcessHandler;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -85,6 +88,8 @@ public class InputDialog extends DialogWindow {
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
 		dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		ImageIcon icon = new ImageIcon(getClass().getResource("../mainPackage/icon.png"));
+		dialog.setIconImage(icon.getImage());
 		this.setDialog(dialog);
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setVisible(true);

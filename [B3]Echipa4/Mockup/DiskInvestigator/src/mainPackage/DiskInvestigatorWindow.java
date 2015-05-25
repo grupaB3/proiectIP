@@ -7,6 +7,7 @@ import items.ServiceHandler;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import displayArea.AreaOfDisplay;
@@ -75,6 +76,9 @@ public class DiskInvestigatorWindow extends JFrame{
 		setSize(900, 600);
 		setResizable(false);
 		setVisible(true);
+
+		ImageIcon icon = new ImageIcon(getClass().getResource("icon.png"));
+		setIconImage(icon.getImage());
 
 		setLayout(new BorderLayout(0,0));
 		setLocationRelativeTo(null);

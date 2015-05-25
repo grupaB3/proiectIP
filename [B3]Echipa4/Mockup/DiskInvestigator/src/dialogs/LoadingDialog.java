@@ -79,6 +79,8 @@ public class LoadingDialog extends DialogWindow {
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
 		dialog.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		ImageIcon icon_2 = new ImageIcon(getClass().getResource("../mainPackage/icon.png"));
+		dialog.setIconImage(icon_2.getImage());
 		this.setDialog(dialog);
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setVisible(true);

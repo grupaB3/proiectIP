@@ -1,6 +1,8 @@
 package dialogs;
 
 import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -22,6 +24,8 @@ public class WarningDialog extends DialogWindow {
 	public void displayMessage(String message){
 		optionPane=new JOptionPane(message, JOptionPane.WARNING_MESSAGE); 
 		JDialog dialog = optionPane.createDialog("Warning");
+		ImageIcon icon = new ImageIcon(getClass().getResource("../mainPackage/icon.png"));
+		dialog.setIconImage(icon.getImage());
 		this.setDialog(dialog);
 		this.getDialog().setAlwaysOnTop(true);
 		this.getDialog().setVisible(true);
