@@ -164,8 +164,6 @@ public class FileListArea extends JScrollPane {
 						table.clearSelection();
 					}
 					else {
-						//	                	 System.out.println("Selected row "+String.valueOf(row) +
-								//		                		 " . The selected service is "+ data[row][2]);
 					}
 				}               
 			}           

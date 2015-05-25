@@ -52,7 +52,8 @@ public class ProcessInfoArea extends JPanel {
 		labelInfo.setEditable(false);
 		labelInfo.setFont(new Font("Verdana",1,18));
 		labelInfo.setBounds(0, 5, 244, 20);
-
+		labelInfo.setOpaque(false);
+		
 		JTextArea labelDetails = new JTextArea();
 		labelDetails.setText("\n" + "  Name: " + name + "\n\n" + "  Session Number: " + sessionNo + "\n\n" + "  Session Name: " + sessionName + "\n\n" + "  PID: " + pid + "\n\n" + "  Memory usage: " + memory);
 		labelDetails.setLineWrap(true);
@@ -60,7 +61,8 @@ public class ProcessInfoArea extends JPanel {
 		labelDetails.setEditable(false);
 		labelDetails.setFont(new Font("Verdana",Font.ITALIC,11));
 		labelDetails.setBounds(0, 30, 244, 160);
-
+		labelDetails.setOpaque(false);
+		
 		panel.add(labelInfo);
 		panel.add(labelDetails);
 
@@ -68,7 +70,11 @@ public class ProcessInfoArea extends JPanel {
 	}
 	
 	public void setSignature(DigitalSignature sign){
+		JPanel panelDigital = new JPanel();
+		panelDigital.setLayout(null);
+		panelDigital.setBounds(15,220,244,200);
 		digital= new JTextArea();		
+		
 		String data;
 		if(sign != null)
 		{
@@ -97,9 +103,11 @@ public class ProcessInfoArea extends JPanel {
 		digital.setWrapStyleWord(true);
 		digital.setEditable(false);
 		digital.setFont(new Font("Verdana",Font.ITALIC,11));
-		digital.setBounds(15,220, 244, 200);	
+		digital.setBounds(0,0, 244, 200);
+		digital.setOpaque(false);
 		
-		add(digital);		
+		panelDigital.add(digital);
+		add(panelDigital);		
 		repaint();
 	}
 
@@ -123,6 +131,7 @@ public class ProcessInfoArea extends JPanel {
 		labelInfo.setEditable(false);
 		labelInfo.setFont(new Font("Verdana",1,18));
 		labelInfo.setBounds(0, 5, 244, 20);
+		labelInfo.setOpaque(false);
 
 		JTextArea labelDetails = new JTextArea();
 		labelDetails.setText("\n" + "  Name: " + name + "\n\n" + "  State: " + state + "\n\n" + "  Start Mode: " + startMode + "\n\n" + "  PID: " + pid + "\n\n" + "  Description: " + description);
@@ -131,6 +140,7 @@ public class ProcessInfoArea extends JPanel {
 		labelDetails.setEditable(false);
 		labelDetails.setFont(new Font("Verdana",Font.ITALIC,11));
 		labelDetails.setBounds(0, 30, 244, 415);
+		labelDetails.setOpaque(false);
 
 		panel.add(labelInfo);
 		panel.add(labelDetails);

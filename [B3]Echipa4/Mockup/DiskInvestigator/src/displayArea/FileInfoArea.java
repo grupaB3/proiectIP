@@ -3,17 +3,10 @@ package displayArea;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 import javax.swing.JTextArea;
 import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.border.LineBorder;
-import java.text.DateFormatSymbols;
 
 import diskscan.MFTEntry;
 import diskscan.NTFSAttribute;
@@ -117,6 +110,7 @@ public class FileInfoArea extends JPanel {
 		labelInfo.setEditable(false);
 		labelInfo.setFont(new Font("Verdana",1,18));
 		labelInfo.setBounds(0, 5, 244, 20);
+		labelInfo.setOpaque(false);
 
 		JTextArea labelDetails = new JTextArea();
 		labelDetails.setFont(new Font("Verdana",Font.ITALIC,11));
@@ -124,8 +118,8 @@ public class FileInfoArea extends JPanel {
 		labelDetails.setLineWrap(true);
 		labelDetails.setWrapStyleWord(true);
 		labelDetails.setEditable(false);
-		//labelDetails.setFont(new Font("Verdana",1,11));
 		labelDetails.setBounds(0, 30, 244, 415);
+		labelDetails.setOpaque(false);
 
 		panel.add(labelInfo);
 		panel.add(labelDetails);
