@@ -29,11 +29,12 @@ public class FileInfoArea extends JPanel {
 	}
 
 	private void initUI() {
-		setBackground(Color.gray);
+		setBackground(new Color(42,41,40).darker());
+		setOpaque(true);
 		setPreferredSize(new Dimension(276, 440));
 		setLayout(null);
 		panel = new JPanel();
-		panel.setBounds(15,15,244,420);
+		panel.setBounds(15,15,244,405);
 		panel.setLayout(null);
 		add(panel);
 	}
@@ -41,7 +42,7 @@ public class FileInfoArea extends JPanel {
 	public void setInfoRow(MFTEntry mftEntry){
 		removeAll();
 		panel = new JPanel();
-		panel.setBounds(15,15,244,420);
+		panel.setBounds(15,15,244,405);
 		panel.setLayout(null);
 		add(panel);
 		
@@ -88,7 +89,7 @@ public class FileInfoArea extends JPanel {
 					long convertionSize = attr.getNrAttr().getRealSize();
 					switch(convert(convertionSize)){
 					case 0:
-						size=String.valueOf(attr.getrAttr().getLength() + " B"); break;
+						size=String.valueOf(attr.getNrAttr().getRealSize() + " B"); break;
 					case 1:
 						size=String.valueOf((int)(attr.getNrAttr().getRealSize()/1024) + " KB"); break;
 					case 2:
@@ -110,7 +111,7 @@ public class FileInfoArea extends JPanel {
 		parentRecord = String.valueOf(mftEntry.getFileName().getParentRecNumber());
 
 		JTextArea labelInfo = new JTextArea();
-		labelInfo.setText("Details: ");
+		labelInfo.setText("  Details: ");
 		labelInfo.setLineWrap(true);
 		labelInfo.setWrapStyleWord(true);
 		labelInfo.setEditable(false);
@@ -118,11 +119,12 @@ public class FileInfoArea extends JPanel {
 		labelInfo.setBounds(0, 5, 244, 20);
 
 		JTextArea labelDetails = new JTextArea();
-		labelDetails.setText("Name: " + name + "\n\n" + "Extension: " + extension + "\n\n" + "Path: " + path + "\n\n" + "Size: " + size + "\n\n" + "Created Time: " + createdTime + "\n\n" + "Data: " + nonResident + "\n\n" + "Parent Record Number: " + parentRecord);
+		labelDetails.setFont(new Font("Verdana",Font.ITALIC,11));
+		labelDetails.setText("\n" + "  Name: " + name + "\n\n" + "  Extension: " + extension + "\n\n" + "  Path: " + path + "\n\n" + "  Size: " + size + "\n\n" + "  Created Time: " + createdTime + "\n\n" + "  Data: " + nonResident + "\n\n" + "  Parent Record Number: " + parentRecord);
 		labelDetails.setLineWrap(true);
 		labelDetails.setWrapStyleWord(true);
 		labelDetails.setEditable(false);
-		labelDetails.setFont(new Font("Verdana",1,12));
+		//labelDetails.setFont(new Font("Verdana",1,11));
 		labelDetails.setBounds(0, 30, 244, 415);
 
 		panel.add(labelInfo);

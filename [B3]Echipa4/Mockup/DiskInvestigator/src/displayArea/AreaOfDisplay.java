@@ -33,7 +33,10 @@ public class AreaOfDisplay extends JPanel {
 		switch(areaName) {
 			case "start":
 				processesArea.getProcessListArea().setFocus(false);
+				processesArea.getProcessListArea().getProcessInfoArea().removeAll();
+				processesArea.getProcessListArea().getProcessInfoArea().initUI();
 				processesArea.getProcessListArea().getViewport().removeAll();
+				
 				startUp.setVisible(true);
 				filesArea.setVisible(false);
 				processesArea.setVisible(false);
@@ -41,7 +44,10 @@ public class AreaOfDisplay extends JPanel {
 				break;
 			case "file":
 				processesArea.getProcessListArea().setFocus(false);
+				processesArea.getProcessListArea().getProcessInfoArea().removeAll();
+				processesArea.getProcessListArea().getProcessInfoArea().initUI();
 				processesArea.getProcessListArea().getViewport().removeAll();
+				
 				startUp.setVisible(false);
 				filesArea.setVisible(true);
 				processesArea.setVisible(false);
@@ -52,11 +58,16 @@ public class AreaOfDisplay extends JPanel {
 				startUp.setVisible(false);
 				filesArea.setVisible(false);
 				processesArea.setVisible(true);
+				
 				servicesArea.setVisible(false);
+				
 				break;
 			case "service":
 				processesArea.getProcessListArea().setFocus(false);
+				processesArea.getProcessListArea().getProcessInfoArea().removeAll();
+				processesArea.getProcessListArea().getProcessInfoArea().initUI();
 				processesArea.getProcessListArea().getViewport().removeAll();
+				
 				startUp.setVisible(false);
 				filesArea.setVisible(false);
 				processesArea.setVisible(false);

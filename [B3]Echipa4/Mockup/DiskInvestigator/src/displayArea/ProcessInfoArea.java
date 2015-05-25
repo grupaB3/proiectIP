@@ -19,12 +19,13 @@ public class ProcessInfoArea extends JPanel {
 		initUI();
 	}
 	
-	private void initUI() {
-		setBackground(Color.gray);
+	void initUI() {
+		setBackground(new Color(42,41,40).darker());
+		setOpaque(true);
 		setPreferredSize(new Dimension(276, 440));
 		setLayout(null);
 		panel = new JPanel();
-		panel.setBounds(15,15,244,420);
+		panel.setBounds(15,15,244,405);
 		panel.setLayout(null);
 		add(panel);
 	}
@@ -32,7 +33,7 @@ public class ProcessInfoArea extends JPanel {
 	public void setProcessInfoRow(ProcessT process){
 		removeAll();
 		panel = new JPanel();
-		panel.setBounds(15,15,244,420);
+		panel.setBounds(15,15,244,405);
 		panel.setLayout(null);
 		add(panel);
 		
@@ -43,7 +44,7 @@ public class ProcessInfoArea extends JPanel {
 		String memory = String.valueOf(process.getMemoryUsage());
 		
 		JTextArea labelInfo = new JTextArea();
-		labelInfo.setText("Details: ");
+		labelInfo.setText("  Details: ");
 		labelInfo.setLineWrap(true);
 		labelInfo.setWrapStyleWord(true);
 		labelInfo.setEditable(false);
@@ -51,11 +52,11 @@ public class ProcessInfoArea extends JPanel {
 		labelInfo.setBounds(0, 5, 244, 20);
 
 		JTextArea labelDetails = new JTextArea();
-		labelDetails.setText("Name: " + name + "\n\n" + "Session Number: " + sessionNo + "\n\n" + "Session Name: " + sessionName + "\n\n" + "PID: " + pid + "\n\n" + "Memory usage: " + memory);
+		labelDetails.setText("\n" + "  Name: " + name + "\n\n" + "  Session Number: " + sessionNo + "\n\n" + "  Session Name: " + sessionName + "\n\n" + "  PID: " + pid + "\n\n" + "  Memory usage: " + memory);
 		labelDetails.setLineWrap(true);
 		labelDetails.setWrapStyleWord(true);
 		labelDetails.setEditable(false);
-		labelDetails.setFont(new Font("Verdana",1,12));
+		labelDetails.setFont(new Font("Verdana",Font.ITALIC,11));
 		labelDetails.setBounds(0, 30, 244, 415);
 
 		panel.add(labelInfo);
@@ -67,7 +68,7 @@ public class ProcessInfoArea extends JPanel {
 	public void setServicesInfoRow(Service service) {
 		removeAll();
 		panel = new JPanel();
-		panel.setBounds(15,15,244,420);
+		panel.setBounds(15,15,244,405);
 		panel.setLayout(null);
 		add(panel);
 		
@@ -78,7 +79,7 @@ public class ProcessInfoArea extends JPanel {
 		String startMode = String.valueOf(service.getStartMode());
 		
 		JTextArea labelInfo = new JTextArea();
-		labelInfo.setText("Details: ");
+		labelInfo.setText("  Details: ");
 		labelInfo.setLineWrap(true);
 		labelInfo.setWrapStyleWord(true);
 		labelInfo.setEditable(false);
@@ -86,11 +87,11 @@ public class ProcessInfoArea extends JPanel {
 		labelInfo.setBounds(0, 5, 244, 20);
 
 		JTextArea labelDetails = new JTextArea();
-		labelDetails.setText("Name: " + name + "\n\n" + "State: " + state + "\n\n" + "Start Mode: " + startMode + "\n\n" + "PID: " + pid + "\n\n" + "Description: " + description);
+		labelDetails.setText("\n" + "  Name: " + name + "\n\n" + "  State: " + state + "\n\n" + "  Start Mode: " + startMode + "\n\n" + "  PID: " + pid + "\n\n" + "  Description: " + description);
 		labelDetails.setLineWrap(true);
 		labelDetails.setWrapStyleWord(true);
 		labelDetails.setEditable(false);
-		labelDetails.setFont(new Font("Verdana",1,12));
+		labelDetails.setFont(new Font("Verdana",Font.ITALIC,11));
 		labelDetails.setBounds(0, 30, 244, 415);
 
 		panel.add(labelInfo);
