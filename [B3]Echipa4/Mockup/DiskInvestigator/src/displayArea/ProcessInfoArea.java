@@ -7,6 +7,7 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import model.DigitalSignature;
 import model.ProcessT;
 import model.Service;
 
@@ -14,6 +15,7 @@ public class ProcessInfoArea extends JPanel {
 
 	private static final long serialVersionUID = -2809884889360505234L;
 	private JPanel panel;
+	private JTextArea digital;
 	
 	protected ProcessInfoArea() {
 		initUI();
@@ -57,12 +59,48 @@ public class ProcessInfoArea extends JPanel {
 		labelDetails.setWrapStyleWord(true);
 		labelDetails.setEditable(false);
 		labelDetails.setFont(new Font("Verdana",Font.ITALIC,11));
-		labelDetails.setBounds(0, 30, 244, 415);
+		labelDetails.setBounds(0, 30, 244, 160);
 
 		panel.add(labelInfo);
 		panel.add(labelDetails);
 
 		panel.repaint();
+	}
+	
+	public void setSignature(DigitalSignature sign){
+		digital= new JTextArea();		
+		String data;
+		if(sign != null)
+		{
+			if(sign.isSigned().contains("Signed"))
+			{
+				data = "yes";
+				digital.setText("  Digital Signature: "+data+
+						"\n\n  Signing Date: "+sign.getSigningDate()+"\n\n  Publisher: "
+						+sign.getPublisher()+"\n\n  Product Version: "+sign.getProductVersion());
+				
+			}
+			else{
+				
+				data = "no";
+				digital.setText("  Digital Signature: "+data);
+			}
+				
+		}
+		else{
+			data="N/A";
+			digital.setText("  Digital Signature: "+data);
+		}
+		
+		
+		digital.setLineWrap(true);
+		digital.setWrapStyleWord(true);
+		digital.setEditable(false);
+		digital.setFont(new Font("Verdana",Font.ITALIC,11));
+		digital.setBounds(15,220, 244, 200);	
+		
+		add(digital);		
+		repaint();
 	}
 
 	public void setServicesInfoRow(Service service) {

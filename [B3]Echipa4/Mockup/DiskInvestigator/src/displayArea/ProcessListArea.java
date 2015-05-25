@@ -38,21 +38,20 @@ public class ProcessListArea extends JScrollPane {
 	boolean isMouseEnter = false;
 	JTable table;
 	private Object[][] data;
-	private String[] columnNames = {" Name", " Session Name", " Pid", " Memory", " Digital Signature", " Process Number"};
+	private String[] columnNames = {" Name", " Session Name", " Pid", " Memory"," Process Number"};
 	private List<ProcessT> pro;
 	private ProcessInfoArea processInfoArea;
 	private boolean focus = false;
 	private boolean scanned = false;
-
+	private ProcessCheck check = new ProcessCheck();
+	
+	
 	protected ProcessListArea() {
 		initUI();
 	}
 
 	public void setData(List<ProcessT> processes){
 		setPro(processes);
-
-		ProcessCheck check = new ProcessCheck();
-		int verifica[]= new int[processes.size()];
 
 		data = new Object[processes.size()][6];	
 		for(int i = 0; i<processes.size(); i++)
@@ -64,39 +63,9 @@ public class ProcessListArea extends JScrollPane {
 			data[i][1] = p.getSessionName();
 			data[i][2] = pid;
 			data[i][3] = p.getMemoryUsage();
-			data[i][4] = "yes/no";
-			data[i][5] = i;
-
-			try{
-				verifica[i] = Integer.parseInt(pid);
-			}catch(NumberFormatException e){
-				System.out.println("Error: parse");
-			}
+			data[i][4] = i;
+			
 		}
-
-/*	try {
-			List<DigitalSignature> ar = check.verify(verifica);
-
-			int i=0;
-			for(DigitalSignature sign: ar)
-			{
-				if(sign != null)
-				{
-					if(sign.isSigned().contains("Signed"))
-						data[i][4] = "yes";
-					else
-						data[i][4] = "no";
-				}
-				else
-					data[i][4]="no";
-				i++;
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-*/
 		
 		getViewport().removeAll();
 		initUI();
@@ -119,7 +88,6 @@ public class ProcessListArea extends JScrollPane {
 	}
 
 	void initUI() {
-		//setBackground(Color.cyan);
 		setPreferredSize(new Dimension(620, 440));
 
 		@SuppressWarnings("serial")
@@ -142,8 +110,6 @@ public class ProcessListArea extends JScrollPane {
 		table.getColumnModel().getColumn(2).setMinWidth(70);
 		table.getColumnModel().getColumn(3).setMinWidth(100);
 		table.getColumnModel().getColumn(4).setMinWidth(50);
-		table.getColumnModel().getColumn(5).setMinWidth(0);
-		table.getColumnModel().getColumn(5).setMaxWidth(0);
 
 		table.setForeground(Color.black);
 		table.setShowGrid(false);
@@ -171,10 +137,7 @@ public class ProcessListArea extends JScrollPane {
 					if(row == -1) {
 						table.clearSelection();
 					}
-					else {
-						//                	 System.out.println("Selected row "+String.valueOf(row) +
-						//	                		 " . The selected service is "+ data[row][2]);
-					}
+				
 				}               
 			}           
 		}, AWTEvent.MOUSE_EVENT_MASK);
@@ -184,8 +147,24 @@ public class ProcessListArea extends JScrollPane {
 			@Override
 			public void valueChanged(ListSelectionEvent event) {
 				if (table.getSelectedRow() > -1) {
-					//System.out.println(pro.get((int)table.getValueAt(table.getSelectedRow(), 5)));
-					processInfoArea.setProcessInfoRow(pro.get((int)table.getValueAt(table.getSelectedRow(), 5)));
+					processInfoArea.setProcessInfoRow(pro.get((int)table.getValueAt(table.getSelectedRow(), 4)));
+				
+					int verifica[]=new int[1];
+					
+					try{
+				
+							verifica[0] = Integer.parseInt(getSelectedProcess());												
+							List<DigitalSignature> ar = check.verify(verifica);
+														
+							DigitalSignature sign = ar.get(0);								 
+							processInfoArea.setSignature(sign);
+										
+					}catch(NumberFormatException e){
+						System.out.println("Error: parse");
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+				
 				}
 			}
 		});
@@ -249,7 +228,7 @@ public class ProcessListArea extends JScrollPane {
 			protected Void doInBackground() throws Exception {
 				boolean intermediary = isFocus();
 				while(intermediary) {
-					Thread.sleep(500);
+					Thread.sleep(3000);
 					ProcessMonitor processMonitor = new ProcessMonitor();
 					processMonitor.connect();
 					processMonitor.parse();
@@ -258,11 +237,10 @@ public class ProcessListArea extends JScrollPane {
 					for(int index = 0; index < processList.size(); index ++) {
 						boolean found = checkAndModify(processList.get(index).getPID(), processList.get(index).getMemoryUsage());
 						if(!found) {
-							System.out.println("New process: "+processList.get(index).getName());
+							//System.out.println("New process: "+processList.get(index).getName());
 						}
 					}
-					
-					System.out.println("Refreshed.");
+				
 					intermediary = isFocus();
 				}
 				return null;
@@ -275,7 +253,6 @@ public class ProcessListArea extends JScrollPane {
 		boolean found = false;
 		for (int row = 0; row <= table.getRowCount() - 1; row++) {
             if (pid.equals(table.getValueAt(row, 2))) {
-            	System.out.println("Found on row "+row);
             	table.setValueAt(memory, row, 3);
             	found = true;
             	break;
