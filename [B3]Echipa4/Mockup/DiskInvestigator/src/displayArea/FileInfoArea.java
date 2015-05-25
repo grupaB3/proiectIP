@@ -50,7 +50,7 @@ public class FileInfoArea extends JPanel {
 
 		String name = "";
 		String extension = "";
-		if(extensions.length > 1){
+		if(extensions.length > 1 && extensions[extensions.length - 1].length()<5){
 			name = extensions[0];
 			for(int index = 1; index <= extensions.length - 2; index++){
 				name = name + "." + extensions[index];

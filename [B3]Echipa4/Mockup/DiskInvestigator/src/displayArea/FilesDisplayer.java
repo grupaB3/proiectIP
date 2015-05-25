@@ -18,7 +18,7 @@ public class FilesDisplayer extends JPanel {
 	}
 	
 	private void initUI() {
-		
+
 		JPanel space = new JPanel();
 		space.setPreferredSize(new Dimension(2, 440));
 		
