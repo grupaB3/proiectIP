@@ -158,7 +158,7 @@ public class ServiceListArea extends JScrollPane {
 		selectedService = s;
 	}
 	
-	private void initUI() {
+	void initUI() {
 		setPreferredSize(new Dimension(620, 440));
 	
 		@SuppressWarnings("serial")

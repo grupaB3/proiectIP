@@ -36,30 +36,45 @@ public class AreaOfDisplay extends JPanel {
 				processesArea.getProcessListArea().getProcessInfoArea().removeAll();
 				processesArea.getProcessListArea().getProcessInfoArea().initUI();
 				processesArea.getProcessListArea().getViewport().removeAll();
+				processesArea.setVisible(false);
 				
 				startUp.setVisible(true);
+				
 				filesArea.setVisible(false);
-				processesArea.setVisible(false);
+				filesArea.getFileListArea().getFileInfoArea().removeAll();
+				filesArea.getFileListArea().getFileInfoArea().initUI();
+				
 				servicesArea.setVisible(false);
+				servicesArea.getServiceListArea().getProcessInfoArea().removeAll();
+				servicesArea.getServiceListArea().getProcessInfoArea().initUI();
 				break;
 			case "file":
 				processesArea.getProcessListArea().setFocus(false);
 				processesArea.getProcessListArea().getProcessInfoArea().removeAll();
 				processesArea.getProcessListArea().getProcessInfoArea().initUI();
 				processesArea.getProcessListArea().getViewport().removeAll();
+				processesArea.setVisible(false);
 				
 				startUp.setVisible(false);
 				filesArea.setVisible(true);
-				processesArea.setVisible(false);
+				
 				servicesArea.setVisible(false);
+				servicesArea.getServiceListArea().getProcessInfoArea().removeAll();
+				servicesArea.getServiceListArea().getProcessInfoArea().initUI();
 				break;
 			case "process":
 				processesArea.getProcessListArea().setFocus(true);
-				startUp.setVisible(false);
-				filesArea.setVisible(false);
 				processesArea.setVisible(true);
 				
+				startUp.setVisible(false);
+				
+				filesArea.setVisible(false);
+				filesArea.getFileListArea().getFileInfoArea().removeAll();
+				filesArea.getFileListArea().getFileInfoArea().initUI();
+				
 				servicesArea.setVisible(false);
+				servicesArea.getServiceListArea().getProcessInfoArea().removeAll();
+				servicesArea.getServiceListArea().getProcessInfoArea().initUI();
 				
 				break;
 			case "service":
@@ -67,10 +82,14 @@ public class AreaOfDisplay extends JPanel {
 				processesArea.getProcessListArea().getProcessInfoArea().removeAll();
 				processesArea.getProcessListArea().getProcessInfoArea().initUI();
 				processesArea.getProcessListArea().getViewport().removeAll();
+				processesArea.setVisible(false);
 				
 				startUp.setVisible(false);
+				
 				filesArea.setVisible(false);
-				processesArea.setVisible(false);
+				filesArea.getFileListArea().getFileInfoArea().removeAll();
+				filesArea.getFileListArea().getFileInfoArea().initUI();
+				
 				servicesArea.setVisible(true);
 				break;
 		}
