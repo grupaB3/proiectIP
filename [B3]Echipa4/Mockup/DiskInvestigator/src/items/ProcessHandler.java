@@ -1,6 +1,10 @@
 package items;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
+
+import javax.swing.SwingWorker;
 
 import model.MaliciousProcess;
 import model.ProcessT;
@@ -8,6 +12,8 @@ import controller.ProcessCheck;
 import controller.ProcessMonitor;
 import dialogs.ErrorDialog;
 import dialogs.InputDialog;
+import dialogs.LoadingDialog;
+import dialogs.ProcessesLoadingDialog;
 import dialogs.WarningDialog;
 import displayArea.ProcessesDisplayer;
 
@@ -16,6 +22,11 @@ public class ProcessHandler {
 	private ProcessesDisplayer processDisplayer;
 	private ProcessMonitor processMonitor;
 	private List<ProcessT> processList;
+	private ProcessesLoadingDialog processLoading;
+	private double maliciousRatio[];
+	private int[] pidList;
+	private List<MaliciousProcess> maliciousList;
+	
 	
 	public ProcessesDisplayer getProcessDisplayer() {
 		return processDisplayer;
@@ -27,23 +38,57 @@ public class ProcessHandler {
 	
 	public void checkProcesses(){
 		
-		int[] pidList = new int[processList.size()];
+		processLoading = new ProcessesLoadingDialog(this);
+		processLoading.setVisibility(true);
+		
+		
+		SwingWorker<Void, Void> mySwingWorker = new SwingWorker<Void, Void>(){
+			@Override
+			protected Void doInBackground() throws Exception {
+		pidList = new int[processList.size()];
 		for(int i=0; i<processList.size();i++){
 			pidList[i]=Integer.parseInt(processList.get(i).getPID());
 		}
 		ProcessCheck processCheck = new ProcessCheck();
-		List<MaliciousProcess> maliciousList;
+		
 		maliciousList = processCheck.scan(pidList);
 		System.out.println(maliciousList.size());
 		if(!maliciousList.isEmpty()){
 			
 		for(int i=0; i<maliciousList.size();i++){
 			if(maliciousList.get(i)!=null){
+				
 				System.out.println(maliciousList.get(i).getExecPath());
 				System.out.println(maliciousList.get(i).getDetectionRatio());
-			}
+				processDisplayer.getProcessListArea().checkAndModify2(pidList[i],maliciousList.get(i).getDetectionRatio());
+				
+			}else processDisplayer.getProcessListArea().checkAndModify2(pidList[i],-1);
 		}
+		
+		processDisplayer.getProcessListArea().setColorTable();
+		
 	}
+		return null;
+			}
+		};
+		
+		
+		mySwingWorker.addPropertyChangeListener(new PropertyChangeListener() {
+
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				if (evt.getPropertyName().equals("state")) {
+					if (evt.getNewValue() == SwingWorker.StateValue.DONE) {
+						processLoading.dispose();
+					}
+				}
+			}
+		});
+		mySwingWorker.execute();
+
+		processLoading.displayMessage("Checking...");
+		
+		
 	}
 
 	public void startProcesses(){
