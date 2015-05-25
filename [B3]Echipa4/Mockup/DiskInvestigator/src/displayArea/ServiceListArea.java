@@ -34,7 +34,7 @@ public class ServiceListArea extends JScrollPane {
     private int itsColumn;
     private boolean isMouseEnter = false;
     private JTable table;
-    private String[] columnNames = {" Name", " Status", " PID", " Description", " Services Number"};
+    private String[] columnNames = {" Name", " Status", " PID", " Services Number"};
     private Object[][] data;
     private ServiceMonitor sm = new ServiceMonitor();
     private String selectedService;
@@ -64,8 +64,7 @@ public class ServiceListArea extends JScrollPane {
 			data[i][0] = s.getName();
 			data[i][1] = s.getState();
 			data[i][2] = s.getPID();
-			data[i][3] = s.getDescription();
-			data[i][4] = i;
+			data[i][3] = i;
 		}
 		
 		getViewport().removeAll();
@@ -78,7 +77,7 @@ public class ServiceListArea extends JScrollPane {
 		int rowNo;
 		rowNo = table.getSelectedRow();
 		
-		if(rowNo>=0){
+		if(rowNo>=0) {
 		
 			 model.Service s = services.get(rowNo);
 					
@@ -88,12 +87,20 @@ public class ServiceListArea extends JScrollPane {
 			
 			if(!selectedService.equals(null))
 			{
-				sm.start(selectedService);
+				String result = sm.start(selectedService);
 				
-				data[rowNo][1] = s.getState();
-				System.out.println("			State:  "+s.getState());
+//				data[rowNo][1] = s.getState();
+//				System.out.println("			State:  "+s.getState());
+//				
+//				setData();
 				
-				setData();
+				if(result.equals("Succes @start")) {
+					table.setValueAt("4 RUNNING", rowNo, 1);
+				}
+				else {
+					ErrorDialog error = new ErrorDialog();
+					error.displayMessage("The service failed to start.");
+				}
 				
 				//getViewport().removeAll();
 				//initUI();
@@ -122,12 +129,20 @@ public class ServiceListArea extends JScrollPane {
 			 if(!selectedService.equals(null))
 				{
 				 
-					sm.stop(selectedService);
+					String result = sm.stop(selectedService);
 					
-					data[rowNo][1] = s.getState();
-					System.out.println("			State:  "+s.getState());
+//					data[rowNo][1] = s.getState();
+//					System.out.println("			State:  "+s.getState());
+//					
+//					setData();
 					
-					setData();
+					if(result.equals("Succes @stop")) {
+						table.setValueAt("1 STOPPED", rowNo, 1);
+					}
+					else {
+						ErrorDialog error = new ErrorDialog();
+						error.displayMessage("The service failed to stop.");
+					}
 					
 					//getViewport().removeAll();
 					//initUI();
@@ -163,9 +178,8 @@ public class ServiceListArea extends JScrollPane {
 		table.getColumnModel().getColumn(0).setMinWidth(70);
 		table.getColumnModel().getColumn(1).setMinWidth(70);
 		table.getColumnModel().getColumn(2).setMinWidth(70);
-		table.getColumnModel().getColumn(3).setMinWidth(100);
-		table.getColumnModel().getColumn(4).setMinWidth(0);
-		table.getColumnModel().getColumn(4).setMaxWidth(0);
+		table.getColumnModel().getColumn(3).setMinWidth(0);
+		table.getColumnModel().getColumn(3).setMaxWidth(0);
 		
 		table.setShowGrid(false);
 	    table.setShowVerticalLines(true);
@@ -203,7 +217,7 @@ public class ServiceListArea extends JScrollPane {
 			public void valueChanged(ListSelectionEvent event) {
 				if (table.getSelectedRow() > -1) {
 					//System.out.println(pro.get((int)table.getValueAt(table.getSelectedRow(), 5)));
-					processInfoArea.setServicesInfoRow(services.get((int)table.getValueAt(table.getSelectedRow(), 4)));
+					processInfoArea.setServicesInfoRow(services.get((int)table.getValueAt(table.getSelectedRow(), 3)));
 				}
 			}
 		});

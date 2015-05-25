@@ -78,9 +78,12 @@ public class FileHandler {
 	}
 
 	public void recover() {
-		if(fileDisplayer.getFileListArea().getSelectedStatus() != -1 && fileDisplayer.getFileListArea().getSelectedFileColumn(3).equals("Deleted")) {
+		int rowNo = fileDisplayer.getFileListArea().getSelectedStatus();
+		if(rowNo != -1 && fileDisplayer.getFileListArea().getSelectedFileColumn(3).equals("Deleted")) {
 			File file = new File("\\\\.\\"+diskName);
 			Recover.revive(Integer.parseInt(fileDisplayer.getFileListArea().getSelectedFileColumn(4)), file);
+			
+			fileDisplayer.getFileListArea().changeFileStatus(rowNo);
 		}
 		else {
 			ErrorDialog error = new ErrorDialog();

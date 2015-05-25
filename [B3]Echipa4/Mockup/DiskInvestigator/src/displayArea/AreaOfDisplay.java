@@ -29,6 +29,7 @@ public class AreaOfDisplay extends JPanel {
 	
 	public void setArea(String areaName) {
 
+		processesArea.getProcessListArea().setScanned(false);
 		switch(areaName) {
 			case "start":
 				processesArea.getProcessListArea().setFocus(false);

@@ -105,6 +105,7 @@ public class FileListArea extends JScrollPane {
 				return false;
 			}
 
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
 			public Class getColumnClass(int column) {
 				switch (column) {
@@ -258,5 +259,9 @@ public class FileListArea extends JScrollPane {
 			}
 			return this;
 		}
+	}
+	
+	public void changeFileStatus(int rowNo) {
+		table.setValueAt("In-Use", rowNo, 3);
 	}
 }

@@ -1,13 +1,14 @@
 
-SERVICE_NAME: AdobeFlashPlayerUpdateSvc
-DISPLAY_NAME: Adobe Flash Player Update Service
+SERVICE_NAME: AdobeARMservice
+DISPLAY_NAME: Adobe Acrobat Update Service
         TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 2180
         FLAGS              : 
 
 SERVICE_NAME: AeLookupSvc
@@ -19,7 +20,7 @@ DISPLAY_NAME: Application Experience
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: ALG
@@ -31,6 +32,18 @@ DISPLAY_NAME: Application Layer Gateway Service
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
         PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: AMD External Events Utility
+DISPLAY_NAME: AMD External Events Utility
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 588
         FLAGS              : 
 
 SERVICE_NAME: AppIDSvc
@@ -53,19 +66,7 @@ DISPLAY_NAME: Application Information
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
-        FLAGS              : 
-
-SERVICE_NAME: Apple Mobile Device Service
-DISPLAY_NAME: Apple Mobile Device Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1660
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: AppMgmt
@@ -77,40 +78,6 @@ DISPLAY_NAME: Application Management
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
         PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: AppReadiness
-DISPLAY_NAME: App Readiness
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: AppXSvc
-DISPLAY_NAME: AppX Deployment Service (AppXSVC)
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: ASGT
-DISPLAY_NAME: ASGT
-        TYPE               : 110  WIN32_OWN_PROCESS  (interactive)
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1688
         FLAGS              : 
 
 SERVICE_NAME: aspnet_state
@@ -133,10 +100,10 @@ DISPLAY_NAME: Windows Audio Endpoint Builder
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
+        PID                : 428
         FLAGS              : 
 
-SERVICE_NAME: Audiosrv
+SERVICE_NAME: AudioSrv
 DISPLAY_NAME: Windows Audio
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
@@ -145,7 +112,31 @@ DISPLAY_NAME: Windows Audio
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 524
+        PID                : 452
+        FLAGS              : 
+
+SERVICE_NAME: avast! Antivirus
+DISPLAY_NAME: Avast Antivirus
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 1580
+        FLAGS              : 
+
+SERVICE_NAME: avast! Firewall
+DISPLAY_NAME: Avast Firewall
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 1216
         FLAGS              : 
 
 SERVICE_NAME: AxInstSV
@@ -179,7 +170,7 @@ DISPLAY_NAME: Base Filtering Engine
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1536
+        PID                : 1980
         FLAGS              : 
 
 SERVICE_NAME: BITS
@@ -191,47 +182,11 @@ DISPLAY_NAME: Background Intelligent Transfer Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
-        FLAGS              : 
-
-SERVICE_NAME: Bonjour Service
-DISPLAY_NAME: Bonjour Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1712
-        FLAGS              : 
-
-SERVICE_NAME: BrokerInfrastructure
-DISPLAY_NAME: Background Tasks Infrastructure Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 836
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: Browser
 DISPLAY_NAME: Computer Browser
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 564
-        FLAGS              : 
-
-SERVICE_NAME: BthHFSrv
-DISPLAY_NAME: Bluetooth Handsfree Service
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -252,32 +207,19 @@ DISPLAY_NAME: Bluetooth Support Service
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: c2cautoupdatesvc
-DISPLAY_NAME: Skype Click to Call Updater
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+SERVICE_NAME: CertPropSvc
+DISPLAY_NAME: Certificate Propagation
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1728
+        PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: c2cpnrsvc
-DISPLAY_NAME: Skype Click to Call PNR Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1764
-        FLAGS              : 
-
-SERVICE_NAME: c2wts
-DISPLAY_NAME: Claims to Windows Token Service
+SERVICE_NAME: clr_optimization_v2.0.50727_32
+DISPLAY_NAME: Microsoft .NET Framework NGEN v2.0.50727_X86
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -287,20 +229,52 @@ DISPLAY_NAME: Claims to Windows Token Service
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: CertPropSvc
-DISPLAY_NAME: Certificate Propagation
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+SERVICE_NAME: clr_optimization_v2.0.50727_64
+DISPLAY_NAME: Microsoft .NET Framework NGEN v2.0.50727_X64
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: clr_optimization_v4.0.30319_32
+DISPLAY_NAME: Microsoft .NET Framework NGEN v4.0.30319_X86
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: clr_optimization_v4.0.30319_64
+DISPLAY_NAME: Microsoft .NET Framework NGEN v4.0.30319_X64
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: COMSysApp
 DISPLAY_NAME: COM+ System Application
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: cphs
+DISPLAY_NAME: Intel(R) Content Protection HECI Service
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -319,7 +293,7 @@ DISPLAY_NAME: Cryptographic Services
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1216
+        PID                : 1352
         FLAGS              : 
 
 SERVICE_NAME: CscService
@@ -333,6 +307,18 @@ DISPLAY_NAME: Offline Files
         PID                : 0
         FLAGS              : 
 
+SERVICE_NAME: CxAudMsg
+DISPLAY_NAME: Conexant Audio Message Service
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 2292
+        FLAGS              : 
+
 SERVICE_NAME: DcomLaunch
 DISPLAY_NAME: DCOM Server Process Launcher
         TYPE               : 20  WIN32_SHARE_PROCESS  
@@ -342,37 +328,14 @@ DISPLAY_NAME: DCOM Server Process Launcher
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 836
+        PID                : 852
         FLAGS              : 
 
 SERVICE_NAME: defragsvc
-DISPLAY_NAME: Optimize drives
+DISPLAY_NAME: Disk Defragmenter
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: DeviceAssociationService
-DISPLAY_NAME: Device Association Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1044
-        FLAGS              : 
-
-SERVICE_NAME: DeviceInstall
-DISPLAY_NAME: Device Install Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -388,19 +351,7 @@ DISPLAY_NAME: DHCP Client
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 524
-        FLAGS              : 
-
-SERVICE_NAME: DiagTrack
-DISPLAY_NAME: Diagnostics Tracking Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1804
+        PID                : 452
         FLAGS              : 
 
 SERVICE_NAME: Dnscache
@@ -412,7 +363,7 @@ DISPLAY_NAME: DNS Client
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1216
+        PID                : 1352
         FLAGS              : 
 
 SERVICE_NAME: dot3svc
@@ -435,29 +386,19 @@ DISPLAY_NAME: Diagnostic Policy Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1536
+        PID                : 1980
         FLAGS              : 
 
-SERVICE_NAME: DsmSvc
-DISPLAY_NAME: Device Setup Manager
+SERVICE_NAME: EapHost
+DISPLAY_NAME: Extensible Authentication Protocol
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: Eaphost
-DISPLAY_NAME: Extensible Authentication Protocol
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: EFS
@@ -471,7 +412,29 @@ DISPLAY_NAME: Encrypting File System (EFS)
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: EventLog
+SERVICE_NAME: ehRecvr
+DISPLAY_NAME: Windows Media Center Receiver Service
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: ehSched
+DISPLAY_NAME: Windows Media Center Scheduler Service
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: eventlog
 DISPLAY_NAME: Windows Event Log
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
@@ -480,7 +443,7 @@ DISPLAY_NAME: Windows Event Log
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 524
+        PID                : 452
         FLAGS              : 
 
 SERVICE_NAME: EventSystem
@@ -492,7 +455,7 @@ DISPLAY_NAME: COM+ Event System
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 1044
         FLAGS              : 
 
 SERVICE_NAME: Fax
@@ -515,7 +478,7 @@ DISPLAY_NAME: Function Discovery Provider Host
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 1044
         FLAGS              : 
 
 SERVICE_NAME: FDResPub
@@ -527,18 +490,7 @@ DISPLAY_NAME: Function Discovery Resource Publication
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1632
-        FLAGS              : 
-
-SERVICE_NAME: fhsvc
-DISPLAY_NAME: File History Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 5212
         FLAGS              : 
 
 SERVICE_NAME: FontCache
@@ -550,126 +502,104 @@ DISPLAY_NAME: Windows Font Cache Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 1044
         FLAGS              : 
 
-SERVICE_NAME: fussvc
-DISPLAY_NAME: Windows App Certification Kit Fast User Switching Utility Service
+SERVICE_NAME: FontCache3.0.0.0
+DISPLAY_NAME: Windows Presentation Foundation Font Cache 3.0.0.0
         TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 4172
         FLAGS              : 
 
 SERVICE_NAME: gpsvc
 DISPLAY_NAME: Group Policy Client
-        TYPE               : 20  WIN32_SHARE_PROCESS  
+        TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 4  RUNNING 
                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1196
         FLAGS              : 
 
-SERVICE_NAME: gupdate
-DISPLAY_NAME: Serviciul Google Update (gupdate)
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: gupdatem
-DISPLAY_NAME: Serviciul Google Update (gupdatem)
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: gusvc
-DISPLAY_NAME: Google Software Updater
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: hidserv
-DISPLAY_NAME: Human Interface Device Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
+SERVICE_NAME: Hamachi2Svc
+DISPLAY_NAME: LogMeIn Hamachi Tunneling Engine
+        TYPE               : 110  WIN32_OWN_PROCESS  (interactive)
         STATE              : 4  RUNNING 
                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
+        PID                : 1496
+        FLAGS              : 
+
+SERVICE_NAME: hidserv
+DISPLAY_NAME: Human Interface Device Access
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: HiPatchService
+DISPLAY_NAME: Hi-Rez Studios Authenticate and Update Service
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 4272
         FLAGS              : 
 
 SERVICE_NAME: hkmsvc
 DISPLAY_NAME: Health Key and Certificate Management
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: HomeGroupListener
 DISPLAY_NAME: HomeGroup Listener
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: HomeGroupProvider
 DISPLAY_NAME: HomeGroup Provider
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 524
+        PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: IAStorDataMgrSvc
-DISPLAY_NAME: Intel(R) Rapid Storage Technology
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 6536
-        FLAGS              : 
-
-SERVICE_NAME: IDriverT
-DISPLAY_NAME: InstallDriver Table Manager
+SERVICE_NAME: ICCS
+DISPLAY_NAME: Intel(R) Integrated Clock Controller Service - Intel(R) ICCS
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -679,15 +609,27 @@ DISPLAY_NAME: InstallDriver Table Manager
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: IEEtwCollectorService
-DISPLAY_NAME: Internet Explorer ETW Collector Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
+SERVICE_NAME: idsvc
+DISPLAY_NAME: Windows CardSpace
+        TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
         PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: igfxCUIService1.0.0.0
+DISPLAY_NAME: Intel(R) HD Graphics Control Panel Service
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 1284
         FLAGS              : 
 
 SERVICE_NAME: IKEEXT
@@ -699,55 +641,41 @@ DISPLAY_NAME: IKE and AuthIP IPsec Keying Modules
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
-SERVICE_NAME: Intel(R) Capability Licensing Service Interface
-DISPLAY_NAME: Intel(R) Capability Licensing Service Interface
+SERVICE_NAME: IMFservice
+DISPLAY_NAME: IMF Service
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+                                (STOPPABLE, PAUSABLE, ACCEPTS_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1852
+        PID                : 2004
+        FLAGS              : 
+
+SERVICE_NAME: IPBusEnum
+DISPLAY_NAME: PnP-X IP Bus Enumerator
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: iphlpsvc
 DISPLAY_NAME: IP Helper
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
-        FLAGS              : 
-
-SERVICE_NAME: iPod Service
-DISPLAY_NAME: Serviciu iPod
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 5968
-        FLAGS              : 
-
-SERVICE_NAME: jhi_service
-DISPLAY_NAME: Intel(R) Dynamic Application Loader Host Interface Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1900
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: KeyIso
@@ -759,7 +687,7 @@ DISPLAY_NAME: CNG Key Isolation
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 764
+        PID                : 756
         FLAGS              : RUNS_IN_SYSTEM_PROCESS
 
 SERVICE_NAME: KtmRm
@@ -777,12 +705,12 @@ SERVICE_NAME: LanmanServer
 DISPLAY_NAME: Server
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+                                (STOPPABLE, PAUSABLE, IGNORES_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: LanmanWorkstation
@@ -794,14 +722,14 @@ DISPLAY_NAME: Workstation
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1216
+        PID                : 1352
         FLAGS              : 
 
-SERVICE_NAME: lfsvc
-DISPLAY_NAME: Windows Location Framework Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
+SERVICE_NAME: LiveUpdateSvc
+DISPLAY_NAME: LiveUpdate
+        TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        WIN32_EXIT_CODE    : 1067  (0x42b)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -828,36 +756,24 @@ DISPLAY_NAME: TCP/IP NetBIOS Helper
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 524
+        PID                : 452
         FLAGS              : 
 
-SERVICE_NAME: LMS
-DISPLAY_NAME: Intel(R) Management and Security Application Local Management Service
+SERVICE_NAME: LMIGuardianSvc
+DISPLAY_NAME: LMIGuardianSvc
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 7176
+        PID                : 2844
         FLAGS              : 
 
-SERVICE_NAME: LSM
-DISPLAY_NAME: Local Session Manager
+SERVICE_NAME: Mcx2Svc
+DISPLAY_NAME: Media Center Extender Service
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 836
-        FLAGS              : 
-
-SERVICE_NAME: Microsoft Office Groove Audit Service
-DISPLAY_NAME: Microsoft Office Groove Audit Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
@@ -869,20 +785,8 @@ DISPLAY_NAME: Microsoft Office Groove Audit Service
 SERVICE_NAME: MMCSS
 DISPLAY_NAME: Multimedia Class Scheduler
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 564
-        FLAGS              : 
-
-SERVICE_NAME: MozillaMaintenance
-DISPLAY_NAME: Mozilla Maintenance Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -898,7 +802,7 @@ DISPLAY_NAME: Windows Firewall
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1536
+        PID                : 1980
         FLAGS              : 
 
 SERVICE_NAME: MSDTC
@@ -934,17 +838,6 @@ DISPLAY_NAME: Windows Installer
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: MsKeyboardFilter
-DISPLAY_NAME: Microsoft Keyboard Filter
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
 SERVICE_NAME: napagent
 DISPLAY_NAME: Network Access Protection Agent
         TYPE               : 20  WIN32_SHARE_PROCESS  
@@ -954,41 +847,6 @@ DISPLAY_NAME: Network Access Protection Agent
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
         PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: NcaSvc
-DISPLAY_NAME: Network Connectivity Assistant
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: NcbService
-DISPLAY_NAME: Network Connection Broker
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1044
-        FLAGS              : 
-
-SERVICE_NAME: NcdAutoSetup
-DISPLAY_NAME: Network Connected Devices Auto-Setup
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1536
         FLAGS              : 
 
 SERVICE_NAME: Netlogon
@@ -1004,6 +862,29 @@ DISPLAY_NAME: Netlogon
 
 SERVICE_NAME: Netman
 DISPLAY_NAME: Network Connections
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 428
+        FLAGS              : 
+
+SERVICE_NAME: NetMsmqActivator
+DISPLAY_NAME: Net.Msmq Listener Adapter
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: NetPipeActivator
+DISPLAY_NAME: Net.Pipe Listener Adapter
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -1022,7 +903,18 @@ DISPLAY_NAME: Network List Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 1044
+        FLAGS              : 
+
+SERVICE_NAME: NetTcpActivator
+DISPLAY_NAME: Net.Tcp Listener Adapter
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: NetTcpPortSharing
@@ -1045,7 +937,7 @@ DISPLAY_NAME: Network Location Awareness
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1216
+        PID                : 1352
         FLAGS              : 
 
 SERVICE_NAME: nsi
@@ -1057,46 +949,11 @@ DISPLAY_NAME: Network Store Interface Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 1044
         FLAGS              : 
 
-SERVICE_NAME: nvsvc
-DISPLAY_NAME: NVIDIA Display Driver Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 992
-        FLAGS              : 
-
-SERVICE_NAME: nvUpdatusService
-DISPLAY_NAME: NVIDIA Update Service Daemon
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 5796
-        FLAGS              : 
-
-SERVICE_NAME: odserv
-DISPLAY_NAME: Microsoft Office Diagnostics Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: OracleJobSchedulerXE
-DISPLAY_NAME: OracleJobSchedulerXE
+SERVICE_NAME: OracleJobSchedulerORCL
+DISPLAY_NAME: OracleJobSchedulerORCL
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -1117,8 +974,8 @@ DISPLAY_NAME: OracleMTSRecoveryService
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: OracleServiceXE
-DISPLAY_NAME: OracleServiceXE
+SERVICE_NAME: OracleOraDB12Home1MTSRecoveryService
+DISPLAY_NAME: OracleOraDB12Home1MTSRecoveryService
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
@@ -1128,8 +985,20 @@ DISPLAY_NAME: OracleServiceXE
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: OracleXEClrAgent
-DISPLAY_NAME: OracleXEClrAgent
+SERVICE_NAME: OracleOraDB12Home1TNSListener
+DISPLAY_NAME: OracleOraDB12Home1TNSListener
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 3224
+        FLAGS              : 
+
+SERVICE_NAME: OracleRemExecServiceV2
+DISPLAY_NAME: OracleRemExecServiceV2
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -1139,22 +1008,23 @@ DISPLAY_NAME: OracleXEClrAgent
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: OracleXETNSListener
-DISPLAY_NAME: OracleXETNSListener
+SERVICE_NAME: OracleServiceORCL
+DISPLAY_NAME: OracleServiceORCL
         TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1067  (0x42b)
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 3024
         FLAGS              : 
 
-SERVICE_NAME: ose
-DISPLAY_NAME: Office Source Engine
+SERVICE_NAME: OracleVssWriterORCL
+DISPLAY_NAME: OracleVssWriterORCL
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -1164,25 +1034,23 @@ DISPLAY_NAME: Office Source Engine
 SERVICE_NAME: p2pimsvc
 DISPLAY_NAME: Peer Networking Identity Manager
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 4984
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: p2psvc
 DISPLAY_NAME: Peer Networking Grouping
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 4984
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: PcaSvc
@@ -1194,7 +1062,7 @@ DISPLAY_NAME: Program Compatibility Assistant Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
+        PID                : 428
         FLAGS              : 
 
 SERVICE_NAME: PeerDistSvc
@@ -1223,7 +1091,7 @@ SERVICE_NAME: pla
 DISPLAY_NAME: Performance Logs & Alerts
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -1234,24 +1102,12 @@ SERVICE_NAME: PlugPlay
 DISPLAY_NAME: Plug and Play
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+                                (NOT_STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 836
-        FLAGS              : 
-
-SERVICE_NAME: PnkBstrA
-DISPLAY_NAME: PnkBstrA
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1188
+        PID                : 852
         FLAGS              : 
 
 SERVICE_NAME: PNRPAutoReg
@@ -1268,13 +1124,12 @@ DISPLAY_NAME: PNRP Machine Name Publication Service
 SERVICE_NAME: PNRPsvc
 DISPLAY_NAME: Peer Name Resolution Protocol
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 4984
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: PolicyAgent
@@ -1286,42 +1141,19 @@ DISPLAY_NAME: IPsec Policy Agent
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 4264
-        FLAGS              : 
-
-SERVICE_NAME: PortalServerService-v18.0
-DISPLAY_NAME: Graphisoft BIMcloud Manager 18.0
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1304
+        PID                : 4384
         FLAGS              : 
 
 SERVICE_NAME: Power
 DISPLAY_NAME: Power
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
-                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+                                (NOT_STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 836
-        FLAGS              : 
-
-SERVICE_NAME: PrintNotify
-DISPLAY_NAME: Printer Extensions and Notifications
-        TYPE               : 120  WIN32_SHARE_PROCESS  (interactive)
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 852
         FLAGS              : 
 
 SERVICE_NAME: ProfSvc
@@ -1333,7 +1165,29 @@ DISPLAY_NAME: User Profile Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
+        FLAGS              : 
+
+SERVICE_NAME: ProtectedStorage
+DISPLAY_NAME: Protected Storage
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: qugoqizi
+DISPLAY_NAME: Inbox Send
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 3  (0x3)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: QWAVE
@@ -1400,7 +1254,7 @@ DISPLAY_NAME: RPC Endpoint Mapper
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 880
+        PID                : 124
         FLAGS              : 
 
 SERVICE_NAME: RpcLocator
@@ -1423,7 +1277,7 @@ DISPLAY_NAME: Remote Procedure Call (RPC)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 880
+        PID                : 124
         FLAGS              : 
 
 SERVICE_NAME: SamSs
@@ -1435,22 +1289,23 @@ DISPLAY_NAME: Security Accounts Manager
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 764
+        PID                : 756
         FLAGS              : RUNS_IN_SYSTEM_PROCESS
 
-SERVICE_NAME: SCardSvr
-DISPLAY_NAME: Smart Card
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+SERVICE_NAME: SAService
+DISPLAY_NAME: Conexant SmartAudio service
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 1860
         FLAGS              : 
 
-SERVICE_NAME: ScDeviceEnum
-DISPLAY_NAME: Smart Card Device Enumeration Service
+SERVICE_NAME: SCardSvr
+DISPLAY_NAME: Smart Card
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -1464,17 +1319,28 @@ SERVICE_NAME: Schedule
 DISPLAY_NAME: Task Scheduler
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: SCPolicySvc
 DISPLAY_NAME: Smart Card Removal Policy
         TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: SDRSVC
+DISPLAY_NAME: Windows Backup
+        TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
@@ -1503,14 +1369,14 @@ DISPLAY_NAME: System Event Notification Service
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: SensrSvc
-DISPLAY_NAME: Sensor Monitoring Service
+DISPLAY_NAME: Adaptive Brightness
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -1520,13 +1386,12 @@ DISPLAY_NAME: Sensor Monitoring Service
 SERVICE_NAME: SessionEnv
 DISPLAY_NAME: Remote Desktop Configuration
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: SharedAccess
@@ -1549,7 +1414,7 @@ DISPLAY_NAME: Shell Hardware Detection
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: SkypeUpdate
@@ -1557,17 +1422,6 @@ DISPLAY_NAME: Skype Updater
         TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: smphost
-DISPLAY_NAME: Microsoft Storage Spaces SMP
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -1594,7 +1448,7 @@ DISPLAY_NAME: Print Spooler
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1508
+        PID                : 1920
         FLAGS              : 
 
 SERVICE_NAME: sppsvc
@@ -1608,16 +1462,15 @@ DISPLAY_NAME: Software Protection
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: SQLWriter
-DISPLAY_NAME: SQL Server VSS Writer
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+SERVICE_NAME: sppuinotify
+DISPLAY_NAME: SPP Notification Service
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 2168
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: SSDPSRV
@@ -1629,7 +1482,7 @@ DISPLAY_NAME: SSDP Discovery
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1632
+        PID                : 5212
         FLAGS              : 
 
 SERVICE_NAME: SstpSvc
@@ -1652,34 +1505,12 @@ DISPLAY_NAME: Windows Image Acquisition (WIA)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 2184
+        PID                : 3688
         FLAGS              : 
 
 SERVICE_NAME: StorSvc
 DISPLAY_NAME: Storage Service
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: svsvc
-DISPLAY_NAME: Spot Verifier
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: SwitchBoard
-DISPLAY_NAME: Adobe SwitchBoard
-        TYPE               : 10  WIN32_OWN_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
@@ -1708,23 +1539,11 @@ DISPLAY_NAME: Superfetch
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
-        FLAGS              : 
-
-SERVICE_NAME: SystemEventsBroker
-DISPLAY_NAME: System Events Broker
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 836
+        PID                : 428
         FLAGS              : 
 
 SERVICE_NAME: TabletInputService
-DISPLAY_NAME: Touch Keyboard and Handwriting Panel Service
+DISPLAY_NAME: Tablet PC Input Service
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -1745,8 +1564,8 @@ DISPLAY_NAME: Telephony
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: Te.Service
-DISPLAY_NAME: Te.Service
+SERVICE_NAME: TBS
+DISPLAY_NAME: TPM Base Services
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -1756,40 +1575,15 @@ DISPLAY_NAME: Te.Service
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: TeamViewer
-DISPLAY_NAME: TeamViewer 10
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 2264
-        FLAGS              : 
-
-SERVICE_NAME: TeamworkApplicationServerMonitor-v18.0
-DISPLAY_NAME: Graphisoft BIMcloud Server 18.0
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 2320
-        FLAGS              : 
-
 SERVICE_NAME: TermService
 DISPLAY_NAME: Remote Desktop Services
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1216
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: Themes
@@ -1801,7 +1595,7 @@ DISPLAY_NAME: Themes
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: THREADORDER
@@ -1815,18 +1609,6 @@ DISPLAY_NAME: Thread Ordering Server
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: TimeBroker
-DISPLAY_NAME: Time Broker
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 1632
-        FLAGS              : 
-
 SERVICE_NAME: TrkWks
 DISPLAY_NAME: Distributed Link Tracking Client
         TYPE               : 20  WIN32_SHARE_PROCESS  
@@ -1836,7 +1618,7 @@ DISPLAY_NAME: Distributed Link Tracking Client
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
+        PID                : 428
         FLAGS              : 
 
 SERVICE_NAME: TrustedInstaller
@@ -1864,29 +1646,27 @@ DISPLAY_NAME: Interactive Services Detection
 SERVICE_NAME: UmRdpService
 DISPLAY_NAME: Remote Desktop Services UserMode Port Redirector
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
-        FLAGS              : 
-
-SERVICE_NAME: UNS
-DISPLAY_NAME: Intel(R) Management and Security Application User Notification Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 5288
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: upnphost
 DISPLAY_NAME: UPnP Device Host
+        TYPE               : 20  WIN32_SHARE_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: UxSms
+DISPLAY_NAME: Desktop Window Manager Session Manager
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
@@ -1894,7 +1674,7 @@ DISPLAY_NAME: UPnP Device Host
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1632
+        PID                : 428
         FLAGS              : 
 
 SERVICE_NAME: VaultSvc
@@ -1919,94 +1699,6 @@ DISPLAY_NAME: Virtual Disk
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: vmicguestinterface
-DISPLAY_NAME: Hyper-V Guest Service Interface
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: vmicheartbeat
-DISPLAY_NAME: Hyper-V Heartbeat Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: vmickvpexchange
-DISPLAY_NAME: Hyper-V Data Exchange Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: vmicrdv
-DISPLAY_NAME: Hyper-V Remote Desktop Virtualization Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: vmicshutdown
-DISPLAY_NAME: Hyper-V Guest Shutdown Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: vmictimesync
-DISPLAY_NAME: Hyper-V Time Synchronization Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: vmicvss
-DISPLAY_NAME: Hyper-V Volume Shadow Copy Requestor
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: VsEtwService120
-DISPLAY_NAME: Visual Studio ETW Event Collection Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
 SERVICE_NAME: VSS
 DISPLAY_NAME: Volume Shadow Copy
         TYPE               : 10  WIN32_OWN_PROCESS  
@@ -2021,13 +1713,23 @@ DISPLAY_NAME: Volume Shadow Copy
 SERVICE_NAME: W32Time
 DISPLAY_NAME: Windows Time
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 0
+        FLAGS              : 
+
+SERVICE_NAME: WatAdminSvc
+DISPLAY_NAME: Windows Activation Technologies Service
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: wbengine
@@ -2050,18 +1752,6 @@ DISPLAY_NAME: Windows Biometric Service
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
         PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: Wcmsvc
-DISPLAY_NAME: Windows Connection Manager
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 524
         FLAGS              : 
 
 SERVICE_NAME: wcncsvc
@@ -2095,31 +1785,18 @@ DISPLAY_NAME: Diagnostic Service Host
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 1044
         FLAGS              : 
 
 SERVICE_NAME: WdiSystemHost
 DISPLAY_NAME: Diagnostic System Host
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
-        FLAGS              : 
-
-SERVICE_NAME: WdNisSvc
-DISPLAY_NAME: Windows Defender Network Inspection Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 2104
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: WebClient
@@ -2144,22 +1821,11 @@ DISPLAY_NAME: Windows Event Collector
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: WEPHOSTSVC
-DISPLAY_NAME: Windows Encryption Provider Host Service
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
 SERVICE_NAME: wercplsupport
 DISPLAY_NAME: Problem Reports and Solutions Control Panel Support
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -2168,20 +1834,9 @@ DISPLAY_NAME: Problem Reports and Solutions Control Panel Support
 
 SERVICE_NAME: WerSvc
 DISPLAY_NAME: Windows Error Reporting Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: WiaRpc
-DISPLAY_NAME: Still Image Acquisition Events
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
@@ -2189,27 +1844,26 @@ DISPLAY_NAME: Still Image Acquisition Events
         FLAGS              : 
 
 SERVICE_NAME: WinDefend
-DISPLAY_NAME: Windows Defender Service
-        TYPE               : 10  WIN32_OWN_PROCESS  
+DISPLAY_NAME: Windows Defender
+        TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 4  RUNNING 
                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 2456
+        PID                : 4080
         FLAGS              : 
 
 SERVICE_NAME: WinHttpAutoProxySvc
 DISPLAY_NAME: WinHTTP Web Proxy Auto-Discovery Service
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 768
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: Winmgmt
@@ -2221,7 +1875,7 @@ DISPLAY_NAME: Windows Management Instrumentation
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: WinRM
@@ -2235,26 +1889,16 @@ DISPLAY_NAME: Windows Remote Management (WS-Management)
         PID                : 0
         FLAGS              : 
 
-SERVICE_NAME: WlanSvc
+SERVICE_NAME: Wlansvc
 DISPLAY_NAME: WLAN AutoConfig
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
-        FLAGS              : 
-
-SERVICE_NAME: wlidsvc
-DISPLAY_NAME: Microsoft Account Sign-in Assistant
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 428
         FLAGS              : 
 
 SERVICE_NAME: wmiApSrv
@@ -2271,18 +1915,6 @@ DISPLAY_NAME: WMI Performance Adapter
 SERVICE_NAME: WMPNetworkSvc
 DISPLAY_NAME: Windows Media Player Network Sharing Service
         TYPE               : 10  WIN32_OWN_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 4008
-        FLAGS              : 
-
-SERVICE_NAME: workfolderssvc
-DISPLAY_NAME: Work Folders
-        TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
@@ -2292,7 +1924,7 @@ DISPLAY_NAME: Work Folders
         FLAGS              : 
 
 SERVICE_NAME: WPCSvc
-DISPLAY_NAME: Family Safety
+DISPLAY_NAME: Parental Controls
         TYPE               : 20  WIN32_SHARE_PROCESS  
         STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 1077  (0x435)
@@ -2322,7 +1954,7 @@ DISPLAY_NAME: Security Center
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 524
+        PID                : 452
         FLAGS              : 
 
 SERVICE_NAME: WSearch
@@ -2334,41 +1966,30 @@ DISPLAY_NAME: Windows Search
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 2908
-        FLAGS              : 
-
-SERVICE_NAME: WSService
-DISPLAY_NAME: Windows Store Service (WSService)
-        TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 0  (0x0)
-        SERVICE_EXIT_CODE  : 0  (0x0)
-        CHECKPOINT         : 0x0
-        WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 4396
         FLAGS              : 
 
 SERVICE_NAME: wuauserv
 DISPLAY_NAME: Windows Update
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 1068
         FLAGS              : 
 
 SERVICE_NAME: wudfsvc
 DISPLAY_NAME: Windows Driver Foundation - User-mode Driver Framework
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
-        WIN32_EXIT_CODE    : 0  (0x0)
+        STATE              : 1  STOPPED 
+        WIN32_EXIT_CODE    : 1077  (0x435)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 1044
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: WwanSvc

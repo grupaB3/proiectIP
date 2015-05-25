@@ -1,10 +1,6 @@
 package items;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.List;
-
-import javax.swing.SwingWorker;
 
 import model.MaliciousProcess;
 import model.ProcessT;
@@ -13,7 +9,6 @@ import controller.ProcessMonitor;
 import dialogs.ErrorDialog;
 import dialogs.InputDialog;
 import dialogs.WarningDialog;
-import diskscan.Scan;
 import displayArea.ProcessesDisplayer;
 
 public class ProcessHandler {
@@ -21,7 +16,6 @@ public class ProcessHandler {
 	private ProcessesDisplayer processDisplayer;
 	private ProcessMonitor processMonitor;
 	private List<ProcessT> processList;
-	private boolean scanned = false;
 	
 	public ProcessesDisplayer getProcessDisplayer() {
 		return processDisplayer;
@@ -53,7 +47,7 @@ public class ProcessHandler {
 	}
 
 	public void startProcesses(){
-		if(!scanned){
+		if(!processDisplayer.getProcessListArea().isScanned()){
 			WarningDialog warning = new WarningDialog();
 			warning.displayMessage("Processes must be scanned");
 			if(warning.displayConfirmDialog()==1){
@@ -81,7 +75,7 @@ public class ProcessHandler {
 	
 	public void endProcesses(){
 		
-		if(!scanned){
+		if(!processDisplayer.getProcessListArea().isScanned()){
 			WarningDialog warning = new WarningDialog();
 			warning.displayMessage("Processes must be scanned first.");
 			if(warning.displayConfirmDialog()==1){
@@ -97,7 +91,7 @@ public class ProcessHandler {
 				errDialog.displayMessage("You must select a process to stop it!");
 			}else{
 				processMonitor.delete(p);
-				//TODO 
+
 				//processList = processMonitor.getProcessList();
 				//processDisplayer.getProcessListArea().setData(processList);
 				System.out.println("Finished: Ended process "+ p);
@@ -105,16 +99,23 @@ public class ProcessHandler {
 		}
 	}
 	
-	public void scanProcesses(){
-		processMonitor = new ProcessMonitor();
-		processMonitor.connect();
-		processMonitor.parse();
-
-		processList = processMonitor.getProcessList();
+	public void scanProcesses() {
+		if(processDisplayer.getProcessListArea().isScanned()) {
+			ErrorDialog error = new ErrorDialog();
+			error.displayMessage("Processes have already been scanned.");
+		}
+		else {
+			processMonitor = new ProcessMonitor();
+			processMonitor.connect();
+			processMonitor.parse();
 		
-		processDisplayer.getProcessListArea().setData(processList);
-		scanned = true;
-
+			processList = processMonitor.getProcessList();
+			
+			processDisplayer.getProcessListArea().setData(processList);
+			processDisplayer.getProcessListArea().setScanned(true);
+			
+			processDisplayer.getProcessListArea().startRefresh();
+		}
 	}
 	
 	public List<ProcessT> getProcessList(){

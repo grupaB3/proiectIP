@@ -1,8 +1,5 @@
 package observers;
 
-
-import javax.swing.SwingWorker;
-
 import items.ProcessHandler;
 
 public class ProcessesObserver {
@@ -13,20 +10,6 @@ public class ProcessesObserver {
 	}
 	
 	public void startScan() {
-	
-	//	SwingWorker<Void, Void> mySwingWorker = new SwingWorker<Void, Void>(){
-	//			@Override
-	//			protected Void doInBackground() throws Exception {
-	//				boolean intermediary = processHandler.getProcessDisplayer().getProcessListArea().isFocus();
-	//				while(intermediary) {
-	//					processHandler.scanProcesses();
-	//					Thread.sleep(5000);
-	//					intermediary = processHandler.getProcessDisplayer().getProcessListArea().isFocus();
-	//				}
-	//				return null;
-	//			}
-	//		};
-	//	mySwingWorker.execute();
 		processHandler.scanProcesses();
 	}
 	

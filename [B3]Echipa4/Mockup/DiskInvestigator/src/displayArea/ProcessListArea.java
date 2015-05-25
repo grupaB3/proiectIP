@@ -10,11 +10,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.List;
+
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingWorker;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -22,7 +24,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 import controller.ProcessCheck;
+import controller.ProcessMonitor;
 import model.DigitalSignature;
 import model.ProcessT;
 
@@ -37,7 +41,8 @@ public class ProcessListArea extends JScrollPane {
 	private String[] columnNames = {" Name", " Session Name", " Pid", " Memory", " Digital Signature", " Process Number"};
 	private List<ProcessT> pro;
 	private ProcessInfoArea processInfoArea;
-	private boolean focus=false;
+	private boolean focus = false;
+	private boolean scanned = false;
 
 	protected ProcessListArea() {
 		initUI();
@@ -238,6 +243,47 @@ public class ProcessListArea extends JScrollPane {
 		}
 	}
 
+	public void startRefresh() {
+		SwingWorker<Void, Void> mySwingWorker = new SwingWorker<Void, Void>() {
+			@Override
+			protected Void doInBackground() throws Exception {
+				boolean intermediary = isFocus();
+				while(intermediary) {
+					Thread.sleep(500);
+					ProcessMonitor processMonitor = new ProcessMonitor();
+					processMonitor.connect();
+					processMonitor.parse();
+					
+					List<ProcessT> processList = processMonitor.getProcessList();
+					for(int index = 0; index < processList.size(); index ++) {
+						boolean found = checkAndModify(processList.get(index).getPID(), processList.get(index).getMemoryUsage());
+						if(!found) {
+							System.out.println("New process: "+processList.get(index).getName());
+						}
+					}
+					
+					System.out.println("Refreshed.");
+					intermediary = isFocus();
+				}
+				return null;
+			}
+		};
+		mySwingWorker.execute();
+	}
+	
+	private boolean checkAndModify(String pid, String memory) {
+		boolean found = false;
+		for (int row = 0; row <= table.getRowCount() - 1; row++) {
+            if (pid.equals(table.getValueAt(row, 2))) {
+            	System.out.println("Found on row "+row);
+            	table.setValueAt(memory, row, 3);
+            	found = true;
+            	break;
+            }
+		}
+		return found;
+	}
+	
 	public ProcessInfoArea getProcessInfoArea() {
 		return processInfoArea;
 	}
@@ -252,6 +298,14 @@ public class ProcessListArea extends JScrollPane {
 
 	public void setFocus(boolean focus) {
 		this.focus = focus;
+	}
+
+	public boolean isScanned() {
+		return scanned;
+	}
+
+	public void setScanned(boolean scanned) {
+		this.scanned = scanned;
 	}
 
 }
