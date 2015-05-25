@@ -33,7 +33,8 @@ public class FileHandler {
 			protected Void doInBackground() throws Exception {
 
 				System.out.println("Started thread for scanning. ");
-				fileScan = new Scan(getDiskName());	
+				fileScan = new Scan(getDiskName());
+				fileDisplayer.getFileListArea().getViewport().removeAll();
 				fileScan.startScan();
 				return null;
 			}

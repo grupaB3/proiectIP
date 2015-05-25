@@ -46,6 +46,7 @@ public class FileListArea extends JScrollPane {
 	}
 
 	public void setData(Map<Integer, MFTEntry> map){
+
 		mapMFT=map;
 		data = new Object[map.size()][5];
 		int i = 0;
