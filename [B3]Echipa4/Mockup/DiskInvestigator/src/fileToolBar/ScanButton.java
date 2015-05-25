@@ -35,7 +35,6 @@ public class ScanButton extends JButton{
 	
 
 	private void ScanButtonActionPerformed(ActionEvent evt) {
-		System.out.println("Scanning " + diskSelected);
 		fileObserver.startScan(getDiskSelected());
     }
 
@@ -57,7 +56,6 @@ public class ScanButton extends JButton{
 
 	public void setDiskSelected(String diskSelected) {
 		this.diskSelected = diskSelected;
-		System.out.println("Selected the disk "+ getDiskSelected());
 	}
 	
 }

@@ -36,7 +36,6 @@ public class StartServiceButton extends JButton {
 	}
 	
 	private void StartButtonActionPerformed(ActionEvent evt) {
-		System.out.println("Starting ");
 		serviceObserver.startService();
     }
 
@@ -54,9 +53,7 @@ public class StartServiceButton extends JButton {
 		return selectedService;
 	}
 
-
 	public void setSelectedService(String selectedService) {
 		this.selectedService = selectedService;
-		System.out.println("Selected  "+ getSelectedService());
 	}
 }

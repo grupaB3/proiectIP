@@ -12,9 +12,7 @@ public class ProcessesObserver {
 	public void startScan() {
 		processHandler.scanProcesses();
 	}
-	
-	
-	
+
 	public void processCheck(){
 			
 	}

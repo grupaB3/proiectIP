@@ -72,11 +72,7 @@ public class InputDialog extends DialogWindow {
 				if (!text.equals(null) && !text.equals(" ") && !text.equals(""))
 					{
 					setText(text);
-					//System.out.println(text);
-					//apelam functia lor
 					}
-				else
-					System.out.println("Null.");
 				setVisibility(false);
 				dispose();
 			}

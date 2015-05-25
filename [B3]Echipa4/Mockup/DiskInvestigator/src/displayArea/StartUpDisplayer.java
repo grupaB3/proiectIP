@@ -99,7 +99,6 @@ public class StartUpDisplayer extends JPanel{
 			public void mousePressed(MouseEvent arg0) {
 				Desktop desktop = Desktop.getDesktop();
                 try {
-                	System.out.println("x");
                 	URL url = new URL("https://github.com/grupaB3/proiectIP/tree/master/%5BB3%5DEchipa4/Mockup");
                     desktop.browse(url.toURI());
                 } catch (Exception ex) {
@@ -133,7 +132,6 @@ public class StartUpDisplayer extends JPanel{
 			public void mousePressed(MouseEvent arg0) {
 				Desktop desktop = Desktop.getDesktop();
                 try {
-                	System.out.println("x");
                 	URL url = new URL("https://twitter.com/B3Investigator");
                     desktop.browse(url.toURI());
                 } catch (Exception ex) {

@@ -24,8 +24,6 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import com.sun.org.apache.xalan.internal.lib.Extensions;
-
 import diskscan.MFTEntry;
 import diskscan.NTFSAttribute;
 
@@ -56,11 +54,9 @@ public class FileListArea extends JScrollPane {
 					if(attr.getType() == 0x80) {
 						if(attr.getNonResFlag() == 0) {
 							maxSizePossible=attr.getrAttr().getLength();
-							System.out.println(maxSizePossible);
 						}
 						else{
 							maxSizePossible=attr.getNrAttr().getRealSize();
-							System.out.println(maxSizePossible);
 						}
 					}
 				}

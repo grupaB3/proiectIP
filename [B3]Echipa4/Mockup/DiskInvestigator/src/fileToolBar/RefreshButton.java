@@ -34,7 +34,6 @@ public class RefreshButton extends JButton{
 	
 	private void RefreshButtonActionPerformed(ActionEvent evt) {
 		String diskName = fileObserver.getFileHandler().getDiskName();
-		System.out.println("Scanning " + diskName);
 		fileObserver.startScan(diskName);
     }
 

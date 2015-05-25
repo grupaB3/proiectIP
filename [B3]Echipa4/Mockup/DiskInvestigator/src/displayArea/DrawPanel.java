@@ -19,7 +19,6 @@ class DrawPanel extends JPanel {
 			BufferedImage bi = ImageIO.read(new File(getClass().getResource("/displayArea/background.png").toURI()));
 			g2d.drawImage(bi, 0, 0, 900, 440, null);
 		} catch (IOException | URISyntaxException e) {
-			System.out.println(e.getMessage());
 		}
 	}
 }

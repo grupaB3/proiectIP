@@ -31,7 +31,6 @@ public class ProcessScanButton extends JButton{
 	}
 	
 	private void ScanButtonActionPerformed(ActionEvent evt) {
-		System.out.println("Scanning processes...");
 		processesObserver.startScan();
     }
 	

@@ -5,8 +5,6 @@ import displayArea.ServicesDisplayer;
 
 public class ServiceHandler {
 	private ServicesDisplayer serviceDisplayer;
-	//private String selectedService = null;	
-
 
 	public void startService(){
 		

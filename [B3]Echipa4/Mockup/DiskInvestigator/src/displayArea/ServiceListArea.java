@@ -72,8 +72,6 @@ public class ServiceListArea extends JScrollPane {
 	}
 	
 	public void StartServiceButton(){
-		//TODO set selectedService!
-		System.out.println("START Service!");
 		int rowNo;
 		rowNo = table.getSelectedRow();
 		
@@ -81,18 +79,11 @@ public class ServiceListArea extends JScrollPane {
 		
 			 model.Service s = services.get(rowNo);
 					
-			setService(s.getName());
-			System.out.println(selectedService+" la randul "+rowNo);
-	
+			setService(s.getName());	
 			
 			if(!selectedService.equals(null))
 			{
 				String result = sm.start(selectedService);
-				
-//				data[rowNo][1] = s.getState();
-//				System.out.println("			State:  "+s.getState());
-//				
-//				setData();
 				
 				if(result.equals("Succes @start")) {
 					table.setValueAt("4 RUNNING", rowNo, 1);
@@ -116,25 +107,18 @@ public class ServiceListArea extends JScrollPane {
 	
 	
 	public void StopServiceButton(){
-		System.out.println("STOP Service!");
 		int rowNo;
 		rowNo = table.getSelectedRow();
 		
 		if(rowNo>=0){
 			 model.Service s = services.get(rowNo);
 			 setService(s.getName());
-			 System.out.println(selectedService+" la randul "+rowNo);
 			 
 			 
 			 if(!selectedService.equals(null))
 				{
 				 
 					String result = sm.stop(selectedService);
-					
-//					data[rowNo][1] = s.getState();
-//					System.out.println("			State:  "+s.getState());
-//					
-//					setData();
 					
 					if(result.equals("Succes @stop")) {
 						table.setValueAt("1 STOPPED", rowNo, 1);
@@ -143,9 +127,6 @@ public class ServiceListArea extends JScrollPane {
 						ErrorDialog error = new ErrorDialog();
 						error.displayMessage("The service failed to stop.");
 					}
-					
-					//getViewport().removeAll();
-					//initUI();
 				}
 			
 		}else{
@@ -205,8 +186,6 @@ public class ServiceListArea extends JScrollPane {
 	                     table.clearSelection();
 	                 }
 	                 else {
-//	                	 System.out.println("Selected row "+String.valueOf(row) +
-//		                		 " . The selected service is "+ data[row][2]);
 	                 }
 	            }               
 	        }           
@@ -216,7 +195,6 @@ public class ServiceListArea extends JScrollPane {
 			@Override
 			public void valueChanged(ListSelectionEvent event) {
 				if (table.getSelectedRow() > -1) {
-					//System.out.println(pro.get((int)table.getValueAt(table.getSelectedRow(), 5)));
 					processInfoArea.setServicesInfoRow(services.get((int)table.getValueAt(table.getSelectedRow(), 3)));
 				}
 			}

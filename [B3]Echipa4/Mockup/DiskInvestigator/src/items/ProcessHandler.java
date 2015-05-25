@@ -12,7 +12,6 @@ import controller.ProcessCheck;
 import controller.ProcessMonitor;
 import dialogs.ErrorDialog;
 import dialogs.InputDialog;
-import dialogs.LoadingDialog;
 import dialogs.ProcessesLoadingDialog;
 import dialogs.WarningDialog;
 import displayArea.ProcessesDisplayer;
@@ -23,6 +22,7 @@ public class ProcessHandler {
 	private ProcessMonitor processMonitor;
 	private List<ProcessT> processList;
 	private ProcessesLoadingDialog processLoading;
+	@SuppressWarnings("unused")
 	private double maliciousRatio[];
 	private int[] pidList;
 	private List<MaliciousProcess> maliciousList;
@@ -52,14 +52,11 @@ public class ProcessHandler {
 		ProcessCheck processCheck = new ProcessCheck();
 		
 		maliciousList = processCheck.scan(pidList);
-		System.out.println(maliciousList.size());
 		if(!maliciousList.isEmpty()){
 			
 		for(int i=0; i<maliciousList.size();i++){
 			if(maliciousList.get(i)!=null){
 				
-				System.out.println(maliciousList.get(i).getExecPath());
-				System.out.println(maliciousList.get(i).getDetectionRatio());
 				processDisplayer.getProcessListArea().checkAndModify2(pidList[i],maliciousList.get(i).getDetectionRatio());
 				
 			}else processDisplayer.getProcessListArea().checkAndModify2(pidList[i],-1);
@@ -101,12 +98,11 @@ public class ProcessHandler {
 			}
 			
 		}else{
-			System.out.println("Started process");
 			InputDialog dialog = new InputDialog(this);
 			dialog.displayMessage(null);
 			
 			if(processMonitor.create(dialog.getText()).contains("Succes"))
-				System.out.println("Success:  Started "+dialog.getText());
+				{;}
 			else{		
 				ErrorDialog errDialog = new ErrorDialog();
 				errDialog.displayMessage("Incorrect process name! (you have to include extension)"); //schimba??
@@ -136,10 +132,6 @@ public class ProcessHandler {
 				errDialog.displayMessage("You must select a process to stop it!");
 			}else{
 				processMonitor.delete(p);
-
-				//processList = processMonitor.getProcessList();
-				//processDisplayer.getProcessListArea().setData(processList);
-				System.out.println("Finished: Ended process "+ p);
 			}
 		}
 	}

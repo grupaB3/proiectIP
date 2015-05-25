@@ -14,7 +14,6 @@ public class DiskComboBox extends JComboBox<String> {
 	
 	protected DiskComboBox() {
 		DiskPartition diskPartition = new DiskPartition();
-		System.out.println(diskPartition.getPhysDrives().size());
 		String[] tempChoices = new String[diskPartition.getPhysDrives().size()];
 		for(int index = 0; index < tempChoices.length; index ++) {
 			tempChoices[index] = diskPartition.getPhysDrives().get(index).toString();

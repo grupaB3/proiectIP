@@ -125,8 +125,6 @@ public class FileInfoArea extends JPanel {
 		panel.add(labelDetails);
 
 		panel.repaint();
-
-		System.out.println(String.valueOf(mftEntry.getFileName().getName()).trim().replaceAll("\\s+", ""));
 	}
 
 	public static long filetimeToMillis(long filetime)

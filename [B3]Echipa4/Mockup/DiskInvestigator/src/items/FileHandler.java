@@ -32,7 +32,6 @@ public class FileHandler {
 			@Override
 			protected Void doInBackground() throws Exception {
 
-				System.out.println("Started thread for scanning. ");
 				fileScan = new Scan(getDiskName());
 				fileDisplayer.getFileListArea().getViewport().removeAll();
 				fileScan.startScan();
@@ -68,13 +67,10 @@ public class FileHandler {
 		setScanned(true);
 
 		fileDisplayer.getFileListArea().setData(filesMap);
-
-		System.out.println("Done.");
 	}
 
 	public void stopScan() {
 		fileScan.setStopped();
-		System.out.println("Scan stopped. ");
 		loading.dispose();
 	}
 
@@ -95,8 +91,6 @@ public class FileHandler {
 	public void shred() throws IOException {
 		if(fileDisplayer.getFileListArea().getSelectedStatus() != -1) {
 			String path = fileDisplayer.getFileListArea().getPath(fileDisplayer.getFileListArea().getSelectedStatus());
-			
-			System.out.println(path);
 			
 			ProcessCheck processCheck = new ProcessCheck();
 			boolean result = false;

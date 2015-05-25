@@ -29,7 +29,6 @@ import observers.ProcessesObserver;
 import controller.ProcessCheck;
 import controller.ProcessMonitor;
 import model.DigitalSignature;
-import model.MaliciousProcess;
 import model.ProcessT;
 
 public class ProcessListArea extends JScrollPane {
@@ -46,6 +45,7 @@ public class ProcessListArea extends JScrollPane {
 	private boolean focus = false;
 	private boolean scanned = false;
 	private ProcessCheck check = new ProcessCheck();
+	@SuppressWarnings("unused")
 	private ProcessesObserver processesObserver;
 
 
@@ -176,7 +176,6 @@ public class ProcessListArea extends JScrollPane {
 						processInfoArea.setSignature(sign);
 
 					}catch(NumberFormatException e){
-						System.out.println("Error: parse");
 					}catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -283,7 +282,6 @@ public class ProcessListArea extends JScrollPane {
 					for(int index = 0; index < processList.size(); index ++) {
 						boolean found = checkAndModify(processList.get(index).getPID(), processList.get(index).getMemoryUsage());
 						if(!found) {
-							//System.out.println("New process: "+processList.get(index).getName());
 						}
 					}
 

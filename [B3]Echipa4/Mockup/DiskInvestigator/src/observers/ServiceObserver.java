@@ -18,9 +18,7 @@ public class ServiceObserver {
 		this.serviceHandler = serviceHandler;
 	}
 
-	
 	public void startService(){
-		//System.out.println("Observer");
 		serviceHandler.startService();
 	}
 

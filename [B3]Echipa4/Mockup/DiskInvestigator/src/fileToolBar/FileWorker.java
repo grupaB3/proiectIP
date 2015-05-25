@@ -10,7 +10,6 @@ public class FileWorker {
     }
     
     public void setSearchButtonStatus(boolean state) {
-    	//enable-disable search box
     }
     
     public void setShredButtonStatus(boolean state) {

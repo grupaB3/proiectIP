@@ -75,9 +75,7 @@ public class InfoButton extends JFrame {
 	              int newState = evt.getNewState();
 
 	              if ((oldState & Frame.ICONIFIED) == 0 && (newState & Frame.ICONIFIED) != 0) {
-	                //System.out.println("Frame was iconized");
 	              } else if ((oldState & Frame.ICONIFIED) != 0 && (newState & Frame.ICONIFIED) == 0) {
-	                //System.out.println("Frame was deiconized");
 	              }
 
 	              if ((oldState & Frame.MAXIMIZED_BOTH) == 0 && (newState & Frame.MAXIMIZED_BOTH) != 0) {
@@ -144,9 +142,7 @@ public class InfoButton extends JFrame {
 	              int oldState = evt.getOldState();
 	              int newState = evt.getNewState();
 	              if ((oldState & Frame.ICONIFIED) == 0 && (newState & Frame.ICONIFIED) != 0) {
-	                System.out.println("Frame was iconized");
 	              } else if ((oldState & Frame.ICONIFIED) != 0 && (newState & Frame.ICONIFIED) == 0) {
-	                System.out.println("Frame was deiconized");
 	              }
 
 	              if ((oldState & Frame.MAXIMIZED_BOTH) == 0 && (newState & Frame.MAXIMIZED_BOTH) != 0) {
@@ -228,10 +224,8 @@ public class InfoButton extends JFrame {
 					increaseBackStack(currentPageNumber);
 					updatePanel(obj[1]);
 				}else{
-					System.out.println(obj[1]);
 					updatePanel(obj[1]);
 				}
-				//restartForwardStack();
 			}
 		}
 		@SuppressWarnings("unchecked")

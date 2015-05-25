@@ -115,7 +115,6 @@ public class ToolBar extends JToolBar {
 		SwingWorker<Void, Void> mySwingWorker = new SwingWorker<Void, Void>() {
 			@Override
 	         protected Void doInBackground() throws Exception {
-				System.out.println("Waiting...");
 				boolean status = filesToolBar.getDiskScan().getScanButton().getFileObserver().getFileHandler().isScanned();
 	        	while(!status) {
 	        		status = filesToolBar.getDiskScan().getScanButton().getFileObserver().getFileHandler().isScanned();
@@ -124,7 +123,6 @@ public class ToolBar extends JToolBar {
 	        	filesToolBar.getDiskScan().getRefreshButton().setEnabled(true);
 	        	filesToolBar.getDiskScan().getRecoveryButton().setEnabled(true);
 	        	filesToolBar.getFileWorker().getShredButton().setEnabled(true);
-	        	System.out.println("Done.");
 	            return null;
 	         }
 		};

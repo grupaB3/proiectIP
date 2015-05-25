@@ -202,7 +202,6 @@ public class DiskInvestigatorInfoProcessPanelPart3 extends JPanel{
 			try {
 				myPicture = ImageIO.read(getClass().getResource("processPanel_taskTab.png"));
 			} catch (IOException e) {
-				System.out.println("Eroare!");
 			}
 			JLabel picLabel = new JLabel(new ImageIcon(myPicture.getScaledInstance(700, 500, Image.SCALE_DEFAULT)));
 	    	componentsPanel.add(picLabel);
