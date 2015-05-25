@@ -1,0 +1,74 @@
+package menuBar;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
+
+import observers.MenuObserver;
+
+public class MenuBar extends JMenuBar {
+	private JMenu fileMenu = new JMenu("Files");
+	private JMenu processMenu = new JMenu("Processes");
+	private JMenu infoMenu = new JMenu("Info");
+	private MenuObserver observer;
+	
+	private JMenuItem menuItem;
+	
+	public MenuBar(MenuObserver observer) {
+		this.observer = observer;
+		init();
+	}
+	
+	public void init() {
+		add(fileMenu);
+		add(processMenu);
+		add(infoMenu);
+		initFileMenu();
+		initProcessMenu();
+		initInfoMenu();
+	}
+	
+	public void initFileMenu(){
+		menuItem = new JMenuItem("Show file toolbar");
+		menuItem.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				observer.activateBar("file");
+			}
+		});
+		fileMenu.add(menuItem);
+		fileMenu.setMnemonic(KeyEvent.VK_F);
+	}
+	
+	public void initProcessMenu(){
+		menuItem = new JMenuItem("Show process toolbar");
+		menuItem.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				observer.activateBar("process");
+			}
+		});
+		processMenu.add(menuItem);
+		processMenu.setMnemonic(KeyEvent.VK_P);
+	}
+	
+	public void initInfoMenu(){
+		infoMenu.setMnemonic(KeyEvent.VK_I);
+		infoMenu.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				new InfoButton();
+			}
+		});
+	}
+	
+}

@@ -1,0 +1,11 @@
+Things to do: 
+	- File toolbar.......done
+		- File display mode
+		- Disk Scan.......done
+			- Scan button.......done
+			- Recovery button.......done
+			- Refresh button.......done
+		- File Worker.......done
+			- Search button.......done
+			- Shred button.......done
+			- ShareWith + combo box.......done
