@@ -36,12 +36,13 @@ DISPLAY_NAME: Application Layer Gateway Service
 SERVICE_NAME: AppIDSvc
 DISPLAY_NAME: Application Identity
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 1  STOPPED 
-        WIN32_EXIT_CODE    : 1077  (0x435)
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 0
+        PID                : 524
         FLAGS              : 
 
 SERVICE_NAME: Appinfo
@@ -567,13 +568,12 @@ DISPLAY_NAME: Windows App Certification Kit Fast User Switching Utility Service
 SERVICE_NAME: gpsvc
 DISPLAY_NAME: Group Policy Client
         TYPE               : 20  WIN32_SHARE_PROCESS  
-        STATE              : 4  RUNNING 
-                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)
+        STATE              : 1  STOPPED 
         WIN32_EXIT_CODE    : 0  (0x0)
         SERVICE_EXIT_CODE  : 0  (0x0)
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
-        PID                : 564
+        PID                : 0
         FLAGS              : 
 
 SERVICE_NAME: gupdate

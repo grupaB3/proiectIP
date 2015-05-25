@@ -88,7 +88,7 @@ public class FileHandler {
 		}
 		else {
 			ErrorDialog error = new ErrorDialog();
-			error.displayMessage("You have to select a deleted file");
+			error.displayMessage("You have to select a deleted file.");
 		}
 	}
 	
@@ -104,7 +104,7 @@ public class FileHandler {
 			
 			if(!result) {
 				ErrorDialog error = new ErrorDialog();
-				error.displayMessage("You have to select a deleted file.");
+				error.displayMessage("Can't shred the file.");
 			}
 		}
 		else {
