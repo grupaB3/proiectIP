@@ -10,8 +10,12 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Observer;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -30,16 +34,21 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	private static final long serialVersionUID = 8978989351230968588L;
 	private JScrollPane scrollPane=new JScrollPane();
 	private NavigationEvent myEvent=new NavigationEvent();
+	private List<JTextArea> indexableTextAreas= new LinkedList<JTextArea>();
+	public List<JTextArea> getIndexableTextAreas() {
+		return indexableTextAreas;
+	}
 	public JScrollPane getScrollPane() {
 		return scrollPane;
 	}
 	public DiskInvestigatorInfoStartupPanel(Dimension frameSize,Observer observer){
+		super(new FlowLayout(FlowLayout.CENTER),true);
 		init(frameSize,observer);
 	}
 
 	private void init(Dimension frameSize,Observer observer){
 			myEvent.addObserver(observer);
-	    	setLayout(new FlowLayout(FlowLayout.CENTER));
+	    	//setLayout(new FlowLayout(FlowLayout.CENTER));
 	    	setPreferredSize(new Dimension(frameSize.width,frameSize.height));
 	    	setBackground(new Color(255,255,255));
 	    	JScrollPane scrollPane = new JScrollPane();
@@ -55,6 +64,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	Font textAreaFont=new Font("Calibri",Font.PLAIN,36);
 	    	descriptionTitleTextArea.setFont(textAreaFont);
 	    	descriptionTitleTextArea.setForeground(Color.DARK_GRAY);
+	    	descriptionTitleTextArea.setName("descriptionTitleTextArea");
+	    	indexableTextAreas.add(descriptionTitleTextArea);
 	    	JTextArea descriptionTextArea=new JTextArea();
 	    	descriptionTextArea.setBackground(new Color(255,255,255));
 	    	descriptionTextArea.setSize(new Dimension(this.getPreferredSize().width-30,10));
@@ -66,6 +77,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    			+ "This help is at your disposal, mapping all the features of this application.");
 	    	textAreaFont=new Font("Calibri",Font.PLAIN,18);
 	    	descriptionTextArea.setFont(textAreaFont);
+	    	descriptionTextArea.setName("descriptionTextArea");
+	    	indexableTextAreas.add(descriptionTextArea);
 	    	descriptionPanel.add(descriptionTitleTextArea);
 	    	descriptionPanel.add(descriptionTextArea);
 	    	JPanel componentsPanel=new JPanel();
@@ -81,6 +94,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	textAreaFont=new Font("Calibri",Font.PLAIN,24);
 	    	componentsTitleTextArea.setFont(textAreaFont);
 	    	componentsTitleTextArea.setForeground(Color.DARK_GRAY);
+	    	componentsTitleTextArea.setName("componentsTitleTextArea");
+	    	indexableTextAreas.add(componentsTitleTextArea);
 	    	componentsPanel.add(componentsTitleTextArea);
 	    	JTextArea componentsIntroTextArea=new JTextArea();
 	    	componentsIntroTextArea.setSize(new Dimension(this.getPreferredSize().width-30,10));
@@ -91,14 +106,16 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	componentsIntroTextArea.setBackground(new Color(255,255,255));
 	    	textAreaFont=new Font("Calibri",Font.PLAIN,18);
 	    	componentsIntroTextArea.setFont(textAreaFont);
+	    	componentsIntroTextArea.setName("componentsIntroTextArea");
+	    	indexableTextAreas.add(componentsIntroTextArea);
 	    	componentsPanel.add(componentsIntroTextArea);
 	    	BufferedImage myPicture = null;
 			try {
-				myPicture = ImageIO.read(getClass().getResource("mainWindow.png"));
+				//myPicture = ImageIO.read(new File("mainWindow.png"));
+				myPicture=ImageIO.read(getClass().getResource("mainWindow.png"));
 			} catch (IOException e) {
 			}
 	    	JLabel picLabel = new JLabel(new ImageIcon(myPicture.getScaledInstance(700, 500, Image.SCALE_DEFAULT)));
-	    	picLabel.setAlignmentY(CENTER_ALIGNMENT);
 	    	componentsPanel.add(picLabel);
 	    	JTextArea pictureDescriptionTextArea=new JTextArea();
 	    	pictureDescriptionTextArea.setSize(new Dimension(this.getPreferredSize().width-30,10));
@@ -107,6 +124,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	pictureDescriptionTextArea.setEditable(false);
 	    	pictureDescriptionTextArea.setText("          Disk Investigator Startup Window. See the following table for more info about each numbered area.");
 	    	pictureDescriptionTextArea.setBackground(new Color(255,255,255));
+	    	pictureDescriptionTextArea.setName("pictureDescriptionTextArea");
+	    	indexableTextAreas.add(pictureDescriptionTextArea);
 	    	textAreaFont=new Font("Calibri",Font.ITALIC,13);
 	    	pictureDescriptionTextArea.setFont(textAreaFont);
 	    	componentsPanel.add(pictureDescriptionTextArea);
@@ -151,6 +170,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	tableComponentPart.setEditable(false);
 	    	tableComponentPart.setFont(textAreaTitleFont);
 	    	tableComponentPart.setForeground(Color.DARK_GRAY);
+	    	tableComponentPart.setName("tableComponentPart");
+	    	indexableTextAreas.add(tableComponentPart);
 	    	JTextArea tableComponentDesc=new JTextArea();
 	    	tableComponentDesc.setSize(new Dimension(200,10));
 	    	tableComponentDesc.setBackground(new Color(255,255,255));
@@ -158,6 +179,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	tableComponentDesc.setEditable(false);
 	    	tableComponentDesc.setFont(textAreaTitleFont);
 	    	tableComponentDesc.setForeground(Color.DARK_GRAY);
+	    	tableComponentDesc.setName("tableComponentDesc");
+	    	indexableTextAreas.add(tableComponentDesc);
 	    	JSeparator firstSeparator=new JSeparator(SwingConstants.HORIZONTAL);
 	    	firstSeparator.setAlignmentY(CENTER_ALIGNMENT);
 	    	firstSeparator.setPreferredSize(new Dimension(2000, 3));
@@ -200,13 +223,19 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 
 				@Override
 				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
 				}
 
 				@Override
-				public void mouseReleased(MouseEvent arg0) {	
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
 				}
 	    		
 	    	});
+	    	firstComponent.setName("firstComponent");
+	    	indexableTextAreas.add(firstComponent);
 	    	JTextArea firstComponentDesc=new JTextArea();
 	    	firstComponentDesc.setBackground(new Color(255,255,255));
 	    	firstComponentDesc.setText("This component represents the part of the application that is designed to help you "
@@ -215,6 +244,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	firstComponentDesc.setWrapStyleWord(true);
 	    	firstComponentDesc.setLineWrap(true);
 	    	firstComponentDesc.setFont(textAreaDescFont);
+	    	firstComponentDesc.setName("firstComponentDesc");
+	    	indexableTextAreas.add(firstComponentDesc);
 	    	JSeparator secondSeparator=new JSeparator(SwingConstants.HORIZONTAL);
 	    	secondSeparator.setAlignmentY(CENTER_ALIGNMENT);
 	    	secondSeparator.setPreferredSize(new Dimension(2000, 3));
@@ -257,13 +288,19 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 
 				@Override
 				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					
 				}
 	    		
 	    	});
+	    	secondComponent.setName("secondComponent");
+	    	indexableTextAreas.add(secondComponent);
 	    	JTextArea secondComponentDesc=new JTextArea();
 	    	secondComponentDesc.setBackground(new Color(255,255,255));
 	    	secondComponentDesc.setText("This component, similar to the one that is left of it, represents the part of the application that is designed to work with processes"
@@ -272,6 +309,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	secondComponentDesc.setWrapStyleWord(true);
 	    	secondComponentDesc.setLineWrap(true);
 	    	secondComponentDesc.setFont(textAreaDescFont);
+	    	secondComponentDesc.setName("secondComponentDesc");
+	    	indexableTextAreas.add(secondComponentDesc);
 	    	JSeparator thirdSeparator=new JSeparator(SwingConstants.HORIZONTAL);
 	    	thirdSeparator.setAlignmentY(CENTER_ALIGNMENT);
 	    	thirdSeparator.setPreferredSize(new Dimension(2000, 3));
@@ -293,6 +332,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	thirdComponent.setEditable(false);
 	    	thirdComponent.setFont(textAreaTitleFont);
 	    	thirdComponent.setForeground(Color.DARK_GRAY);
+	    	thirdComponent.setName("thirdComponent");
+	    	indexableTextAreas.add(thirdComponent);
 	    	JTextArea thirdComponentDesc=new JTextArea();
 	    	thirdComponentDesc.setBackground(new Color(255,255,255));
 	    	thirdComponentDesc.setText("This component, similar to the one that is left of it, represents the part of the application that is designed to work with processes"
@@ -301,6 +342,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	thirdComponentDesc.setWrapStyleWord(true);
 	    	thirdComponentDesc.setLineWrap(true);
 	    	thirdComponentDesc.setFont(textAreaDescFont);
+	    	thirdComponentDesc.setName("thirdComponentDesc");
+	    	indexableTextAreas.add(thirdComponentDesc);
 	    	JSeparator fourthSeparator=new JSeparator(SwingConstants.HORIZONTAL);
 	    	fourthSeparator.setAlignmentY(CENTER_ALIGNMENT);
 	    	fourthSeparator.setPreferredSize(new Dimension(2000, 3));
@@ -323,6 +366,8 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	Font textAreaCommFont=new Font("Calibri",Font.ITALIC,12);
 	    	fourthComponent.setFont(textAreaCommFont);
 	    	fourthComponent.setForeground(Color.DARK_GRAY);
+	    	fourthComponent.setName("fourthComponent");
+	    	indexableTextAreas.add(fourthComponent);
 	    	componentPartPanel.add(fourthComponent);
 	    	springLayout.putConstraint(SpringLayout.WEST,fourthComponent,38,SpringLayout.WEST,componentPartPanel);
 	    	springLayout.putConstraint(SpringLayout.NORTH,fourthComponent,10,SpringLayout.SOUTH,fourthSeparator);
@@ -346,5 +391,4 @@ public class DiskInvestigatorInfoStartupPanel extends JPanel{
 	    	componentPartPanel.setVisible(true);
 	    	return componentPartPanel;
 		}
-
 }

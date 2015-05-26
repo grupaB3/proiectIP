@@ -9,5 +9,10 @@
 	<classpathentry kind="lib" path="modules/Disk-Scan.jar"/>
 	<classpathentry kind="lib" path="modules/Shred_ProcessCheck.jar"/>
 	<classpathentry kind="lib" path="modules/DiskInvestigatorModule1.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-analyzers-common-5.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-codecs-5.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core-5.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-queries-5.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-queryparser-5.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
