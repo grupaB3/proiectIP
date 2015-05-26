@@ -30,19 +30,8 @@ public class ServiceToolBar extends JToolBar {
 		add(stopServiceButton);
 		add(new JLabel("             "));
 		add(startupTypeBox);
-		
-		startupTypeBox.setVisible(false);
 	}
 	
-	public void setSelectedStatus(boolean newStatus) {
-		if(newStatus) {
-			startupTypeBox.setVisible(true);
-		}
-		else {
-			startupTypeBox.setVisible(false);
-		}
-	}
-
 	public ServiceObserver getServiceObserver() {
 		return serviceObserver;
 	}
@@ -51,6 +40,7 @@ public class ServiceToolBar extends JToolBar {
 		this.serviceObserver = serviceObserver;
 		startServiceButton.setServiceObserver(serviceObserver);
 		stopServiceButton.setServiceObserver(serviceObserver);
+		startupTypeBox.setServiceObserver(serviceObserver);
 	}
 
 	public void setVisibility(boolean status) {

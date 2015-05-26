@@ -34,7 +34,7 @@ public class ServiceListArea extends JScrollPane {
     private int itsColumn;
     private boolean isMouseEnter = false;
     private JTable table;
-    private String[] columnNames = {" Name", " Status", " PID", " Services Number"};
+    private String[] columnNames = {" Name", " Status", " PID", " Services Number", "Startup Type"};
     private Object[][] data;
     private ServiceMonitor sm = new ServiceMonitor();
     private String selectedService;
@@ -59,12 +59,12 @@ public class ServiceListArea extends JScrollPane {
 		
 		for(int i = 0; i<services.size(); i++)
 		{
-		
 			model.Service s = services.get(i);	
 			data[i][0] = s.getName();
 			data[i][1] = s.getState();
 			data[i][2] = s.getPID();
 			data[i][3] = i;
+			data[i][4] = s.getStartMode();
 		}
 		
 		getViewport().removeAll();
@@ -92,11 +92,7 @@ public class ServiceListArea extends JScrollPane {
 					ErrorDialog error = new ErrorDialog();
 					error.displayMessage("The service failed to start.");
 				}
-				
-				//getViewport().removeAll();
-				//initUI();
 			}
-		
 		}
 		else{
 			ErrorDialog errDialog = new ErrorDialog();
@@ -260,6 +256,10 @@ public class ServiceListArea extends JScrollPane {
             return this;
         }
     }
+    
+    public void changeStartupStatus(String newStatus, int rowNo) {
+    	table.setValueAt(newStatus, rowNo, 4);
+    }
 
 	public ProcessInfoArea getProcessInfoArea() {
 		return processInfoArea;
@@ -269,5 +269,11 @@ public class ServiceListArea extends JScrollPane {
 		this.processInfoArea = processInfoArea;
 	}
 
+	public int getSelectedStatus() {
+		return table.getSelectedRow();
+	}
 	
+	public String getSelectedName(int rowNo) {
+		return table.getValueAt(rowNo, 0).toString();
+	}
 }

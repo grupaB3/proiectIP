@@ -55,7 +55,7 @@ public class ProcessInfoArea extends JPanel {
 		labelInfo.setOpaque(false);
 		
 		JTextArea labelDetails = new JTextArea();
-		labelDetails.setText("\n" + "  Name: " + name + "\n\n" + "  Session Number: " + sessionNo + "\n\n" + "  Session Name: " + sessionName + "\n\n" + "  PID: " + pid + "\n\n" + "  Memory usage: " + memory);
+		labelDetails.setText("\n" + "  Name: " + name + "\n\n" + "  Session Number: " + sessionNo + "\n\n" + "  Session Name: " + sessionName + "\n\n" + "  PID: " + pid + "\n\n" + "  Memory usage: " + memory + " KB");
 		labelDetails.setLineWrap(true);
 		labelDetails.setWrapStyleWord(true);
 		labelDetails.setEditable(false);
